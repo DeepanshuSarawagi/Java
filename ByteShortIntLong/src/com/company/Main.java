@@ -1,7 +1,5 @@
 package com.company;
 
-import com.sun.security.jgss.GSSUtil;
-
 public class Main {
 
     public static void main(String[] args) {
@@ -40,6 +38,17 @@ public class Main {
 
 		long bigLongLiteralValue = 2_147_483_647134L;  // you need to specify an L in the end if it is a Long data type
 		System.out.println(bigLongLiteralValue);
+		System.out.println();
+
+		int myTotalValue = (myMinIntValue / 2);
+		System.out.println(myTotalValue);
+		System.out.println();
+
+//		byte myNewByteValue = (myMinByteValue / 2); // This will error since we need to tell Java it is a byte data type
+		// we do that by a concept called casting. Just add the data type in parenthesis in front of value to convert
+		// from one data type to another
+		byte myNewByteValue = (byte)(myMinByteValue / 2);
+		System.out.println(myNewByteValue);
 
     }
 }
