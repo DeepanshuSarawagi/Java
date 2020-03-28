@@ -11,6 +11,8 @@ public class Main {
 		System.out.println("Minimum Integer value: " + myMinIntValue);
 		System.out.println("Maximum Integer value: " + myMaxIntValue);
 
-
+		System.out.println("Busted Max Integer value: " + (myMaxIntValue + 1));
+		// As you can see the maximum Integer value is busted since the computer has already
+		// allocated the maximum integer value it can accept and we busted it by adding 1 to it
     }
 }
