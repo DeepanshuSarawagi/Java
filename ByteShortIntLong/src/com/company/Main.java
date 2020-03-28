@@ -1,10 +1,11 @@
 package com.company;
 
+import com.sun.security.jgss.GSSUtil;
+
 public class Main {
 
     public static void main(String[] args) {
 
-		int myValue = 10000;
 		int myMinIntValue = Integer.MIN_VALUE;
 		int myMaxIntValue = Integer.MAX_VALUE;
 
@@ -35,6 +36,10 @@ public class Main {
 
 		System.out.println("Mininum Long Value: " + myMinLongValue);
 		System.out.println("Maximum Long Value: " + myMaxLongValue);
-		
+		System.out.println();
+
+		long bigLongLiteralValue = 2_147_483_647134L;  // you need to specify an L in the end if it is a Long data type
+		System.out.println(bigLongLiteralValue);
+
     }
 }
