@@ -50,5 +50,22 @@ public class Main {
         if (topScore > 90 || secondTopScore <= 90){
             System.out.println("Either or both of the conditions are true");
         }
+        // Logical NOT operator
+        System.out.println();
+        boolean isCar = false;
+        if (isCar = true){  // This is the most common mistake one does in Java. We need to always
+                            // use the equal to operator and not the assignment operator
+                            // please refer to the correct code below
+            System.out.println("This is not supposed to happen");
+        }
+        System.out.println();
+        boolean isCar1 = false;  // reassign the variable since previous boolean value of isCar
+                                 // is set to true on line 56
+        if (!isCar1){
+            System.out.println("You have got it right. It is not a Car.");
+        }
+        if (isCar1 == false){
+            System.out.println("You have got it right. It is not a Car.");
+        }
     }
 }
