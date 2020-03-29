@@ -77,5 +77,18 @@ public class Main {
         if (isEighteenOrOver){
             System.out.println("Yes the client is eighteen or over");
         }
+
+        // Udemy challenge on the operator precedence
+
+        double firstVariable = 20.00;
+        double secondVariable = 80.00;
+        double resultNow = (firstVariable + secondVariable) * 100;
+        double remainder = resultNow % 40.00;
+        System.out.println(remainder);
+        boolean isRemainder = remainder == 0d ? true : false;
+        System.out.println("Is remainder = " + isRemainder);
+        if(!isRemainder){
+            System.out.println("Got some remainder");
+        }
     }
 }
