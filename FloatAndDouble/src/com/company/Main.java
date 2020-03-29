@@ -26,5 +26,16 @@ public class Main {
         System.out.println("My float Value " + myFloatValue);
         System.out.println("My double value " + myDoubleValue);
 
+        // modern computers are designed in such a way to process the double floating point number
+        // much faster than the float. It is highly recommended to use double while creating java classes
+        // since most of the java libraries use double floating point number
+
+        // Udemy simple challenge to convert pounds to kilogram
+
+        int poundValue = 200;
+        double kgValue = poundValue * 0.45359237;
+        System.out.println( poundValue + " pounds converted to Kg is: " + kgValue);
+
+
     }
 }
