@@ -39,10 +39,16 @@ public class Main {
         }
 
         System.out.println();
-
+        // Logical AND operator
         int secondTopScore = 60;
         if (topScore > secondTopScore && topScore < 100){
             System.out.println("You have got the top score but less than 100");
+        }
+
+        // Logical OR operator
+        System.out.println();
+        if (topScore > 90 || secondTopScore <= 90){
+            System.out.println("Either or both of the conditions are true");
         }
     }
 }
