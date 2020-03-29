@@ -53,7 +53,7 @@ public class Main {
         // Logical NOT operator
         System.out.println();
         boolean isCar = false;
-        if (isCar = true){  // This is the most common mistake one does in Java. We need to always
+        if (isCar == true){  // This is the most common mistake one does in Java. We need to always
                             // use the equal to operator and not the assignment operator
                             // please refer to the correct code below
             System.out.println("This is not supposed to happen");
@@ -64,8 +64,18 @@ public class Main {
         if (!isCar1){
             System.out.println("You have got it right. It is not a Car.");
         }
-        if (isCar1 == false){
+        if (isCar1 == false) {
             System.out.println("You have got it right. It is not a Car.");
+        }
+        boolean wasCar = isCar ? true : false;
+        if (wasCar){
+            System.out.println("wasCar is true");
+        }
+        System.out.println();
+        int ageOfClient = 20;
+        boolean isEighteenOrOver = ageOfClient == 20 ? true : false;
+        if (isEighteenOrOver){
+            System.out.println("Yes the client is eighteen or over");
         }
     }
 }
