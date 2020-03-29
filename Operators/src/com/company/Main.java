@@ -15,7 +15,10 @@ public class Main {
         System.out.println("Result is now: " + result);
 
         double resultDouble = (result / 3d);
-        System.out.println("Result is now: " + resultDouble);
+        System.out.println("ResultDouble is: " + resultDouble);
+
+        result = result % 3;
+        System.out.println("Result is now: " + result);
 
     }
 }
