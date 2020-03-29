@@ -1,5 +1,7 @@
 package com.company;
 
+import javax.print.DocFlavor;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -49,6 +51,14 @@ public class Main {
 		// from one data type to another
 		byte myNewByteValue = (byte)(myMinByteValue / 2);
 		System.out.println(myNewByteValue);
+//		String divya = "divya";
+//		int i=1;
+//		for(i=1;i<8;i++)
+//		{
+//			System.out.println("hi my name is " + divya);
+//			System.out.println("say " + i);
+//		}
+//		System.out.println("THE LENGHT OF MY NAME " + divya.length());
 
     }
 }
