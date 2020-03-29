@@ -28,5 +28,14 @@ public class Main {
             System.out.println("And I'm not scared of aliens either!");
         }
 
+        System.out.println();
+
+        int topScore = 100;
+        if (topScore >= 100) {
+            System.out.println("You have got the highest marks!");
+        }
+        else {
+            System.out.println("You have got good marks");
+        }
     }
 }
