@@ -20,5 +20,11 @@ public class Main {
         result = result % 3;
         System.out.println("Result is now: " + result);
 
+        // == operator
+        boolean isAlien = false;
+//        if (isAlien == false)
+        if (!isAlien)
+            System.out.println("It is not an alien");
+
     }
 }
