@@ -19,5 +19,8 @@ public class Main {
         System.out.println(myStringValue);
         myStringValue = myStringValue + " \u00A9 2020.";
         System.out.println(myStringValue);
+
+        // String is not a primitive datatype. Its a class.
+
     }
 }
