@@ -13,7 +13,13 @@ public class Main {
         char myOtherChar = '\u0926';
         System.out.println(myOtherChar);
 
-        // \u stands for unicode. It should be a four digit unicode
+        // /u stands for unicode. It should be a four digit unicode
+
+        boolean myTrueBooleanValue = true;
+        boolean myFalseBooleanValue = false;
+
+        System.out.println(myTrueBooleanValue);
+        System.out.println(myFalseBooleanValue);
 
     }
 }
