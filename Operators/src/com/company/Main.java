@@ -23,8 +23,10 @@ public class Main {
         // == operator
         boolean isAlien = false;
 //        if (isAlien == false)
-        if (!isAlien)
+        if (!isAlien) {
             System.out.println("It is not an alien");
+            System.out.println("And I'm not scared of aliens either!");
+        }
 
     }
 }
