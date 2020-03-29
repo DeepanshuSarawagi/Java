@@ -21,5 +21,8 @@ public class Main {
         System.out.println(myTrueBooleanValue);
         System.out.println(myFalseBooleanValue);
 
+        boolean isCustomerOverTwentyOne = true;
+        System.out.println(isCustomerOverTwentyOne);
+
     }
 }
