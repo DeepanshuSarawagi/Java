@@ -30,12 +30,19 @@ public class Main {
 
         System.out.println();
 
-        int topScore = 100;
+        int topScore = 80;
         if (topScore >= 100) {
             System.out.println("You have got the highest marks!");
         }
         else {
             System.out.println("You have got good marks");
+        }
+
+        System.out.println();
+
+        int secondTopScore = 60;
+        if (topScore > secondTopScore && topScore < 100){
+            System.out.println("You have got the top score but less than 100");
         }
     }
 }
