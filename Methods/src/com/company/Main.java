@@ -15,6 +15,8 @@ public class Main {
     }
 
     public static int calculateScore(boolean gameOver, int score, int level, int bonus) {
+        // we use void in the method if we don't want method to return anything
+        // here, we are trying to return data which is of type int hence change the void keyword to int
 
         if (gameOver) {
             int finalScore = level * bonus + score;
