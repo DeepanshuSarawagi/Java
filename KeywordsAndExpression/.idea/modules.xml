@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/KeywordsAndExpression.iml" filepath="$PROJECT_DIR$/KeywordsAndExpression.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ifKeywordAndCodeBlocks/ifKeywordAndCodeBlocks.iml" filepath="$PROJECT_DIR$/ifKeywordAndCodeBlocks/ifKeywordAndCodeBlocks.iml" />
     </modules>
   </component>
 </project>
