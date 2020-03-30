@@ -32,6 +32,8 @@ public class ifKeyword {
         if(gameOver) {
             int finalScore = (level * bonus) + score;
             System.out.println("You final score is: " + finalScore);
+            // As you can see we are able to re-use finalScore as variable since Java would have deleted it in the
+            // previous code block and hence we are able to create new one.
         }
     }
 }
