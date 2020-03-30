@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -32,6 +34,19 @@ public class Main {
         playerScore = 50;
         position = calculateHighScorePosition(playerScore);
         displayHighScorePosition(playerName, position);
+        //scanner inbuilt input class
+        Scanner sc= new Scanner(System.in);
+        System.out.println("enter a number");
+        int a = sc.nextInt();
+        System.out.println("the number entered is " + a);
+        System.out.println("enter a number");
+        int b = sc.nextInt();
+        System.out.println("the number entered is " + b);
+        System.out.println("enter a number");
+        int c = sc.nextInt();
+        System.out.println("the number entered is " + c);
+        int d = a+b+c;
+        System.out.println("the addition of entered numbers are "+ d);
     }
 
     public static int calculateScore(boolean gameOver, int score, int level, int bonus) {
