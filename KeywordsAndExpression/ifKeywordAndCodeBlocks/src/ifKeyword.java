@@ -19,5 +19,10 @@ public class ifKeyword {
            int finalScore = (level * bonus) + score;
             System.out.println("You final score is: " + finalScore);
         }
+        // As you can note, you are able to access the variables aoutside of the code block
+        // but take a look ar this scenario
+//        int savedFinalScore = finalScore;  // this will throw error for following reasons.
+        // you will get an error on line 24, that's because you are accessing a variable created inside a code block.
+        // Once the code is executed, that variable would be destroyed and you wont be able to access it.
     }
 }
