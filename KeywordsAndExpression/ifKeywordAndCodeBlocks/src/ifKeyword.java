@@ -14,5 +14,10 @@ public class ifKeyword {
         else {
             System.out.println("Got here without any hassle");
         }
+
+        if (gameOver == true){
+           int finalScore = (level * bonus) + score;
+            System.out.println("You final score is: " + finalScore);
+        }
     }
 }
