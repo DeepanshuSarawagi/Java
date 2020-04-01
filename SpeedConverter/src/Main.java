@@ -6,5 +6,8 @@ public class Main {
         speedConverter.printConversion(-1);
         long miles = speedConverter.toMilesPerHour(10.5);
         System.out.println("Miles = " + miles);
+
+        miles = speedConverter.toMilesPerHour(-100.5);
+        System.out.println("Miles = " + miles);
     }
 }

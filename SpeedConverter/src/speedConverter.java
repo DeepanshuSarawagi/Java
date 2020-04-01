@@ -1,12 +1,12 @@
 public class speedConverter {
 
-    public static long toMilesPerHour(double kmsPerHour) {
+    public static long toMilesPerHour(double kilometersPerHour) {
 
-        if (kmsPerHour < 0){
+        if (kilometersPerHour < 0){
             return -1;
         } else {
 
-            return Math.round(kmsPerHour / 1.609d);
+            return Math.round(kilometersPerHour / 1.609d);
         }
     }
 
