@@ -22,5 +22,14 @@ public class Main {
 
         // String is not a primitive datatype. Its a class.
 
+        double floatNumber = 3.1567;
+        int intNumber = (int) (floatNumber);
+        System.out.println(intNumber);
+        double decimalNumber = (floatNumber % intNumber);
+        System.out.println(decimalNumber);
+        int intNumber2 = -3;
+        System.out.println((intNumber == intNumber2));
+
     }
+
 }
