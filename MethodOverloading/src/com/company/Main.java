@@ -14,7 +14,7 @@ public class Main {
         double cm = calcFeetAndInchesToCentimeters(10, 12);
         System.out.println(cm);
 
-        double centimeters = calcFeetAndInchesToCentimeters(200);
+        double centimeters = calcFeetAndInchesToCentimeters(100);
         System.out.println(centimeters);
     }
 
