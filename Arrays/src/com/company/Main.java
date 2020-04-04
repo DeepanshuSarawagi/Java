@@ -28,5 +28,23 @@ public class Main {
         int[] Month_Days = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
         System.out.println("April has " + Month_Days[3] + " days");
 
+        Average.average();
+
     }
+}
+
+class Average {
+
+    public static void average() {
+
+        double[] nums = {10.1, 11.2, 13.4, 14.5, 15.6};
+        double result = 0;
+        int i;
+        for (i = 0; i < 5; i++) {
+            result = result + nums[i];
+        }
+        System.out.println("Average is " + result);
+
+    }
+
 }
