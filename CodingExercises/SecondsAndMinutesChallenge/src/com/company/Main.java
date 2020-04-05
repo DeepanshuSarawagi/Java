@@ -4,9 +4,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        String hoursMinutesAndSeconds = getDurationString(300, 0);
+        String hoursMinutesAndSeconds = getDurationString(309, 8);
         System.out.println(hoursMinutesAndSeconds);
-        hoursMinutesAndSeconds = getDurationString(3689);
+        hoursMinutesAndSeconds = getDurationString(4145);
         System.out.println(hoursMinutesAndSeconds);
 
         }
