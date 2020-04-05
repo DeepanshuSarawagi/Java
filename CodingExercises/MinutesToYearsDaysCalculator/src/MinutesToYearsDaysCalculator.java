@@ -47,19 +47,20 @@
 public class MinutesToYearsDaysCalculator {
 
 
-    public static void printYearsAndDays(long minutes){
+    public static void printYearsAndDays(long minutes) {
 
-        if (minutes < 0){
+        if (minutes < 0) {
             System.out.println("Invalid Value");
+        } else {
+
+            long minutesInADay = 60 * 24;
+            long minutesInAnYear = minutesInADay * 365;
+            long years = minutes / minutesInAnYear;
+            long remainingMinutes = minutes % minutesInAnYear;
+            long days = remainingMinutes / minutesInADay;
+
+            System.out.println(minutes + " min " + "= " + years + " y and " + days + " d");
+
         }
-
-        long minutesInADay = 60 * 24;
-        long minutesInAnYear = minutesInADay * 365;
-        long years = minutes / minutesInAnYear;
-        long remainingMinutes = minutes % minutesInAnYear;
-        long days = remainingMinutes / minutesInADay;
-
-        System.out.println(minutes + " = " + years + " y and " + days + " d");
-
     }
 }
