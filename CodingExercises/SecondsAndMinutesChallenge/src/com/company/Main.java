@@ -34,9 +34,11 @@ package com.company;
 
 public class Main {
 
+    private static final String INVALID_VALUE_MESSAGE = "Invalid Value";
+
     public static void main(String[] args) {
 
-        String hoursMinutesAndSeconds = getDurationString(65, 45);
+        String hoursMinutesAndSeconds = getDurationString(65, 60);
         System.out.println(hoursMinutesAndSeconds);
         hoursMinutesAndSeconds = getDurationString(4145);
         System.out.println(hoursMinutesAndSeconds);
@@ -48,7 +50,7 @@ public class Main {
         int hours = 0;
 
         if ((minutes < 0) || (seconds < 0 || seconds > 59)){
-            return "Invalid Value";
+            return INVALID_VALUE_MESSAGE;
         }
 
         if (minutes > 59) {
@@ -73,7 +75,7 @@ public class Main {
 
         int minutes;
         if (seconds < 0) {
-            return "Invalid Value";
+            return INVALID_VALUE_MESSAGE;
         }
 
         minutes = seconds / 60;
