@@ -52,5 +52,14 @@ public class MinutesToYearsDaysCalculator {
         if (minutes < 0){
             System.out.println("Invalid Value");
         }
+
+        long minutesInADay = 60 * 24;
+        long minutesInAnYear = minutesInADay * 365;
+        long years = minutes / minutesInAnYear;
+        long remainingMinutes = minutes % minutesInAnYear;
+        long days = remainingMinutes / minutesInADay;
+
+        System.out.println(minutes + " = " + years + " y and " + days + " d");
+
     }
 }
