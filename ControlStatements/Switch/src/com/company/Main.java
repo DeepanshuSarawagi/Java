@@ -36,5 +36,22 @@ public class Main {
                 break;
 
         }
+
+        char charVariable = 'F';
+
+        switch(charVariable){
+            case 'A':
+
+            case 'B':
+
+            case 'C':
+            case 'D':
+            case 'E':
+                System.out.println("Found a char and it is " + charVariable);
+                break;
+            default:
+                System.out.println("None of A, B, C, D and E were found");
+                break;
+        }
     }
 }
