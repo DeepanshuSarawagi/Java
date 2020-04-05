@@ -38,7 +38,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        String hoursMinutesAndSeconds = getDurationString(65, 60);
+        String hoursMinutesAndSeconds = getDurationString(65, 9);
         System.out.println(hoursMinutesAndSeconds);
         hoursMinutesAndSeconds = getDurationString(4145);
         System.out.println(hoursMinutesAndSeconds);
