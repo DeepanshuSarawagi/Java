@@ -2,7 +2,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println(NumberOfDaysInMonth.isLeapYear(16));
-        System.out.println(NumberOfDaysInMonth.getDaysInMonth(2, 500));
+        System.out.println(NumberOfDaysInMonth.isLeapYear(2017));
+        System.out.println(NumberOfDaysInMonth.getDaysInMonth(2, -8));
     }
 }
