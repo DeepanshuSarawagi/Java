@@ -16,10 +16,21 @@ Note: Type all code in main method
 
 public class Main {
 
-//    int sumOf3And5 = 0;
+
     public static void main(String[] args) {
-	    for (int i = 0; i <= 1000; i+=15){
-            System.out.println("Numbers divisible by both 3 and 5 is: " + i);
+        int sumOf3And5 = 0;
+        int count = 1;
+	    for (int i = 1; i <= 1000; i++){
+	        if (i % 3 == 0 && i % 5 == 0) {
+                System.out.println("Numbers divisible by both 3 and 5 is: " + i);
+                count ++;
+                sumOf3And5 += i;
+
+                if (count > 5){
+                    break;
+                }
+            }
         }
+        System.out.println("Sum of all the numbers divisble by 3 and 5 is: " + sumOf3And5);
     }
 }
