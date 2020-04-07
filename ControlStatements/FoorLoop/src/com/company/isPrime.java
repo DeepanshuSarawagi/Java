@@ -9,8 +9,8 @@ public class isPrime {
         int count = 1;
         for (int i = 578; i < 1000; i++) {
                 if (isPrimeNumber(i)) {
+                    System.out.println("Prime number " +  count + " in this range is: " + i);
                     count ++;
-                    System.out.println("Prime number is: " + i);
                 }
                 if (count > 3) {
                     break;
