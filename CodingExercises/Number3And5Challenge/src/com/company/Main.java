@@ -31,6 +31,6 @@ public class Main {
                 }
             }
         }
-        System.out.println("Sum of all the numbers divisble by 3 and 5 is: " + sumOf3And5);
+        System.out.println("Sum of all the numbers divisible by 3 and 5 is: " + sumOf3And5);
     }
 }
