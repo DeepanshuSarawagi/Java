@@ -7,16 +7,17 @@ public class isPrime {
         System.out.println(isPrimeNumber(20));
         System.out.println("******************");
         int count = 1;
-        for (int i = 578; i < 1000; i++) {
-                if (isPrimeNumber(i)) {
-                    System.out.println("Prime number " +  count + " in this range is: " + i);
-                    count ++;
-                }
+        for (int i = 10; i < 50; i++) {
+            if (isPrimeNumber(i)) {
+                System.out.println("Prime number " + count + " in this range is: " + i);
+                count++;
                 if (count > 3) {
+                    System.out.println("Exiting for loop");
                     break;
                 }
             }
         }
+    }
 
     public static boolean isPrimeNumber(int n){
 
