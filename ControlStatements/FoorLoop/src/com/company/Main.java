@@ -14,6 +14,10 @@ public class Main {
             System.out.println(i + " % Interest on amount 10000 is " + calculateInterestRate(10000.0, i));
         }
 
+        for (double i = 8; i >1; i--){
+            System.out.println(i + " % Interest on amount 10000 is " + calculateInterestRate(10000.0, i));
+        }
+
         }
 
     public static double calculateInterestRate(double amount, double interestRate){
