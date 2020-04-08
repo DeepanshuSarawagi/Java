@@ -65,28 +65,18 @@ public class NumberPalindrome {
             int lastDigit;
             lastDigit = positiveNumber % 10;
             reverseNumber = lastDigit;
-            System.out.println("reversed number now is: " + reverseNumber); // TODO remove this after testing
             while (positiveNumber > 0) {
                 positiveNumber /= 10;
-                System.out.println("number is now: " + positiveNumber);
                 lastDigit = positiveNumber % 10;
-                System.out.println("Last digit is now: " + lastDigit); // TODO remove this after testing
                 if (positiveNumber > 0) {
                     reverseNumber *= 10;
                     reverseNumber += lastDigit;
-                    System.out.println("Reversed number is: " + reverseNumber);
                 }
             }
             if (number < 0){
                 reverseNumber *= -1;
             }
-        System.out.println("Reversed Number is: " + reverseNumber);
-            if ((number == reverseNumber)){
-                return true;
-            }
-            else {
-                return false;
-            }
+        return (number == reverseNumber);
     }
 
 }

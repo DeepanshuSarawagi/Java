@@ -1,6 +1,10 @@
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println(NumberPalindrome.isPalindrome(-1501));
+        if (NumberPalindrome.isPalindrome(1501)) {
+            System.out.println("Number is a Palindrome");
+        } else {
+            System.out.println("Number is not a Palindrome");
+        }
     }
 }
