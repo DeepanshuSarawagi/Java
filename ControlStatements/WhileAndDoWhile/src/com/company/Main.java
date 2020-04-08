@@ -38,7 +38,7 @@ public class Main {
         while (number <= finishNumber) {
             number++;
             if (!isEvenNumber(number)) {
-                continue;
+                continue;  // This will bypass the print statement if the number is not an event number
             }
             System.out.println("Even number now is: " + number);
         }
