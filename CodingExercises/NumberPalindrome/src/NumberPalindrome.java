@@ -61,7 +61,7 @@ public class NumberPalindrome {
             else {
                 positiveNumber = number;
             }
-            int reverseNumber = 0;
+            int reverseNumber;
             int lastDigit;
             lastDigit = positiveNumber % 10;
             reverseNumber = lastDigit;
