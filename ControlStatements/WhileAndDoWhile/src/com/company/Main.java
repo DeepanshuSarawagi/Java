@@ -34,14 +34,27 @@ public class Main {
 
         int number = 4;
         int finishNumber = 20;
+        count = 0;
 
         while (number <= finishNumber) {
             number++;
             if (!isEvenNumber(number)) {
                 continue;  // This will bypass the print statement if the number is not an event number
             }
-            System.out.println("Even number now is: " + number);
+            if (isEvenNumber(number)) {
+                count++;
+                System.out.println("Even number now is: " + number);
+                if (count >= 5){
+                    System.out.println("There are " + (count) + " even numbers");
+                    break;
+                }
+
+            }
+
         }
+
+        // Modify the above code in such a way that it calculates the number of even numbers in defined range and
+        // if there are 5 even numbers found, break out of while loop
 
         }
 
