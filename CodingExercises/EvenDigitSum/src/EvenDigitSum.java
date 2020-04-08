@@ -30,25 +30,18 @@ public class EvenDigitSum {
             return -1;
         }
         lastDigit = number % 10;
-        System.out.println("Last digit is: " + lastDigit); // TODO remove this after testing
         while (true) {
             if (number != 0) {
                 if (lastDigit % 2 == 0) {
                     sumOfEvenDigit = sumOfEvenDigit + lastDigit;
-                    System.out.println("Sum of even digit now is: " + sumOfEvenDigit);  // TODO remove this
-
                 }
                 number /= 10;
-                System.out.println("Number now is: " + number);  // TODO remove this
                 lastDigit = number % 10;
-                System.out.println("Last digit now is: " + lastDigit);  // TODO remove this
-
             }
             else {
                 break;
             }
         }
         return sumOfEvenDigit;
-
     }
 }
