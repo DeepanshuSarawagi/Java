@@ -27,5 +27,25 @@ public class Main {
             System.out.println("Count is now: " + count);
             count ++;
         }while (count != 6);
+        System.out.println("************************");
+        System.out.println(isEvenNumber(24));
+
+        System.out.println();
+
+        int number = 4;
+        int finishNumber = 20;
+
+        while (number <= finishNumber) {
+            number++;
+            if (!isEvenNumber(number)) {
+                continue;
+            }
+            System.out.println("Even number now is: " + number);
+        }
+
+        }
+
+        public static boolean isEvenNumber (int number) {
+            return number % 2 == 0;
         }
     }
