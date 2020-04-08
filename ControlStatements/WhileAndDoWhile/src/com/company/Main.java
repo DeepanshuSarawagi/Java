@@ -56,9 +56,27 @@ public class Main {
         // Modify the above code in such a way that it calculates the number of even numbers in defined range and
         // if there are 5 even numbers found, break out of while loop
 
+        // A simple example below to understand the while, break and continue
+
+        int n = 0;
+        while (true) {
+            n++;
+            if (n <= 5) {
+                System.out.println("Skipping number: " + n);
+                continue;
+            }
+
+            System.out.println("Number is: " + n);
+
+            if (n >= 10) {
+                System.out.println("Loop breaking at number: " + n);
+                break;
+            }
         }
+
+    }
 
         public static boolean isEvenNumber (int number) {
             return number % 2 == 0;
         }
-    }
+}
