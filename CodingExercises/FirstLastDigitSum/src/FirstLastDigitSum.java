@@ -33,13 +33,13 @@ public class FirstLastDigitSum {
             return -1;
         }
         lastDigit = number % 10;
-        System.out.println("Last digit is: " + lastDigit); // TODO remove this after testing
-        System.out.println("Number is now: " + number); // TODO remove this after testing
+        System.out.println("Last digit is: " + lastDigit);
+        System.out.println("Number is now: " + number);
         while (true) {
             if (number != 0) {
                 firstDigit = number;
                 number = number / 10;
-                System.out.println("Number is now: " + number); // TODO this after testing
+                System.out.println("Number is now: " + number);
                 }
             else {
                 break;
