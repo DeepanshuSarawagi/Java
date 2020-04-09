@@ -51,21 +51,17 @@ public class GreatestCommonDivisor {
                 while (i <= first){
                     i ++;
                     if ((first % i == 0) && (second % i == 0)) {
-                        System.out.println("The list of common divisors are: " + i); // TODO remove this post testing
                         highestCommonDivisor = i;
                     }
                 }
-                System.out.println("The highest common divisor is: " + highestCommonDivisor);
             }
             else {
                 while (i <= second){
                     i++;
                     if ((first % i == 0) && (second % i == 0)) {
-                        System.out.println("The list of common divisors are: " + i); // TODO remove this post testing
                         highestCommonDivisor = i;
                     }
                 }
-                System.out.println("The highest common divisor is: " + highestCommonDivisor);
             }
             }
         return highestCommonDivisor;
