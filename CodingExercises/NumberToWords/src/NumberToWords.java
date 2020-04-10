@@ -146,7 +146,7 @@ public class NumberToWords {
 
     public static int reverse(int number) {
         int positiveNumber;
-        int reversedNumber = 0;
+        int reversedNumber;
         int lastDigit;
         if (number < 0) {
             positiveNumber = number * -1;
