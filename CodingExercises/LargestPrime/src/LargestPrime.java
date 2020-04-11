@@ -28,4 +28,31 @@ NOTE: Do not add a main method to the solution code.
  */
 
 public class LargestPrime {
+    public static int getLargestPrime (int number) {
+        int largetPrimeDivisor = 0;
+        int i;
+        int j;
+        if ( number < 0 ) {
+            return -1;
+        }
+        else {
+            for (i = 1; i < number; i++) {
+                if (number % i == 0) {
+                    int count = 0;
+                    for (j = 1; j <= i / 2; j++) {
+                        if (i % j == 0) {
+                            count ++;
+                            System.out.println("i is now: " + i);
+                            System.out.println("j is now: " + j);
+                        }
+                    }
+                    if (count == 1) {
+                        largetPrimeDivisor = i;
+                        System.out.println("Largest prime divisor is " + largetPrimeDivisor);
+                    }
+                }
+            }
+        }
+        return largetPrimeDivisor;
+    }
 }
