@@ -10,8 +10,10 @@ public class Main {
         System.out.println("Enter your year of birth: ");
         int yearOfBirth = scanner.nextInt();
         int age = 2020 - yearOfBirth;
+
+        scanner.nextLine();  // handle next line character (enter key)
         System.out.println("Enter your name: ");
-        String name = scanner.next();
+        String name = scanner.nextLine();
         System.out.println("Your name is " + name + " and you are " + age + " years old.");
         scanner.close();
     }
