@@ -4,7 +4,7 @@ public class Account {
 
     private int AccountNumber;
     private String customerName;
-    private int Balance = 0;
+    private double Balance = 0;
     private String email;
     private int phoneNumber;
 
@@ -18,8 +18,8 @@ public class Account {
         this.customerName = customerName;
     }
 
-    public void setBalance (int balance) {
-        this.Balance = balance;
+    public void setBalance (double Balance) {
+        this.Balance = Balance;
     }
 
     public void setEmail (String email) {
@@ -36,7 +36,7 @@ public class Account {
         return this.AccountNumber;
     }
 
-    public int getBalance() {
+    public double getBalance() {
         return this.Balance;
     }
 
