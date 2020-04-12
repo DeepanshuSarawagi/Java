@@ -54,13 +54,13 @@ public class Account {
 
     // Create a public method to deposit amount
 
-    public void deposit (int amount) {
+    public void deposit (double amount) {
         this.Balance += amount;
     }
 
     // Create a public method to withdraw amount
 
-    public void withdraw (int amount) {
+    public void withdraw (double amount) {
         if (this.Balance < 0) {
             System.out.println("Your account has insufficient funds to withdraw.");
         } else {
