@@ -5,34 +5,27 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        int count = 1;
+        int count = 0;
         int sum = 0;
         int number;
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Please enter a number of your choice: ");
-        boolean hasNextInt = scanner.hasNextInt();
-        if (hasNextInt) {
-            while (count < 11) {
+        while (true) {
+            int order = count + 1;
+            System.out.println("Enter # " + order + ":" );
+            boolean hasNextInt = scanner.hasNextInt();
+            if (hasNextInt) {
                 number = scanner.nextInt();
-                System.out.println("Entered #" + count + " is: " + number);
-                sum += number;
                 count++;
-                System.out.println("Please enter a number of your choice: ");
-                scanner.hasNextInt();
+                sum += number;
+                if (count == 10) {
+                    break;
+                }
+            } else {
+                System.out.println("Invalid number");
             }
-        }
-        else {
-            System.out.println("Please enter a valid number: ");
             scanner.nextLine();
-            while (count < 11) {
-                number = scanner.nextInt();
-                System.out.println("Entered #" + count + " is: " + number);
-                sum += number;
-                count++;
-                System.out.println("Please enter a number of your choice: ");
-                scanner.hasNextInt();
-            }
         }
         System.out.println("Sum of 10 entered number is: " + sum);
+        scanner.close();
     }
 }
