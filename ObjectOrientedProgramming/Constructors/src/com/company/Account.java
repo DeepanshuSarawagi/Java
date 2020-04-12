@@ -61,7 +61,7 @@ public class Account {
     // Create a public method to withdraw amount
 
     public void withdraw (double amount) {
-        if (this.Balance < 0) {
+        if (this.Balance - amount <= 0) {
             System.out.println("Your account has insufficient funds to withdraw.");
         } else {
             this.Balance -= amount;
