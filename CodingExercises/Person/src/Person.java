@@ -85,6 +85,10 @@ public class Person {
         return this.lastName;
     }
 
+    public int getAge() {
+        return this.age;
+    }
+
     public boolean isTeen() {
         return this.age > 12 && this.age < 20;
     }
