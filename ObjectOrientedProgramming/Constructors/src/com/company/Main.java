@@ -32,5 +32,22 @@ public class Main {
         Account Rajat = new Account("Rajat Sarawagi", "rajat@email.com", 906_0345);
         System.out.println(Rajat.getBalance());
         System.out.println(Rajat.getAccountNumber());
+
+        // Creating objects of VipCustomer class using constructors
+
+        VipCustomer Divya = new VipCustomer("Divya Sarawagi", 150000, "divya@email.com");
+        System.out.println(Divya.getName());
+        System.out.println(Divya.getCreditLimit());
+        System.out.println(Divya.getEmailAddress());
+
+        VipCustomer Rahul = new VipCustomer("Rahul Mittal", 100000);
+        System.out.println(Rahul.getName());
+        System.out.println(Rahul.getCreditLimit());
+        System.out.println(Rahul.getEmailAddress());
+
+        VipCustomer John = new VipCustomer();
+        System.out.println(John.getName());
+        System.out.println(John.getCreditLimit());
+        System.out.println(John.getEmailAddress());
     }
 }
