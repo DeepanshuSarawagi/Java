@@ -56,6 +56,7 @@ public class Account {
 
     public void deposit (double amount) {
         this.Balance += amount;
+        System.out.println("Amount " + amount + " deposited in the account of " + this.customerName);
     }
 
     // Create a public method to withdraw amount
@@ -65,6 +66,8 @@ public class Account {
             System.out.println("Your account has insufficient funds to withdraw.");
         } else {
             this.Balance -= amount;
+            System.out.println("Amount " + amount + " withdrawn from the account of " + this.customerName
+                    +". Remaining balance is " + this.Balance );
         }
     }
 }

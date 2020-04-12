@@ -17,11 +17,7 @@ public class Main {
 
         // Deposit amount
         Deepanshu.deposit(500);
-        System.out.println("Updated balance in account " + Deepanshu.getCustomerName() + " is "
-                + Deepanshu.getBalance());
         Deepanshu.withdraw(200);
-        System.out.println("Updated balance in account " + Deepanshu.getCustomerName() + " is "
-                + Deepanshu.getBalance());
 
 
     }
