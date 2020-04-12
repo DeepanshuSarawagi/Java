@@ -6,20 +6,25 @@ public class Main {
 
     public static void main(String[] args) {
         int number;
-        int minNumber = 0;
-        int maxNumber = 0;
-        boolean first = true;
+        int minNumber = Integer.MAX_VALUE;
+        int maxNumber = Integer.MIN_VALUE;
+//        boolean first = true;
+
         Scanner scanner = new Scanner(System.in);
         while (true) {
+
             System.out.println("Enter number: ");
             boolean hasNextInt = scanner.hasNextInt();
+
             if (hasNextInt) {
                 number = scanner.nextInt();
-                if (first) {
-                    first = false;
-                    minNumber = number;
-                    maxNumber = number;
-                }
+
+//                if (first) {
+//                    first = false;
+//                    minNumber = number;
+//                    maxNumber = number;
+//                }
+
                 if (number > maxNumber) {
                     maxNumber = number;
                 }
