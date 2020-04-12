@@ -5,5 +5,7 @@ public class Main {
     public static void main(String[] args) {
         Car porsche = new Car();  // Creating new object of class Car.
         Car holden = new Car();
+
+        porsche.setModel("Carrera");
     }
 }
