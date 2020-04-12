@@ -20,7 +20,7 @@ public class Account {
 
     // create one more constructor with just three parameters and rest set to default
     public Account(String customerName, String email, int phoneNumber) {
-        this(9999, customerName, 10.5, email, 90806070 );
+        this(9999, customerName, 10.5, email, phoneNumber );
     }
 
     // Create a constructor with parameters

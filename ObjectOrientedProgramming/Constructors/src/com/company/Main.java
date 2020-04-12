@@ -28,5 +28,9 @@ public class Main {
         // Deposit amount
         Deepanshu.deposit(500);
         Deepanshu.withdraw(200);
+
+        Account Rajat = new Account("Rajat Sarawagi", "rajat@email.com", 906_0345);
+        System.out.println(Rajat.getBalance());
+        System.out.println(Rajat.getAccountNumber());
     }
 }
