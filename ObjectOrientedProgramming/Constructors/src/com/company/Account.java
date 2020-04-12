@@ -18,6 +18,11 @@ public class Account {
         System.out.println("Empty constructor called");
     }
 
+    // create one more constructor with just three parameters and rest set to default
+    public Account(String customerName, String email, int phoneNumber) {
+        this(9999, customerName, 10.5, email, 90806070 );
+    }
+
     // Create a constructor with parameters
     public Account(int AccountNumber, String customerName, double Balance, String email, int phoneNumber) {
         System.out.println("Account constructor called with parameters");
