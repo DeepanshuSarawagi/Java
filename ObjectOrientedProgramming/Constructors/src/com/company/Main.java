@@ -16,6 +16,9 @@ public class Main {
 //        Deepanshu.setPhoneNumber(89654);
 
         // Commented out above code so that we can create class objects using constructor
+        Account Default = new Account();
+        System.out.println(Default.getBalance());
+        System.out.println(Default.getCustomerName());
 
         Account Deepanshu = new Account(101, "Deepanshu Sarawagi", 100.0,
                 "deepanshu@email.com", 868954);

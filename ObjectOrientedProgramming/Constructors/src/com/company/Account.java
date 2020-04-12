@@ -10,6 +10,11 @@ public class Account {
 
     // creating an empty constructor
     public Account() {
+        // calling a constructor within a constructor. If an empty constructor is called then below default values
+        // will be created using this() statement. this() has to be the first statement in the empty constructor body
+
+        this(100, "Default Name", 5.0, "default@email.com",
+                900800);
         System.out.println("Empty constructor called");
     }
 
