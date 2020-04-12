@@ -56,10 +56,23 @@ NOTE: Do not add the main method to the solution code.
  */
 public class InputCalculator {
     public static void inputThenPrintSumAndAverage () {
-        int Sum;
-        long average;
-        int count;
+        long Sum = 0;
+        int count = 0;
+        int number;
         Scanner scanner = new Scanner(System.in);
-
+        while (true) {
+            if (scanner.hasNextInt()) {
+                number = scanner.nextInt();
+                Sum += number;
+                count++;
+            }
+            else {
+                break;
+            }
+            scanner.nextLine();
+        }
+        double totalAverage = (double)Sum / (double)count;
+        System.out.println("SUM = " + Sum + " AVG = " + Math.round(totalAverage));
+        scanner.close();
     }
 }
