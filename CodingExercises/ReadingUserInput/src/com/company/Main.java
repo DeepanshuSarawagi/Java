@@ -9,7 +9,7 @@ public class Main {
         int sum = 0;
         int number;
         Scanner scanner = new Scanner(System.in);
-        while (true) {
+        while (count < 10) {
             int order = count + 1;
             System.out.println("Enter # " + order + ":" );
             boolean hasNextInt = scanner.hasNextInt();
@@ -17,9 +17,6 @@ public class Main {
                 number = scanner.nextInt();
                 count++;
                 sum += number;
-                if (count == 10) {
-                    break;
-                }
             } else {
                 System.out.println("Invalid number");
             }
