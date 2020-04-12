@@ -8,6 +8,21 @@ public class Account {
     private String email;
     private int phoneNumber;
 
+    // creating an empty constructor
+    public Account() {
+        System.out.println("Empty constructor called");
+    }
+
+    // Create a constructor with parameters
+    public Account(int AccountNumber, String customerName, double Balance, String email, int phoneNumber) {
+        System.out.println("Account constructor called with parameters");
+        this.AccountNumber = AccountNumber;
+        this.customerName = customerName;
+        this.Balance = Balance;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+    }
+
     // Create setters for Account fields
 
     public void setAccountNumber (int AccountNumber)  {
