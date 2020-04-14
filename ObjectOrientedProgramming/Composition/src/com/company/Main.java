@@ -20,5 +20,24 @@ public class Main {
 //        thePC.getMotherboard().loadProgram("Mac OSX");
 
         thePC.powerUp();
+        thePC.loadProgram();
+
+        Wall wall1 = new Wall("East");
+        Wall wall2 = new Wall("West");
+        Wall wall3 = new Wall("South");
+        Wall wall4 = new Wall("North");
+
+        Ceiling ceiling = new Ceiling(12, "Cream");
+
+        Bed bed = new Bed("Modern", 4,2,3,1);
+
+        Lamp lamp = new Lamp("Classic", false, 75);
+
+        System.out.println();
+
+        Bedroom bedroom = new Bedroom("Deeps", wall1, wall2, wall3, wall4, ceiling, bed, lamp);
+        bedroom.makeBed();
+        bedroom.getLamp().turnOnLamp();
+
     }
 }

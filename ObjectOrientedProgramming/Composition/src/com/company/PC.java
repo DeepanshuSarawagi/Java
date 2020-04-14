@@ -22,5 +22,7 @@ public class PC {
         monitor.drawPixel(1500, 50, "yellow");
     }
 
-
+    public void loadProgram() {
+        motherboard.loadProgram("Mac OSX ");
+    }
 }
