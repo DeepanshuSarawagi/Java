@@ -42,4 +42,9 @@ public class Vehicle {
         return currentDirection;
     }
 
+    public void stop() {
+        this.currentVelocity = 0;
+        System.out.println("Vehicle stopped. " );
+    }
+
 }
