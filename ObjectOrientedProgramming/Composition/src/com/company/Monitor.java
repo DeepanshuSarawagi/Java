@@ -7,6 +7,7 @@ public class Monitor {
     private int size;
     private Resolution nativeResolution;
 
+
     public Monitor(String model, String manufacturer, int size, Resolution nativeResolution) {
         this.model = model;
         this.manufacturer = manufacturer;
@@ -15,7 +16,7 @@ public class Monitor {
     }
 
     public void drawPixel(int x, int y, String color) {
-        System.out.println("Drawing pixel at " + x + ", " + y " position in color " + color);
+        System.out.println("Drawing pixel at " + x + ", " + y + " position in color " + color);
     }
 
     public String getModel() {
@@ -33,4 +34,5 @@ public class Monitor {
     public Resolution getNativeResolution() {
         return nativeResolution;
     }
+
 }
