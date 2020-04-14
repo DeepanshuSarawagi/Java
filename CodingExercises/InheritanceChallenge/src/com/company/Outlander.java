@@ -13,6 +13,7 @@ public class Outlander extends Car {
         int newVelocity = getCurrentVelocity() + rate;
         if (newVelocity == 0) {
             stop();
+            changeGear(1);
         }
         else if (newVelocity > 0 && newVelocity <=10) {
             changeGear(1);
