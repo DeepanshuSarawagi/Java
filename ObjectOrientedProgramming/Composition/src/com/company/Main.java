@@ -15,8 +15,10 @@ public class Main {
         PC thePC = new PC(theCase, theMonitor, theMotherboard);
 
         // how to access methods of objects using Composition
-        thePC.getMonitor().drawPixel(10, 5, "black");
-        thePC.getTheCase().pressPowerButton();
-        thePC.getMotherboard().loadProgram("Mac OSX");
+//        thePC.getMonitor().drawPixel(10, 5, "black");
+//        thePC.getTheCase().pressPowerButton();
+//        thePC.getMotherboard().loadProgram("Mac OSX");
+
+        thePC.powerUp();
     }
 }
