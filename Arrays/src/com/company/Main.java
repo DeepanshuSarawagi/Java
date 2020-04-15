@@ -29,7 +29,6 @@ public class Main {
         System.out.println("April has " + Month_Days[3] + " days");
 
         Average.average();
-        MultiDimensionalArrays.twoDimensionalArray();
     }
 }
 
