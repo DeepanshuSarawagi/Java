@@ -6,6 +6,7 @@ public class MultiDimensionalArrays {
         twoDimensionalArray();
         TwoDAgain.twoDAgainUnequal();
         Matrix.MatrixArray();
+        ThreeDimensionalArray.ThreeDArray();
     }
 
     public static void twoDimensionalArray() {
@@ -78,5 +79,34 @@ class Matrix {
             }
             System.out.println();
         }
+        System.out.println();
+    }
+}
+
+class ThreeDimensionalArray {
+    public static void ThreeDArray() {
+
+        int i, j, k = 0;
+
+        int[][][] threeD = new int[3][4][5];
+
+        for (i = 0; i < 3; i++) {
+            for (j = 0; j < 4; j++) {
+                for (k = 0; k < 5; k++){
+                    threeD[i][j][k] = i * j * k;
+                }
+            }
+        }
+
+        for (i = 0; i < 3; i++) {
+            System.out.println("When i is " + i);
+            for (j = 0; j < 4; j++) {
+                for (k = 0; k < 5; k++) {
+                    System.out.print(threeD[i][j][k] + " ");
+                }
+                System.out.println();
+            }
+        }
+
     }
 }
