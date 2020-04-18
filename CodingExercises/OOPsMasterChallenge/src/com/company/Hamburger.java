@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Scanner;
+
 public class Hamburger {
 
     private String breadRollType;
@@ -25,6 +27,20 @@ public class Hamburger {
 
     public String getMeat() {
         return meat;
+    }
+
+    public void displayListOfAddOns() {
+        System.out.println("The list of available add-ons are: " + "\n" +
+                "1: " + addOns.getAddOn1() + "\n" +
+                "2: " + addOns.getAddOn2() + "\n" +
+                "3: " + addOns.getAddOn3() + "\n" +
+                "4: " + addOns.getAddOn4() + "\n" +
+                "5: " + addOns.getAddOn5() + "\n" +
+                "6: " + addOns.getAddOn6() + "\n" +
+                "7: " + addOns.getAddOn7() + "\n" +
+                "8: " + addOns.getAddOn8() + "\n" +
+                "9: " + addOns.getAddOn9() + "\n" +
+                "10: " + addOns.getAddOn10() + "\n");
     }
 
     public void AddAdditionalItems(int item) {
@@ -98,4 +114,53 @@ public class Hamburger {
         public double HamBurgerFinalPrice() {
             return basePrice + AddOnsPrice;
         }
+
+        public void addItems() {
+            int count = 1;
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Please select the items to be added in the burger from the below list");
+            displayListOfAddOns();
+            while (count < 5) {
+                System.out.println("Please enter a number between 1-10 to add an additional item in burger: ");
+                boolean hasNextInt = scanner.hasNextInt();
+                if (hasNextInt) {
+                    int number = scanner.nextInt();
+                    AddAdditionalItems(number);
+                    count++;
+                } else {
+                    System.out.println("Invalid input");
+                }
+                scanner.nextLine();
+            }
+            System.out.println("Your Hamburger is ready and final price is " + HamBurgerFinalPrice());
+        }
     }
+
+    class HealthyHamburger extends Hamburger {
+        public HealthyHamburger(String meat, AddOns addOns) {
+            super("Brown rye Bread Roll", meat, addOns);
+        }
+
+        @Override
+        public void addItems() {
+            int count = 1;
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Thank you for selecting Healthy Hamburger. " +
+                    "Please select upto 6 items to be added in the burger from the below list.");
+            displayListOfAddOns();
+            while (count < 7) {
+                System.out.println("Please enter a number between 1-10 to add an additional item in burger: ");
+                boolean hasNextInt = scanner.hasNextInt();
+                if (hasNextInt) {
+                    int number = scanner.nextInt();
+                    AddAdditionalItems(number);
+                    count++;
+                } else {
+                    System.out.println("Invalid input");
+                }
+                scanner.nextLine();
+            }
+            System.out.println("Your Healthy Hamburger is ready and final price is " + HamBurgerFinalPrice());
+        }
+    }
+
