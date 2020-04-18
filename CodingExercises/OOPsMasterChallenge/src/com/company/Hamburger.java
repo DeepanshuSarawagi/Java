@@ -43,16 +43,16 @@ public class Hamburger {
 
     public void displayListOfAddOns() {
         System.out.println("The list of available add-ons are: " + "\n" +
-                "1: " + addOns.getAddOn1() + "\n" +
-                "2: " + addOns.getAddOn2() + "\n" +
-                "3: " + addOns.getAddOn3() + "\n" +
-                "4: " + addOns.getAddOn4() + "\n" +
-                "5: " + addOns.getAddOn5() + "\n" +
-                "6: " + addOns.getAddOn6() + "\n" +
-                "7: " + addOns.getAddOn7() + "\n" +
-                "8: " + addOns.getAddOn8() + "\n" +
-                "9: " + addOns.getAddOn9() + "\n" +
-                "10: " + addOns.getAddOn10() + "\n");
+                "1: " + addOns.getAddOn1() + " - " + addOns.getAddOn1Value() + "\n" +
+                "2: " + addOns.getAddOn2() + " - " + addOns.getAddOn2Value()  + "\n" +
+                "3: " + addOns.getAddOn3() + " - " + addOns.getAddOn3Value()  + "\n" +
+                "4: " + addOns.getAddOn4() + " - " + addOns.getAddOn4Value()  + "\n" +
+                "5: " + addOns.getAddOn5() + " - " + addOns.getAddOn5Value()  + "\n" +
+                "6: " + addOns.getAddOn6() + " - " + addOns.getAddOn6Value()  + "\n" +
+                "7: " + addOns.getAddOn7() + " - " + addOns.getAddOn7Value()  + "\n" +
+                "8: " + addOns.getAddOn8() + " - " + addOns.getAddOn8Value()  + "\n" +
+                "9: " + addOns.getAddOn9() + " - " + addOns.getAddOn9Value()  + "\n" +
+                "10: " + addOns.getAddOn10() + " - " + addOns.getAddOn10Value() + "\n");
     }
 
     public void AddAdditionalItems(int item) {
