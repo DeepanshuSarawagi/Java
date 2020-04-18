@@ -12,7 +12,7 @@ public class Main {
         System.out.println();
 
         HealthyHamburger healthyHamburger = new HealthyHamburger("Tuna Fish", addOns);
-        System.out.println("Your basic healthy hamburger of" + healthyHamburger.getBreadRollType() + " with " +
+        System.out.println("Your basic healthy hamburger of " + healthyHamburger.getBreadRollType() + " with " +
                 healthyHamburger.getMeat() + " is ready. ");
         healthyHamburger.wantAdditionalItems();
 
