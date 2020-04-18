@@ -21,6 +21,7 @@ public class Main {
         System.out.println();
 
         DeluxeBurger deluxeBurger = new DeluxeBurger();
+        deluxeBurger.addHamburgerAddition3("Carrot", 2.5);
         deluxeBurger.itemizedHamburger();
 
     }
