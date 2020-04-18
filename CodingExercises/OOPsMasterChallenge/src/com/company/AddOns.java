@@ -68,15 +68,15 @@ public class AddOns {
     }
 
     public double getAddOn1Value() {
-        return 1.5;
+        return 0.5;
     }
 
     public double getAddOn2Value() {
-        return 1.5;
+        return 0.6;
     }
 
     public double getAddOn3Value() {
-        return 1.5;
+        return 1.2;
     }
 
     public double getAddOn4Value() {
@@ -84,15 +84,15 @@ public class AddOns {
     }
 
     public double getAddOn5Value() {
-        return 1.5;
+        return 0.8;
     }
 
     public double getAddOn6Value() {
-        return 1.5;
+        return 1.0;
     }
 
     public double getAddOn7Value() {
-        return 1.5;
+        return 2.0;
     }
 
     public double getAddOn8Value() {
@@ -100,7 +100,7 @@ public class AddOns {
     }
 
     public double getAddOn9Value() {
-        return 1.5;
+        return 1.0;
     }
 
     public double getAddOn10Value() {
