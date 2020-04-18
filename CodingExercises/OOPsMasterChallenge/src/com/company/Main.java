@@ -20,7 +20,7 @@ public class Main {
 
         DeluxeHamburger deluxeHamburger = new DeluxeHamburger("Parmesan Oregano",
                 "Chicken", addOns, "Lays", "Coke");
-        System.out.println("Your basic hamburger of " + deluxeHamburger.getBreadRollType() +
+        System.out.println("Your deluxe hamburger of " + deluxeHamburger.getBreadRollType() +
                 " and " + deluxeHamburger.getMeat() + " with chips " + deluxeHamburger.getChips() + " drinks " +
                 deluxeHamburger.getDrink() + " is ready");
         deluxeHamburger.addItems();

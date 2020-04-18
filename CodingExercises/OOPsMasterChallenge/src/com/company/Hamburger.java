@@ -134,7 +134,7 @@ public class Hamburger {
         public void addItems() {
             int count = 1;
             Scanner scanner = new Scanner(System.in);
-            System.out.println("Please select the items to be added in the burger from the below list");
+            System.out.println("Please select any four items to be added in the burger from the below list");
             displayListOfAddOns();
             while (count < 5) {
                 System.out.println("Please enter a number between 1-10 to add an additional item in burger: ");
@@ -144,7 +144,7 @@ public class Hamburger {
                     AddAdditionalItems(number);
                     count++;
                 } else {
-                    System.out.println("Invalid input");
+                    System.out.println("Invalid input. Please try with a valid input.");
                 }
                 scanner.nextLine();
             }
@@ -184,7 +184,7 @@ public class Hamburger {
                     AddAdditionalItems(number);
                     count++;
                 } else {
-                    System.out.println("Invalid input");
+                    System.out.println("Invalid input. Please try with a valid input.");
                 }
                 scanner.nextLine();
             }
@@ -219,7 +219,7 @@ public class Hamburger {
 
         @Override
         public void addItems() {
-            System.out.println("Sorry! No additional items can be added to Deluxe Hamburger! You " +
+            System.out.println("Sorry! No additional items can be added to Deluxe Hamburger! Your " +
                     "Deluxe Hamburger costs " + getBasePrice());
         }
     }
