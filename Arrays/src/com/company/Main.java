@@ -28,6 +28,14 @@ public class Main {
         int[] Month_Days = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
         System.out.println("April has " + Month_Days[3] + " days");
 
+        int[] myIntArray = new int[10];
+        for (int i = 0; i < myIntArray.length; i++) {
+            myIntArray[i] = i *10;
+        }
+        for (int i = 0; i < myIntArray.length; i++) {
+            System.out.println("Element #" + i + " is = " + myIntArray[i]);
+        }
+
         Average.average();
     }
 }
