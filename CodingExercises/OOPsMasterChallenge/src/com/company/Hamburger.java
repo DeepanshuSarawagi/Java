@@ -7,6 +7,7 @@ public class Hamburger {
     private String breadRollType;
     private double basePrice;
     private double AddOnsPrice = 0;
+    private double finalAddsOnPrice = 0;
     private String meat;
     private AddOns addOns;
 
@@ -111,8 +112,12 @@ public class Hamburger {
             }
         }
 
+        public double FinalPrice() {
+            finalAddsOnPrice += this.AddOnsPrice;
+            return finalAddsOnPrice;
+        }
         public double HamBurgerFinalPrice() {
-            return basePrice + AddOnsPrice;
+            return basePrice + FinalPrice();
         }
 
         public void addItems() {
@@ -137,8 +142,20 @@ public class Hamburger {
     }
 
     class HealthyHamburger extends Hamburger {
+        private double BasePrice;
         public HealthyHamburger(String meat, AddOns addOns) {
             super("Brown rye Bread Roll", meat, addOns);
+            this.BasePrice = 18.0;
+        }
+
+        @Override
+        public double getBasePrice() {
+            return this.BasePrice;
+        }
+
+        @Override
+        public double HamBurgerFinalPrice() {
+            return this.BasePrice + FinalPrice();
         }
 
         @Override
@@ -163,4 +180,3 @@ public class Hamburger {
             System.out.println("Your Healthy Hamburger is ready and final price is " + HamBurgerFinalPrice());
         }
     }
-
