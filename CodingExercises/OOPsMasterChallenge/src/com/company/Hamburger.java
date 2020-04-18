@@ -30,6 +30,17 @@ public class Hamburger {
         return meat;
     }
 
+    public void wantAdditionalItems() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Do you want additional Items to be added in your Burger? Type 'yes' or 'no'. ");
+        String name = scanner.nextLine();
+        if (name.toLowerCase().equals("yes")) {
+            addItems();
+        } else {
+            System.out.println("Thank you for choosing basic hamburger! You burger costs " + getBasePrice());
+        }
+    }
+
     public void displayListOfAddOns() {
         System.out.println("The list of available add-ons are: " + "\n" +
                 "1: " + addOns.getAddOn1() + "\n" +
@@ -178,5 +189,37 @@ public class Hamburger {
                 scanner.nextLine();
             }
             System.out.println("Your Healthy Hamburger is ready and final price is " + HamBurgerFinalPrice());
+        }
+    }
+
+    class DeluxeHamburger extends Hamburger {
+        private String Chips;
+        private String Drink;
+        private double BasePrice;
+
+        public DeluxeHamburger(String breadRollType, String meat, AddOns addOns, String Chips, String Drink) {
+            super(breadRollType, meat, addOns);
+            this.BasePrice = 20.0;
+            this.Chips = Chips;
+            this.Drink= Drink;
+        }
+
+        public String getChips() {
+            return Chips;
+        }
+
+        public String getDrink() {
+            return Drink;
+        }
+
+        @Override
+        public double getBasePrice() {
+            return this.BasePrice;
+        }
+
+        @Override
+        public void addItems() {
+            System.out.println("Sorry! No additional items can be added to Deluxe Hamburger! You " +
+                    "Deluxe Hamburger costs " + getBasePrice());
         }
     }
