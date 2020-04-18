@@ -6,9 +6,9 @@ public class Main {
 
     public static void main(String[] args) {
         AddOns addOns = new AddOns();
-//	    Hamburger hamburger = new Hamburger("Garlic Bread", "Chicken", addOns);
-//        System.out.println("Your basic hamburger is ready. It costs " + hamburger.getBasePrice());
-//        hamburger.addItems();
+	    Hamburger hamburger = new Hamburger("Garlic Bread", "Chicken", addOns);
+        System.out.println("Your basic hamburger is ready. It costs " + hamburger.getBasePrice());
+        hamburger.addItems();
 
         System.out.println();
 
