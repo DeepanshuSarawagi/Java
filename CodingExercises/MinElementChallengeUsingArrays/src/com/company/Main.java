@@ -12,6 +12,8 @@ public class Main {
             System.out.println("Element #" + i + " entered was " + myArray[i]);
         }
         System.out.println("Minimum element in array is " + findMin(myArray));
+
+        scanner.close();
     }
 
     public static int[] readIntegers(int count) {
