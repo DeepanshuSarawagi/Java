@@ -27,8 +27,17 @@ public class Main {
 
         anotherArray[0] = 1;
         System.out.println();
-        System.out.println("myIntArray = " + Arrays.toString(myIntArray));
-        System.out.println("anotherArray = " + Arrays.toString(anotherArray));
+        System.out.println("after change myIntArray = " + Arrays.toString(myIntArray));
+        System.out.println("after change anotherArray = " + Arrays.toString(anotherArray));
 
+        System.out.println();
+        modifyArray(myIntArray);
+        System.out.println("after modify myIntArray = " + Arrays.toString(myIntArray));
+        System.out.println("after  modify anotherArray = " + Arrays.toString(anotherArray));
+
+    }
+
+    private static void modifyArray(int[] array) {
+        array[0] = 2;
     }
 }
