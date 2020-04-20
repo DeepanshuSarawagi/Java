@@ -15,21 +15,35 @@ public class GroceryList {
         }
     }
 
-    public void modifyGroceryItem(int position, String item) {
+    public void modifyGroceryItem(String CurrentItem, String newItem) {
+        int position = findItem(CurrentItem);
+        if(position >= 0) {
+            modifyGroceryItem(position, newItem);
+        }
+    }
+
+    private void modifyGroceryItem(int position, String item) {
         groceryList.set(position, item);
         System.out.println("Grocery item " + (position + 1) + " was modified to " + groceryList.get(position));
     }
 
-    public void removeGroceryItem(int position) {
-        String item = groceryList.get(position);
-        groceryList.remove(item);
+    public void removeGroceryItem(String item) {
+        int position = findItem(item);
+        if(position >= 0) {
+            removeGroceryItem(position);
+        }
     }
 
-    public String findItem(String searchItem) {
-        int position = groceryList.indexOf(searchItem);
-        if (position >= 0) {
-            return groceryList.get(position);
-        }
-        return null;
+    private void removeGroceryItem(int position) {
+        groceryList.remove(position);
+    }
+
+    private int findItem(String searchItem) {
+        return groceryList.indexOf(searchItem);
+    }
+
+    public boolean onFile(String searchItem) {
+        int position = findItem(searchItem);
+        return position >= 0;
     }
 }
