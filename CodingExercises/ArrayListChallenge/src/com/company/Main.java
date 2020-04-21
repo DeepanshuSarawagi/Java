@@ -93,4 +93,19 @@ public class Main {
         }
     }
 
+    private static void removeContact() {
+        System.out.println("Enter existing contact name: ");
+        String name = scanner.nextLine();
+        Contacts existingContactRecord = mobilePhone.queryContact(name);
+        if (existingContactRecord == null) {
+            System.out.println("Contact not found");
+            return;
+        }
+        if (mobilePhone.removeContact(existingContactRecord)) {
+            System.out.println("Contact successfully deleted");
+        } else {
+            System.out.println("Error deleting contact");
+        }
+    }
+
 }
