@@ -20,6 +20,17 @@ public class MobilePhone {
         return true;
     }
 
+    public boolean updateContact(Contacts oldContact, Contacts newContact) {
+        int findPosition = findContact(oldContact);
+        if (findPosition < 0) {
+            System.out.println(oldContact.getName() + ", was not found in the contact list.");
+            return false;
+        }
+        this.myContacts.set(findPosition, newContact);
+        System.out.println(oldContact.getName() + ", was replaced with new contact " + newContact.getName());
+        return true;
+    }
+
     private int findContact(Contacts contacts) {
         return this.myContacts.indexOf(contacts);
     }
