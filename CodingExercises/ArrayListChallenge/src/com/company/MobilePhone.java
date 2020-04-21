@@ -63,6 +63,14 @@ public class MobilePhone {
         return null;
     }
 
+    public Contacts queryContact(String name) {
+        int position = findContact(name);
+        if (position >= 0) {
+            return this.myContacts.get(position);
+        }
+        return null;
+    }
+
     public void printContacts() {
         System.out.println("Printing contacts");
         for (int i= 0; i < this.myContacts.size(); i++) {

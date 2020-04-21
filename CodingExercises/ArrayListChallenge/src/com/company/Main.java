@@ -22,15 +22,27 @@ public class Main {
                     quit = true;
                     break;
                 case 1:
-                    printContacts();
+                    mobilePhone.printContacts();
+                    break;
+                case 2:
+                    addNewContact();
+                    break;
+                case 3:
+                    updateContact();
+                    break;
+                case 4:
+                    removeContact();
+                    break;
+                case 5:
+                    queryContant();
+                    break;
+                case 6:
+                    printActions();
                     break;
             }
         }
     }
 
-    private static void printContacts() {
-        mobilePhone.printContacts();
-    }
 
     private static void startPhone() {
         System.out.println("Starting phone....");
@@ -47,4 +59,38 @@ public class Main {
         System.out.println(" 6 - to print the list of available actions");
         System.out.println("Choose your action");
     }
+
+    private static void addNewContact() {
+        System.out.println("Enter the name of the new contact: ");
+        String name = scanner.nextLine();
+        System.out.println("Enter the phone number: ");
+        String phoneNumber = scanner.nextLine();
+        Contacts newContact = Contacts.createContact(name, phoneNumber);
+        if(mobilePhone.addNewContact(newContact)) {
+            System.out.println("New contact added: name = " + name + " phone = " + phoneNumber);
+        } else{
+            System.out.println("Cannot add " + name + ", already in contacts.");
+        }
+    }
+
+    private static void updateContact() {
+        System.out.println("Enter existing contact name: ");
+        String name = scanner.nextLine();
+        Contacts existingContactRecord = mobilePhone.queryContact(name);
+        if (existingContactRecord == null) {
+            System.out.println("Contact not found");
+            return;
+        }
+        System.out.print("Enter new contact name");
+        String newName = scanner.nextLine();
+        System.out.println("Enter contact new phone number");
+        String newPhoneNumber = scanner.nextLine();
+        Contacts newContact = Contacts.createContact(newName, newPhoneNumber);
+        if (mobilePhone.updateContact(existingContactRecord, newContact)) {
+            System.out.println("Contact successfully updated");
+        } else {
+            System.out.println("Error updating contact");
+        }
+    }
+
 }
