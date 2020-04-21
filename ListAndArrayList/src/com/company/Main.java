@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -35,6 +36,9 @@ public class Main {
                     searchItem();
                     break;
                 case 6:
+                    processArrayList();
+                    break;
+                case 7:
                     quit = true;
                     break;
 
@@ -81,6 +85,14 @@ public class Main {
         } else {
             System.out.println(searchItem + " not found in the grocery list");
         }
+    }
+
+    public static void processArrayList() {
+        ArrayList<String> newArray = new ArrayList<>(groceryList.getGroceryList());  // create a new ArrayList and get
+        // the contents from the groceryList ArrayList.
+
+
+
     }
 
 }
