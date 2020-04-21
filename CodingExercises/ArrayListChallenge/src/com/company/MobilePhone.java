@@ -20,5 +20,17 @@ public class MobilePhone {
         return true;
     }
 
+    private int findContact(Contacts contacts) {
+        return this.myContacts.indexOf(contacts);
+    }
 
+    private int findContact(String contactName) {
+        for (int i =0; i < this.myContacts.size(); i++) {
+            Contacts contacts = this.myContacts.get(i);
+            if(contacts.getName().equals(contactName)) {
+                return i;
+            }
+        }
+        return -1;
+    }
 }
