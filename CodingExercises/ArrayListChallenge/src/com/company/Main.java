@@ -34,7 +34,7 @@ public class Main {
                     removeContact();
                     break;
                 case 5:
-                    queryContant();
+                    queryContact();
                     break;
                 case 6:
                     printActions();
@@ -106,6 +106,18 @@ public class Main {
         } else {
             System.out.println("Error deleting contact");
         }
+    }
+
+    private static void queryContact() {
+        System.out.println("Enter existing contact name: ");
+        String name = scanner.nextLine();
+        Contacts existingContactRecord = mobilePhone.queryContact(name);
+        if (existingContactRecord == null) {
+            System.out.println("Contact not found");
+            return;
+        }
+        System.out.println("Contact found. " + " Contact name is " + existingContactRecord.getName() +
+                " contact phone number is " + existingContactRecord.getPhoneNumber());
     }
 
 }
