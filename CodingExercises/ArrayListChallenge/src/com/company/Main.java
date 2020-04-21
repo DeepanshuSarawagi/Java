@@ -81,9 +81,9 @@ public class Main {
             System.out.println("Contact not found");
             return;
         }
-        System.out.print("Enter new contact name");
+        System.out.print("Enter new contact name: ");
         String newName = scanner.nextLine();
-        System.out.println("Enter contact new phone number");
+        System.out.println("Enter contact new phone number: ");
         String newPhoneNumber = scanner.nextLine();
         Contacts newContact = Contacts.createContact(newName, newPhoneNumber);
         if (mobilePhone.updateContact(existingContactRecord, newContact)) {
