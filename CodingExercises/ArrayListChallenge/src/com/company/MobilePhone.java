@@ -31,6 +31,17 @@ public class MobilePhone {
         return true;
     }
 
+    public boolean removeContact(Contacts contacts) {
+        int findPosition = findContact(contacts);
+        if (findPosition < 0) {
+            System.out.println(contacts.getName() + ", was not found in the contact list.");
+            return false;
+        }
+        this.myContacts.remove(findPosition);
+        System.out.println(contacts.getName() + ", was removed from the contact list.");
+        return true;
+    }
+
     private int findContact(Contacts contacts) {
         return this.myContacts.indexOf(contacts);
     }
