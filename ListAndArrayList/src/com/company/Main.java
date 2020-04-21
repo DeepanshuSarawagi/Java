@@ -91,6 +91,9 @@ public class Main {
         ArrayList<String> newArray = new ArrayList<>(groceryList.getGroceryList());  // create a new ArrayList and get
         // the contents from the groceryList ArrayList.
 
+        // Get the contents of the ArrayList and convert it to regular Array
+        String[] myArray = new String[groceryList.getGroceryList().size()];
+        myArray = groceryList.getGroceryList().toArray(myArray);
 
 
     }
