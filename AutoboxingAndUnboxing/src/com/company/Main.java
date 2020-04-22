@@ -89,11 +89,11 @@ public class Main {
 
         ArrayList<Double> myDoubleArrayList = new ArrayList<>();
         for (double dbl=0.0; dbl<=10.0; dbl+=0.5) {
-            myDoubleArrayList.add(Double.valueOf(dbl));
+            myDoubleArrayList.add(dbl);
         }
 
         for (int i=0; i<myDoubleArrayList.size(); i++ ) {
-            System.out.println(i + "--> " + myDoubleArrayList.get(i).doubleValue());
+            System.out.println(i + "--> " + myDoubleArrayList.get(i));
         }
     }
 }
