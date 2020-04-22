@@ -69,9 +69,14 @@ public class Main {
 
         ArrayList<Integer> myIntArrayList = new ArrayList<>();
         for (int i = 0; i <= 10; i++) {
-            myIntArrayList.add(Integer.valueOf(i));
+            myIntArrayList.add(Integer.valueOf(i));  // This converts the int dataype to Integer class object so that we
+            // can store it in ArrayList
         }
 
+        for (int i = 0; i < myIntArrayList.size(); i++) {
+            System.out.println(i + "--> " + myIntArrayList.get(i).intValue());  // This converts the Integer object and
+            // returns the value in int datatype
+        }
 
     }
 }
