@@ -69,14 +69,31 @@ public class Main {
 
         ArrayList<Integer> myIntArrayList = new ArrayList<>();
         for (int i = 0; i <= 10; i++) {
-            myIntArrayList.add(Integer.valueOf(i));  // This converts the int dataype to Integer class object so that we
-            // can store it in ArrayList
+            myIntArrayList.add(Integer.valueOf(i));  // This converts the int datatype to Integer class object so that
+            // we can store it in ArrayList. Basically it converts the base int type to Integer object wrapper. This is
+            // called as Autoboxing.
         }
 
         for (int i = 0; i < myIntArrayList.size(); i++) {
             System.out.println(i + "--> " + myIntArrayList.get(i).intValue());  // This converts the Integer object and
-            // returns the value in int datatype
+            // returns the value in int datatype. This is called as unboxing.
         }
 
+        // We can do something similar for double as well.
+        /* Above method implemented is long way of doing it. there is a better way to achieve this.
+         */
+
+        Integer myIntValue = 56; // Integer.valueOf(56); -> Autoboxing
+        int myInt1 = myIntValue; // myIntValue.intValue(); -> Unboxing
+
+
+        ArrayList<Double> myDoubleArrayList = new ArrayList<>();
+        for (double dbl=0.0; dbl<=10.0; dbl+=0.5) {
+            myDoubleArrayList.add(Double.valueOf(dbl));
+        }
+
+        for (int i=0; i<myDoubleArrayList.size(); i++ ) {
+            System.out.println(i + "--> " + myDoubleArrayList.get(i).doubleValue());
+        }
     }
 }
