@@ -33,5 +33,9 @@ public class Bank {
         return -1;
     }
 
-
+    public void printBranches() {
+        for (int i=0; i<this.bankBranches.size(); i++) {
+            System.out.println((i+1) + ". " + this.bankBranches.get(i).getBranchName());
+        }
+    }
 }
