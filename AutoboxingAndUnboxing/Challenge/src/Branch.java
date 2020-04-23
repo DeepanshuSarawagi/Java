@@ -20,4 +20,32 @@ public class Branch {
     public static Branch createBranch(String branchName) {
         return new Branch(branchName);
     }
+
+    private int findCustomer(Customer customer) {
+        return this.branchCustomers.indexOf(customer);
+    }
+
+    private int findCustomer(String customerName) {
+        for (int i=0; i<this.branchCustomers.size(); i++) {
+            Customer customer = this.branchCustomers.get(i);
+            if (customer.getCustomerName().equals(customerName)) {
+                System.out.println("Customer with name " + customerName +" in this branch exists");
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public boolean addBranchCustomer(Customer customer) {
+        if (findCustomer(customer.getCustomerName()) >=0) {
+            System.out.println("Customer in this branch already exists");
+            return false;
+        }
+        branchCustomers.add(customer);
+        for (int i=0; i<branchCustomers.size(); i++) {
+            System.out.println(branchCustomers.get(i).getCustomerName());
+        }
+        return true;
+    }
+
 }

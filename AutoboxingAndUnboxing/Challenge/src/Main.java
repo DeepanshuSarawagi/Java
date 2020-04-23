@@ -8,6 +8,7 @@ public class Main {
     public static void main(String[] args) {
         addBankBranch();
         bank.printBranches();
+        bank.addBranchCustomer();
     }
 
     private static void addBankBranch() {
