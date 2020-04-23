@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AutoboxingAndUnboxing.iml" filepath="$PROJECT_DIR$/AutoboxingAndUnboxing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Challenge/Challenge.iml" filepath="$PROJECT_DIR$/Challenge/Challenge.iml" />
     </modules>
   </component>
 </project>
