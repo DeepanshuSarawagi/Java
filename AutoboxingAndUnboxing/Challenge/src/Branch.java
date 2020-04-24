@@ -15,7 +15,7 @@ public class Branch {
         return this.BranchName;
     }
 
-    public ArrayList<Customer> getBranchCustomers() {
+    private ArrayList<Customer> getBranchCustomers() {
         return this.branchCustomers;
     }
 
@@ -50,7 +50,18 @@ public class Branch {
     public void listBranchCustomers(Branch branch) {
         for (int i=0; i<branch.getBranchCustomers().size(); i++) {
             System.out.println(branchCustomers.get(i).getCustomerName());
+            System.out.println(branchCustomers.get(i).getTransactions());
         }
     }
 
+    public void addBranchCustomerTransaction() {
+        System.out.println("Enter the customer name to be found: ");
+        String name = scanner.nextLine();
+        int position = findCustomer(name);
+        Customer customer = this.branchCustomers.get(position);
+        System.out.println("Enter the transaction amount to be added: ");
+        Double amount = scanner.nextDouble();
+        scanner.nextLine();
+        customer.addCustomerTransactions(amount);
+    }
 }

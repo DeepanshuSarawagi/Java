@@ -16,7 +16,10 @@ public class Main {
         bank.addBranchCustomer();
         bank.addBranchCustomer();
         listBranchCustomers();
-
+        bank.addBranchCustomerTransactions();
+        bank.addBranchCustomerTransactions();
+        listBranchCustomers();
+        listBranchCustomers();
     }
 
     private static void addBankBranch() {

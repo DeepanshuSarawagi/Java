@@ -56,6 +56,7 @@ public class Bank {
     }
 
     public void listBranchCustomers() {
+        printBranches();
         System.out.println("Enter the branch name whose customers have to be listed: ");
         String branchName = scanner.nextLine();
         int bankBranchIndex = findBankBranches(branchName);
@@ -69,5 +70,13 @@ public class Bank {
             return null;
         }
         return this.bankBranches.get(position);
+    }
+
+    public void addBranchCustomerTransactions() {
+        System.out.println("Enter the branch name where customer resides: ");
+        String branchName = scanner.nextLine();
+        int position = findBankBranches(branchName);
+        Branch branch = this.bankBranches.get(position);
+        branch.addBranchCustomerTransaction();
     }
 }

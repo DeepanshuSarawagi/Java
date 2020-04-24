@@ -26,4 +26,8 @@ public class Customer {
     public static Customer createCustomer (String customerName, String accountNumber, double transactions) {
         return new Customer(customerName, accountNumber, transactions);
     }
+
+    public void addCustomerTransactions(Double transactions) {
+        this.Transactions.add(transactions);
+    }
 }
