@@ -1,8 +1,10 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Branch {
     private String BranchName;
     private ArrayList<Customer> branchCustomers;
+    private Scanner scanner = new Scanner(System.in);
 
     public Branch(String branchName) {
         BranchName = branchName;
@@ -42,10 +44,13 @@ public class Branch {
             return false;
         }
         branchCustomers.add(customer);
-        for (int i=0; i<branchCustomers.size(); i++) {
+        return true;
+    }
+
+    public void listBranchCustomers(Branch branch) {
+        for (int i=0; i<branch.getBranchCustomers().size(); i++) {
             System.out.println(branchCustomers.get(i).getCustomerName());
         }
-        return true;
     }
 
 }

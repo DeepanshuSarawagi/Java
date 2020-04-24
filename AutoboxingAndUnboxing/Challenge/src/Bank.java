@@ -28,7 +28,6 @@ public class Bank {
         for (int i=0; i<this.bankBranches.size(); i++) {
             Branch branch = this.bankBranches.get(i);
             if (branch.getBranchName().equals(branchName)) {
-                System.out.println("Branch already exists");
                 return i;
             }
         }
@@ -54,5 +53,21 @@ public class Bank {
         if (branch.addBranchCustomer(customer)) {
             System.out.println("Customer successfully added.");
         }
+    }
+
+    public void listBranchCustomers() {
+        System.out.println("Enter the branch name whose customers have to be listed: ");
+        String branchName = scanner.nextLine();
+        int bankBranchIndex = findBankBranches(branchName);
+        Branch branch = this.bankBranches.get(bankBranchIndex);
+        branch.listBranchCustomers(branch);
+    }
+
+    public Branch queryBranchName(String name) {
+        int position = findBankBranches(name);
+        if (position < 0) {
+            return null;
+        }
+        return this.bankBranches.get(position);
     }
 }

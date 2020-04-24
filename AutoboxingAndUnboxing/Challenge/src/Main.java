@@ -7,8 +7,16 @@ public class Main {
 
     public static void main(String[] args) {
         addBankBranch();
+        addBankBranch();
+        addBankBranch();
+        queryBranch();
         bank.printBranches();
         bank.addBranchCustomer();
+        bank.addBranchCustomer();
+        bank.addBranchCustomer();
+        bank.addBranchCustomer();
+        listBranchCustomers();
+
     }
 
     private static void addBankBranch() {
@@ -25,6 +33,21 @@ public class Main {
         System.out.println("Enter the bank branch to query");
         String name = scanner.nextLine();
 
+    }
+
+    private static void listBranchCustomers() {
+        bank.listBranchCustomers();
+    }
+
+    private static void queryBranch() {
+        System.out.println("Enter the branch name to search for: ");
+        String name = scanner.nextLine();
+        Branch existingBranch = bank.queryBranchName(name);
+        if (existingBranch == null) {
+            System.out.println("branch not found");
+            return;
+        }
+        System.out.println("Branch " + existingBranch.getBranchName() + " found");
     }
 
 }
