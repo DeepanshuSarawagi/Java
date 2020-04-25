@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="AutoboxingAndUnboxing:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/AutoboxingAndUnboxing_jar</output-path>
+    <root id="archive" name="AutoboxingAndUnboxing.jar">
+      <element id="module-output" name="AutoboxingAndUnboxing" />
+      <element id="module-output" name="Challenge" />
+    </root>
+  </artifact>
+</component>
