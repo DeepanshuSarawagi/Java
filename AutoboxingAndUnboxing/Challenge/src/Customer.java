@@ -30,4 +30,10 @@ public class Customer {
     public void addCustomerTransactions(Double transactions) {
         this.Transactions.add(transactions);
     }
+
+    public void getCustomerTransactionDetails() {
+        for (int i=0; i<this.Transactions.size(); i++) {
+            System.out.println("\t" + "Transaction: " + Transactions.get(i));
+        }
+    }
 }

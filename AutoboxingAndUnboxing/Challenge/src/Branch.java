@@ -40,7 +40,6 @@ public class Branch {
 
     public boolean addBranchCustomer(Customer customer) {
         if (findCustomer(customer.getCustomerName()) >=0) {
-            System.out.println("Customer in this branch already exists");
             return false;
         }
         branchCustomers.add(customer);
@@ -49,19 +48,35 @@ public class Branch {
 
     public void listBranchCustomers(Branch branch) {
         for (int i=0; i<branch.getBranchCustomers().size(); i++) {
-            System.out.println(branchCustomers.get(i).getCustomerName());
-            System.out.println(branchCustomers.get(i).getTransactions());
+            System.out.print("\t" + this.branchCustomers.get(i).getCustomerName());
+            System.out.print("\t" + this.branchCustomers.get(i).getAccountNumber() + "\n");
         }
     }
 
     public void addBranchCustomerTransaction() {
-        System.out.println("Enter the customer name to be found: ");
+        System.out.println("Enter the customer name: ");
         String name = scanner.nextLine();
         int position = findCustomer(name);
-        Customer customer = this.branchCustomers.get(position);
-        System.out.println("Enter the transaction amount to be added: ");
-        Double amount = scanner.nextDouble();
-        scanner.nextLine();
-        customer.addCustomerTransactions(amount);
+        if (position >= 0) {
+            Customer customer = this.branchCustomers.get(position);
+            System.out.println("Enter the transaction amount to be added: ");
+            Double amount = scanner.nextDouble();
+            scanner.nextLine();
+            customer.addCustomerTransactions(amount);
+        } else {
+            System.out.println("Customer " + name + " not found in this branch");
+        }
+    }
+
+    public void listBranchCustomerTransactions() {
+        System.out.println("Enter the customer name: ");
+        String name = scanner.nextLine();
+        int position = findCustomer(name);
+        if (position >= 0) {
+            Customer customer = this.branchCustomers.get(position);
+            customer.getCustomerTransactionDetails();
+        } else {
+            System.out.println("Customer " + name + " not found in this branch");
+        }
     }
 }

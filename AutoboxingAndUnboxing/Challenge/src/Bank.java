@@ -10,10 +10,12 @@ public class Bank {
         this.bankName = bankName;
         this.bankBranches = new ArrayList<>();
     }
+    public String getBankName() {
+        return this.bankName;
+    }
 
     public boolean addBankBranches(Branch branchName) {
         if (findBankBranches(branchName.getBranchName()) >= 0) {
-            System.out.println("Branch name already exists");
             return false;
         }
         bankBranches.add(branchName);
@@ -48,10 +50,16 @@ public class Bank {
         System.out.println("Enter the branch name where customer needs to be added.");
         String branchName = scanner.nextLine();
         int bankBranchIndex = findBankBranches(branchName);
-        Branch branch = this.bankBranches.get(bankBranchIndex);
-        Customer customer = Customer.createCustomer(name, accountNumber, 1000.0);
-        if (branch.addBranchCustomer(customer)) {
-            System.out.println("Customer successfully added.");
+        if (bankBranchIndex >= 0) {
+            Branch branch = this.bankBranches.get(bankBranchIndex);
+            Customer customer = Customer.createCustomer(name, accountNumber, 1000.0);
+            if (branch.addBranchCustomer(customer)) {
+                System.out.println("Customer successfully added.");
+            } else {
+                System.out.println("Customer in this branch already exists");
+            }
+        } else {
+            System.out.println("Branch not found");
         }
     }
 
@@ -60,8 +68,12 @@ public class Bank {
         System.out.println("Enter the branch name whose customers have to be listed: ");
         String branchName = scanner.nextLine();
         int bankBranchIndex = findBankBranches(branchName);
-        Branch branch = this.bankBranches.get(bankBranchIndex);
-        branch.listBranchCustomers(branch);
+        if (bankBranchIndex >= 0) {
+            Branch branch = this.bankBranches.get(bankBranchIndex);
+            branch.listBranchCustomers(branch);
+        } else {
+            System.out.println("Branch " + branchName + " not found");
+        }
     }
 
     public Branch queryBranchName(String name) {
@@ -72,11 +84,28 @@ public class Bank {
         return this.bankBranches.get(position);
     }
 
-    public void addBranchCustomerTransactions() {
+    public boolean addBranchCustomerTransactions() {
         System.out.println("Enter the branch name where customer resides: ");
         String branchName = scanner.nextLine();
         int position = findBankBranches(branchName);
-        Branch branch = this.bankBranches.get(position);
-        branch.addBranchCustomerTransaction();
+        if (position >= 0) {
+            Branch branch = this.bankBranches.get(position);
+            branch.addBranchCustomerTransaction();
+            return true;
+        }
+        System.out.println("Branch name not found");
+        return false;
+    }
+
+    public void listBranchCustomerTransactions() {
+        System.out.println("Enter the branch name where customer resides: ");
+        String branchName = scanner.nextLine();
+        int position = findBankBranches(branchName);
+        if (position >= 0) {
+            Branch branch = this.bankBranches.get(position);
+            branch.listBranchCustomerTransactions();
+            return;
+        }
+        System.out.println("Branch name not found");
     }
 }
