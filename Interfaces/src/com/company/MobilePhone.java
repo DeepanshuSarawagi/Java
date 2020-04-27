@@ -50,4 +50,9 @@ public class MobilePhone implements ITelephone{
     public boolean isRinging() {
         return isRinging;
     }
+
+    public void switchOff() {
+        isOn = false;
+        System.out.println("Switching off Mobile phone " + this.myNumber);
+    }
 }

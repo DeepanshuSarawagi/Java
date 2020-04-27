@@ -17,5 +17,8 @@ public class Main {
         deepsPhone.callPhone(23453422);
         deepsPhone.answer();
         System.out.println(deepsPhone.isRinging());
+
+        ((MobilePhone) deepsPhone).switchOff();
+        deepsPhone.dial(12443423);
     }
 }
