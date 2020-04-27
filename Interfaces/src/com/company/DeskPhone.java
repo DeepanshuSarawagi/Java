@@ -5,6 +5,10 @@ public class DeskPhone implements ITelephone{
     private int myNumber;
     private boolean isRinging;
 
+    public DeskPhone(int myNumber) {
+        this.myNumber = myNumber;
+    }
+
     @Override
     public void powerOn() {
         System.out.println("No action taken, desk phone doesn't have a power button.");
