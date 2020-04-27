@@ -2,6 +2,7 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.ListIterator;
 
 public class Main {
 
@@ -43,8 +44,17 @@ public class Main {
         albums.get(1).addToPlaylist(3, playList);
         albums.get(1).addToPlaylist(24, playList); // Does not exist
 
+        play(playList);
 
+    }
 
-
+    private static void play(LinkedList<Song> playList) {
+        ListIterator<Song> listIterator = playList.listIterator();
+        if (playList.size() == 0) {
+            System.out.println("No songs in the playlist");
+            return;
+        } else {
+            System.out.println("Now playing " + listIterator.next().toString());
+        }
     }
 }
