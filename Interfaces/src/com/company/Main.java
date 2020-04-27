@@ -10,5 +10,12 @@ public class Main {
         deepsPhone.answer();
         deepsPhone.dial(3243553);
         System.out.println(deepsPhone.isRinging());
+
+        deepsPhone = new MobilePhone(23453422);
+        deepsPhone.powerOn();
+        deepsPhone.dial(124542424);
+        deepsPhone.callPhone(23453422);
+        deepsPhone.answer();
+        System.out.println(deepsPhone.isRinging());
     }
 }
