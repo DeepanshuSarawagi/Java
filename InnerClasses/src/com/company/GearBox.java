@@ -9,7 +9,7 @@ public class GearBox {
 
     public GearBox(int maxGears) {
         this.maxGears = maxGears;
-        this.gears = new ArrayList<Gear>();
+        this.gears = new ArrayList<>();
         Gear neutral = new Gear(0, 0.0);
         this.gears.add(neutral);
     }
