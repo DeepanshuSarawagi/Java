@@ -18,8 +18,9 @@ public class Main {
 //        loadObject(deep);
         System.out.println(deep);
 
-        Monster wereWolf = new Monster("wereWolf", 45, 100);
+        ISaveable wereWolf = new Monster("wereWolf", 45, 100);
         saveObject(wereWolf);
+        System.out.println(((Monster) wereWolf).getStrength());
         System.out.println(wereWolf.toString());
     }
 
