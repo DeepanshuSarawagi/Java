@@ -9,6 +9,14 @@ public class Main {
     public static void main(String[] args) {
         Player deep = new Player("Deep", 10, 15);
         System.out.println(deep.toString());
+        saveObject(deep);
+
+        deep.setHitPoints(8);
+        System.out.println(deep);
+        deep.setWeapon("Stormbringer");
+        saveObject(deep);
+        loadObject(deep);
+        System.out.println(deep);
     }
 
     public static ArrayList<String> readValues() {
