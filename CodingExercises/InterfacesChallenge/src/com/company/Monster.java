@@ -18,7 +18,7 @@ public class Monster implements ISaveable{
         return name;
     }
 
-    public int getHitPOints() {
+    public int getHitPoints() {
         return hitPoints;
     }
 
@@ -30,7 +30,7 @@ public class Monster implements ISaveable{
     public String toString() {
         return "Monster{" +
                 "name='" + name + '\'' +
-                ", hitPOints=" + hitPoints +
+                ", hitPoints=" + hitPoints +
                 ", Strength=" + Strength +
                 '}';
     }
@@ -38,7 +38,7 @@ public class Monster implements ISaveable{
     @Override
     public List<String> writeData() {
         ArrayList<String> values = new ArrayList<>();
-        values.add(0, this.name);
+        values.add(0, getName());
         values.add(1, "" + this.hitPoints);
         values.add(2, "" + this.Strength);
         return values;
