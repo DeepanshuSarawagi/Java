@@ -8,9 +8,9 @@ public class Monster implements ISaveable{
     private int hitPoints;
     private int Strength;
 
-    public Monster(String name, int hitPOints, int strength) {
+    public Monster(String name, int hitPoints, int strength) {
         this.name = name;
-        this.hitPoints = hitPOints;
+        this.hitPoints = hitPoints;
         Strength = strength;
     }
 

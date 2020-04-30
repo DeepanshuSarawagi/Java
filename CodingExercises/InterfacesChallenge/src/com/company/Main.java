@@ -15,8 +15,12 @@ public class Main {
         System.out.println(deep);
         deep.setWeapon("Stormbringer");
         saveObject(deep);
-        loadObject(deep);
+//        loadObject(deep);
         System.out.println(deep);
+
+        Monster wereWolf = new Monster("wereWolf", 45, 100);
+        saveObject(wereWolf);
+        System.out.println(wereWolf.toString());
     }
 
     public static ArrayList<String> readValues() {
