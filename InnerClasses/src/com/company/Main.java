@@ -27,7 +27,7 @@ public class Main {
         mcLaren.operateClutch(false);
         System.out.println(mcLaren.wheelSpeed(5000));
 
-        // Creating instances to learn about local classes in Java
+        // Creating local class in Java
 
         class clickListener implements Button.OnClickListener {
             public clickListener() {
@@ -40,7 +40,16 @@ public class Main {
             }
         }
         btnPrint.setOnClickListener(new clickListener());
-        btnScan.setOnClickListener(new clickListener());
+
+        // Create anonymous class
+
+        btnScan.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(String title) {
+                System.out.println(title + " was clicked");
+            }
+        });
+
         listen();
     }
 
@@ -55,7 +64,10 @@ public class Main {
                     break;
                 case 1:
                     btnPrint.onClick();
+                    break;
+                case 2:
                     btnScan.onClick();
+                    break;
             }
         }
     }
