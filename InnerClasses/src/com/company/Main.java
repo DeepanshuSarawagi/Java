@@ -55,6 +55,7 @@ public class Main {
 
     private static void listen() {
         boolean quit = false;
+        System.out.println("Enter 0-2 of your choice: ");
         while (!quit) {
             int choice = scanner.nextInt();
             scanner.nextLine();
