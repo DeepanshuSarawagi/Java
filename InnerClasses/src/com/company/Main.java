@@ -20,5 +20,7 @@ public class Main {
         mcLaren.changeGear(5);
         mcLaren.operateClutch(false);
         System.out.println(mcLaren.wheelSpeed(5000));
+
+        // Creating instances to learn about local classes in Java
     }
 }
