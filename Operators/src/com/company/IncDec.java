@@ -33,5 +33,18 @@ public class IncDec {
         // in both the cases, be it prefix or postfix increment, x is incremented to 43 but the value of y depends on
         // the type of increment.
 
+        // Lets explore some more examples.
+        int a = 1;
+        int b = 2;
+        int c;
+        int d;
+        c = ++b; // Here, b increments by 1, so b =3, b is assigned to c hence c=3
+        d = a++; // a is assigned to d hence d=1 and a is incremented so a=2
+        c++; // c is now 4
+        System.out.println("a is: " + a);
+        System.out.println("b is: " + b);
+        System.out.println("c is: " + c);
+        System.out.println("d is: " + d);
+
     }
 }
