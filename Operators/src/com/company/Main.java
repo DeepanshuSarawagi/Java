@@ -90,5 +90,18 @@ public class Main {
         if(!isRemainder){
             System.out.println("Got some remainder");
         }
+
+        BitwiseOperators.bitwiseNot();
+    }
+}
+
+class BitwiseOperators{
+    public static void bitwiseNot() {
+        int a = 42;
+        int b = 15;
+        System.out.println("Bitwise And of a & b: " + (a&b));
+        System.out.println("Bitwise OR of a | b is: " + (a|b));
+        System.out.println("Bitwise XOR of a ^ b is: " + (a^b));
+
     }
 }
