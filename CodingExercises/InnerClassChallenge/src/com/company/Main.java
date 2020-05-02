@@ -146,51 +146,79 @@ public class Main {
 class Album {
     private String name;
     private String artist;
-    private ArrayList<Song> songs;
+//    private ArrayList<Song> songs;
+    private SongList songs;
 
     public Album(String name, String artist) {
         this.name = name;
         this.artist = artist;
-        this.songs = new ArrayList<>();
+        this.songs = new SongList();
     }
-
-    public boolean addSong(String title, double duration) {
-        if (findSong(title) == null) {
-            this.songs.add(new Song(title, duration));
-            return true;
+        public boolean addSong(String title, double duration) {
+            return this.songs.add(new Song(title, duration));
         }
-        return false;
-    }
 
-    private Song findSong(String title) {
-        for (Song song : this.songs) {
-            if (song.getTitle().equals(title)) {
-                return song;
+        public boolean addToPlaylist(int trackNumber, LinkedList<Song> playList) {
+//            int index = trackNumber - 1;
+//            if ((index >= 0) && (index < this.songs.size())) {
+//                playList.add(this.songs.get(index));
+//                return true;
+//            }
+            Song checkedSong = this.songs.findSong(trackNumber);
+            if (checkedSong != null) {
+                playList.add(checkedSong);
+                return true;
+            }
+            System.out.println("This song doesnt have the track " + trackNumber);
+            return false;
+        }
+
+        public boolean addToPlaylist(String title, LinkedList<Song> playList) {
+//            Song song = findSong(title);
+//            if (song != null) {
+//                playList.add(song);
+//                return true;
+//            }
+            Song checkedSong = this.songs.findSong(title);
+                if (checkedSong != null) {
+                    playList.add(checkedSong);
+                    return true;
+                } System.out.println("Song " + title + " is not in the album");
+                    return false;
+        }
+
+        private class SongList {
+            private ArrayList<Song> songs;
+
+            public SongList() {
+                this.songs = new ArrayList<>();
+            }
+            public boolean add(Song song) {
+                if (songs.contains(song)) {
+                    return false;
+                }
+                this.songs.add(song);
+                return true;
+            }
+
+            private Song findSong(String title) {
+                for (Song song : this.songs) {
+                    if (song.getTitle().equals(title)) {
+                        return song;
+                    }
+                }
+                return null;
+            }
+
+            public Song findSong(int trackNumber) {
+                int index = trackNumber -1;
+                if (index >= 0 && index < songs.size()) {
+                    return songs.get(index);
+                }
+                return null;
             }
         }
-        return null;
     }
-
-    public boolean addToPlaylist(int trackNumber, LinkedList<Song> playList) {
-        int index = trackNumber - 1;
-        if ((index >=0) && (index < this.songs.size())) {
-            playList.add(this.songs.get(index));
-            return true;
-        }
-        System.out.println("This song doesnt have the track " + trackNumber);
-        return false;
-    }
-
-    public boolean addToPlaylist(String title, LinkedList<Song> playList) {
-        Song song = findSong(title);
-        if (song != null) {
-            playList.add(song);
-            return true;
-        }
-        System.out.println("Song " + title + " is not in the album");
-        return false;
-    }
-}
 
 class Song {
     private String title;
