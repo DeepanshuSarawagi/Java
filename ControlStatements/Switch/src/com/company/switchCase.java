@@ -27,24 +27,24 @@ public class switchCase {
         // However, is some case, it may be required that multiple cases fall under single break. That is, you can omit
         // break statement after each case. Look for below example
 
-        for (int i =0; i<=12; i++) {
-            switch (i) {
+        for (int j =0; j<=12; j++) {
+            switch (j) {
                 case 0:
                 case 1:
                 case 2:
                 case 3:
                 case 4:
-                    System.out.println("i is less than 5");
+                    System.out.println("j is less than 5 and the value is " + j);
                     break;
                 case 5:
                 case 6:
                 case 7:
                 case 8:
                     case 9:
-                        System.out.println("i is less than 10");
+                        System.out.println("j is less than 10 and the value is " + j);
                         break;
                 default:
-                    System.out.println("i is 10 or greater");
+                    System.out.println("j is 10 or greater  and the value is " + j);
                     break;
             }
         }
