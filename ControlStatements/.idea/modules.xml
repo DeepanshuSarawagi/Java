@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/ControlStatements.iml" filepath="$PROJECT_DIR$/.idea/ControlStatements.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FoorLoop/FoorLoop.iml" filepath="$PROJECT_DIR$/FoorLoop/FoorLoop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IfElse/IfElse.iml" filepath="$PROJECT_DIR$/IfElse/IfElse.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Switch/Switch.iml" filepath="$PROJECT_DIR$/Switch/Switch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WhileAndDoWhile/WhileAndDoWhile.iml" filepath="$PROJECT_DIR$/WhileAndDoWhile/WhileAndDoWhile.iml" />
+    </modules>
+  </component>
+</project>
