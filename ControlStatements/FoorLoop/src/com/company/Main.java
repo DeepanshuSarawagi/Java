@@ -23,4 +23,6 @@ public class Main {
     public static double calculateInterestRate(double amount, double interestRate){
         return (amount * (interestRate / 100));
     }
+
+    // revisit for-loop for more learning
 }
