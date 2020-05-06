@@ -15,5 +15,18 @@ public class forEach {
             sum += i;
         }
         System.out.println("The sum of array elements is " + sum);
+
+        /* Although the for-each for loop interates until all the elements in the for loop is examined, it is possible
+        to terminate the loop early using the break statement.
+         */
+        sum = 0;  // re-initialising the sum = 0 for working on below example.
+
+        for (int i: nums) {
+            sum += i;
+            if (i == 5) {
+                break;
+            }
+        }
+        System.out.println("The value of sum of first 5 elements is " + sum);
     }
 }
