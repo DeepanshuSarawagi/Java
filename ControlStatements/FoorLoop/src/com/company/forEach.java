@@ -35,5 +35,27 @@ public class forEach {
         for (int num : nums) {
             System.out.println(num);
         }
+
+        /*
+        Iterating over multi-dimensional array. The enhanced version of for-each also works in multidimensional array.
+        A two-dimensional array is an array of one-dimensional arrays.
+         */
+        sum = 0;
+        int[][] num = new int[3][5];
+        // giving some value to the 2-D array
+        for (int i =0; i<3; i++) {
+            for (int j =0; j<5; j++) {
+                num[i][j] = (i+1) * (j+1);
+            }
+        }
+        // reading values of the 2-D array
+        for (int[] x :num) {
+            for (int y : x) {
+                System.out.print(y + " ");
+                sum += y;
+            }
+            System.out.println();
+        }
+        System.out.println("Sum of array elements is " + sum);
     }
 }
