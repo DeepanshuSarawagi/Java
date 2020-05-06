@@ -28,5 +28,12 @@ public class forEach {
             }
         }
         System.out.println("The value of sum of first 5 elements is " + sum);
+
+        for (int i =1; i<nums.length; i++) {
+            nums[i] = i * 2;
+        }
+        for (int num : nums) {
+            System.out.println(num);
+        }
     }
 }
