@@ -36,6 +36,20 @@ public class Main {
             System.out.println("b is " + b);
         }
 
+        // It is not always necessary to initialise and iterate a for loop within its statement. Sometimes there will be
+        // cases where you will leave the initialization and iteration empty in for loop since its defined elsewhere
+        System.out.println("=================");
+        boolean done = false;
+        int i =1;
+        for (;!done;) {
+            System.out.println("i is " + i);
+            if (i == 10) done = true;
+            i++;
+        }
+        // However, this is a poor example to explain the use but you will find it useful in some cases where a loop
+        // control variable changes its value in non-sequential manner determined by actions that occur within the body
+        // of the loop
+
         }
 
     public static double calculateInterestRate(double amount, double interestRate){
