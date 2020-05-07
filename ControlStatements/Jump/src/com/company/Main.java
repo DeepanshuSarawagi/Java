@@ -56,5 +56,17 @@ public class Main {
             System.out.println("This will execute");
         }
 
+        // one more example
+        outer: for (int i = 0; i < 4; i++) {
+            System.out.print("Pass " + i + ": ");
+            for (int j =0; j<100; j++) {
+                if (j == 10) {
+                    break outer;  // this will break out of the outer for itself since we have asked to do so.
+                }
+                System.out.print(j + " " );
+            }
+            System.out.println();
+        }
+
     }
 }
