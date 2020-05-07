@@ -89,5 +89,13 @@ public class Main {
             }
             System.out.println();
         }
+
+        // The return statement is explicitly used to return from a method. That is it causes program control to
+        // transfer back to the caller of the method.
+
+        t = true;
+        System.out.println("Before the return");
+        if (t) return;
+        System.out.println("This wont execute");
     }
 }
