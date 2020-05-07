@@ -11,7 +11,7 @@ public class forEach {
 
         int[] nums = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
         int sum = 0;
-        for (int i: nums) {
+        for (int i : nums) {
             sum += i;
         }
         System.out.println("The sum of array elements is " + sum);
@@ -21,7 +21,7 @@ public class forEach {
          */
         sum = 0;  // re-initialising the sum = 0 for working on below example.
 
-        for (int i: nums) {
+        for (int i : nums) {
             sum += i;
             if (i == 5) {
                 break;
@@ -29,7 +29,7 @@ public class forEach {
         }
         System.out.println("The value of sum of first 5 elements is " + sum);
 
-        for (int i =1; i<nums.length; i++) {
+        for (int i = 1; i < nums.length; i++) {
             nums[i] = i * 2;
         }
         for (int num : nums) {
@@ -43,13 +43,13 @@ public class forEach {
         sum = 0;
         int[][] num = new int[3][5];
         // giving some value to the 2-D array
-        for (int i =0; i<3; i++) {
-            for (int j =0; j<5; j++) {
-                num[i][j] = (i+1) * (j+1);
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 5; j++) {
+                num[i][j] = (i + 1) * (j + 1);
             }
         }
         // reading values of the 2-D array
-        for (int[] x :num) {
+        for (int[] x : num) {
             for (int y : x) {
                 System.out.print(y + " ");
                 sum += y;
@@ -57,5 +57,23 @@ public class forEach {
             System.out.println();
         }
         System.out.println("Sum of array elements is " + sum);
+
+        // Applying enhanced for ibn searching items in unsorted array
+
+        int[] number = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        int val = 5;
+        boolean found = false;
+
+        for (int x : number) {
+            if (x == val) {
+                found = true;
+                break;
+            }
+        }
+        if (found) {
+            System.out.println("Value found ");
+        } else {
+            System.out.println("Value is not in array");
+        }
     }
 }
