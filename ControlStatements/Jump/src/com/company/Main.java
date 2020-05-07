@@ -68,5 +68,26 @@ public class Main {
             System.out.println();
         }
 
+        System.out.println();
+        // Use continue to skip the remaining iteration of loop or remaining execution of code.
+
+        for (int i=0; i<10; i++) {
+            for (int j=0; j<10; j++) {
+                if (j>i) {
+                    continue;
+                }
+                System.out.print(" " + (i*j));
+            }
+            System.out.println();
+        }
+
+        // one more example of using continue
+        for (int i=0; i<10; i++) {
+            System.out.print(i + " ");
+            if (i%2 == 0) {
+                continue;
+            }
+            System.out.println();
+        }
     }
 }
