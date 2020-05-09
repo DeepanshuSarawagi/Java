@@ -21,6 +21,10 @@ public class Box {
         depth = d;
     }
 
+    Box(double len) {
+        width = height = depth = len;
+    }
+
     double volume() {
         return width*height*depth;
     }
@@ -31,6 +35,7 @@ class BoxDemo6{
     public static void main(String[] args) {
         Box box1 = new Box();
         Box box2 = new Box();
+        Box myCube = new Box(12.5);
 
         // Creating new object/instance of class Box using its overloaded Contructor (Constructor with parameter)
 
@@ -39,6 +44,7 @@ class BoxDemo6{
         System.out.println("Volume of box1 is: " + box1.volume());
         System.out.println("Volume of box2 is: " + box2.volume());
         System.out.println("Volume of box3 is: " + box3.volume());
+        System.out.println("Volume of cube is: " + myCube.volume());
     }
 }
 
