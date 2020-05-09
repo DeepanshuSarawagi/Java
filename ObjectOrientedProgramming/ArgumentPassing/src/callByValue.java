@@ -19,7 +19,7 @@ class Test{
     // Therefore changes made to the parameter of the sub-routine has no effect on the argument passed.
 
     // when you pass a primitive type to a method, it is passed as value. Thus a value of the argument is made and what
-    // occurs to the paramter that receives the arguments has no effect outside the method. For example, consider the
+    // occurs to the parameter that receives the arguments has no effect outside the method. For example, consider the
     // following program
 
     void meth(int i, int j) {
