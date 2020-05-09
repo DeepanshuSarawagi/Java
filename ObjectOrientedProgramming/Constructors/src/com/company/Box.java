@@ -14,6 +14,13 @@ public class Box {
         this.depth = 10;
     }
 
+    // Overloading a constructor
+    Box(double w, double h, double d) {
+        width = w;
+        height = h;
+        depth = d;
+    }
+
     double volume() {
         return width*height*depth;
     }
@@ -25,7 +32,12 @@ class BoxDemo6{
         Box box1 = new Box();
         Box box2 = new Box();
 
+        // Creating new object/instance of class Box using its overloaded Contructor (Constructor with parameter)
+
+        Box box3 = new Box(15, 23, 31);
+
         System.out.println("Volume of box1 is: " + box1.volume());
         System.out.println("Volume of box2 is: " + box2.volume());
+        System.out.println("Volume of box3 is: " + box3.volume());
     }
 }
