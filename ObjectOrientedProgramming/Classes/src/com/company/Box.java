@@ -9,6 +9,10 @@ public class Box {
     void volume() {
         System.out.println("Volume of the box is: " + (width*height*depth));
     }
+
+    double boxVolume() {
+       return width*height*depth;
+    }
 }
 
 class BoxDemo {
@@ -43,5 +47,28 @@ class BoxDemo {
 //        System.out.println("Volume of myBox2 is: " + volume);
         myBox2.volume();
 
+    }
+}
+
+class BoxDemo2 {
+    public static void main(String[] args) {
+
+        Box box1 = new Box();
+        Box box2 = new Box();
+        double vol;
+
+        box1.width = 23;
+        box1.height = 15;
+        box1.depth = 20;
+
+        box2.width = 18;
+        box2.height = 24;
+        box2.depth = 14;
+
+        vol = box1.boxVolume();
+        System.out.println("Volume of box1 is: " + vol);
+
+        vol = box2.boxVolume();
+        System.out.println("Volume of box2 is: " + vol);
     }
 }
