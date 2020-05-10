@@ -34,5 +34,24 @@ class InnerClassDemo{
     public static void main(String[] args) {
         Outer outer = new Outer();
         outer.test();
+
+        Outer2 outer2 = new Outer2();
+        outer2.test();
+    }
+}
+
+class Outer2{
+    private int outer_x = 100;
+
+    void test() {
+        for (int i=0; i<10; i++) {
+            class Inner {
+                void display() {
+                    System.out.println("display: outer_x " + outer_x);
+                }
+            }
+            Inner inner = new Inner();  // Creating inner class oject within for loop block of code
+            inner.display();
+        }
     }
 }
