@@ -9,6 +9,10 @@ public class Stack {
         tos = -1;
     }
 
+    public int getStackLength() {
+        return stack.length;
+    }
+
     // push an item in stack
 
     void push(int item) {
@@ -29,15 +33,18 @@ public class Stack {
         }
     }
 
+}
+
+class stackDemo{
     public static void main(String[] args) {
         Stack stack1 = new Stack(10);
 
-        for (int i=0; i<10; i++) {
+        for (int i=0; i<stack1.getStackLength(); i++) {
             stack1.push(i);
         }
 
         System.out.println("Items in my stack are: ");
-        for (int i=0; i<10; i++) {
+        for (int i=0; i<stack1.getStackLength(); i++) {
             System.out.println(stack1.pop());
         }
     }
