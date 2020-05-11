@@ -39,6 +39,20 @@ class BoxWeight extends Box {
         this.weight = weight;
     }
 
+    public BoxWeight() {
+        this.weight = -1;
+    }
+
+    public BoxWeight(BoxWeight box) {
+        super(box);
+        this.weight = box.weight;
+    }
+
+    public BoxWeight(double len, double weight) {
+        super(len);
+        this.weight = weight;
+    }
+
     public double getWeight() {
         return weight;
     }
@@ -52,11 +66,18 @@ class BoxWeightDemo {
         BoxWeight myBox2 = new BoxWeight(16.5, 9.5, 11.8, 20);
         vol = myBox1.volume();
         System.out.println("Volume of myBox1 is " + vol + " and weight of myBox1 is " + myBox1.getWeight() );
-        System.out.println();
         vol = myBox2.volume();
         System.out.println("Volume of myBox2 is " + vol + " and weight of myBox2 is " + myBox2.getWeight() );
 
-        Box myBox3 = new Box(myBox1);
-        System.out.println("Volume of myBox3 is " + myBox3.volume());
+        BoxWeight myBox3 = new BoxWeight(myBox1);
+        System.out.println("Volume of myBox3 is " + myBox3.volume() + " and weight of myBox3 is " + myBox3.getWeight());
+
+        BoxWeight myBox4 = new BoxWeight(10, 15.5);
+        vol = myBox4.volume();
+        System.out.println("Volume of myBox4 is " + vol + " and weight of myBox4 is " + myBox4.getWeight() );
+
+        BoxWeight myBox5 = new BoxWeight();
+        vol = myBox5.volume();
+        System.out.println("Volume of myBox5 is " + vol + " and weight of myBox4 is " + myBox5.getWeight() );
     }
 }
