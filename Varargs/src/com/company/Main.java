@@ -23,6 +23,10 @@ public class Main {
                                           // the no. of arguments in an array and then pass that array as argument in
                                           // the calling method
         VarArgs.vaTest();
+        System.out.println();
+        VarArgsOverloaded.vaTest(24, 245, 531);
+        VarArgsOverloaded.vaTest("VarArgsOverload", 1, 2, 5, 6,7 );
+        VarArgsOverloaded.vaTest(true, false, true);
     }
 }
 
@@ -46,6 +50,31 @@ class VarArgs{
         System.out.print("Number of args: " + v.length + " contents: ");
         for (int value: v) {
             System.out.print(value + " ");
+        }
+        System.out.println();
+    }
+}
+
+class VarArgsOverloaded{
+    // Overloading VarArgs method with different parameter types or with number of arguments and type of parameters
+    static void vaTest(int ... v ) {
+        System.out.print("Number of args in (int ... v): " + v.length + " contents: ");
+        for (int x : v) {
+            System.out.print(x + " ");
+        }
+        System.out.println();
+    }
+    static void vaTest(String msg, int ... v) {
+        System.out.print("Number of args in (String msg, int ..v): " + v.length + " contents: ");
+        for (int x: v) {
+            System.out.print(x + " ");
+        }
+        System.out.println();
+    }
+    static void vaTest(boolean ... b) {
+        System.out.print("Number of args in (boolean ... b): " + b.length + " contents: ");
+        for (boolean x: b) {
+            System.out.print(x + " ");
         }
         System.out.println();
     }
