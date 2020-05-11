@@ -4,6 +4,8 @@ public class MethodOverriding {
     public static void main(String[] args) {
         B objB = new B(2, 3,4);
         objB.show();
+        // You can Override methods when you implement inheritance in Java. When objB invokes the show() method, the
+        // show() is class B is called. We use the super.show() to call the show() in super class 'A'.
     }
 }
 class A {
@@ -28,7 +30,9 @@ class B extends A{
         this.c = c;
     }
 
+    @Override
     public void show() {
+        super.show();  //this calls the show() method from the super class
         System.out.println("c is: " + c);
     }
 }
