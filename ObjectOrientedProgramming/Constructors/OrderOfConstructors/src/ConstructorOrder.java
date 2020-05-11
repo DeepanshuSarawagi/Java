@@ -3,7 +3,7 @@ public class ConstructorOrder {
         C cObj = new C();
 
         // Once you execute this program, you will learn that constructor of super Class initializes first since super
-        // has no idea if it has a sub-class
+        // has no idea if it has a sub-class. Therefore it must execute its initialization first.
     }
 }
 
