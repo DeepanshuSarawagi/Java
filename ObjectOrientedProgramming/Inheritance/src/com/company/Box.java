@@ -59,6 +59,39 @@ class BoxWeight extends Box {
 
 }
 
+class ShipmentCost extends BoxWeight {
+    private double cost;
+
+    // Constructor when all parameters are defined
+    public ShipmentCost(double width, double height, double depth, double weight, double cost) {
+        super(width, height, depth, weight);
+        this.cost = cost;
+    }
+
+    // Constructor when Shipment Object is passed as an argument
+    public ShipmentCost(ShipmentCost shipmentCost) {
+        super(shipmentCost);
+        this.cost = shipmentCost.cost;
+    }
+
+    // Constructor when no arguments are passed
+    public ShipmentCost() {
+        this.cost = -1;
+    }
+
+    //Shipment when length of cube is passed
+    public ShipmentCost(double len, double weight, double cost) {
+        super(len, weight);
+        this.cost = cost;
+    }
+
+    // Use getters to display the cost of shipment
+
+    public double getCost() {
+        return cost;
+    }
+}
+
 class BoxWeightDemo {
     public static void main(String[] args) {
         double vol;
@@ -79,5 +112,29 @@ class BoxWeightDemo {
         BoxWeight myBox5 = new BoxWeight();
         vol = myBox5.volume();
         System.out.println("Volume of myBox5 is " + vol + " and weight of myBox4 is " + myBox5.getWeight() );
+
+        // Create shipmentCost objects
+
+        ShipmentCost shipmentCost1 = new ShipmentCost();
+        vol = shipmentCost1.volume();
+        System.out.println("Volume of shipment 1 is " + vol + " weight is " + shipmentCost1.getWeight() + " cost is" +
+                " $" + shipmentCost1.getCost());
+
+        ShipmentCost shipmentCost2 = new ShipmentCost(15.0, 12.5, 25.2, 18, 20.0);
+        vol = shipmentCost2.volume();
+
+        System.out.println("Volume of shipment 2 is " + vol + " weight is " + shipmentCost2.getWeight() + " cost is" +
+                " $" + shipmentCost2.getCost());
+
+        ShipmentCost shipmentCost3 = new ShipmentCost(15.5, 50, 60);
+        vol = shipmentCost3.volume();
+
+        System.out.println("Volume of shipment 3 is " + vol + " weight is " + shipmentCost3.getWeight() + " cost is" +
+                " $" + shipmentCost3.getCost());
+
+        ShipmentCost shipmentCost4 = new ShipmentCost(shipmentCost2);
+        vol = shipmentCost4.volume();
+        System.out.println("Volume of shipment 4 is " + vol + " weight is " + shipmentCost4.getWeight() + " cost is" +
+                " $" + shipmentCost4.getCost());
     }
 }
