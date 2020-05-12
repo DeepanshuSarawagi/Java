@@ -12,5 +12,6 @@ public class Main {
 
         ((Client) c).tryAccessingMe();
         // To access other methods/members of class Client, we need to cast a qualifier to do so.
+
     }
 }

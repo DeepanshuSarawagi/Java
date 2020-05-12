@@ -6,7 +6,7 @@ public abstract class Incomplete implements Callback{
     // call itself an abstract class.
 
     int a, b;
-    void show() {
+    public void show() {
         System.out.println(a + " " + b);
     }
 }
