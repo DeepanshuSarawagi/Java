@@ -16,5 +16,15 @@ public class Main {
         for (int i=0; i<10; i++) {
             System.out.println(fixedStack1.pop());
         }
+
+        System.out.println("Dynamic stack..");
+        DynamicStack dynamicStack = new DynamicStack(5);
+        for (int i=0; i<10; i++) {
+            dynamicStack.push(i);
+        }
+
+        for (int i=0; i<10; i++) {
+            System.out.println(dynamicStack.pop());
+        }
     }
 }
