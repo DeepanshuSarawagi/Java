@@ -18,8 +18,13 @@ public class Main {
         dog.breath();
         System.out.println();
 
-        Bird bird = new Bird("WoodPecker");
-        bird.eat();
-        bird.breath();
+        Parrot parrot = new Parrot("Indian Parrot");
+        parrot.eat();
+        parrot.breath();
+        parrot.fly();
+
+        System.out.println();
+        Penguin penguin = new Penguin("Emperor");
+        penguin.fly();
     }
 }

@@ -30,8 +30,7 @@ class Dog extends Animal{
         System.out.println(getName() + " is breathing.");
     }
 }
-
-class Bird extends Animal{
+abstract class Bird extends Animal{
     public Bird(String name) {
         super(name);
     }
@@ -44,5 +43,29 @@ class Bird extends Animal{
     @Override
     public void breath() {
         System.out.println(getName() + " Breathe in, breathe out, repeat..");
+    }
+
+    public abstract void fly();
+}
+
+class Parrot extends Bird{
+    public Parrot(String name) {
+        super(name);
+    }
+
+    @Override
+    public void fly() {
+        System.out.println("Flitting from branch to branch");
+    }
+}
+
+class Penguin extends Bird{
+    public Penguin(String name) {
+        super(name);
+    }
+
+    @Override
+    public void fly() {
+        System.out.println("I'm not very good at that. Can I go for a swim instead?");
     }
 }
