@@ -21,7 +21,7 @@ public class MyLinkedList implements NodeList{
         }
         ListItem currentItem = this.root;  // Pointing the current item in the list to the first item
         while (currentItem != null) {
-            int comparison = currentItem.compareTo(newItem);
+            int comparison = (currentItem.compareTo(newItem));
             if (comparison < 0) {
                 // newItem is greater, move right if possible
                 if (currentItem.next() != null) {
@@ -67,7 +67,7 @@ public class MyLinkedList implements NodeList{
         } else {
             while (this.root != null) {
                 System.out.println(this.root.getValue());
-                root = root.next();
+                this.root = this.root.next();
             }
         }
     }
