@@ -16,5 +16,10 @@ public class Main {
         Dog dog = new Dog("Yorkie");
         dog.eat();
         dog.breath();
+        System.out.println();
+
+        Bird bird = new Bird("WoodPecker");
+        bird.eat();
+        bird.breath();
     }
 }
