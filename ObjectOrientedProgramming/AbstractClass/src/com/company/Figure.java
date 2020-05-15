@@ -7,7 +7,7 @@ public abstract class Figure {
     Neither can you instantiate an abstract class.
     Also you cannot declare abstract constructors or abstract static methods.
     Any subclass of an abstract superclass must override all the abstract methods defined in the superclass by providing
-    meaningful implementation or be declared as an abstrsact itself.
+    meaningful implementation or be declared as an abstract itself.
      */
     double dim1;
     double dim2;

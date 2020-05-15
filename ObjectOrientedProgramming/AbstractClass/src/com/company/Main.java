@@ -11,5 +11,10 @@ public class Main {
         Triangle triangle = new Triangle(15.25, 22.36);
         figure = triangle;
         System.out.println("Area of triangle is " + figure.area());
+        System.out.println();
+
+        Dog dog = new Dog("Yorkie");
+        dog.eat();
+        dog.breath();
     }
 }
