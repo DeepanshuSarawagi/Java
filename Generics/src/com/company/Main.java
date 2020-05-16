@@ -11,6 +11,21 @@ public class Main {
                                // going to store in ArrayList. Hence, warning is asking us to generify.
         }
         printDoubled(myInteger);
+
+        // Generics part 2
+        System.out.println();
+        FootballPlayer joe = new FootballPlayer("Joe");
+        BaseballPlayer pat = new BaseballPlayer("Pat");
+        SoccerPlayer beckham = new SoccerPlayer("Beckham");
+
+        // Create a team and add player to it
+        Team adelaideCrows = new Team("Adelaide Crows");
+        adelaideCrows.addPlayer(joe);
+        adelaideCrows.addPlayer(pat);
+        adelaideCrows.addPlayer(beckham);
+
+        System.out.println(adelaideCrows.numPlayers());
+
     }
 
     private static void printDoubled(ArrayList n){
