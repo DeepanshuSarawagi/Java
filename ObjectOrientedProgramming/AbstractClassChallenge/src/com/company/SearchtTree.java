@@ -23,7 +23,7 @@ public class SearchtTree implements NodeList{
         while (currentItem != null) {
             int comparison = currentItem.compareTo(newItem);
             if (comparison < 0) {
-                // move right if possible
+                // newItem is greater, move right if possible
                 if (currentItem.next() != null) {
                     currentItem = currentItem.next();
                 } else {
