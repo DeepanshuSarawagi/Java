@@ -20,6 +20,19 @@ public class Main {
 
         // get value of strObj
         System.out.println("Value of strObj is " + strObj.getOb());
-        
+
+
+        // Create object of NonGeneric type
+
+        NonGen nonGen = new NonGen(45);
+        nonGen.showType();
+        int v = (Integer) nonGen.getOb();  // remember that while getting the value, we need to explicitly cast it.
+        System.out.println("Value of object nonGen is " + v);
+
+        System.out.println();
+        nonGen = new NonGen("Non-Generic Object");
+        String s = (String) nonGen.getOb();
+        System.out.println("Value of object is " + s);
+        nonGen.showType();
     }
 }
