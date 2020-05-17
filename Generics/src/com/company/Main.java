@@ -35,7 +35,8 @@ public class Main {
 //        brokenTeam.addPlayer("beckham");
           // Line 34 and 35 will not throw any compile time error but it will throw runtime error since Java cannot cast
           // an object of type String to type Player.
-
+        Team<SoccerPlayer> SoccerTeam = new Team<>("Manchester United");
+        SoccerTeam.addPlayer(beckham);
     }
 
     private static void printDoubled(ArrayList n){
