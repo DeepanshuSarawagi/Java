@@ -1,6 +1,7 @@
 package com.company;
 
-//public class Stats<T> {
+//public class Stats<T> {  // Notice that we are extending T with superclass Number by creating a bound of upper limit
+                          // to ensure that we are passing objects of type Number alone.
 public class Stats<T extends Number> {
     T[] nums;
 
