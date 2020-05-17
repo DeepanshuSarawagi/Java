@@ -32,7 +32,7 @@ class SoccerPlayer extends Player{
     }
 }
 
-class Team<T>{
+class Team<T extends Player>{
     private String name;
     int played = 0;
     int won = 0;
@@ -51,11 +51,11 @@ class Team<T>{
 
     public boolean addPlayer(T player) {
         if (members.contains(player)) {
-            System.out.println(((Player) player).getName() + " is already on this team");
+            System.out.println(player.getName() + " is already on this team");
             return false;
         } else {
             members.add(player);
-            System.out.println(((Player) player).getName() + " is picked for team " + getName());
+            System.out.println(player.getName() + " is picked for team " + getName());
             return true;
         }
     }
@@ -64,7 +64,7 @@ class Team<T>{
         return this.members.size();
     }
 
-    public void matchResult(Team opponent, int ourScore, int theirScore) {
+    public void matchResult(Team<T> opponent, int ourScore, int theirScore) {
         if (ourScore > theirScore) {
             this.won++;
         } else if (ourScore == theirScore) {
