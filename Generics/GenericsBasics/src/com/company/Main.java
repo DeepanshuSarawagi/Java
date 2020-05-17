@@ -34,5 +34,13 @@ public class Main {
         String s = (String) nonGen.getOb();
         System.out.println("Value of object is " + s);
         nonGen.showType();
+
+        // Create Generics Object with two type parameters
+        System.out.println();
+        TwoGen<Integer, String> twoGen = new TwoGen<>(23, "Generics");
+
+        System.out.println("Value of argument 1 is " + twoGen.getObj1());
+        System.out.println("Value of argument 2 is " + twoGen.getObj2());
+        twoGen.showType();
     }
 }
