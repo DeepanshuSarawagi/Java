@@ -48,6 +48,9 @@ public class Main {
         manchesterUnited.matchResult(adelaideCrows, 0, 1);
         System.out.println("Rank of Manchester United is " + manchesterUnited.ranking());
         System.out.println("Rank of Adelaide Crows is " + adelaideCrows.ranking());
+
+        System.out.println(manchesterUnited.compareTo(adelaideCrows));
+        System.out.println(adelaideCrows.compareTo(manchesterUnited));
     }
 
     private static void printDoubled(ArrayList n){
