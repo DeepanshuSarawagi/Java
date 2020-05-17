@@ -19,12 +19,22 @@ public class Main {
         SoccerPlayer beckham = new SoccerPlayer("Beckham");
 
         // Create a team and add player to it
-        Team adelaideCrows = new Team("Adelaide Crows");
+        Team<FootballPlayer> adelaideCrows = new Team<>("Adelaide Crows");
         adelaideCrows.addPlayer(joe);
-        adelaideCrows.addPlayer(pat);
-        adelaideCrows.addPlayer(beckham);
+//        adelaideCrows.addPlayer(pat);      // This wont comile since parameter of type FootballPlayer is specified
+//        adelaideCrows.addPlayer(beckham);  // This wont compile since we have specified the Type Parameter to be of
+//                                              type FootballPlayer
 
         System.out.println(adelaideCrows.numPlayers());
+
+        // To overcome the errors in the commented line we can do this
+        Team<BaseballPlayer> baseballTeam = new Team<>("Chicago Bulls");
+        baseballTeam.addPlayer(pat);
+
+//        Team<String> brokenTeam = new Team<>("this wont work");
+//        brokenTeam.addPlayer("beckham");
+          // Line 34 and 35 will not throw any compile time error but it will throw runtime error since Java cannot cast
+          // an object of type String to type Player.
 
     }
 
