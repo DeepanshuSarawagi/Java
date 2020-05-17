@@ -37,6 +37,17 @@ public class Main {
           // an object of type String to type Player.
         Team<SoccerPlayer> SoccerTeam = new Team<>("Manchester United");
         SoccerTeam.addPlayer(beckham);
+
+        Team<FootballPlayer> manchesterUnited = new Team<>("Manchester United");
+        FootballPlayer rooney = new FootballPlayer("Rooney");
+        manchesterUnited.addPlayer(rooney);
+        System.out.println();
+        manchesterUnited.matchResult(adelaideCrows, 3, 1);
+        manchesterUnited.matchResult(adelaideCrows, 5, 2);
+        manchesterUnited.matchResult(adelaideCrows, 1, 1);
+        manchesterUnited.matchResult(adelaideCrows, 0, 1);
+        System.out.println("Rank of Manchester United is " + manchesterUnited.ranking());
+        System.out.println("Rank of Adelaide Crows is " + adelaideCrows.ranking());
     }
 
     private static void printDoubled(ArrayList n){

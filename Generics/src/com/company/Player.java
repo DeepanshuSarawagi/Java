@@ -65,16 +65,23 @@ class Team<T extends Player>{
     }
 
     public void matchResult(Team<T> opponent, int ourScore, int theirScore) {
+        String message;
         if (ourScore > theirScore) {
             this.won++;
+            message = " beat ";
         } else if (ourScore == theirScore) {
             this.tied++;
+            message = " drew with ";
         } else {
             this.lost++;  // saving the ourTeam`s score
+            message = " lost to ";
         }
 
         if (opponent != null) {
+            System.out.println(this.getName() + message + opponent.getName());
             opponent.matchResult(null, theirScore, ourScore);  // saving the opponent team score
+            System.out.println(this.getName() + " has won " + this.won + " matches." + opponent.getName() + " has " +
+                    " won " + opponent.won + " matches.");
         }
     }
 
