@@ -20,5 +20,6 @@ public class Main {
 
         // get value of strObj
         System.out.println("Value of strObj is " + strObj.getOb());
+        
     }
 }
