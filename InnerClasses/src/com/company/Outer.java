@@ -14,13 +14,13 @@ public class Outer {
     void test() {
         Inner inner = new Inner();
         inner.display();
-        System.out.println("inner_x is " + inner.getInner_x());
+        System.out.println("inner_x is " + inner.inner_x);
     }
 
     // This is an inner class
     class Inner{
-        int inner_x = outer_x / 2;
-        void display() {
+        private int inner_x = outer_x / 2;
+        private void display() {
             System.out.println("outer_x is " + outer_x);
         }
 
