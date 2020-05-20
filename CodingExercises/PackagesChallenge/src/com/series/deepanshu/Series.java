@@ -1,7 +1,7 @@
 package com.series.deepanshu;
 
 public class Series {
-    protected static void nSum(int n) {
+    public static void nSum(int n) {
         int sum = 0;
         for (int i = 0; i <= n; i++) {
             sum += i;
@@ -9,7 +9,7 @@ public class Series {
         }
     }
 
-    protected static void factorial(int n) {
+    public static void factorial(int n) {
         long factN = 1;
         long factNMinus1;
         System.out.println("First " + n + " factorials are: ");
@@ -27,7 +27,7 @@ public class Series {
         }
     }
 
-    protected static void fibonacci(int n) {
+    public static void fibonacci(int n) {
         long fibN = 0;
         long fibNMinus1 = 1;
         long fibNMinus2 = 0;
