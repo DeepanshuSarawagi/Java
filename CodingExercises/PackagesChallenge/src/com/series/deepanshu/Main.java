@@ -5,5 +5,6 @@ public class Main {
         Series.nSum(10);
         System.out.println();
         Series.factorial(15);
+        Series.fibonacci(10);
     }
 }
