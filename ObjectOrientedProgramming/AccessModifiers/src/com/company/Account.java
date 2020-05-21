@@ -35,4 +35,12 @@ public class Account {
             System.out.println("Cannot withdraw negative amount.");
         }
     }
+
+    public void calculateBalance() {
+        this.balance = 0;
+        for (int i: transactions) {
+            this.balance += i;
+        }
+        System.out.println("Calculated balance is " + this.balance);
+    }
 }
