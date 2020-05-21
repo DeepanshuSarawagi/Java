@@ -6,7 +6,7 @@ public class StaticTest {
 
     public StaticTest(String name) {
         this.name = name;
-        this.numInstances++;
+        numInstances++;
     }
 
     public static int getNumInstances() {
