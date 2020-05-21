@@ -15,9 +15,14 @@ public class Account {
     public int getBalance() {
         return this.balance;
     }
+
+    public String getAccountName() {
+        return AccountName;
+    }
+
     public void deposit(int amount) {
         if (amount > 0) {
-            transactions.add(amount);
+            this.transactions.add(amount);
             this.balance += amount;
             System.out.println(amount + " deposited. Balance is now " + this.balance);
         } else {
@@ -42,5 +47,14 @@ public class Account {
             this.balance += i;
         }
         System.out.println("Calculated balance is " + this.balance);
+    }
+    public void showTransactions() {
+        for (int i: transactions) {
+            if (i > 0) {
+                System.out.println(i + " deposited.");
+            } else {
+                System.out.println(i + " withdrawn.");
+            }
+        }
     }
 }
