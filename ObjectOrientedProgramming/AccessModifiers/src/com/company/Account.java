@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Account {
     private String AccountName;
     private int balance = 0;
-    public ArrayList<Integer> transactions;
+    private ArrayList<Integer> transactions;
 
     public Account(String accountName) {
         AccountName = accountName;
@@ -43,13 +43,13 @@ public class Account {
 
     public void calculateBalance() {
         this.balance = 0;
-        for (int i: transactions) {
+        for (int i: this.transactions) {
             this.balance += i;
         }
         System.out.println("Calculated balance is " + this.balance);
     }
     public void showTransactions() {
-        for (int i: transactions) {
+        for (int i: this.transactions) {
             if (i > 0) {
                 System.out.println(i + " deposited.");
             } else {
