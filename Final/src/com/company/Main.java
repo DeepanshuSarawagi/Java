@@ -13,5 +13,13 @@ public class Main {
 
 //        one.InstanceNumber = 4;  // This will throw an error because its a final variable and we cannot change the
 //                                    value
+        int pw = 51024;
+        Password password = new Password(pw);
+        password.savePassword();
+        password.letMeIn(1);
+        password.letMeIn(2323);
+        password.letMeIn(125341);
+        password.letMeIn(-24234);
+        password.letMeIn(51024);
     }
 }
