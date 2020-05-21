@@ -1,7 +1,7 @@
 package com.deepanshu._static;
 
 public class StaticTest {
-    private int numInstances = 0;
+    private static int numInstances = 0;
     private String name;
 
     public StaticTest(String name) {
