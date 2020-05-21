@@ -9,7 +9,7 @@ public class StaticTest {
         this.numInstances++;
     }
 
-    public int getNumInstances() {
+    public static int getNumInstances() {
         return numInstances;
     }
 
