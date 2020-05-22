@@ -21,5 +21,16 @@ public class Main {
         password.letMeIn(125341);
         password.letMeIn(-24234);
         password.letMeIn(51024);
+        System.out.println();
+
+        ExtendedPassword extendedPassword = new ExtendedPassword(61432);
+        extendedPassword.savePassword();
+        extendedPassword.letMeIn(14533);
+        extendedPassword.letMeIn(67362);
+        extendedPassword.letMeIn(905141);
+        extendedPassword.letMeIn(31346);
+        extendedPassword.letMeIn(61432);
+
+
     }
 }
