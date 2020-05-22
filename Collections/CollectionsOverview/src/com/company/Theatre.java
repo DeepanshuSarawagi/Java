@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Theatre {
     private final String theatreName;
-    private List<Seat> seats = new ArrayList<Seat>();
+    private List<Seat> seats = new ArrayList<>();
 
     public Theatre(String theatreName, int numRows, int seatsPerRow) {
         this.theatreName = theatreName;
@@ -55,6 +55,28 @@ public class Theatre {
             this.seatNumber = seatNumber;
         }
 
+        public boolean reserve() {
+            if (!this.reserved) {
+                this.reserved = true;
+                System.out.println("Seat " + this.seatNumber + " reserved.");
+                return true;
+            } else {
+                return false;
+            }
+        }
 
+        public boolean cancel() {
+            if (this.reserved) {
+                this.reserved = false;
+                System.out.println("Reservation of " + this.seatNumber + " cancelled.");
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        public String getSeatNumber() {
+            return this.seatNumber;
+        }
     }
 }
