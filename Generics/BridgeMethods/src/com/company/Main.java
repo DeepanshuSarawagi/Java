@@ -3,6 +3,7 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+	    Gen2 strObj = new Gen2("Generic test");
+        System.out.println(strObj.getOb());
     }
 }
