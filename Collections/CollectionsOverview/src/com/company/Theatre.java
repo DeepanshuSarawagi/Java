@@ -1,13 +1,10 @@
 package com.company;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 public class Theatre {
     private final String theatreName;
-    private Collection<Seat> seats = new HashSet<>();
+    private Collection<Seat> seats = new LinkedHashSet<>();
 
     public Theatre(String theatreName, int numRows, int seatsPerRow) {
         this.theatreName = theatreName;
