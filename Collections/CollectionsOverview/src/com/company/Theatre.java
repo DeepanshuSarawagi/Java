@@ -29,19 +29,19 @@ public class Theatre {
         int high = seats.size()-1;
 
         while (low <= high) {
-//            System.out.print(".");
+            System.out.print(".");
             int mid = (low + high) / 2;
-            System.out.println("mid is now " + mid);  // TODO remove this line after testing
+//            System.out.println("mid is now " + mid);  // TODO remove this line after testing
             Seat midVal = seats.get(mid);
-            System.out.println("midVal is " + midVal.getSeatNumber());  // TODO remove this line after testing
+//            System.out.println("midVal is " + midVal.getSeatNumber());  // TODO remove this line after testing
             int cmp = midVal.getSeatNumber().compareTo(seatNumber);
-            System.out.println("cmp is now " + cmp);  // TODO remove this line after testing
+//            System.out.println("cmp is now " + cmp);  // TODO remove this line after testing
             if (cmp < 0) {
                 low = mid + 1;
-                System.out.println("low is now " + low);  // TODO remove this line after testing
+//                System.out.println("low is now " + low);  // TODO remove this line after testing
             } else if (cmp > 0) {
                 high = mid - 1;
-                System.out.println("high is now " + high);  // TODO remove this line after testing
+//                System.out.println("high is now " + high);  // TODO remove this line after testing
             } else {
                 return seats.get(mid).reserve();
             }
