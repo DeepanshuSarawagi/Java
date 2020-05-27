@@ -52,6 +52,12 @@ public class Main {
         Collections.shuffle(seatCopy);
         System.out.println("Printing seatCopy shuffled");
         printList(seatCopy);
+
+        // Print the min and max seat
+        Theatre.Seat minSeat = Collections.min(seatCopy);
+        Theatre.Seat maxSeat = Collections.max(seatCopy);
+        System.out.println("Min seat is " + minSeat.getSeatNumber());
+        System.out.println("Max seat is " + maxSeat.getSeatNumber());
     }
 
     public static void printList(List<Theatre.Seat> list) {
