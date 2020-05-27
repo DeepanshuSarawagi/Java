@@ -49,6 +49,9 @@ public class Main {
         printList(seatCopy);
         System.out.println("Printing theatre.seats");
         printList(theatre.seats);
+        Collections.shuffle(seatCopy);
+        System.out.println("Printing seatCopy shuffled");
+        printList(seatCopy);
     }
 
     public static void printList(List<Theatre.Seat> list) {
