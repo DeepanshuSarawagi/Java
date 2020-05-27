@@ -23,6 +23,23 @@ public class Main {
         // Create a new list and copy the theatre seats in the ArrayList
         List<Theatre.Seat> seatCopy = new ArrayList<>(theatre.seats);
         printList(seatCopy);
+
+        // Here we have made the shallow copy of Seat objects in the new ArrayList. although, its just a copy but these
+        // are just two references to same objects. If we try to reserve the seat using the seatCopy object reference
+        // and again reserve the same seat using theatre object, it will fail. So, although we have two lists of Seat
+        // objects, these are just two different references to the same object. See below example for further
+        // understanding.
+
+        seatCopy.get(1).reserve();
+        if (theatre.reserveSeat("A02")) {
+            System.out.println("Please pay for the seat.");
+        } else {
+            System.out.println("Sorry! This seat is already reserved.");
+        }
+
+        // As you can see we have reserved seat A02 seat using seatCopy object reference, and we are trying to reserve
+        // the same seat again by calling the reserveSeat() method on theatre object. When you run this code, the code
+        // execution will move to the else block and say that this seat is already reserved.
     }
 
     public static void printList(List<Theatre.Seat> list) {
