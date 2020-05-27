@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Main {
@@ -40,6 +41,14 @@ public class Main {
         // As you can see we have reserved seat A02 seat using seatCopy object reference, and we are trying to reserve
         // the same seat again by calling the reserveSeat() method on theatre object. When you run this code, the code
         // execution will move to the else block and say that this seat is already reserved.
+
+        // To confirm that these are two separate lists of same object references, we can print the items of the list
+
+        Collections.reverse(seatCopy);
+        System.out.println("Printing seatCopy");
+        printList(seatCopy);
+        System.out.println("Printing theatre.seats");
+        printList(theatre.seats);
     }
 
     public static void printList(List<Theatre.Seat> list) {
