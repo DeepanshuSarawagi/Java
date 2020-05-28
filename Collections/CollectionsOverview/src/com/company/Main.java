@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class Main {
 //        }
 
         // Create a new list and copy the theatre seats in the ArrayList
-        List<Theatre.Seat> seatCopy = new ArrayList<>(theatre.seats);
+        List<Theatre.Seat> seatCopy = new ArrayList<>(theatre.getSeats());
         printList(seatCopy);
 
         // Here we have made the shallow copy of Seat objects in the new ArrayList. although, its just a copy but these
@@ -48,7 +49,7 @@ public class Main {
         System.out.println("Printing seatCopy");
         printList(seatCopy);
         System.out.println("Printing theatre.seats");
-        printList(theatre.seats);
+        printList(theatre.getSeats());
         Collections.shuffle(seatCopy);
         System.out.println("Printing seatCopy shuffled");
         printList(seatCopy);
@@ -62,11 +63,17 @@ public class Main {
         // Sorting the list using bubble sort
         sortList(seatCopy);
         printList(seatCopy);
+
+        // Reverse sort items
+
+        List<Theatre.Seat> reverseSeat = new ArrayList<>(theatre.getSeats());
+        Collections.reverse(reverseSeat);
+        printList(reverseSeat);
     }
 
-    public static void printList(List<Theatre.Seat> list) {
+    public static void printList(Collection<Theatre.Seat> list) {
         for (Theatre.Seat seat : list) {
-            System.out.print(" " + seat.getSeatNumber());
+            System.out.print(" " + seat.getSeatNumber() + " " + seat.getPrice());
         }
         System.out.println();
         System.out.println("======================================");
