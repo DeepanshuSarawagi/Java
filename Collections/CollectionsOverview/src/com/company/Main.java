@@ -69,11 +69,16 @@ public class Main {
         List<Theatre.Seat> reverseSeat = new ArrayList<>(theatre.getSeats());
         Collections.reverse(reverseSeat);
         printList(reverseSeat);
+
+        // Sort the seats based on price
+        List<Theatre.Seat> priceSeats = new ArrayList<>(theatre.getSeats());
+        Collections.sort(priceSeats, Theatre.PRICE_ORDER);
+        printList(priceSeats);
     }
 
     public static void printList(Collection<Theatre.Seat> list) {
         for (Theatre.Seat seat : list) {
-            System.out.print(" " + seat.getSeatNumber() + " " + seat.getPrice());
+            System.out.print(" " + seat.getSeatNumber() + " $" + seat.getPrice());
         }
         System.out.println();
         System.out.println("======================================");
