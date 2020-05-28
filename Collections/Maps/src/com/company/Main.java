@@ -28,5 +28,14 @@ public class Main {
                                                                                 // there is already a key-value pair
                                                                                 // added in Map.
         System.out.println(languages.get("Java"));
+
+        /**
+         * Use the keySet() method to loop through the keys in the Map and we can print the
+         * values of those keys
+         **/
+
+        for (String key:languages.keySet()) {
+            System.out.println(key + ": " + languages.get(key));
+        }
     }
 }
