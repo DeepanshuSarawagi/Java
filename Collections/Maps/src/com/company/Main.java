@@ -41,12 +41,15 @@ public class Main {
         }
 
         System.out.println("==========================================");
-        languages.remove("Lisp");
+//        languages.remove("Lisp");
         if (languages.remove("Javascript", "A front-end language")) {
             System.out.println("Javascript removed from the Map");
         } else {
             System.out.println("Javascript not removed. Key/Value pair not found in the Map");
         }
+
+        System.out.println(languages.replace("Lisp", "A functional programming language with imperative features"));
+        System.out.println(languages.replace("Scala", "This will not be added"));
         for (String key:languages.keySet()) {
             System.out.println(key + ": " + languages.get(key));
         }
