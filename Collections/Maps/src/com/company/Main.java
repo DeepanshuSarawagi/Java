@@ -15,6 +15,8 @@ public class Main {
         languages.put("Python", "A interpreter high level, object-oriented language with dynamic semantics");
         languages.put("BASIC", "Beginners All purposes Symbolic Instruction Code");
         languages.put("Algol", "An algorithmic language");
+        languages.put("Lisp", "Therein goes madness");
+        languages.put("Javascript", "A powerful front end language");
 
 //        System.out.println(languages.get("Java"));
         if (languages.containsKey("Java")) {
@@ -34,6 +36,17 @@ public class Main {
          * values of those keys
          **/
 
+        for (String key:languages.keySet()) {
+            System.out.println(key + ": " + languages.get(key));
+        }
+
+        System.out.println("==========================================");
+        languages.remove("Lisp");
+        if (languages.remove("Javascript", "A front-end language")) {
+            System.out.println("Javascript removed from the Map");
+        } else {
+            System.out.println("Javascript not removed. Key/Value pair not found in the Map");
+        }
         for (String key:languages.keySet()) {
             System.out.println(key + ": " + languages.get(key));
         }
