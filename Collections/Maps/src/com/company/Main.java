@@ -17,12 +17,16 @@ public class Main {
         languages.put("Algol", "An algorithmic language");
 
 //        System.out.println(languages.get("Java"));
-//        languages.put("Java", "This course is about Java");
+        if (languages.containsKey("Java")) {
+            System.out.println("Java is already in the Map");
+        } else {
+            languages.put("Java", "This course is about Java");
+        }
 //        System.out.println(languages.get("Java"));  // This overwrites the value of key Java
 
-        System.out.println(languages.put("Java", "This course is about Java")); // The put method helps us to find if
+//        System.out.println(languages.put("Java", "This course is about Java")); // The put method helps us to find if
                                                                                 // there is already a key-value pair
                                                                                 // added in Map.
-
+        System.out.println(languages.get("Java"));
     }
 }
