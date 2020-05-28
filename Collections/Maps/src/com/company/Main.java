@@ -50,8 +50,19 @@ public class Main {
 
         System.out.println(languages.replace("Lisp", "A functional programming language with imperative features"));
         System.out.println(languages.replace("Scala", "This will not be added"));
+
+        /**
+         * We can provide three arguments to replace the key value pair in a Map. The syntax is
+         * MapObjectReference.replace(key, old value, new value);
+         */
+        if (languages.replace("Algol", "An algorithmic language", "A family of algorithmic lang")) {
+            System.out.println("Algol replaced");
+        } else {
+            System.out.println("Incorrect key/value pair.");
+        }
         for (String key:languages.keySet()) {
             System.out.println(key + ": " + languages.get(key));
         }
+
     }
 }
