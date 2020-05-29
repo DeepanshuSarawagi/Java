@@ -23,21 +23,18 @@ public class AdventureGame {
         locations.get(1).addExits("E", 3);
         locations.get(1).addExits("S", 4);
         locations.get(1).addExits("N", 5);
-        locations.get(1).addExits("Q", 0);
 
         locations.get(2).addExits("N", 5);
-        locations.get(2).addExits("Q", 0);
 
         locations.get(3).addExits("W", 1);
-        locations.get(3).addExits("Q", 0);
 
         locations.get(4).addExits("N", 1);
         locations.get(4).addExits("W", 2);
-        locations.get(4).addExits("Q", 0);
 
         locations.get(5).addExits("S", 1);
         locations.get(5).addExits("W", 2);
-        locations.get(5).addExits("Q", 0);
+
+        // Improvise the game by getting the input from user as a phrase and map those phrase with keys of exits
 
 
         int loc = 1;
