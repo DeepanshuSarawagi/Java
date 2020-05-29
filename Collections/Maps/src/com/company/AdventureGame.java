@@ -17,7 +17,40 @@ public class AdventureGame {
         locations.put(4, new Location(4, "You are in a valley beside a stream."));
         locations.put(5, new Location(5, "You are in the forest."));
 
+        // Add exits from each locations.
+
+        locations.get(1).addExits("W", 2);
+        locations.get(1).addExits("E", 3);
+        locations.get(1).addExits("S", 4);
+        locations.get(1).addExits("N", 5);
+        locations.get(1).addExits("Q", 0);
+
+        locations.get(2).addExits("N", 5);
+        locations.get(2).addExits("Q", 0);
+
+        locations.get(3).addExits("W", 1);
+        locations.get(3).addExits("Q", 0);
+
+        locations.get(4).addExits("N", 1);
+        locations.get(4).addExits("W", 2);
+        locations.get(4).addExits("Q", 0);
+
+        locations.get(5).addExits("S", 1);
+        locations.get(5).addExits("W", 2);
+        locations.get(5).addExits("Q", 0);
 
 
+        int loc = 1;
+        while (true) {
+            System.out.println(locations.get(loc).getDescription());
+            if (loc == 0) {
+                break;
+            }
+            System.out.println("Please enter a number of your choice: ");
+            loc = scanner.nextInt();
+            if (!locations.containsKey(loc)) {
+                System.out.println("You cannot go in that direction");
+            }
+        }
     }
 }
