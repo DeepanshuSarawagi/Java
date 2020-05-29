@@ -35,7 +35,12 @@ public class AdventureGame {
         locations.get(5).addExits("W", 2);
 
         // Improvise the game by getting the input from user as a phrase and map those phrase with keys of exits
-
+        Map<String, String> vocabulary = new HashMap<>();
+        vocabulary.put("QUIT", "Q");
+        vocabulary.put("NORTH", "N");
+        vocabulary.put("SOUTH", "S");
+        vocabulary.put("EAST", "E");
+        vocabulary.put("WEST", "W");
 
         int loc = 1;
         while (true) {
@@ -50,6 +55,14 @@ public class AdventureGame {
             }
             System.out.println();
             String direction = scanner.nextLine().toUpperCase();
+            if (direction.length() > 1) {
+                String[] words = direction.split(" ");
+                for (String word: words) {
+                    if (vocabulary.containsKey(word)) {
+                        direction = vocabulary.get(word);
+                    }
+                }
+            }
             if (exits.containsKey(direction)) {
                 loc = exits.get(direction);
             } else {
