@@ -29,4 +29,5 @@ public final class HeavenlyBody {
     public boolean addMoon(HeavenlyBody moon) {
         return this.satellites.add(moon);
     }
+
 }

@@ -84,5 +84,23 @@ public class Main {
         for (HeavenlyBody moon: Moons) {
             System.out.println(moon.getName());
         }
+
+        // Create a new HeavenlyBody object and that in planets set. Interestingly, we are going to create the object
+        // with name pluto but with different orbitalPeriod and add it in Sets. Now, we may be wondering how is Set
+        // going us to allow to add an object with duplicate name. We will get to that part below.
+
+        System.out.println("====================================");
+
+        HeavenlyBody pluto = new HeavenlyBody("Pluto", 842);
+        planets.add(pluto);
+
+        for (HeavenlyBody planet: planets) {
+            System.out.println(planet.getName() + ": " + planet.getOrbitalPeriod());
+        }
+
+        // When you run this program you will see that we were still able to add pluto with different orbitalPeriod
+        // that's because we have not overridden the equals and hashcode method. Oracle recommends overriding these
+        // methods when we implement the Set and HashSet interface in our classes.
+
     }
 }
