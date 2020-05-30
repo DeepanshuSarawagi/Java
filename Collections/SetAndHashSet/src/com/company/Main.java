@@ -71,5 +71,18 @@ public class Main {
                 System.out.println("\t\t" + moon.getName());
             }
         }
+
+        // To generate a Union Set of Moons of all the planets, we can use the addAll method
+        Set<HeavenlyBody> Moons = new HashSet<>();
+        for (HeavenlyBody planet:planets) {
+            Moons.addAll(planet.getSatellites());
+        }
+
+        System.out.println("====================================");
+
+        // Printing all the Moons
+        for (HeavenlyBody moon: Moons) {
+            System.out.println(moon.getName());
+        }
     }
 }
