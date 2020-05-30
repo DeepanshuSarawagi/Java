@@ -101,7 +101,7 @@ public class Main {
         // When you run this program you will see that we were still able to add pluto with different orbitalPeriod
         // that's because we have not overridden the equals and hashcode method. Oracle recommends overriding these
         // methods when we implement the Set and HashSet interface in our classes.
-        System.out.println(equals("Deep", "deep"));
+        System.out.println(equals("some string", "some String"));
     }
 
     public static boolean equals(String string1, String string2) {
@@ -109,13 +109,20 @@ public class Main {
             return false;
         } else {
             int n = string1.length();
-            int i = 0;
+            int i;
             char[] v1 = string1.toCharArray();
+            for (Character character : v1) {
+                System.out.print(character + " ");
+            }
+            System.out.println();
             char[] v2 = string2.toCharArray();
-            while (n-- != 0) {
+            for (Character character : v2) {
+                System.out.print(character + " ");
+            }
+            System.out.println();
+            for (i=0; i<=n-1;i++) {
                 if (v1[i] != v2[i])
                     return false;
-                i++;
             }
             return true;
         }
