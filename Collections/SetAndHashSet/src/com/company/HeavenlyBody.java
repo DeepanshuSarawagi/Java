@@ -40,7 +40,13 @@ public final class HeavenlyBody {
         if (obj == null || (obj.getClass() != this.getClass())) {
             return false;
         }
-        String stringObj = ((HeavenlyBody) obj).getName();  // get the name of the obj in string
+        String stringObj = ((HeavenlyBody) obj).getName();  // get the name of the obj in string. We have casted the obj
+                                                            // passed as parameter to HeavenlyBody and then get the name
+                                                            // of the object using getName() getter. We then compare the
+                                                            // strings using the equals method of String class. This
+                                                            // cast will not throw Java.Lang.NullPointerException since
+                                                            // we are already checking if obj is null and returning
+                                                            // false.
         return this.getName().equals(stringObj);
     }
 }
