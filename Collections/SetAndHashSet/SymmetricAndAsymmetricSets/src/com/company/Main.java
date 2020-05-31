@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -33,5 +34,35 @@ public class Main {
         for (Integer integer : intersection) {
             System.out.println(integer + " is square of " + Math.sqrt(integer) + " and cube of " + Math.cbrt(integer));
         }
+
+        Set<String> nature = new HashSet<>();
+        Set<String> divine = new HashSet<>();
+
+        String[] natureWords = {"all", "nature", "is", "but", "art", "unknown", "to", "thee"};
+        String[] divineWords = {"to", "err", "is", "human", "to", "forgive", "divine"};
+
+        nature.addAll(Arrays.asList(natureWords));
+        divine.addAll(Arrays.asList(divineWords));
+        System.out.println("nature - divine:");
+        Set<String> diff1 = new HashSet<>(nature);
+        diff1.removeAll(divine);
+        printSet(diff1);
+
+        System.out.println("divine - nature");
+        Set<String> diff2 = new HashSet<>(divine);
+        diff2.removeAll(nature);
+        printSet(diff2);
+
+        System.out.println("Intersection");
+        Set<String> diff3 = new HashSet<>(nature);
+        diff3.retainAll(divine);
+        printSet(diff3);
+    }
+    private static void printSet(Set<String> set) {
+        System.out.print("\t");
+        for (String s : set) {
+            System.out.print(s + " ");
+        }
+        System.out.println();
     }
 }
