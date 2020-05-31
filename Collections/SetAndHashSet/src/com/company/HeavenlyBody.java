@@ -49,4 +49,15 @@ public final class HeavenlyBody {
                                                             // false.
         return this.getName().equals(stringObj);
     }
+
+    // just overriding the equals method is not enough. When we execute the main method, duplicate objects are still
+    // added in the sets. That`s because we are not checking the hash code the object.
+    // we will now be overriding the hash code method as well.
+
+
+    @Override
+    public int hashCode() {
+        System.out.println("Hashcode is " + this.name.hashCode());
+        return this.name.hashCode();
+    }
 }

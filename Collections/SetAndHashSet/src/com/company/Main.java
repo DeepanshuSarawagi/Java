@@ -101,6 +101,7 @@ public class Main {
         // When you run this program you will see that we were still able to add pluto with different orbitalPeriod
         // that's because we have not overridden the equals and hashcode method. Oracle recommends overriding these
         // methods when we implement the Set and HashSet interface in our classes.
+
         System.out.println(equalsStrings("some string", "some String"));
     }
 
