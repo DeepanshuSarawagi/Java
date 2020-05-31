@@ -1,5 +1,8 @@
 package com.company;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Dog {
     private final String name;
 
@@ -22,6 +25,11 @@ public class Dog {
             return this.getName().equals(objName);
         }
         return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return this.getName().hashCode();
     }
 }
 
@@ -70,5 +78,17 @@ class DogMain {
         // Now once the equals() method is overridden, we will see that below code returns true.
 
         System.out.println(rover1.equals(rover));
+
+        // We have also overridden the hashcode() method and due to this, it only adds unique objects and in Dogs Set,
+        // just one rover is added. Since we are comparing it by name. If we compare it by class then, both the rovers
+        // would be added.
+        Set<Dog> Dogs = new HashSet<>();
+        Dogs.add(rover);
+        Dogs.add(rover1);
+
+        for (Dog dog : Dogs) {
+            System.out.println(dog.getName());
+        }
+
     }
 }
