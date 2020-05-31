@@ -1,9 +1,7 @@
 package com.company;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.lang.reflect.Array;
+import java.util.*;
 
 public class Main {
     private static Map<String, HeavenlyBody> solarSystem = new HashMap<>();
@@ -103,6 +101,15 @@ public class Main {
         // methods when we implement the Set and HashSet interface in our classes.
 
         System.out.println(equalsStrings("some string", "some String"));
+        System.out.println("============================");
+        String sentence = "one day in the year of the fox";
+        String[] arrayWords = sentence.split(" ");
+        Set<String> words = new HashSet<>();
+
+        words.addAll(Arrays.asList(arrayWords));
+        for (String s : words) {
+            System.out.println(s);
+        }
     }
 
     public static boolean equalsStrings(String string1, String string2) {
