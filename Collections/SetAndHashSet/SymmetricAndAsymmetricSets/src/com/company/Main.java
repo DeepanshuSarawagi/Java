@@ -66,7 +66,20 @@ public class Main {
         System.out.println("Symmetric difference");
         unionTest.removeAll(intersectionTest);
         printSet(unionTest);
+
+        if (nature.containsAll(divine)) {
+            System.out.println("divine is subset of nature");
+        }
+
+        if (nature.containsAll(intersectionTest)) {
+            System.out.println("intersectionTest is subset of nature");
+        }
+
+        if (divine.containsAll(intersectionTest)) {
+            System.out.println("intersectionTest is subset of divine");
+        }
     }
+
     private static void printSet(Set<String> set) {
         System.out.print("\t");
         for (String s : set) {
