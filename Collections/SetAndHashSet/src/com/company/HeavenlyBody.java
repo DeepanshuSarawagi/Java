@@ -85,6 +85,6 @@ public class HeavenlyBody {
 
     @Override
     public String toString() {
-        return this.name + ":" + this.bodyType + ", " + this.orbitalPeriod;
+        return this.name + ": " + this.bodyType + ", " + this.orbitalPeriod;
     }
 }

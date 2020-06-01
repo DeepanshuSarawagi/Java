@@ -88,11 +88,12 @@ public class Main {
 
         System.out.println("====================================");
 
-//        HeavenlyBody pluto = new HeavenlyBody("Pluto", 842);
-//        planets.add(pluto);
+        HeavenlyBody pluto = new Planet("Pluto", 842);
+        planets.add(pluto);
 
         for (HeavenlyBody planet: planets) {
-            System.out.println(planet.getName() + ": " + planet.getOrbitalPeriod());
+            System.out.println(planet);  // This will automatically invoke our toString method which we have overridden
+//            System.out.println(planet.getName() + ": " + planet.getOrbitalPeriod());
         }
 
         // When you run this program you will see that we were still able to add pluto with different orbitalPeriod
