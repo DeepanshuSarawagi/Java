@@ -7,22 +7,22 @@ public class Main {
     private static Set<HeavenlyBody> planets = new HashSet<>();
 
     public static void main(String[] args) {
-        HeavenlyBody temp = new HeavenlyBody("Mercury", 88);
+        HeavenlyBody temp = new Planet("Mercury", 88);
         solarSystem.put(temp.getName(), temp);
         planets.add(temp);
 
-        temp = new HeavenlyBody("Venus", 225);
+        temp = new Planet("Venus", 225);
         solarSystem.put(temp.getName(), temp);
         planets.add(temp);
 
-        temp = new HeavenlyBody("Earth", 365);
+        temp = new Planet("Earth", 365);
         solarSystem.put(temp.getName(), temp);
         planets.add(temp);
         HeavenlyBody tempMoon = new HeavenlyBody("Moon", 27);
         solarSystem.put(tempMoon.getName(), tempMoon);
         temp.addSatellites(tempMoon);
 
-        temp = new HeavenlyBody("Mars", 687);
+        temp = new Planet("Mars", 687);
         solarSystem.put(temp.getName(), temp);
         planets.add(temp);
         tempMoon = new HeavenlyBody("Deimos", 1.3);
@@ -32,7 +32,7 @@ public class Main {
         solarSystem.put(tempMoon.getName(), tempMoon);
         temp.addSatellites(tempMoon);  // temp is still Mars
 
-        temp = new HeavenlyBody("Jupiter", 4332);
+        temp = new Planet("Jupiter", 4332);
         solarSystem.put(temp.getName(), temp);
         planets.add(temp);
         tempMoon = new HeavenlyBody("Io", 1.8);
@@ -45,19 +45,19 @@ public class Main {
         solarSystem.put(tempMoon.getName(), tempMoon);
         temp.addSatellites(tempMoon);  // temp is now Jupiter
 
-        temp = new HeavenlyBody("Saturn", 10759);
+        temp = new Planet("Saturn", 10759);
         solarSystem.put(temp.getName(), temp);
         planets.add(temp);
 
-        temp = new HeavenlyBody("Uranus", 30660);
+        temp = new Planet("Uranus", 30660);
         solarSystem.put(temp.getName(), temp);
         planets.add(temp);
 
-        temp = new HeavenlyBody("Neptune", 165);
+        temp = new Planet("Neptune", 165);
         solarSystem.put(temp.getName(), temp);
         planets.add(temp);
 
-        temp = new HeavenlyBody("Pluto", 248);
+        temp = new Planet("Pluto", 248);
         solarSystem.put(temp.getName(), temp);
         planets.add(temp);
 
@@ -88,8 +88,8 @@ public class Main {
 
         System.out.println("====================================");
 
-        HeavenlyBody pluto = new HeavenlyBody("Pluto", 842);
-        planets.add(pluto);
+//        HeavenlyBody pluto = new HeavenlyBody("Pluto", 842);
+//        planets.add(pluto);
 
         for (HeavenlyBody planet: planets) {
             System.out.println(planet.getName() + ": " + planet.getOrbitalPeriod());
