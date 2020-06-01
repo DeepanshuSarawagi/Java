@@ -18,30 +18,30 @@ public class Main {
         temp = new Planet("Earth", 365);
         solarSystem.put(temp.getName(), temp);
         planets.add(temp);
-        HeavenlyBody tempMoon = new HeavenlyBody("Moon", 27);
+        HeavenlyBody tempMoon = new Moon("Moon", 27);
         solarSystem.put(tempMoon.getName(), tempMoon);
         temp.addSatellites(tempMoon);
 
         temp = new Planet("Mars", 687);
         solarSystem.put(temp.getName(), temp);
         planets.add(temp);
-        tempMoon = new HeavenlyBody("Deimos", 1.3);
+        tempMoon = new Moon("Deimos", 1.3);
         solarSystem.put(tempMoon.getName(), tempMoon);
         temp.addSatellites(tempMoon);  // temp is now Mars
-        tempMoon = new HeavenlyBody("Phobos", 0.3);
+        tempMoon = new Moon("Phobos", 0.3);
         solarSystem.put(tempMoon.getName(), tempMoon);
         temp.addSatellites(tempMoon);  // temp is still Mars
 
         temp = new Planet("Jupiter", 4332);
         solarSystem.put(temp.getName(), temp);
         planets.add(temp);
-        tempMoon = new HeavenlyBody("Io", 1.8);
+        tempMoon = new Moon("Io", 1.8);
         solarSystem.put(tempMoon.getName(), tempMoon);
         temp.addSatellites(tempMoon);  // temp is now Jupiter
-        tempMoon = new HeavenlyBody("Ganymede", 7.10);
+        tempMoon = new Moon("Ganymede", 7.10);
         solarSystem.put(tempMoon.getName(), tempMoon);
         temp.addSatellites(tempMoon);  // temp is still Jupiter
-        tempMoon = new HeavenlyBody("Callisto", 16.7);
+        tempMoon = new Moon("Callisto", 16.7);
         solarSystem.put(tempMoon.getName(), tempMoon);
         temp.addSatellites(tempMoon);  // temp is now Jupiter
 
