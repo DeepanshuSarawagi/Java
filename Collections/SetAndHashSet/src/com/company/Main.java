@@ -88,7 +88,7 @@ public class Main {
 
         System.out.println("====================================");
 
-        HeavenlyBody pluto = new Planet("Pluto", 842);
+        HeavenlyBody pluto = new DwarfPlanet("Pluto", 842);
         planets.add(pluto);
 
         for (HeavenlyBody planet: planets) {
