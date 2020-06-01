@@ -41,7 +41,7 @@ public final class HeavenlyBody {
         return new HashSet<>(this.satellites);
     }
 
-    public boolean addMoon(HeavenlyBody moon) {
+    public boolean addSatellites(HeavenlyBody moon) {
         return this.satellites.add(moon);
     }
 

@@ -1,6 +1,5 @@
 package com.company;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
 public class Main {
@@ -21,30 +20,30 @@ public class Main {
         planets.add(temp);
         HeavenlyBody tempMoon = new HeavenlyBody("Moon", 27);
         solarSystem.put(tempMoon.getName(), tempMoon);
-        temp.addMoon(tempMoon);
+        temp.addSatellites(tempMoon);
 
         temp = new HeavenlyBody("Mars", 687);
         solarSystem.put(temp.getName(), temp);
         planets.add(temp);
         tempMoon = new HeavenlyBody("Deimos", 1.3);
         solarSystem.put(tempMoon.getName(), tempMoon);
-        temp.addMoon(tempMoon);  // temp is now Mars
+        temp.addSatellites(tempMoon);  // temp is now Mars
         tempMoon = new HeavenlyBody("Phobos", 0.3);
         solarSystem.put(tempMoon.getName(), tempMoon);
-        temp.addMoon(tempMoon);  // temp is still Mars
+        temp.addSatellites(tempMoon);  // temp is still Mars
 
         temp = new HeavenlyBody("Jupiter", 4332);
         solarSystem.put(temp.getName(), temp);
         planets.add(temp);
         tempMoon = new HeavenlyBody("Io", 1.8);
         solarSystem.put(tempMoon.getName(), tempMoon);
-        temp.addMoon(tempMoon);  // temp is now Jupiter
+        temp.addSatellites(tempMoon);  // temp is now Jupiter
         tempMoon = new HeavenlyBody("Ganymede", 7.10);
         solarSystem.put(tempMoon.getName(), tempMoon);
-        temp.addMoon(tempMoon);  // temp is still Jupiter
+        temp.addSatellites(tempMoon);  // temp is still Jupiter
         tempMoon = new HeavenlyBody("Callisto", 16.7);
         solarSystem.put(tempMoon.getName(), tempMoon);
-        temp.addMoon(tempMoon);  // temp is now Jupiter
+        temp.addSatellites(tempMoon);  // temp is now Jupiter
 
         temp = new HeavenlyBody("Saturn", 10759);
         solarSystem.put(temp.getName(), temp);
