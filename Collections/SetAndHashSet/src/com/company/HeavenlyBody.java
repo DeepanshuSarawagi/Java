@@ -46,23 +46,30 @@ public final class HeavenlyBody {
     }
 
     @Override
-    public boolean equals(Object obj) {
+    public final boolean equals(Object obj) {
         if(this == obj) {
             return true;
         }
-        System.out.println("obj.getClass() is " + obj.getClass());
-        System.out.println("this.getClass() is " + this.getClass());
-        if (obj == null || (obj.getClass() != this.getClass())) {
-            return false;
+//        System.out.println("obj.getClass() is " + obj.getClass());
+//        System.out.println("this.getClass() is " + this.getClass());
+//        if (obj == null || (obj.getClass() != this.getClass())) {
+//            return false;
+//        }
+//        String stringObj = ((HeavenlyBody) obj).getName();  // get the name of the obj in string. We have casted the obj
+//                                                            // passed as parameter to HeavenlyBody and then get the name
+//                                                            // of the object using getName() getter. We then compare the
+//                                                            // strings using the equals method of String class. This
+//                                                            // cast will not throw Java.Lang.NullPointerException since
+//                                                            // we are already checking if obj is null and returning
+//                                                            // false.
+//        return this.getName().equals(stringObj);
+        if (obj instanceof HeavenlyBody) {
+            HeavenlyBody theObject = (HeavenlyBody) obj;
+            if (this.name.equals(theObject.getName())) {
+                return this.bodyType == theObject.getBodyType();
+            }
         }
-        String stringObj = ((HeavenlyBody) obj).getName();  // get the name of the obj in string. We have casted the obj
-                                                            // passed as parameter to HeavenlyBody and then get the name
-                                                            // of the object using getName() getter. We then compare the
-                                                            // strings using the equals method of String class. This
-                                                            // cast will not throw Java.Lang.NullPointerException since
-                                                            // we are already checking if obj is null and returning
-                                                            // false.
-        return this.getName().equals(stringObj);
+        return false;
     }
 
     // just overriding the equals method is not enough. When we execute the main method, duplicate objects are still
@@ -71,8 +78,13 @@ public final class HeavenlyBody {
 
 
     @Override
-    public int hashCode() {
+    public final int hashCode() {
         System.out.println("Hashcode is " + this.name.hashCode());
-        return this.name.hashCode() + 57;
+        return this.name.hashCode() + 57  + this.bodyType.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return this.name + ":" + this.bodyType + ", " + this.orbitalPeriod;
     }
 }
