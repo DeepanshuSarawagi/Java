@@ -4,10 +4,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 public abstract class HeavenlyBody {
-    private final String name;
+//    private final String name;
     private final double orbitalPeriod;
     private final Set<HeavenlyBody> satellites;
-    private final BodyTypes bodyType;
+//    private final BodyTypes bodyType;
+    private Key key;
 
     public enum BodyTypes {
         STAR,
@@ -19,22 +20,26 @@ public abstract class HeavenlyBody {
     }
 
     public HeavenlyBody(String name, double orbitalPeriod, BodyTypes bodyType) {
-        this.name = name;
         this.orbitalPeriod = orbitalPeriod;
         this.satellites = new HashSet<>();
-        this.bodyType = bodyType;
+        this.key = new Key(name, bodyType);
     }
 
-    public String getName() {
-        return name;
-    }
+//    public String getName() {
+//        return name;
+//    }
 
     public double getOrbitalPeriod() {
         return orbitalPeriod;
     }
 
-    public BodyTypes getBodyType() {
-        return bodyType;
+//    public BodyTypes getBodyType() {
+//        return bodyType;
+//    }
+
+
+    public Key getKey() {
+        return key;
     }
 
     public Set<HeavenlyBody> getSatellites() {
@@ -44,6 +49,7 @@ public abstract class HeavenlyBody {
     public boolean addSatellites(HeavenlyBody moon) {
         return this.satellites.add(moon);
     }
+
 
     @Override
     public final boolean equals(Object obj) {
@@ -65,9 +71,10 @@ public abstract class HeavenlyBody {
 //        return this.getName().equals(stringObj);
         if (obj instanceof HeavenlyBody) {
             HeavenlyBody theObject = (HeavenlyBody) obj;
-            if (this.name.equals(theObject.getName())) {
-                return this.bodyType == theObject.getBodyType();
-            }
+//            if (this.name.equals(theObject.getName())) {
+//                return this.bodyType == theObject.getBodyType();
+//            }
+            return this.key.equals(theObject.getKey());
         }
         return false;
     }
@@ -76,16 +83,19 @@ public abstract class HeavenlyBody {
     // added in the sets. That`s because we are not checking the hash code the object.
     // we will now be overriding the hash code method as well.
 
+    public static Key makeKey(String name, BodyTypes bodyType) {
+        return new Key(name, bodyType);
+    }
 
     @Override
     public final int hashCode() {
 //        System.out.println("Hashcode is " + this.name.hashCode());
-        return this.name.hashCode() + 57  + this.bodyType.hashCode();
+        return this.key.name.hashCode() + 57  + this.key.bodyType.hashCode();
     }
 
     @Override
     public String toString() {
-        return this.name + ": " + this.bodyType + ", " + this.orbitalPeriod;
+        return this.key.name + ": " + this.key.bodyType + ", " + this.orbitalPeriod;
     }
 
     private static final class Key{
