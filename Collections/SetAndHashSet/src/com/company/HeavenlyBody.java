@@ -83,7 +83,7 @@ public abstract class HeavenlyBody {
     // added in the sets. That`s because we are not checking the hash code the object.
     // we will now be overriding the hash code method as well.
 
-    public static Key makeKey(String name, BodyTypes bodyType) {
+    private static Key makeKey(String name, BodyTypes bodyType) {
         return new Key(name, bodyType);
     }
 
@@ -98,7 +98,7 @@ public abstract class HeavenlyBody {
         return this.key.name + ": " + this.key.bodyType + ", " + this.orbitalPeriod;
     }
 
-    private static final class Key{
+    static final class Key{
         private String name;
         private BodyTypes bodyType;
 
