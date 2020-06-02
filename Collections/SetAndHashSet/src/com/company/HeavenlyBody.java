@@ -90,7 +90,7 @@ public abstract class HeavenlyBody {
     @Override
     public final int hashCode() {
 //        System.out.println("Hashcode is " + this.name.hashCode());
-        return this.key.name.hashCode() + 57  + this.key.bodyType.hashCode();
+        return this.key.hashCode();
     }
 
     @Override
