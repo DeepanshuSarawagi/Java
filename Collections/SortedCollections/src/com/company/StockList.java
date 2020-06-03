@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -41,6 +42,10 @@ public class StockList {
 
     public StockItem get(String key) {
         return list.get(key);
+    }
+
+    public Map<String, StockItem> Items() {
+        return Collections.unmodifiableMap(list);
     }
 
 
