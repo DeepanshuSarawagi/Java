@@ -22,10 +22,10 @@ public class StockList {
             if (inStock != item) {      // to check if the item which inStock has is same as what we passed as parameter.
                                         // If its not same, then adjust the quantity of stock of the item since its
                                         // already there in the list
-                item.adjustStock(inStock.getQuantityStock());
+                item.adjustStock(inStock.QuantityInStock());
             }
             list.put(item.getName(), item);
-            return item.getQuantityStock();
+            return item.QuantityInStock();
         }
         return 0;
     }
@@ -33,7 +33,7 @@ public class StockList {
     public int sellStock (String name, int quantity) {
         StockItem inStock = list.getOrDefault(name, null);
 
-        if ((inStock != null) && (inStock.getQuantityStock() >= quantity) && (quantity > 0)) {
+        if ((inStock != null) && (inStock.QuantityInStock() >= quantity) && (quantity > 0)) {
             inStock.adjustStock(-quantity);
             return quantity;
         }
@@ -55,8 +55,8 @@ public class StockList {
 
         for (Map.Entry<String, StockItem> item: list.entrySet()) {
             StockItem stockItem = item.getValue();
-            double itemValue = stockItem.getPrice() * stockItem.getQuantityStock();
-            s = s + stockItem + ". There are " + stockItem.getQuantityStock() + " in stock. Value of items: ";
+            double itemValue = stockItem.getPrice() * stockItem.QuantityInStock();
+            s = s + stockItem + ". There are " + stockItem.QuantityInStock() + " in stock. Value of items: ";
             s = s + itemValue +"\n";
             totalCost += itemValue;
         }
