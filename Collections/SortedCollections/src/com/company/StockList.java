@@ -48,5 +48,18 @@ public class StockList {
         return Collections.unmodifiableMap(list);
     }
 
+    @Override
+    public String toString() {
+        String s = "\n Stock List\n";
+        double totalCost = 0.0;
 
+        for (Map.Entry<String, StockItem> item: list.entrySet()) {
+            StockItem stockItem = item.getValue();
+            double itemValue = stockItem.getPrice() * stockItem.getQuantityStock();
+            s = s + stockItem + ". There are " + stockItem.getQuantityStock() + " in stock. Value of items: ";
+            s = s + itemValue +"\n";
+            totalCost += itemValue;
+        }
+        return s + "Total stock value " + totalCost;
+    }
 }
