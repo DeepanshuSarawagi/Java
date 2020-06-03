@@ -70,4 +70,9 @@ public class StockItem implements Comparable<StockItem>{
         throw new NullPointerException();   // It will thrown NullPointerException if we compare the object with a null
                                             // parameter
     }
+
+    @Override
+    public String toString() {
+        return this.name + " price: " + this.getPrice();
+    }
 }
