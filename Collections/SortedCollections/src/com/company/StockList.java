@@ -28,4 +28,14 @@ public class StockList {
         }
         return 0;
     }
+
+    public int sellStock (String name, int quantity) {
+        StockItem inStock = list.getOrDefault(name, null);
+
+        if ((inStock != null) && (inStock.getQuantityStock() >= quantity) && (quantity > 0)) {
+            inStock.adjustStock(-quantity);
+            return quantity;
+        }
+        return 0;
+    }
 }
