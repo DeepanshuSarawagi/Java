@@ -41,5 +41,37 @@ public class Main {
         for (String s : stockList.Items().keySet()) {
             System.out.println(s);
         }
+
+        Basket deepsBasket = new Basket("Deep");
+        sellItem(deepsBasket, "car", 1);
+        System.out.println(deepsBasket);
+
+        sellItem(deepsBasket, "car", 1);
+        System.out.println(deepsBasket);
+
+        sellItem(deepsBasket, "car", 1);
+        System.out.println(deepsBasket);
+
+        sellItem(deepsBasket, "juice", 5);
+        sellItem(deepsBasket, "cup", 10);
+        sellItem(deepsBasket, "bread", 2);
+        System.out.println(deepsBasket);
+        System.out.println("Updated Stock list");
+        System.out.println(stockList);
+
+    }
+
+    public static int sellItem(Basket basket, String item, int quantity) {
+        StockItem stockItem = stockList.get(item);
+        if (stockItem == null) {
+            System.out.println("We dont sell this item here " + item + ".");
+            return 0;
+        }
+
+        if (stockList.sellStock(item, quantity) != 0) {
+            basket.addToBasket(stockItem, quantity);
+            return quantity;
+        }
+        return 0;
     }
 }
