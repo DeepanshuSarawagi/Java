@@ -38,4 +38,10 @@ public class StockList {
         }
         return 0;
     }
+
+    public StockItem get(String key) {
+        return list.get(key);
+    }
+
+
 }
