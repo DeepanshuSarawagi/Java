@@ -12,7 +12,7 @@ public class Main {
         temp = new StockItem("car", 50.5, 2);
         stockList.addStock(temp);
 
-        temp = new StockItem("chair", 1000.0, 20);
+        temp = new StockItem("chair", 1000.98, 20);
         stockList.addStock(temp);
 
         temp = new StockItem("cup", 65.0, 200);

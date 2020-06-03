@@ -57,9 +57,9 @@ public class StockList {
             StockItem stockItem = item.getValue();
             double itemValue = stockItem.getPrice() * stockItem.QuantityInStock();
             s = s + stockItem + ". There are " + stockItem.QuantityInStock() + " in stock. Value of items: ";
-            s = s + itemValue +"\n";
+            s = s + String.format("%.2f", itemValue) +"\n";
             totalCost += itemValue;
         }
-        return s + "Total stock value " + totalCost;
+        return s + "Total stock value " + String.format("%.2f", totalCost);
     }
 }
