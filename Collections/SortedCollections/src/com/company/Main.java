@@ -17,6 +17,8 @@ public class Main {
 
         temp = new StockItem("cup", 65.0, 200);
         stockList.addStock(temp);
+        temp = new StockItem("cup", 65.0, 7);
+        stockList.addStock(temp);
 
         temp = new StockItem("door", 72.95, 4);
         stockList.addStock(temp);
@@ -34,5 +36,10 @@ public class Main {
         stockList.addStock(temp);
 
         System.out.println(stockList);
+
+        System.out.println("==================================");
+        for (String s : stockList.Items().keySet()) {
+            System.out.println(s);
+        }
     }
 }
