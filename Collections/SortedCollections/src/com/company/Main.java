@@ -58,9 +58,24 @@ public class Main {
         sellItem(deepsBasket, "cup", 10);
         sellItem(deepsBasket, "bread", 2);
         System.out.println(deepsBasket);
+
+        Basket basket = new Basket("customer");
+        sellItem(basket, "cup", 50);
+        sellItem(basket, "bread", 6);
+        removeItem(basket, "cup", 10);
+        System.out.println(basket);
+
+        removeItem(deepsBasket, "car", 1);
+        removeItem(deepsBasket, "cup", 9);
+        removeItem(deepsBasket, "cup", 1);
+        System.out.println(deepsBasket);
+
+
         System.out.println("Updated Stock list");
         System.out.println(stockList);
-
+        checkOut(deepsBasket);
+        checkOut(basket);
+        System.out.println(stockList);
     }
 
     public static int sellItem(Basket basket, String item, int quantity) {
