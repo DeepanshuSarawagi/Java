@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Map;
+
 public class Main {
     private static StockList stockList = new StockList();
     public static void main(String[] args) {
@@ -85,5 +87,12 @@ public class Main {
             return stockList.unreserveStock(item, quantity);
         }
         return 0;
+    }
+
+    public static void checkOut(Basket basket) {
+        for (Map.Entry<StockItem, Integer> item: basket.Items().entrySet()) {
+            stockList.sellStock(item.getKey().getName(), item.getValue());
+        }
+        basket.clearBasket();
     }
 }
