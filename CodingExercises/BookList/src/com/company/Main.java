@@ -1,8 +1,5 @@
 package com.company;
 
-import java.util.LinkedList;
-import java.util.List;
-
 public class Main {
     protected static BookList bookList = new BookList();
     public static void main(String[] args) {
@@ -45,6 +42,7 @@ public class Main {
 		deepsBookShelf.booksWantToRead("Harry Potter and the Deathly Hollows");
 		deepsBookShelf.booksCurrentlyReading("Harry Potter and the Deathly Hollows");
 		deepsBookShelf.booksCurrentlyReading("Gun Island");
+		deepsBookShelf.booksFinishedReading("Gun Island");
 		deepsBookShelf.yourBookShelf();
     }
 

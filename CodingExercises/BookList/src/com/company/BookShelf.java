@@ -7,6 +7,7 @@ public class BookShelf {
     private final String name;
     private List<String> wantToRead = new LinkedList<>();
     private List<String> currentlyReading = new LinkedList<>();
+    private List<String> finishedReading = new LinkedList<>();
 
     public BookShelf(String name) {
         this.name = name;
@@ -29,7 +30,7 @@ public class BookShelf {
 
     protected void booksCurrentlyReading(String name) {
         String bookCurrentlyReading = "";
-        for (String book: Main.bookList.items().keySet()) {
+        for (String book: this.wantToRead) {
             if (book.equals(name)) {
                 bookCurrentlyReading = name;
 //                System.out.println(bookCurrentlyReading);
@@ -41,6 +42,23 @@ public class BookShelf {
         } else {
             this.currentlyReading.add(bookCurrentlyReading);
             this.wantToRead.remove(bookCurrentlyReading);
+        }
+    }
+
+    protected void booksFinishedReading(String name) {
+        String bookFinishedReading = "";
+        for (String book: this.currentlyReading) {
+            if (book.equals(name)) {
+                bookFinishedReading = name;
+//                System.out.println(bookFinishedReading);
+                break;
+            }
+        }
+        if (this.finishedReading.contains(bookFinishedReading)) {
+            System.out.println("You are already finished this book");
+        } else {
+            this.finishedReading.add(bookFinishedReading);
+            this.currentlyReading.remove(bookFinishedReading);
         }
     }
 
@@ -59,6 +77,15 @@ public class BookShelf {
         } else {
             System.out.println("Your currently reading book list is:");
             for (String s : this.currentlyReading) {
+                System.out.println(s);
+            }
+        }
+
+        if (this.finishedReading.size() ==0) {
+            System.out.println(NO_BOOKS);
+        } else {
+            System.out.println("Your finished reading book list is:");
+            for (String s : this.finishedReading) {
                 System.out.println(s);
             }
         }
