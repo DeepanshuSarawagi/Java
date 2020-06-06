@@ -13,12 +13,17 @@ public class BookShelf {
         this.name = name;
     }
 
+    public String getName() {
+        return name;
+    }
+
     protected void booksWantToRead(String name) {
         String bookToBeRead = "";
         for (String book: Main.bookList.items().keySet()) {
             if (book.equals(name)) {
                 bookToBeRead = name;
 //                System.out.println(bookToBeRead);
+                break;
             }
         }
         if (this.wantToRead.contains(bookToBeRead)) {
@@ -64,7 +69,7 @@ public class BookShelf {
 
     protected void yourBookShelf() {
         final String NO_BOOKS = "You do not have any books in this list.";
-        System.out.println("Your updated to be read book list is:");
+        System.out.println("To be read book list:");
         if (this.wantToRead.size()==0) {
             System.out.println(NO_BOOKS);
         } else {
@@ -75,7 +80,7 @@ public class BookShelf {
         if (this.currentlyReading.size() ==0) {
             System.out.println(NO_BOOKS);
         } else {
-            System.out.println("Your currently reading book list is:");
+            System.out.println("Currently reading book list:");
             for (String s : this.currentlyReading) {
                 System.out.println(s);
             }
@@ -84,7 +89,7 @@ public class BookShelf {
         if (this.finishedReading.size() ==0) {
             System.out.println(NO_BOOKS);
         } else {
-            System.out.println("Your finished reading book list is:");
+            System.out.println("Finished reading book list:");
             for (String s : this.finishedReading) {
                 System.out.println(s);
             }
