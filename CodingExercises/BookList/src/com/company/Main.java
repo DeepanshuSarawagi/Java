@@ -1,7 +1,11 @@
 package com.company;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class Main {
-    private static BookList bookList = new BookList();
+    protected static BookList bookList = new BookList();
+    private static List<String> wantToRead = new LinkedList<>();
     public static void main(String[] args) {
 	    Book book = new Book("The Immortals of Meluha", "Amish Tripathi");
 	    bookList.addBooks(book);
@@ -36,5 +40,11 @@ public class Main {
 		book = new Book("Gun Island", "Amitav Ghosh");
 		bookList.addBooks(book);
 		bookList.sortedBooks();
+		System.out.println("=============================");
+		BookShelf deepsBookShelf = new BookShelf("Deeps Book Shelf");
+		deepsBookShelf.booksWantToRead("Gun Island");
+		deepsBookShelf.booksWantToRead("Harry Potter and the Deathly Hollows");
+
     }
+
 }
