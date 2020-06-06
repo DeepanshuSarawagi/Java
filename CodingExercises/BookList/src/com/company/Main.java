@@ -3,7 +3,7 @@ package com.company;
 public class Main {
     private static BookList bookList = new BookList();
     public static void main(String[] args) {
-	    Book book = new Book("The Immortals of", "Amish Tripathi");
+	    Book book = new Book("The Immortals of Meluha", "Amish Tripathi");
 	    bookList.addBooks(book);
 	    book = new Book("The Secret of Nagas", "Amish Tripathi");
 	    bookList.addBooks(book);
