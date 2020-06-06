@@ -17,6 +17,10 @@ public class BookShelf {
         return name;
     }
 
+    public List<String> getCurrentlyReading() {
+        return currentlyReading;
+    }
+
     protected void booksWantToRead(String name) {
         String bookToBeRead = "";
         for (String book: Main.bookList.items().keySet()) {

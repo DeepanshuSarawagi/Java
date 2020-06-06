@@ -40,9 +40,13 @@ public class Main {
 		BookShelf deepsBookShelf = new BookShelf("Deeps Book Shelf");
 		deepsBookShelf.booksWantToRead("Gun Island");
 		deepsBookShelf.booksWantToRead("Harry Potter and the Deathly Hollows");
+		deepsBookShelf.booksWantToRead("Chanakya`s Chant");
+		deepsBookShelf.booksWantToRead("The Secret of Nagas");
 		deepsBookShelf.booksCurrentlyReading("Harry Potter and the Deathly Hollows");
+		deepsBookShelf.booksCurrentlyReading("Chanakya`s Chant");
 		deepsBookShelf.booksCurrentlyReading("Gun Island");
 		deepsBookShelf.booksFinishedReading("Gun Island");
+		deepsBookShelf.booksFinishedReading("Chanakya`s Chant");
 		deepsBookShelf.yourBookShelf();
     }
 
