@@ -1,6 +1,6 @@
 package com.company;
 
-public class Book implements Comparable{
+public class Book implements Comparable<Book>{
     private String name;
     private String AuthorName;
 
@@ -23,8 +23,7 @@ public class Book implements Comparable{
     }
 
     @Override
-    public int compareTo(Object o) {
-        String objName = ((Book) o).getName();
-        return this.name.compareTo(objName);
+    public int compareTo(Book o) {
+        return this.name.compareTo(o.name);
     }
 }
