@@ -5,7 +5,6 @@ import java.util.List;
 
 public class Main {
     protected static BookList bookList = new BookList();
-    private static List<String> wantToRead = new LinkedList<>();
     public static void main(String[] args) {
 	    Book book = new Book("The Immortals of Meluha", "Amish Tripathi");
 	    bookList.addBooks(book);
@@ -44,7 +43,9 @@ public class Main {
 		BookShelf deepsBookShelf = new BookShelf("Deeps Book Shelf");
 		deepsBookShelf.booksWantToRead("Gun Island");
 		deepsBookShelf.booksWantToRead("Harry Potter and the Deathly Hollows");
-
+		deepsBookShelf.booksCurrentlyReading("Harry Potter and the Deathly Hollows");
+		deepsBookShelf.booksCurrentlyReading("Gun Island");
+		deepsBookShelf.yourBookShelf();
     }
 
 }
