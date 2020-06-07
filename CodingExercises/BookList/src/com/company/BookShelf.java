@@ -24,52 +24,42 @@ public class BookShelf {
     }
 
     protected void booksWantToRead(String name) {
-        String bookToBeRead = "";
-        for (String book: Main.bookList.items().keySet()) {
-            if (book.equals(name)) {
-                bookToBeRead = name;
+        if (Main.bookList.items().containsKey(name)) {
+            if (this.wantToRead.contains(name)) {
+                System.out.println("Sorry! This book is already in the list");
 //                System.out.println(bookToBeRead);
-                break;
-            }
+        }  else {
+            this.wantToRead.add(name);
         }
-        if (this.wantToRead.contains(bookToBeRead)) {
-            System.out.println("Sorry! This book is already in the list");
         } else {
-            this.wantToRead.add(bookToBeRead);
+            System.out.println("Book " + name + " not found in our database");
         }
     }
 
     protected void booksCurrentlyReading(String name) {
-        String bookCurrentlyReading = "";
-        for (String book: this.wantToRead) {
-            if (book.equals(name)) {
-                bookCurrentlyReading = name;
-//                System.out.println(bookCurrentlyReading);
-                break;
+        if (Main.bookList.items().containsKey(name)) {
+            if (this.currentlyReading.contains(name)) {
+                System.out.println("Sorry! You are already reading " + name);
+            } else {
+                this.currentlyReading.add(name);
+                this.wantToRead.remove(name);
             }
-        }
-        if (this.currentlyReading.contains(bookCurrentlyReading)) {
-            System.out.println("You are already reading this book");
         } else {
-            this.currentlyReading.add(bookCurrentlyReading);
-            this.wantToRead.remove(bookCurrentlyReading);
+            System.out.println("Book " + name + " not found in our database");
         }
     }
 
     protected void booksFinishedReading(String name) {
-        String bookFinishedReading = "";
-        for (String book: this.currentlyReading) {
-            if (book.equals(name)) {
-                bookFinishedReading = name;
-//                System.out.println(bookFinishedReading);
-                break;
+        if (Main.bookList.items().containsKey(name)) {
+            if (this.finishedReading.contains(name)) {
+                System.out.println("Sorry! You finished reading " + name);
+            } else {
+                this.finishedReading.add(name);
+                this.wantToRead.remove(name);
+                this.currentlyReading.remove(name);
             }
-        }
-        if (this.finishedReading.contains(bookFinishedReading)) {
-            System.out.println("You are already finished this book");
         } else {
-            this.finishedReading.add(bookFinishedReading);
-            this.currentlyReading.remove(bookFinishedReading);
+            System.out.println("Book " + name + " not found in our database");
         }
     }
 
