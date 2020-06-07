@@ -132,6 +132,7 @@ public class BookShelf {
                 System.out.println(s);
             }
         }
+        System.out.println("Currently reading book list:");
         if (this.currentlyReading.size() ==0) {
             System.out.println(NO_BOOKS);
         } else {
@@ -140,7 +141,7 @@ public class BookShelf {
                 System.out.println(s);
             }
         }
-
+        System.out.println("Finished reading book list:");
         if (this.finishedReading.size() ==0) {
             System.out.println(NO_BOOKS);
         } else {

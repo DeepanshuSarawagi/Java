@@ -47,8 +47,8 @@ public class Main {
 		Scanner scanner = new Scanner(System.in);
 		boolean quit = false;
 		printOptions();
-		System.out.println("Please enter appropriate option from menu: ");
 		while (!quit) {
+			System.out.println("Please enter appropriate option from menu: ");
 			int action = scanner.nextInt();
 			scanner.nextLine();
 			switch (action) {
@@ -73,6 +73,7 @@ public class Main {
 					String wantToRead = scanner.nextLine();
 					System.out.println("you have chosen to add " + wantToRead);
 					bookShelf.booksWantToRead(wantToRead);
+
 					break;
 				case 4:
 					System.out.println("Please enter a book name to add in the currently reading list: ");
