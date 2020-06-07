@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="jar" build-on-make="true" name="BookList:jar">
+  <artifact type="jar" name="BookList:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/BookList_jar</output-path>
     <root id="archive" name="BookList.jar">
       <element id="module-output" name="BookList" />
