@@ -48,6 +48,7 @@ public class Main {
 		deepsBookShelf.booksFinishedReading("Gun Island");
 		deepsBookShelf.booksFinishedReading("Chanakya`s Chant");
 		deepsBookShelf.yourBookShelf();
+		deepsBookShelf.reviewProgress();
     }
 
 }

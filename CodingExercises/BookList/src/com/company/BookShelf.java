@@ -2,6 +2,8 @@ package com.company;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.ListIterator;
+import java.util.Scanner;
 
 public class BookShelf {
     private final String name;
@@ -69,6 +71,65 @@ public class BookShelf {
             this.finishedReading.add(bookFinishedReading);
             this.currentlyReading.remove(bookFinishedReading);
         }
+    }
+
+    protected void reviewProgress() {
+        ListIterator<String> listIterator = this.currentlyReading.listIterator();
+        boolean forward = true;
+        boolean quit = false;
+        printOptions();
+        Scanner scanner = new Scanner(System.in);
+
+        while (!quit) {
+            System.out.println("Enter a number of your choice: ");
+            int action = scanner.nextInt();
+            switch (action){
+                case 0:
+                    System.out.println("Exiting from the list");
+                    quit = true;
+                    break;
+                case 1:
+                    if (!forward) {
+                        if (listIterator.hasNext()) {
+                            listIterator.next();
+                        }
+                        forward=true;
+                    }
+                    if (listIterator.hasNext()) {
+                        System.out.println("Now reading " + listIterator.next());
+                    } else {
+                        System.out.println("We have reached the end of the list");
+                        forward=false;
+                    }
+                    break;
+                case 2:
+                    if (forward) {
+                        if (listIterator.hasPrevious()) {
+                            listIterator.previous();
+                        }
+                        forward=false;
+                    }
+                    if (listIterator.hasPrevious()) {
+                        System.out.println("Now reading " + listIterator.previous());
+                    } else {
+                        System.out.println("We have reached at the start of the list");
+                        forward=true;
+                    }
+                    break;
+                case 3:
+                    printOptions();
+                    break;
+            }
+        }
+
+
+    }
+
+    private void printOptions() {
+        System.out.println("0 - To exit from the currently reading list " + "\n" +
+                           "1 - To move to the next currently reading book " + "\n" +
+                           "2 - To move to the previous currently reading book " + "\n" +
+                           "3 - To print this option menu again");
     }
 
     protected void yourBookShelf() {
