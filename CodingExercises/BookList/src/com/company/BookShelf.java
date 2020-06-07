@@ -136,7 +136,6 @@ public class BookShelf {
         if (this.currentlyReading.size() ==0) {
             System.out.println(NO_BOOKS);
         } else {
-            System.out.println("Currently reading book list:");
             for (String s : this.currentlyReading) {
                 System.out.println(s);
             }
@@ -145,7 +144,6 @@ public class BookShelf {
         if (this.finishedReading.size() ==0) {
             System.out.println(NO_BOOKS);
         } else {
-            System.out.println("Finished reading book list:");
             for (String s : this.finishedReading) {
                 System.out.println(s);
             }
