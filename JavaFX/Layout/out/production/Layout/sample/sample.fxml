@@ -9,10 +9,10 @@
         <Insets top="10">
         </Insets>
     </padding>
-    <Button text="Button one" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+    <Button text="Button one" GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.halignment="RIGHT"/>
     <Button text="Button two" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
     <Button text="Button three" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-    <Button text="Really long button four" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+    <Button text="Really long button four" GridPane.rowIndex="3" GridPane.columnIndex="0" GridPane.columnSpan="2"/>
     <Button text="Button five" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
 
 </GridPane>
