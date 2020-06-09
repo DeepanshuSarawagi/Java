@@ -32,6 +32,15 @@
     <top>
         <Label text="This is a label at top" BorderPane.alignment="CENTER"/>
     </top>
+    <left>
+        <Label text="This label is in the left position" alignment="CENTER"/>
+    </left>
+    <center>
+        <Label text="This label is in the center position and has really loooooooooooooooooooooooong text" alignment="CENTER"/>
+    </center>
+    <right>
+        <Label text="This label is in the right position" alignment="CENTER"/>
+    </right>
     <bottom>
     <HBox spacing="10" alignment="BOTTOM_RIGHT">
         <padding>
