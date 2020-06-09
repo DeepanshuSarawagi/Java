@@ -7,6 +7,10 @@
 <HBox fx:controller="sample.Controller"
       xmlns:fx="http://javafx.com/fxml" alignment="BOTTOM_RIGHT" style="-fx-border-color: black; -fx-border-width: 3;
       -fx-border-style: solid" spacing="10">
+    <padding>
+        <Insets bottom="30" right="20"/>
+    </padding>
+
     <Button text="Okay"/>
     <Button text="Cancel"/>
     <Button text="Help"/>
