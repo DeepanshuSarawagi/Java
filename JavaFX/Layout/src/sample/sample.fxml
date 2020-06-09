@@ -29,8 +29,11 @@
 <?import javafx.scene.layout.BorderPane?>
 <BorderPane fx:controller="sample.Controller"
             xmlns:fx="http://javafx.com/fxml">
+    <top>
+        <Label text="This is a label at top" BorderPane.alignment="CENTER"/>
+    </top>
     <bottom>
-    <HBox spacing="10" alignment="TOP_RIGHT">
+    <HBox spacing="10" alignment="BOTTOM_RIGHT">
         <padding>
             <Insets bottom="20" right="20"/>
         </padding>
