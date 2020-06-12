@@ -68,5 +68,8 @@
                 <String fx:value="This is Option Five"/>
             </FXCollections>
         </items>
+        <value>
+            <String fx:value="This is Option Four"/>
+        </value>
     </ComboBox>
 </GridPane>
