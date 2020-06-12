@@ -95,7 +95,7 @@
     <Spinner GridPane.rowIndex="3" GridPane.columnIndex="4" min="0" max="100" editable="true" initialValue="50"/>
     <ColorPicker GridPane.rowIndex="4" GridPane.columnIndex="0"/>
     <DatePicker GridPane.rowIndex="4" GridPane.columnIndex="1"/>
-    <Accordion GridPane.rowIndex="4" GridPane.columnIndex="2">
+    <Accordion GridPane.rowIndex="4" GridPane.columnIndex="2" expandedPane="$tp3">
         <panes>
             <TitledPane text="Titled Pane 1">
                 <Label text="Text 1 in titled pane"/>
@@ -103,7 +103,7 @@
             <TitledPane text="Titled Pane 2">
                 <Label text="Text 2 in titled pane"/>
             </TitledPane>
-            <TitledPane text="Titled Pane 3">
+            <TitledPane text="Titled Pane 3" fx:id="tp3">
                 <Label text="Text 3 in titled pane"/>
             </TitledPane>
         </panes>
