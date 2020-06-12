@@ -85,5 +85,6 @@
             </FXCollections>
         </items>
     </ChoiceBox>
-    <Slider GridPane.rowIndex="3" GridPane.columnIndex="0" GridPane.columnSpan="4" min="0" max="100"/>
+    <Slider GridPane.rowIndex="3" GridPane.columnIndex="0" GridPane.columnSpan="4" min="0" max="100"
+            showTickLabels="true"/>
 </GridPane>
