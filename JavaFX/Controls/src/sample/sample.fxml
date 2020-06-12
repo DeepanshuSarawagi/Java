@@ -13,6 +13,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.PasswordField?>
 <GridPane fx:controller="sample.Controller"
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
     <Button GridPane.rowIndex="0" GridPane.columnIndex="0" text="Click Me">
@@ -53,4 +54,5 @@
     </HBox>
     <CheckBox GridPane.rowIndex="1" text="Subscribe to our newsletter" selected="true"/>
     <TextField GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+    <PasswordField GridPane.rowIndex="2" GridPane.columnIndex="1"/>
 </GridPane>
