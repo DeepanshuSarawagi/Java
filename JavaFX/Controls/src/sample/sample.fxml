@@ -58,7 +58,7 @@
     <CheckBox GridPane.rowIndex="1" text="Subscribe to our newsletter" selected="true"/>
     <TextField GridPane.rowIndex="2" GridPane.columnIndex="0"/>
     <PasswordField GridPane.rowIndex="2" GridPane.columnIndex="1"/>
-    <ComboBox GridPane.rowIndex="2" GridPane.columnIndex="2">
+    <ComboBox GridPane.rowIndex="2" GridPane.columnIndex="2" GridPane.columnSpan="2">
         <items>
             <FXCollections fx:factory="observableArrayList">
                 <String fx:value="This is Option One"/>
