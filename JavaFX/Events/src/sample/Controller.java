@@ -19,6 +19,8 @@ public class Controller {
     private CheckBox ourCheckBox;
     @FXML
     private Label ourLabel;
+    @FXML
+    private TextField outputField;
 
     @FXML
     public void initialize() {
@@ -29,9 +31,13 @@ public class Controller {
     @FXML
     public void onButtonClicked(ActionEvent e) {
         if (e.getSource().equals(helloButton)) {
-            System.out.println("Hello, " + nameField.getText());
+//            System.out.println("Hello, " + nameField.getText());
+            String text = nameField.getText();
+            outputField.setText("Hello " + text);
         } else if (e.getSource().equals(byeButton)) {
-            System.out.println("Bye, " + nameField.getText());
+//            System.out.println("Bye, " + nameField.getText());
+            String text = nameField.getText();
+            outputField.setText("Bye " + text);
         }
 
         Runnable task = new Runnable() {

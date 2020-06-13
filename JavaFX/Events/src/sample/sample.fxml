@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.text.Text?>
 <GridPane fx:controller="sample.Controller"
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
     <TextField GridPane.rowIndex="0" GridPane.columnIndex="0" fx:id="nameField" onKeyReleased="#handleKeyReleased"/>
@@ -15,4 +16,5 @@
     <CheckBox fx:id="ourCheckBox" GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.columnSpan="2"
               onAction="#handleChange" text="Clear the field after saying Hello or Bye"/>
     <Label text="Nothing has happened" GridPane.rowIndex="3" GridPane.columnIndex="0" fx:id="ourLabel"/>
+    <TextField GridPane.rowIndex="4" GridPane.columnIndex="0" fx:id="outputField" onAction="#onButtonClicked"/>
 </GridPane>
