@@ -14,4 +14,5 @@
             onAction="#onButtonClicked"/>
     <CheckBox fx:id="ourCheckBox" GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.columnSpan="2"
               onAction="#handleChange" text="Clear the field after saying Hello or Bye"/>
+    <Label text="Nothing has happened" GridPane.rowIndex="3" GridPane.columnIndex="0" fx:id="ourLabel"/>
 </GridPane>
