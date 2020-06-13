@@ -7,5 +7,8 @@
 <GridPane fx:controller="sample.Controller"
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
     <TextField GridPane.rowIndex="0" GridPane.columnIndex="0" fx:id="nameField"/>
-    <Button GridPane.rowIndex="1" GridPane.columnIndex="0" text="Say Hello" onAction="#onButtonClicked"/>
+    <Button fx:id="helloButton" GridPane.rowIndex="1" GridPane.columnIndex="0" text="Say Hello"
+            onAction="#onButtonClicked"/>
+    <Button fx:id="byeButton" GridPane.rowIndex="1" GridPane.columnIndex="1" text="Say Bye"
+            onAction="#onButtonClicked"/>
 </GridPane>
