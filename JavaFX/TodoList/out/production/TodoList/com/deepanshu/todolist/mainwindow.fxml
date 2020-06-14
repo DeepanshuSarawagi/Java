@@ -12,7 +12,7 @@
 <BorderPane fx:controller="com.deepanshu.todolist.Controller"
             xmlns:fx="http://javafx.com/fxml">
     <left>
-        <ListView fx:id="todoListView" onMouseClicked="#handleTodoListView">
+        <ListView fx:id="todoListView">
 
         </ListView>
     </left>
