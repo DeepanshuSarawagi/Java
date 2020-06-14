@@ -8,7 +8,7 @@
 <BorderPane fx:controller="com.deepanshu.todolist.Controller"
             xmlns:fx="http://javafx.com/fxml">
     <left>
-        <ListView>
+        <ListView fx:id="todoListView">
 
         </ListView>
     </left>

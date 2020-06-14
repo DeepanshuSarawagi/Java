@@ -1,6 +1,9 @@
 package com.deepanshu.todolist;
 
 import com.deepanshu.todolist.datamodel.TodoItem;
+import javafx.fxml.FXML;
+import javafx.scene.control.ListView;
+import javafx.scene.control.SelectionMode;
 
 import java.time.LocalDate;
 import java.time.Month;
@@ -9,6 +12,8 @@ import java.util.List;
 
 public class Controller {
     private List<TodoItem> todoItems;
+    @FXML
+    private ListView todoListView;
 
     public void initialize() {
         TodoItem item1 = new TodoItem("Mail Birthday Card", "Buy a 28th birthday card for a friend",
@@ -29,6 +34,9 @@ public class Controller {
         todoItems.add(item3);
         todoItems.add(item4);
         todoItems.add(item5);
+
+        todoListView.getItems().setAll(todoItems);
+        todoListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 
     }
 }
