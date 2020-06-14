@@ -2,12 +2,12 @@ package com.deepanshu.todolist.datamodel;
 
 import java.time.LocalDate;
 
-public class TodoItems {
+public class TodoItem {
     private String shortDescription;
     private String details;
     private LocalDate deadLine;
 
-    public TodoItems(String shortDescription, String details, LocalDate deadLine) {
+    public TodoItem(String shortDescription, String details, LocalDate deadLine) {
         this.shortDescription = shortDescription;
         this.details = details;
         this.deadLine = deadLine;
