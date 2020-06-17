@@ -1,5 +1,5 @@
 <?import javafx.scene.control.DialogPane?>
-<DialogPane fx:controller="com.deepanshu.todolist.Controller"
+<DialogPane fx:controller="com.deepanshu.todolist.DialogController"
             xmlns:fx="http://javafx.com/fxml">
 
 </DialogPane>
