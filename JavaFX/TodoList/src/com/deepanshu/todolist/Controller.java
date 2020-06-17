@@ -5,10 +5,8 @@ import com.deepanshu.todolist.datamodel.TodoItem;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.SelectionMode;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
+import javafx.scene.layout.BorderPane;
 
 import java.time.LocalDate;
 import java.time.Month;
@@ -24,6 +22,8 @@ public class Controller {
     private TextArea itemDetailsTextArea;
     @FXML
     private Label deadlineLabel;
+    @FXML
+    private BorderPane mainBorderPane;
 
     public void initialize() {
 //        TodoItem item1 = new TodoItem("Mail Birthday Card", "Buy a 28th birthday card for a friend",
@@ -62,6 +62,15 @@ public class Controller {
         todoListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         todoListView.getSelectionModel().selectFirst();
 
+    }
+
+    @FXML
+    public void showNewItemDialog() {
+        Dialog<ButtonType> dialog = new Dialog<>();
+        dialog.initOwner(mainBorderPane.getScene().getWindow());
+        try{
+
+        }
     }
 
     @FXML
