@@ -5,3 +5,4 @@ Pick up friend at Station	Pick up friend. Coming by train	18-03-2020
 Pick up dry cleaning	Pick up dry cleaning from the store	27-06-2020
 My new Todo Item	Creating a new TodoItem to test the code	25-06-2020
 Deeps Item	This is again a test item	03-07-2020
+Test Selected Item	Added functionality to select the newly added TodoItem	22-06-2020
