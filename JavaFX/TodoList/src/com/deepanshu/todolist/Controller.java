@@ -75,10 +75,14 @@ public class Controller {
             Parent root = FXMLLoader.load(getClass().getResource("todoItemDialog.fxml"));
             dialog.getDialogPane().setContent(root);
         } catch (IOException e) {
-            System.out.println("Couldnt load the Dialog Box");
+            System.out.println("Couldn't load the Dialog Box");
             e.printStackTrace();
             return;
         }
+
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
+
     }
 
     @FXML
