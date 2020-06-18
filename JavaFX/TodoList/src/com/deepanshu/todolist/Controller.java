@@ -89,6 +89,7 @@ public class Controller {
         if (result.isPresent() && result.get() == ButtonType.OK) {
             DialogController controller = fxmlLoader.getController();
             controller.processResults();
+            todoListView.getItems().setAll(TodoData.getInstance().getTodoItems());
             System.out.println("Okay button pressed");
         } else {
             System.out.println("Cancel button pressed");
