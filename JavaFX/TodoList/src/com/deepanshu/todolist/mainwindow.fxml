@@ -14,6 +14,8 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 <BorderPane fx:id="mainBorderPane" fx:controller="com.deepanshu.todolist.Controller"
             xmlns:fx="http://javafx.com/fxml">
     <top>
@@ -29,7 +31,13 @@
             </MenuBar>
             <ToolBar>
                 <HBox>
-                    <Button text="New Todo Item" onAction="#showNewItemDialog"/>
+                    <Button text="New Todo Item" onAction="#showNewItemDialog">
+                        <graphic>
+                            <ImageView>
+                                <Image url="@/toolbarButtonGraphics/general/New24.gif"/>
+                            </ImageView>
+                        </graphic>
+                    </Button>
                 </HBox>
             </ToolBar>
         </VBox>
