@@ -156,4 +156,15 @@ public class Controller {
 //        itemDetailsTextArea.setText(sb.toString());
 
     }
+
+    public void deleteItem(TodoItem Item) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Delete Todo Item");
+        alert.setHeaderText("Delete item: " + Item.getShortDescription());
+        alert.setContentText("Are you sure? Press OK to delete or Cancel to back out.");
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent() && (result.get() == ButtonType.OK)) {
+            TodoData.getInstance().deleteTodoItem(Item);
+        }
+    }
 }
