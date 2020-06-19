@@ -82,7 +82,7 @@ public class Controller {
                             setText(null);
                         } else {
                             setText(todoItem.getShortDescription());
-                            if (todoItem.getDeadLine().equals(LocalDate.now())) {
+                            if (todoItem.getDeadLine().isBefore(LocalDate.now().plusDays(1))) {
                                 setTextFill(Color.DARKRED);
                             } else if (todoItem.getDeadLine().equals(LocalDate.now().plusDays(1))) {
                                 setTextFill(Color.ORANGERED);
