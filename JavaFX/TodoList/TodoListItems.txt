@@ -7,3 +7,4 @@ My new Todo Item	Creating a new TodoItem to test the code	25-06-2020
 My Short Test	This is a short test item	21-06-2020
 Item  due today	This is a test which is due today	19-06-2020
 Call a friend	Call a long distant friend to catch up on things	16-06-2020
+An old Todo Item	Creating an old Todo Item to test the code	22-01-2020
