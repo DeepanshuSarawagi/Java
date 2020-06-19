@@ -9,6 +9,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.Color;
+import javafx.util.Callback;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -65,6 +67,31 @@ public class Controller {
         todoListView.setItems(TodoData.getInstance().getTodoItems());
         todoListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         todoListView.getSelectionModel().selectFirst();
+
+        // Setting the cell factory and creating an Anonymous class implementing the Callback Interface so that we can
+        // format cells based on the deadline of the todoItems
+
+        todoListView.setCellFactory(new Callback<ListView<TodoItem>, ListCell<TodoItem>>() {
+            @Override
+            public ListCell<TodoItem> call(ListView<TodoItem> todoItemListView) {
+                ListCell<TodoItem> cell = new ListCell<>() {
+                    @Override
+                    protected void updateItem(TodoItem todoItem, boolean b) {
+                        super.updateItem(todoItem, b);
+                        if (b) {
+                            setText(null);
+                        } else {
+                            setText(todoItem.getShortDescription());
+                            if (todoItem.getDeadLine().equals(LocalDate.now())) {
+                                setTextFill(Color.DARKRED);
+                            }
+                        }
+
+                    }
+                };
+                return cell;
+            }
+        });
 
     }
 

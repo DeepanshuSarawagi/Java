@@ -7,3 +7,4 @@ My new Todo Item	Creating a new TodoItem to test the code	25-06-2020
 Deeps Item	This is again a test item	03-07-2020
 Test Selected Item	Added functionality to select the newly added TodoItem	22-06-2020
 My Short Test	This is a short test item	21-06-2020
+Item  due today	This is a test which is due today	19-06-2020
