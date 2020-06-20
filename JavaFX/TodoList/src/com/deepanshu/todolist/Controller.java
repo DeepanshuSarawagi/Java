@@ -214,9 +214,19 @@ public class Controller {
 
     public void handleFilterButton() {
         if (filterToggleButton.isSelected()) {
-
+            filteredList.setPredicate(new Predicate<TodoItem>() {
+                @Override
+                public boolean test(TodoItem todoItem) {
+                    return todoItem.getDeadLine().equals(LocalDate.now());
+                }
+            });
         } else{
-
+            filteredList.setPredicate(new Predicate<TodoItem>() {
+                @Override
+                public boolean test(TodoItem todoItem) {
+                    return true;
+                }
+            });
         }
     }
 }
