@@ -43,6 +43,8 @@ public class Controller {
     @FXML
     private ToggleButton filterToggleButton;
     private FilteredList<TodoItem> filteredList;
+    private Predicate<TodoItem> wantAllItems;
+    private Predicate<TodoItem> wantTodaysItems;
 
 
     public void initialize() {
@@ -90,6 +92,21 @@ public class Controller {
                 }
             }
         });
+
+        wantAllItems = new Predicate<TodoItem>() {
+            @Override
+            public boolean test(TodoItem todoItem) {
+                return true;
+            }
+        };
+
+        wantTodaysItems = new Predicate<TodoItem>() {
+            @Override
+            public boolean test(TodoItem todoItem) {
+                return (todoItem.getDeadLine().equals(LocalDate.now()));
+            }
+        };
+
         filteredList = new FilteredList<>(TodoData.getInstance().getTodoItems(), new Predicate<TodoItem>() {
             @Override
             public boolean test(TodoItem todoItem) {
