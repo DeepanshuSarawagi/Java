@@ -38,6 +38,8 @@ public class Controller {
     private BorderPane mainBorderPane;
     @FXML
     private ContextMenu listContextMenu;
+    @FXML
+    private ToggleButton filterToggleButton;
 
 
     public void initialize() {
@@ -198,6 +200,14 @@ public class Controller {
         Optional<ButtonType> result = alert.showAndWait();
         if (result.isPresent() && (result.get() == ButtonType.OK)) {
             TodoData.getInstance().deleteTodoItem(Item);
+        }
+    }
+
+    public void handleFilterButton() {
+        if (filterToggleButton.isSelected()) {
+
+        } else{
+
         }
     }
 }
