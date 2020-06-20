@@ -4,6 +4,7 @@ import com.deepanshu.todolist.datamodel.TodoData;
 import com.deepanshu.todolist.datamodel.TodoItem;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -25,6 +26,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Predicate;
 
 public class Controller {
     private List<TodoItem> todoItems;
@@ -40,6 +42,7 @@ public class Controller {
     private ContextMenu listContextMenu;
     @FXML
     private ToggleButton filterToggleButton;
+    private FilteredList<TodoItem> filteredList;
 
 
     public void initialize() {
@@ -87,8 +90,14 @@ public class Controller {
                 }
             }
         });
+        filteredList = new FilteredList<>(TodoData.getInstance().getTodoItems(), new Predicate<TodoItem>() {
+            @Override
+            public boolean test(TodoItem todoItem) {
+                return true;
+            }
+        });
 
-        SortedList<TodoItem> sortedList = new SortedList<>(TodoData.getInstance().getTodoItems(), new Comparator<TodoItem>() {
+        SortedList<TodoItem> sortedList = new SortedList<>(filteredList, new Comparator<TodoItem>() {
             @Override
             public int compare(TodoItem o1, TodoItem o2) {
                 return (o1.getDeadLine().compareTo(o2.getDeadLine()));
