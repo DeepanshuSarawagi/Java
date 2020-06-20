@@ -107,12 +107,7 @@ public class Controller {
             }
         };
 
-        filteredList = new FilteredList<>(TodoData.getInstance().getTodoItems(), new Predicate<TodoItem>() {
-            @Override
-            public boolean test(TodoItem todoItem) {
-                return true;
-            }
-        });
+        filteredList = new FilteredList<>(TodoData.getInstance().getTodoItems(), wantAllItems);
 
         SortedList<TodoItem> sortedList = new SortedList<>(filteredList, new Comparator<TodoItem>() {
             @Override
@@ -231,19 +226,9 @@ public class Controller {
 
     public void handleFilterButton() {
         if (filterToggleButton.isSelected()) {
-            filteredList.setPredicate(new Predicate<TodoItem>() {
-                @Override
-                public boolean test(TodoItem todoItem) {
-                    return todoItem.getDeadLine().equals(LocalDate.now());
-                }
-            });
+            filteredList.setPredicate(wantTodaysItems);
         } else{
-            filteredList.setPredicate(new Predicate<TodoItem>() {
-                @Override
-                public boolean test(TodoItem todoItem) {
-                    return true;
-                }
-            });
+            filteredList.setPredicate(wantAllItems);
         }
     }
 }
