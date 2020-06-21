@@ -2,6 +2,7 @@ package com.deepanshu.todolist;
 
 import com.deepanshu.todolist.datamodel.TodoData;
 import com.deepanshu.todolist.datamodel.TodoItem;
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.transformation.FilteredList;
@@ -224,6 +225,7 @@ public class Controller {
         }
     }
 
+    @FXML
     public void handleFilterButton() {
         TodoItem selectedItem = todoListView.getSelectionModel().getSelectedItem();
         if (filterToggleButton.isSelected()) {
@@ -240,5 +242,10 @@ public class Controller {
             filteredList.setPredicate(wantAllItems);
             todoListView.getSelectionModel().select(selectedItem);
         }
+    }
+
+    @FXML
+    public void handleExit() {
+        System.exit(0);
     }
 }
