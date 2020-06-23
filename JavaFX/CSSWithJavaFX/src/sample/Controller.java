@@ -38,9 +38,10 @@ public class Controller {
 
     @FXML
     public void handleClick() {
-//        FileChooser chooser = new FileChooser();
-        DirectoryChooser chooser = new DirectoryChooser();
-        File file = chooser.showDialog(gridPane.getScene().getWindow());
+        FileChooser chooser = new FileChooser();
+//        DirectoryChooser chooser = new DirectoryChooser();
+//        File file = chooser.showDialog(gridPane.getScene().getWindow());
+        File file = chooser.showSaveDialog(gridPane.getScene().getWindow());
         if (file != null) {
             System.out.println("Chosen directory path is " + file.getPath());
         } else {
