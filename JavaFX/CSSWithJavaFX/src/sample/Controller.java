@@ -8,6 +8,8 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 
+import java.io.File;
+
 public class Controller {
     @FXML
     private Label label;
@@ -38,7 +40,12 @@ public class Controller {
     public void handleClick() {
 //        FileChooser chooser = new FileChooser();
         DirectoryChooser chooser = new DirectoryChooser();
-        chooser.showDialog(gridPane.getScene().getWindow());
+        File file = chooser.showDialog(gridPane.getScene().getWindow());
+        if (file != null) {
+            System.out.println("Chosen directory path is " + file.getPath());
+        } else {
+            System.out.println("Chooser was cancelled");
+        }
     }
 
 }
