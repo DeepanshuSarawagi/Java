@@ -10,7 +10,7 @@
     <Button text="Button Two" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
     <Button text="Button Three" id="button_three" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
     <Button text="Button Four" fx:id="button4" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
-    <Button text="Button Five" GridPane.rowIndex="0" GridPane.columnIndex="4"/>
+    <Button text="Close" GridPane.rowIndex="0" GridPane.columnIndex="4"/>
     <Label text="JavaFX Effects" GridPane.rowIndex="1" GridPane.columnIndex="1" fx:id="label"
            onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit"/>
 </GridPane>
