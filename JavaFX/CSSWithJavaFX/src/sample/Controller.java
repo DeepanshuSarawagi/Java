@@ -41,10 +41,11 @@ public class Controller {
         FileChooser chooser = new FileChooser();
         chooser.setTitle("Save Application File");
         chooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Text", "*.txt"),
-                new FileChooser.ExtensionFilter("PDF", "*.pdf"));
+                new FileChooser.ExtensionFilter("PDF", "*.pdf"),
+                new FileChooser.ExtensionFilter("All Files", "*.*"));
 //        DirectoryChooser chooser = new DirectoryChooser();
 //        File file = chooser.showDialog(gridPane.getScene().getWindow());
-        File file = chooser.showSaveDialog(gridPane.getScene().getWindow());
+        File file = chooser.showOpenDialog(gridPane.getScene().getWindow());
         if (file != null) {
             System.out.println("Chosen directory path is " + file.getPath());
         } else {
