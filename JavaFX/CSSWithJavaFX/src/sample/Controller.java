@@ -8,7 +8,11 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 
+import java.awt.*;
 import java.io.File;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.List;
 
 public class Controller {
@@ -54,6 +58,15 @@ public class Controller {
             }
         } else {
             System.out.println("Chooser was cancelled");
+        }
+    }
+
+    @FXML
+    public void handleLinkClick() {
+        try {
+            Desktop.getDesktop().browse(new URI("https://www.oracle.com"));
+        } catch (IOException | URISyntaxException e) {
+            e.printStackTrace();
         }
     }
 
