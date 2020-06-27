@@ -9,6 +9,7 @@ import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 
 import java.io.File;
+import java.util.List;
 
 public class Controller {
     @FXML
@@ -46,9 +47,11 @@ public class Controller {
                 new FileChooser.ExtensionFilter("All Files", "*.*"));
 //        DirectoryChooser chooser = new DirectoryChooser();
 //        File file = chooser.showDialog(gridPane.getScene().getWindow());
-        File file = chooser.showOpenDialog(gridPane.getScene().getWindow());
+        List<File> file = chooser.showOpenMultipleDialog(gridPane.getScene().getWindow());
         if (file != null) {
-            System.out.println("Chosen directory path is " + file.getPath());
+            for (int i=0; i<file.size(); i++) {
+                System.out.println("Chosen directory path is " + file.get(i));
+            }
         } else {
             System.out.println("Chooser was cancelled");
         }
