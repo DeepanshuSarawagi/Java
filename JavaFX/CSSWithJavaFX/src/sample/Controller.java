@@ -42,6 +42,7 @@ public class Controller {
         chooser.setTitle("Save Application File");
         chooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Text", "*.txt"),
                 new FileChooser.ExtensionFilter("PDF", "*.pdf"),
+                new FileChooser.ExtensionFilter("Images", "*.jpeg", "*.png", "*.gif"),
                 new FileChooser.ExtensionFilter("All Files", "*.*"));
 //        DirectoryChooser chooser = new DirectoryChooser();
 //        File file = chooser.showDialog(gridPane.getScene().getWindow());
