@@ -71,8 +71,14 @@ public class Controller {
             }
         });
 
-        tableView.getColumns().setAll(firstNameColumn, lastNameColumn, phoneNumberColumn);
+        emailColumn.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Contact, String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Contact, String> contactStringCellDataFeatures) {
+                return contactStringCellDataFeatures.getValue().emailProperty();
+            }
+        });
 
+        tableView.getColumns().setAll(firstNameColumn, lastNameColumn, phoneNumberColumn, emailColumn);
     }
 
 }
