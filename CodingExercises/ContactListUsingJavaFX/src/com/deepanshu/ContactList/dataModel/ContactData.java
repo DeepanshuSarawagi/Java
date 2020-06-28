@@ -58,4 +58,12 @@ public class ContactData {
             }
         }
     }
+
+    public void addContact(Contact contact) {
+        contactsList.add(contact);
+    }
+
+    public void deleteContact(Contact contact) {
+        contactsList.remove(contact);
+    }
 }
