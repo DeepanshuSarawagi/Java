@@ -16,24 +16,12 @@
     <TableView fx:id="tableView" GridPane.rowIndex="1" GridPane.columnIndex="0">
         <columns>
             <TableColumn fx:id="firstNameColumn" text="First Name">
-                <cellFactory>
-                    <PropertyValueFactory property="firstName"/>
-                </cellFactory>
             </TableColumn>
             <TableColumn fx:id="lastNameColumn" text="Last Name">
-                <cellFactory>
-                    <PropertyValueFactory property="lastName"/>
-                </cellFactory>
             </TableColumn>
             <TableColumn fx:id="phoneNumberColumn" text="Phone Number">
-                <cellFactory>
-                    <PropertyValueFactory property="phoneNumber"/>
-                </cellFactory>
             </TableColumn>
             <TableColumn fx:id="emailColumn" text="Email">
-                <cellFactory>
-                    <PropertyValueFactory property="email"/>
-                </cellFactory>
             </TableColumn>
         </columns>
     </TableView>

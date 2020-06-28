@@ -19,9 +19,13 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-
-    public static void main(String[] args) {
-        launch(args);
+    @Override
+    public void stop() throws Exception {
+        try {
+            ContactData.getInstance().saveData();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -33,12 +37,8 @@ public class Main extends Application {
         }
     }
 
-    @Override
-    public void stop() throws Exception {
-        try {
-            ContactData.getInstance().saveData();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public static void main(String[] args) {
+        launch(args);
     }
+
 }
