@@ -108,7 +108,7 @@ public class Controller {
             }
         };
 
-        filteredList = new FilteredList<>(TodoData.getInstance().getTodoItems(), wantAllItems);
+        filteredList = new FilteredList<>(TodoData.getInstance().getTodoItems(), wantAllItems);  // data binding
 
         SortedList<TodoItem> sortedList = new SortedList<>(filteredList, new Comparator<TodoItem>() {
             @Override
@@ -118,7 +118,7 @@ public class Controller {
         });
 
 //        todoListView.setItems(TodoData.getInstance().getTodoItems()); // We will display the sorted list in the ListView
-        todoListView.setItems(sortedList);
+        todoListView.setItems(sortedList);   // data binding
         todoListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         todoListView.getSelectionModel().selectFirst();
 
