@@ -11,7 +11,7 @@
     </padding>
     <Label text="Address Book" GridPane.rowIndex="0" GridPane.columnIndex="0">
     </Label>
-    <TableView fx:id="tableView" GridPane.rowIndex="1" GridPane.columnIndex="0">
+    <TableView fx:id="tableView" GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.columnSpan="10">
 
     </TableView>
 </GridPane>
