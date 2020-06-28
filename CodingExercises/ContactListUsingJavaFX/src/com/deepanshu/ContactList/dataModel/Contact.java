@@ -1,6 +1,7 @@
-package dataModel;
+package com.deepanshu.ContactList.dataModel;
 
 import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.ObservableList;
 
 public class Contact {
     private final SimpleStringProperty firstName;
@@ -9,7 +10,7 @@ public class Contact {
     private final SimpleStringProperty email;
 
 
-    private Contact(String FirstName, String LastName, String PhoneNumber, String Email) {
+    public Contact(String FirstName, String LastName, String PhoneNumber, String Email) {
         this.firstName = new SimpleStringProperty(FirstName);
         this.lastName = new SimpleStringProperty(LastName);
         this.phoneNumber = new SimpleStringProperty(PhoneNumber);
@@ -62,5 +63,15 @@ public class Contact {
 
     public void setEmail(String email) {
         this.email.set(email);
+    }
+
+    @Override
+    public String toString() {
+        return "Contact{" +
+                "firstName=" + firstName +
+                ", lastName=" + lastName +
+                ", phoneNumber=" + phoneNumber +
+                ", email=" + email +
+                '}';
     }
 }

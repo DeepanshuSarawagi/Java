@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 <GridPane fx:controller="com.deepanshu.ContactList.Controller"
           xmlns:fx="http://javafx.com/fxml" hgap="10" vgap="10">
     <padding>
@@ -14,13 +15,25 @@
     </Label>
     <TableView fx:id="tableView" GridPane.rowIndex="1" GridPane.columnIndex="0">
         <columns>
-            <TableColumn text="First Name">
+            <TableColumn fx:id="firstNameColumn" text="First Name">
+                <cellFactory>
+                    <PropertyValueFactory property="firstName"/>
+                </cellFactory>
             </TableColumn>
-            <TableColumn text="Last Name">
+            <TableColumn fx:id="lastNameColumn" text="Last Name">
+                <cellFactory>
+                    <PropertyValueFactory property="lastName"/>
+                </cellFactory>
             </TableColumn>
-            <TableColumn text="Phone Number">
+            <TableColumn fx:id="phoneNumberColumn" text="Phone Number">
+                <cellFactory>
+                    <PropertyValueFactory property="phoneNumber"/>
+                </cellFactory>
             </TableColumn>
-            <TableColumn text="Email">
+            <TableColumn fx:id="emailColumn" text="Email">
+                <cellFactory>
+                    <PropertyValueFactory property="email"/>
+                </cellFactory>
             </TableColumn>
         </columns>
     </TableView>
