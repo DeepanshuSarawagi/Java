@@ -15,13 +15,13 @@
     </Label>
     <TableView fx:id="tableView" GridPane.rowIndex="1" GridPane.columnIndex="0">
         <columns>
-            <TableColumn fx:id="firstNameColumn" text="First Name">
+            <TableColumn prefWidth="100" fx:id="firstNameColumn" text="First Name">
             </TableColumn>
-            <TableColumn fx:id="lastNameColumn" text="Last Name">
+            <TableColumn prefWidth="100" fx:id="lastNameColumn" text="Last Name">
             </TableColumn>
-            <TableColumn fx:id="phoneNumberColumn" text="Phone Number">
+            <TableColumn prefWidth="100" fx:id="phoneNumberColumn" text="Phone Number">
             </TableColumn>
-            <TableColumn fx:id="emailColumn" text="Email">
+            <TableColumn prefWidth="200" fx:id="emailColumn" text="Email">
             </TableColumn>
         </columns>
     </TableView>
