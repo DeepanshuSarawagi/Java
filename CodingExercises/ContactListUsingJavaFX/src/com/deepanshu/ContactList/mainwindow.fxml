@@ -19,7 +19,7 @@
                 <Tooltip text="Click on this button to create new contact"/>
             </tooltip>
         </Button>
-        <Button text="Delete Contact">
+        <Button text="Delete Contact" onAction="#deleteContact">
             <tooltip>
                 <Tooltip text="Click on this button to delete selected contact"/>
             </tooltip>

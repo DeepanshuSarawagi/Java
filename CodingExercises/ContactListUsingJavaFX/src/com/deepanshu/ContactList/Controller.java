@@ -125,4 +125,20 @@ public class Controller {
         }
     }
 
+    @FXML
+    public void deleteContact() {
+        Contact contact = tableView.getSelectionModel().getSelectedItem();
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Delete Contact");
+        alert.setHeaderText("Delete contact: " + contact.getFirstName());
+        alert.setContentText("Are you sure you want to delete the selected contact? Press OK to confirm. Or CANCEL to " +
+                            " back out.");
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent() && result.get()==ButtonType.OK) {
+            ContactData.getInstance().deleteContact(contact);
+        } else {
+            System.out.println("Contact " + contact.getFirstName() + " not deleted.");
+        }
+    }
+
 }
