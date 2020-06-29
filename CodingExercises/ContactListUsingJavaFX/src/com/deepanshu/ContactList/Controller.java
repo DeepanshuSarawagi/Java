@@ -12,8 +12,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import javafx.util.Callback;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class Controller {
 //    private List<Contact> contacts;
@@ -86,9 +88,25 @@ public class Controller {
         tableView.getColumns().setAll(firstNameColumn, lastNameColumn, phoneNumberColumn, emailColumn);
     }
 
+    @FXML
     public void showNewContactDialog() {
         Dialog<ButtonType> dialog = new Dialog<>();
         dialog.initOwner(mainWindowPane.getScene().getWindow());
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("NewContactDialog.fxml"));
+
+        try {
+            dialog.getDialogPane().setContent(fxmlLoader.load());
+        } catch (IOException e) {
+            System.out.println("Couldn`t load the dialog box");
+            e.printStackTrace();
+            return;
+        }
+
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
+
+        Optional<ButtonType> result = dialog.showAndWait();
 
     }
 
