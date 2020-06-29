@@ -6,11 +6,10 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.SelectionMode;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.GridPane;
 import javafx.util.Callback;
 
 import java.util.ArrayList;
@@ -36,6 +35,9 @@ public class Controller {
 
     @FXML
     private TableColumn<Contact, String> emailColumn;
+
+    @FXML
+    private GridPane mainWindowPane;
 
 
 //    public TableView<Contact> getTableView() {
@@ -85,6 +87,8 @@ public class Controller {
     }
 
     public void showNewContactDialog() {
+        Dialog<ButtonType> dialog = new Dialog<>();
+        dialog.initOwner(mainWindowPane.getScene().getWindow());
 
     }
 
