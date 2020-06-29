@@ -108,7 +108,11 @@ public class Controller {
 
         Optional<ButtonType> result = dialog.showAndWait();
         if (result.isPresent() && result.get() == ButtonType.OK) {
-
+            DialogController controller = fxmlLoader.getController();
+            Contact contact = controller.createNewContact();
+            tableView.getSelectionModel().select(contact);
+        } else {
+            System.out.println("Cancel button was pressed");
         }
     }
 
