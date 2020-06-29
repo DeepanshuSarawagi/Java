@@ -12,7 +12,7 @@
     <padding>
         <Insets left="10.0" bottom="10.0" top="10.0" right="10.0"/>
     </padding>
-    <Button text="New Contact" GridPane.rowIndex="0" GridPane.columnIndex="0">
+    <Button text="New Contact" GridPane.rowIndex="0" GridPane.columnIndex="0" onAction="#showNewContactDialog">
         <tooltip>
             <Tooltip text="Click on this button to create new contact"/>
         </tooltip>

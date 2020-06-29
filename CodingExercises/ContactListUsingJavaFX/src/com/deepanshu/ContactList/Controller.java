@@ -84,4 +84,8 @@ public class Controller {
         tableView.getColumns().setAll(firstNameColumn, lastNameColumn, phoneNumberColumn, emailColumn);
     }
 
+    public void showNewContactDialog() {
+
+    }
+
 }
