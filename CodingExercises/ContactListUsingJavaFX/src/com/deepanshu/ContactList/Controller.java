@@ -5,6 +5,7 @@ import com.deepanshu.ContactList.dataModel.ContactData;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
@@ -14,6 +15,7 @@ import javafx.util.Callback;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
@@ -55,7 +57,14 @@ public class Controller {
 //        contacts.add(contact1);
 //        contacts.add(contact2);
 //
-        tableView.setItems(contacts);
+        SortedList<Contact> sortedList = new SortedList<>(contacts, new Comparator<Contact>() {
+            @Override
+            public int compare(Contact o1, Contact o2) {
+                return o1.firstNameProperty().toString().compareTo(o2.firstNameProperty().toString());
+            }
+        });
+
+        tableView.setItems(sortedList);
         tableView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         tableView.getSelectionModel().selectFirst();
         firstNameColumn.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Contact, String>, ObservableValue<String>>() {
