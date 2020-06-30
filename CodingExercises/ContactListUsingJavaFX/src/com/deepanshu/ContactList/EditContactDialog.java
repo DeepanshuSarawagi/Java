@@ -38,8 +38,5 @@ public class EditContactDialog {
         if (updatedEmail.length()>0) {
             contact.setEmail(updatedEmail);
         }
-
-        return;
-
     }
 }
