@@ -5,6 +5,7 @@ import com.deepanshu.ContactList.dataModel.ContactData;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,6 +19,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Predicate;
 
 public class Controller {
 //    private List<Contact> contacts;
@@ -43,6 +45,8 @@ public class Controller {
     @FXML
     private GridPane mainWindowPane;
 
+    private FilteredList<Contact> filteredList;
+
 
 //    public TableView<Contact> getTableView() {
 //        return tableView;
@@ -57,7 +61,15 @@ public class Controller {
 //        contacts.add(contact1);
 //        contacts.add(contact2);
 //
-        SortedList<Contact> sortedList = new SortedList<>(contacts, new Comparator<Contact>() {
+
+        filteredList = new FilteredList<>(contacts, new Predicate<Contact>() {
+            @Override
+            public boolean test(Contact contact) {
+                return true;
+            }
+        });
+
+        SortedList<Contact> sortedList = new SortedList<>(filteredList, new Comparator<Contact>() {
             @Override
             public int compare(Contact o1, Contact o2) {
                 return o1.firstNameProperty().toString().compareTo(o2.firstNameProperty().toString());
