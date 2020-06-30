@@ -164,7 +164,6 @@ public class Controller {
             EditContactDialog controller = fxmlLoader.getController();
             controller.editContact(contact);
             tableView.getSelectionModel().select(contact);
-            System.out.println("Okay button was pressed");
         } else {
             System.out.println("Cancel button was pressed");
         }
