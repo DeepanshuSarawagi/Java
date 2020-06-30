@@ -143,7 +143,28 @@ public class Controller {
 
     @FXML
     public void editContact() {
+        Contact contact = tableView.getSelectionModel().getSelectedItem();
+        Dialog<ButtonType> dialog = new Dialog<>();
+        dialog.initOwner(mainWindowPane.getScene().getWindow());
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("editContactDialog.fxml"));
 
+        try {
+            dialog.getDialogPane().setContent(fxmlLoader.load());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
+
+        Optional<ButtonType> result = dialog.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            EditContactDialog controller = fxmlLoader.getController();
+            controller.editContact(contact);
+        } else {
+            System.out.println("Cancel button was pressed");
+        }
     }
 
 }
