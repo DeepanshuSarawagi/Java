@@ -7,19 +7,19 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
+import javafx.event.EventHandler;
+import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.util.Callback;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.function.Predicate;
 
 public class Controller {
@@ -80,9 +80,6 @@ public class Controller {
             }
         });
 
-        searchContact.setOnKeyPressed(keyEvent -> {
-            filteredList.setPredicate(contact -> contact.getFirstName().toLowerCase().contains(searchContact.getText().toLowerCase().trim()));
-        });
 
         tableView.setItems(sortedList);
         tableView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
@@ -187,6 +184,21 @@ public class Controller {
         } else {
             System.out.println("Cancel button was pressed");
         }
+    }
+
+    @FXML
+    public void searchContact() {
+        searchContact.setOnKeyReleased(keyEvent -> {
+            filteredList.setPredicate(contact ->
+                    contact.getFirstName().toLowerCase().contains(searchContact.getText().toLowerCase().trim()));
+        });
+    }
+
+    @FXML
+    public void handleMouseClick() {
+        searchContact.clear();
+        filteredList.setPredicate(null);
+        mainWindowPane.requestFocus();
     }
 
 }
