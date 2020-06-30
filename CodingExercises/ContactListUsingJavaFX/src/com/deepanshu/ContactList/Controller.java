@@ -81,7 +81,7 @@ public class Controller {
         });
 
         searchContact.setOnKeyPressed(keyEvent -> {
-            filteredList.setPredicate(p -> p.getFirstName().toLowerCase().contains(searchContact.getText().toLowerCase().trim()));
+            filteredList.setPredicate(contact -> contact.getFirstName().toLowerCase().contains(searchContact.getText().toLowerCase().trim()));
         });
 
         tableView.setItems(sortedList);
