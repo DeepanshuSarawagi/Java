@@ -8,6 +8,7 @@
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.TextField?>
 <GridPane fx:controller="com.deepanshu.ContactList.Controller"
           xmlns:fx="http://javafx.com/fxml" hgap="10" vgap="10" fx:id="mainWindowPane">
     <padding>
@@ -29,6 +30,8 @@
                 <Tooltip text="Click on this button to edit selected contact"/>
             </tooltip>
         </Button>
+        <TextField fx:id="searchContact" promptText="Search contact">
+        </TextField>
     </HBox>
     <Label text="Address Book" GridPane.rowIndex="1" GridPane.columnIndex="0">
     </Label>

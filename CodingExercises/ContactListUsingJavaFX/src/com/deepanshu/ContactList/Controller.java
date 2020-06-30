@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.util.Callback;
 
@@ -45,6 +46,9 @@ public class Controller {
     @FXML
     private GridPane mainWindowPane;
 
+    @FXML
+    private TextField searchContact;
+
     private FilteredList<Contact> filteredList;
 
 
@@ -74,6 +78,10 @@ public class Controller {
             public int compare(Contact o1, Contact o2) {
                 return o1.firstNameProperty().toString().compareTo(o2.firstNameProperty().toString());
             }
+        });
+
+        searchContact.setOnKeyPressed(keyEvent -> {
+            filteredList.setPredicate(p -> p.getFirstName().toLowerCase().contains(searchContact.getText().toLowerCase().trim()));
         });
 
         tableView.setItems(sortedList);
