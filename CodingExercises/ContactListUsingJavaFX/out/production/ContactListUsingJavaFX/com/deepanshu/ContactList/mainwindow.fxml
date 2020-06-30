@@ -24,6 +24,11 @@
                 <Tooltip text="Click on this button to delete selected contact"/>
             </tooltip>
         </Button>
+        <Button text="Edit Contact" onAction="#editContact">
+            <tooltip>
+                <Tooltip text="Click on this button to edit selected contact"/>
+            </tooltip>
+        </Button>
     </HBox>
     <Label text="Address Book" GridPane.rowIndex="1" GridPane.columnIndex="0">
     </Label>
