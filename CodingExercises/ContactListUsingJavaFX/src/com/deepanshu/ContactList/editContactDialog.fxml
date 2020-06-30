@@ -8,7 +8,7 @@
 
 <DialogPane
         xmlns:fx="http://javafx.com/fxml"
-        fx:controller="com.deepanshu.ContactList.DialogController">
+        fx:controller="com.deepanshu.ContactList.EditContactDialog">
     <content>
         <GridPane vgap="10" hgap="10">
             <Label text="First Name" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
