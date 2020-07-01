@@ -15,4 +15,8 @@ public class Contact {
         this.notes.set(notes);
     }
 
+    public Contact() {
+    }
+
+
 }
