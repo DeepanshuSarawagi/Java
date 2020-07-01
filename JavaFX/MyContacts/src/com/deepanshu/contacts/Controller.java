@@ -48,7 +48,10 @@ public class Controller {
 
         Optional<ButtonType> result = dialog.showAndWait();
         if (result.isPresent() && result.get() == ButtonType.OK) {
-
+            ContactDialog contactDialog = fxmlLoader.getController();
+            Contact newContact = contactDialog.getNewContact();
+            data.addContact(newContact);
+            data.saveContacts();
         }
     }
 }
