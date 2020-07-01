@@ -1,6 +1,7 @@
 package com.deepanshu.contacts;
 
 import com.deepanshu.contacts.dataModel.Contact;
+import com.deepanshu.contacts.dataModel.ContactData;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ButtonType;
@@ -19,6 +20,13 @@ public class Controller {
     @FXML
     private BorderPane mainPanel;
 
+    private ContactData data;
+
+    public void initialize() {
+        data = new ContactData();
+        data.loadContacts();
+        contactsTable.setItems(data.getContacts());
+    }
     @FXML
     public void showAddContactDialog() {
         Dialog<ButtonType> dialog = new Dialog<>();
