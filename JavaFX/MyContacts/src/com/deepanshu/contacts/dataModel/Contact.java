@@ -66,4 +66,13 @@ public class Contact {
         this.notes.set(notes);
     }
 
+    @Override
+    public String toString() {
+        return "Contact{" +
+                "firstName=" + firstName +
+                ", lastName=" + lastName +
+                ", phoneNumber=" + phoneNumber +
+                ", notes=" + notes +
+                '}';
+    }
 }
