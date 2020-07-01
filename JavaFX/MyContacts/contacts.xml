@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<contacts>
+<contact>
+	<first_name>Deepanshu</first_name>
+	<last_name>Sarawagi</last_name>
+	<phone_number>1278362</phone_number>
+	<notes>My contact</notes>
+</contact>
+<contact>
+	<first_name>Divya</first_name>
+	<last_name>Sarawagi</last_name>
+	<phone_number>805627</phone_number>
+	<notes>Spouse</notes>
+</contact>
+<contact>
+	<first_name>Rajat</first_name>
+	<last_name>Sarawagi</last_name>
+	<phone_number>4456339</phone_number>
+	<notes>Brother</notes>
+</contact>
+<contact>
+	<first_name>Pradeep</first_name>
+	<last_name>Sarawagi</last_name>
+	<phone_number>2655992</phone_number>
+	<notes>Father</notes>
+</contact>
+</contacts>
