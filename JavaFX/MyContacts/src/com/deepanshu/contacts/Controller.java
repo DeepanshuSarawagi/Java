@@ -27,6 +27,7 @@ public class Controller {
         data.loadContacts();
         contactsTable.setItems(data.getContacts());
     }
+
     @FXML
     public void showAddContactDialog() {
         Dialog<ButtonType> dialog = new Dialog<>();
