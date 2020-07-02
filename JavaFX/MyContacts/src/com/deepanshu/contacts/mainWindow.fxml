@@ -14,6 +14,7 @@
                     <items>
                         <MenuItem text="New Contact" onAction="#showAddContactDialog"/>
                         <MenuItem text="Edit Contact" onAction="#showEditContactDialog"/>
+                        <MenuItem text="Delete Contact" onAction="#deleteContact"/>
                     </items>
                 </Menu>
             </menus>

@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <contacts>
 <contact>
-	<first_name>Deep</first_name>
-	<last_name>Sarawagi</last_name>
-	<phone_number>9782471</phone_number>
-	<notes>Updated Contact</notes>
-</contact>
-<contact>
 	<first_name>Divya</first_name>
 	<last_name>Sarawagi</last_name>
 	<phone_number>805627</phone_number>
@@ -23,5 +17,17 @@
 	<last_name>Sarawagi</last_name>
 	<phone_number>2655992</phone_number>
 	<notes>Father</notes>
+</contact>
+<contact>
+	<first_name>Deepanshu</first_name>
+	<last_name>Sarawagi</last_name>
+	<phone_number>5472993</phone_number>
+	<notes>New contact</notes>
+</contact>
+<contact>
+	<first_name>Prashant</first_name>
+	<last_name>Kumar</last_name>
+	<phone_number>2453828</phone_number>
+	<notes>New contact</notes>
 </contact>
 </contacts>

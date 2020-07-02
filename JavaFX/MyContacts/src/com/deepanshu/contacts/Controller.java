@@ -2,15 +2,15 @@ package com.deepanshu.contacts;
 
 import com.deepanshu.contacts.dataModel.Contact;
 import com.deepanshu.contacts.dataModel.ContactData;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Dialog;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
+import java.util.Comparator;
 import java.util.Optional;
 
 public class Controller {
@@ -21,12 +21,19 @@ public class Controller {
     @FXML
     private BorderPane mainPanel;
 
+
     private ContactData data;
 
     public void initialize() {
         data = new ContactData();
         data.loadContacts();
-        contactsTable.setItems(data.getContacts());
+        SortedList<Contact> sortedList = new SortedList<>(data.getContacts(), new Comparator<Contact>() {
+            @Override
+            public int compare(Contact o1, Contact o2) {
+                return o1.firstNameProperty().toString().compareTo(o2.firstNameProperty().toString());
+            }
+        });
+        contactsTable.setItems(sortedList);
     }
 
     @FXML
@@ -91,6 +98,28 @@ public class Controller {
         if (result.isPresent() && result.get() == ButtonType.OK) {
             contactDialog.updateContact(selectedContact);
             data.saveContacts();
+        }
+    }
+
+    @FXML
+    public void deleteContact() {
+        Contact selectedContact = contactsTable.getSelectionModel().getSelectedItem();
+        if (selectedContact == null) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("No Contact selected");
+            alert.setHeaderText(null);
+            alert.setContentText("Please select the contact you wish to delete");
+            alert.showAndWait();
+            return;
+        }
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Delete selected contact");
+        alert.setHeaderText("Delete contact: " + selectedContact.getFirstName());
+        alert.setContentText("Are you sure you want to delete the contact? Press OK to confirm.");
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            data.deleteContact(selectedContact);
         }
     }
 }
