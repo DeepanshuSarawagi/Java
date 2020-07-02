@@ -120,6 +120,7 @@ public class Controller {
         Optional<ButtonType> result = alert.showAndWait();
         if (result.isPresent() && result.get() == ButtonType.OK) {
             data.deleteContact(selectedContact);
+            data.saveContacts();
         }
     }
 }
