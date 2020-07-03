@@ -8,6 +8,7 @@ public class Main {
 
         System.out.println(divideEAFP(x, y));
         System.out.println(divideLBYL(x, y));
+        System.out.println(divide(x, y));       // To see the exceptions we get when dividing by zero
     }
 
     /*
@@ -28,5 +29,9 @@ public class Main {
         } catch (ArithmeticException e) {
             return 0;
         }
+    }
+
+    private static int divide(int x, int y) {
+        return x / y;
     }
 }
