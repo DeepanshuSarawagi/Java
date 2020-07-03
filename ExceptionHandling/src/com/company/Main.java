@@ -13,6 +13,9 @@ public class Main {
         System.out.println(divide(x, y));       // To see the exceptions we get when dividing by zero
         x = getInt();
         System.out.println("x is " + x);
+
+        x = getIntLBYL();
+        System.out.println("x is " + x);
     }
 
     /*
@@ -43,5 +46,24 @@ public class Main {
         System.out.println("Please enter a number of your choice: ");
         Scanner s = new Scanner(System.in);
         return s.nextInt();
+    }
+
+    private static int getIntLBYL() {
+        Scanner s = new Scanner(System.in);
+        boolean isValid = true;
+        System.out.println("Please enter an integer: ");
+        String input = s.next();
+
+        for (int i =0; i<input.length(); i++) {
+            if (!Character.isDigit(input.charAt(i))) {
+                isValid = false;
+                break;
+            }
+        }
+
+        if (isValid) {
+            return Integer.parseInt(input);
+        }
+        return 0;
     }
 }
