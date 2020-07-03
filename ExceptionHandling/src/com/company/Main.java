@@ -1,14 +1,18 @@
 package com.company;
 
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
         int x = 98;
-        int y = 0;  // this is deliberately done to raise error
+        int y = 2;  // this is deliberately done to raise error
 
         System.out.println(divideEAFP(x, y));
         System.out.println(divideLBYL(x, y));
         System.out.println(divide(x, y));       // To see the exceptions we get when dividing by zero
+        x = getInt();
+        System.out.println("x is " + x);
     }
 
     /*
@@ -33,5 +37,11 @@ public class Main {
 
     private static int divide(int x, int y) {
         return x / y;
+    }
+
+    private static int getInt() {
+        System.out.println("Please enter a number of your choice: ");
+        Scanner s = new Scanner(System.in);
+        return s.nextInt();
     }
 }
