@@ -6,15 +6,24 @@ import java.util.Scanner;
 
 public class callStack {
     public static void main(String[] args) {
-        int x = getInt();
-        int y = getInt();
+        try {
 
-        System.out.println(divide(x, y));
+            int x = getInt();
+            int y = getInt();
 
-        x = getIntEAFP();
-        y = getIntEAFP();
+            System.out.println(divide(x, y));
 
-        System.out.println(divide(x, y));
+            x = getIntEAFP();
+            y = getIntEAFP();
+
+            System.out.println(divide(x, y));
+        } catch (NoSuchElementException e) {
+            System.out.println(e.toString());
+            System.out.println("No input found from user");
+        } catch (ArithmeticException e) {
+            System.out.println(e.toString());
+            System.out.println("Not able to perform division");
+        }
     }
 
     private static int getInt() {
