@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.InputMismatchException;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class callStack {
@@ -20,10 +21,14 @@ public class callStack {
         System.out.println("Please enter an integer of your choice: ");
         Scanner scanner = new Scanner(System.in);
         boolean hasNextInt = scanner.hasNextInt();
-        while (!hasNextInt) {
-            System.out.println("That was an invalid input. Please re-enter integer of your choice: ");
-            scanner.nextLine();
-            hasNextInt = scanner.hasNextInt();
+        try {
+            while (!hasNextInt) {
+                System.out.println("That was an invalid input. Please re-enter integer of your choice: ");
+                scanner.nextLine();
+                hasNextInt = scanner.hasNextInt();
+            }
+        } catch (NoSuchElementException e) {
+            throw new NoSuchElementException("No suitable input");
         }
         return scanner.nextInt();
     }
@@ -38,11 +43,18 @@ public class callStack {
             } catch (InputMismatchException e) {
                 scanner.nextLine();
                 System.out.println("That was an invalid input. Please try again: ");
+            } catch (NoSuchElementException e) {
+                throw new NoSuchElementException("No suitable input");
             }
         }
     }
 
     private static int divide(int x, int y) {
-        return x / y;
+        try {
+            return x / y;
+        } catch (ArithmeticException e) {
+            throw new ArithmeticException("Attempted division by zero");
+        }
+
     }
 }
