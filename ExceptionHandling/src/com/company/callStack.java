@@ -17,12 +17,9 @@ public class callStack {
             y = getIntEAFP();
 
             System.out.println(divide(x, y));
-        } catch (NoSuchElementException e) {
+        } catch (NoSuchElementException | ArithmeticException e) {
             System.out.println(e.toString());
-            System.out.println("No input found from user");
-        } catch (ArithmeticException e) {
-            System.out.println(e.toString());
-            System.out.println("Not able to perform division");
+            System.out.println("Not able to perform division.");
         }
     }
 
