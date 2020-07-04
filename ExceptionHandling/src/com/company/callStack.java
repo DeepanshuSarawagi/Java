@@ -13,9 +13,11 @@ public class callStack {
     private static int getInt() {
         System.out.println("Please enter an integer of your choice: ");
         Scanner scanner = new Scanner(System.in);
-        if (!scanner.hasNextInt()) {
+        boolean hasNextInt = scanner.hasNextInt();
+        while (!hasNextInt) {
             System.out.println("That was an invalid input. Please re-enter integer of your choice: ");
             scanner.nextLine();
+            hasNextInt = scanner.hasNextInt();
         }
         return scanner.nextInt();
     }
