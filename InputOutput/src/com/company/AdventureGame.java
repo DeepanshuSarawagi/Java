@@ -16,6 +16,8 @@ public class AdventureGame {
         vocabulary.put("SOUTH", "S");
         vocabulary.put("EAST", "E");
         vocabulary.put("WEST", "W");
+        vocabulary.put("DOWN", "D");
+        vocabulary.put("UP", "U");
 
         int loc = 1;
         while (true) {
