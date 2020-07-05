@@ -1,5 +1,7 @@
 package com.company;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -8,6 +10,19 @@ import java.util.Set;
 public class Locations implements Map<Integer, Location> {
 
     private static Map<Integer, Location> locations = new HashMap<>();
+
+    public static void main(String[] args) {
+        FileWriter locFile = null;
+        try {
+            locFile = new FileWriter("locations.txt");
+            for (Location location : locations.values()) {
+                locFile.write(location.getLocationID() + "," + location.getDescription() + "\n");
+            }
+            locFile.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     // Keeping just one instance of data by initializing it in static block.
 
