@@ -12,19 +12,24 @@ public class Locations implements Map<Integer, Location> {
     private static Map<Integer, Location> locations = new HashMap<>();
 
     public static void main(String[] args) throws IOException{
-        FileWriter locFile = null;
-        try {
-            locFile = new FileWriter("locations.txt");
+        try(FileWriter locFile = new FileWriter("locations.txt")) {
             for (Location location : locations.values()) {
                 locFile.write(location.getLocationID() + "," + location.getDescription() + "\n");
-//                throw new IOException("Test exception thrown while writing data");
             }
         }
-        finally {
-            if (locFile != null) {
-                locFile.close();
-            }
-            }
+//        FileWriter locFile = null;
+//        try {
+//            locFile = new FileWriter("locations.txt");
+//            for (Location location : locations.values()) {
+//                locFile.write(location.getLocationID() + "," + location.getDescription() + "\n");
+////                throw new IOException("Test exception thrown while writing data");
+//            }
+//        }
+//        finally {
+//            if (locFile != null) {
+//                locFile.close();
+//            }
+//            }
         }
     // Keeping just one instance of data by initializing it in static block.
 
