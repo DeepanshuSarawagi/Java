@@ -38,7 +38,7 @@ public class Locations implements Map<Integer, Location> {
     // Keeping just one instance of data by initializing it in static block.
 
     static {
-        try(Scanner scanner = new Scanner(new FileReader("locations_big.txt"))) {
+        try(Scanner scanner = new Scanner(new BufferedReader(new FileReader("locations_big.txt")))) {
 //            scanner = new Scanner(new FileReader("locations_big.txt"));
             scanner.useDelimiter(",");
             while (scanner.hasNextLine()) {
