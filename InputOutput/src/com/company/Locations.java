@@ -11,26 +11,20 @@ public class Locations implements Map<Integer, Location> {
 
     private static Map<Integer, Location> locations = new HashMap<>();
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException{
         FileWriter locFile = null;
         try {
             locFile = new FileWriter("locations.txt");
             for (Location location : locations.values()) {
                 locFile.write(location.getLocationID() + "," + location.getDescription() + "\n");
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (locFile != null) {
-                    locFile.close();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
+        }
+        finally {
+            if (locFile != null) {
+                locFile.close();
+            }
             }
         }
-    }
-
     // Keeping just one instance of data by initializing it in static block.
 
     static {
