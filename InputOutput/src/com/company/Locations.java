@@ -63,7 +63,7 @@ public class Locations implements Map<Integer, Location> {
             scanner.useDelimiter(",");
             while (scanner.hasNextLine()) {
                 int loc = scanner.nextInt();
-                scanner.skip(scanner.delimiter())
+                scanner.skip(scanner.delimiter());
                 String direction = scanner.next();
                 scanner.skip(scanner.delimiter());
                 String dest = scanner.nextLine();

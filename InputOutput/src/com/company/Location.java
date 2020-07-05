@@ -31,4 +31,8 @@ public class Location {
     public Map<String, Integer> getExits() {
         return new HashMap<>(exits);
     }
+
+    protected void addExit(String direction, Integer location) {
+        exits.put(direction, location);
+    }
 }
