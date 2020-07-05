@@ -54,9 +54,9 @@ public class Locations implements Map<Integer, Location> {
             }
 
         // Read exits from the directions.txt file
-        try (Scanner scanner = new Scanner(new BufferedReader(new FileReader("directions_big.txt")))) {
-            scanner.useDelimiter(",");
-            while (scanner.hasNextLine()) {
+        try (BufferedReader dirFile = new BufferedReader(new FileReader("directions_big.txt"))) {
+            String input;
+            while ((input = dirFile.readLine()) != null) {
 //                int loc = scanner.nextInt();
 //                scanner.skip(scanner.delimiter());
 //                String direction = scanner.next();
@@ -66,7 +66,6 @@ public class Locations implements Map<Integer, Location> {
 
                 // alternative way of reading data by splitting the line into array of words using delimiter
 
-                String input = scanner.nextLine();
                 String[] data = input.split(",");
                 int loc = Integer.parseInt(data[0]);
                 String direction = data[1];
