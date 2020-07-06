@@ -35,31 +35,44 @@ public class Locations implements Map<Integer, Location> {
     // Keeping just one instance of data by initializing it in static block.
 
     static {
-        try(DataInputStream locFile = new DataInputStream(
+        try(ObjectInputStream locFile = new ObjectInputStream(
                 new BufferedInputStream(new FileInputStream("locations.dat")))) {
             boolean eof = false;
             while (!eof) {
                 try {
-                    Map<String, Integer> exits = new LinkedHashMap<>();
-                    int locId = locFile.readInt();
-                    String description = locFile.readUTF();
-                    int numExits = locFile.readInt();
-                    System.out.println("Read location " + locId + ": " + description);
-                    System.out.println("Found " + numExits + " exits");
-                    for (int i=0; i<numExits; i++) {
-                        String direction = locFile.readUTF();
-                        int destination = locFile.readInt();
-                        exits.put(direction, destination);
-                        System.out.println("\t\t" + direction + "," + destination);
-                    }
-                    locations.put(locId, new Location(locId, description, exits));
+                    Location location = (Location) locFile.readObject();
+                    System.out.println("Read location " + location.getLocationID() + ": " + location.getDescription());
+                    System.out.println("Found " + location.getExits().size() + " exits");
+                    locations.put(location.getLocationID(), location);
                 } catch (EOFException e) {
                     eof = true;
+                } catch (ClassNotFoundException e) {
+                    System.out.println("Class Not Found Exception: " + e.getMessage());
                 }
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
+//            while (!eof) {
+//                try {
+//                    Map<String, Integer> exits = new LinkedHashMap<>();
+//                    int locId = locFile.readInt();
+//                    String description = locFile.readUTF();
+//                    int numExits = locFile.readInt();
+//                    System.out.println("Read location " + locId + ": " + description);
+//                    System.out.println("Found " + numExits + " exits");
+//                    for (int i=0; i<numExits; i++) {
+//                        String direction = locFile.readUTF();
+//                        int destination = locFile.readInt();
+//                        exits.put(direction, destination);
+//                        System.out.println("\t\t" + direction + "," + destination);
+//                    }
+//                    locations.put(locId, new Location(locId, description, exits));
+//                } catch (EOFException e) {
+//                    eof = true;
+//                }
+//            }
+
 //        try(Scanner scanner = new Scanner(new BufferedReader(new FileReader("locations_big.txt")))) {
 ////            scanner = new Scanner(new FileReader("locations_big.txt"));
 //            scanner.useDelimiter(",");
