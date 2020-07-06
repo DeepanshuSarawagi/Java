@@ -8,30 +8,24 @@ public class Locations implements Map<Integer, Location> {
     private static Map<Integer, Location> locations = new LinkedHashMap<>();
 
     public static void main(String[] args) throws IOException{
-        try(BufferedWriter locFile = new BufferedWriter(new FileWriter("locations.txt"));
-            BufferedWriter dirFile = new BufferedWriter(new FileWriter("directions.txt"))) {
+        try (DataOutputStream locFile = new DataOutputStream(
+                new BufferedOutputStream(new FileOutputStream("locations.dat")))) {
             for (Location location : locations.values()) {
-                locFile.write(location.getLocationID() + "," + location.getDescription() + "\n");
+                locFile.writeInt(location.getLocationID());
+                locFile.writeUTF(location.getDescription());
+                System.out.println("Writing location " + location.getLocationID() + ": " + location.getDescription());
+                System.out.println("Writing " + (location.getExits().size()-1) + " exits" );
+                locFile.writeInt(location.getExits().size()-1);
                 for (String direction : location.getExits().keySet()) {
-                    dirFile.write(location.getLocationID() + "," + direction + "," + location.getExits().get(direction)
-                    + "\n");
+                    if (!direction.equalsIgnoreCase("Q")) {
+                        System.out.println("\t\t" + direction + "," + location.getExits().get(direction));
+                        locFile.writeUTF(direction);
+                        locFile.writeInt(location.getExits().get(direction));
+                    }
                 }
             }
         }
-//        FileWriter locFile = null;
-//        try {
-//            locFile = new FileWriter("locations.txt");
-//            for (Location location : locations.values()) {
-//                locFile.write(location.getLocationID() + "," + location.getDescription() + "\n");
-////                throw new IOException("Test exception thrown while writing data");
-//            }
-//        }
-//        finally {
-//            if (locFile != null) {
-//                locFile.close();
-//            }
-//            }
-        }
+    }
     // Keeping just one instance of data by initializing it in static block.
 
     static {
@@ -54,13 +48,6 @@ public class Locations implements Map<Integer, Location> {
         try (BufferedReader dirFile = new BufferedReader(new FileReader("directions_big.txt"))) {
             String input;
             while ((input = dirFile.readLine()) != null) {
-//                int loc = scanner.nextInt();
-//                scanner.skip(scanner.delimiter());
-//                String direction = scanner.next();
-//                scanner.skip(scanner.delimiter());
-//                String dest = scanner.nextLine();
-//                int destination = Integer.parseInt(dest);
-
                 // alternative way of reading data by splitting the line into array of words using delimiter
 
                 String[] data = input.split(",");
@@ -75,36 +62,6 @@ public class Locations implements Map<Integer, Location> {
         } catch (IOException e) {
             e.printStackTrace();
         }
-//        Map<String, Integer> tempExit = new HashMap<>();
-//        locations.put(0, new Location(0, "You are sitting in front of a computer learning Java.", tempExit));
-//
-//        // Add exits from each locations.
-//        tempExit = new HashMap<>();
-//        tempExit.put("W", 2);
-//        tempExit.put("E", 3);
-//        tempExit.put("S", 4);
-//        tempExit.put("N", 5);
-//        locations.put(1, new Location(1, "You are standing at the end of a small road in front" +
-//                " of a small brick building", tempExit));
-//
-//        tempExit = new HashMap<>();
-//        tempExit.put("N", 5);
-//        locations.put(2, new Location(2, "You are are at the top of a hill.", tempExit));
-//
-//        tempExit = new HashMap<>();
-//        tempExit.put("W", 1);
-//        locations.put(3, new Location(3, "You are inside a building, a well house for a small" +
-//                " spring.", tempExit));
-//
-//        tempExit = new HashMap<>();
-//        tempExit.put("N", 1);
-//        tempExit.put("W", 2);
-//        locations.put(4, new Location(4, "You are in a valley beside a stream.", tempExit));
-//
-//        tempExit = new HashMap<>();
-//        tempExit.put("S", 1);
-//        tempExit.put("W", 2);
-//        locations.put(5, new Location(5, "You are in the forest.", tempExit));
     }
 
     @Override
