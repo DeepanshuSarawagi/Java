@@ -50,7 +50,10 @@ public class Locations implements Map<Integer, Location> {
                     System.out.println("Class Not Found Exception: " + e.getMessage());
                 }
             }
-        } catch (IOException e) {
+        } catch (InvalidClassException e) {
+            System.out.println(e.getMessage());
+        }
+        catch (IOException e) {
             e.printStackTrace();
         }
 //            while (!eof) {
