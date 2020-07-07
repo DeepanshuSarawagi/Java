@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ByteStream.iml" filepath="$PROJECT_DIR$/ByteStream.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RandomAccessFile.iml" filepath="$PROJECT_DIR$/RandomAccessFile.iml" />
     </modules>
   </component>
 </project>
