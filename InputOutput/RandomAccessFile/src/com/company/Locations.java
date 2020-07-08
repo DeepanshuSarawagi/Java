@@ -70,6 +70,17 @@ public class Locations implements Map<Integer, Location> {
                 startPointer = (int) rao.getFilePointer();
             }
 
+            // Now that we have stored the locationsID and each location record in a Map, we need to move back to the
+            // indexStart position and write the index of locationID, location StartByte and length of each location
+            // record
+
+            rao.seek(indexStart);
+            for (Integer locationID:index.keySet()) {
+                rao.writeInt(locationID);
+                rao.writeInt(index.get(locationID).getStartByte());
+                rao.writeInt(index.get(locationID).getLength());
+            }
+
         }
     }
 
