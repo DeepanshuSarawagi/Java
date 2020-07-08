@@ -6,6 +6,7 @@ import java.util.*;
 public class Locations implements Map<Integer, Location> {
 
     private static Map<Integer, Location> locations = new LinkedHashMap<>();
+    private static Map<Integer, IndexRecord> index = new LinkedHashMap<>();
 
     // FilePointer is an offset in the file when next read or write will start from.
     // If the file pointer is at position 100 and we have read 5 bytes then the next file pointer will be at 105
@@ -47,7 +48,27 @@ public class Locations implements Map<Integer, Location> {
                                                      // writing the indexStart position here
 
 
+            int startPointer = locationStart;
+            rao.seek(startPointer);
 
+            for (Location location:locations.values()) {
+                rao.writeInt(location.getLocationID());
+                rao.writeUTF(location.getDescription());
+                StringBuilder builder = new StringBuilder();
+                for (String direction:location.getExits().keySet()) {
+                    if (!direction.equalsIgnoreCase("Q")) {
+                        builder.append(direction);
+                        builder.append(",");
+                        builder.append(location.getExits().get(direction));
+                        builder.append(",");
+                    }
+                }
+                rao.writeUTF(builder.toString());
+                IndexRecord record = new IndexRecord(startPointer, (int) (rao.getFilePointer() - startPointer));
+                index.put(location.getLocationID(), record);
+
+                startPointer = (int) rao.getFilePointer();
+            }
 
         }
     }

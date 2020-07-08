@@ -1,10 +1,10 @@
 package com.company;
 
-public class IndexStart {
+public class IndexRecord {
     private int startByte;
     private int length;
 
-    public IndexStart(int startByte, int length) {
+    public IndexRecord(int startByte, int length) {
         this.startByte = startByte;
         this.length = length;
     }
