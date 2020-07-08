@@ -1,6 +1,10 @@
 package com.company;
 
 import java.io.*;
+import java.nio.file.FileSystem;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.*;
 
 public class Locations implements Map<Integer, Location> {
@@ -8,29 +12,21 @@ public class Locations implements Map<Integer, Location> {
     private static Map<Integer, Location> locations = new LinkedHashMap<>();
 
     public static void main(String[] args) throws IOException{
-        try(ObjectOutputStream locFile =
-                    new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("locations.dat")))) {
+        Path locPath = FileSystems.getDefault().getPath("locations_big.txt");
+        Path dirPath = FileSystems.getDefault().getPath("directions_big.txt");
+
+        try (BufferedWriter locFile = Files.newBufferedWriter(locPath);
+             BufferedWriter dirFile = Files.newBufferedWriter(dirPath)){
             for (Location location : locations.values()) {
-                locFile.writeObject(location);
+                locFile.write(location.getLocationID() + "," + location.getDescription() + "\n");
+                for (String direction : location.getExits().keySet()) {
+                    if (!direction.contains("Q")) {
+                        dirFile.write(location.getLocationID() + "," + direction + "," +
+                                location.getExits().get(direction) + "\n");
+                    }
+                }
             }
         }
-//        try (DataOutputStream locFile = new DataOutputStream(
-//                new BufferedOutputStream(new FileOutputStream("locations.dat")))) {
-//            for (Location location : locations.values()) {
-//                locFile.writeInt(location.getLocationID());
-//                locFile.writeUTF(location.getDescription());
-//                System.out.println("Writing location " + location.getLocationID() + ": " + location.getDescription());
-//                System.out.println("Writing " + (location.getExits().size()-1) + " exits" );
-//                locFile.writeInt(location.getExits().size()-1);
-//                for (String direction : location.getExits().keySet()) {
-//                    if (!direction.equalsIgnoreCase("Q")) {
-//                        System.out.println("\t\t" + direction + "," + location.getExits().get(direction));
-//                        locFile.writeUTF(direction);
-//                        locFile.writeInt(location.getExits().get(direction));
-//                    }
-//                }
-//            }
-//        }
     }
     // Keeping just one instance of data by initializing it in static block.
 
