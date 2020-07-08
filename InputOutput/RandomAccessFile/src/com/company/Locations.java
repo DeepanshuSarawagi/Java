@@ -7,6 +7,7 @@ public class Locations implements Map<Integer, Location> {
 
     private static Map<Integer, Location> locations = new LinkedHashMap<>();
     private static Map<Integer, IndexRecord> index = new LinkedHashMap<>();
+    private static RandomAccessFile ra;
 
     // FilePointer is an offset in the file when next read or write will start from.
     // If the file pointer is at position 100 and we have read 5 bytes then the next file pointer will be at 105
@@ -87,27 +88,44 @@ public class Locations implements Map<Integer, Location> {
     // Keeping just one instance of data by initializing it in static block.
 
     static {
-        try(ObjectInputStream locFile = new ObjectInputStream(
-                new BufferedInputStream(new FileInputStream("locations.dat")))) {
-            boolean eof = false;
-            while (!eof) {
-                try {
-                    Location location = (Location) locFile.readObject();
-                    System.out.println("Read location " + location.getLocationID() + ": " + location.getDescription());
-                    System.out.println("Found " + location.getExits().size() + " exits");
-                    locations.put(location.getLocationID(), location);
-                } catch (EOFException e) {
-                    eof = true;
-                } catch (ClassNotFoundException e) {
-                    System.out.println("Class Not Found Exception: " + e.getMessage());
-                }
+
+        try {
+            ra = new RandomAccessFile("locations_rand.dat", "rwd");
+            int numLocations = ra.readInt();
+            long locationStartPoint = ra.readInt();
+
+            while (ra.getFilePointer() < locationStartPoint) {
+                int locationID = ra.readInt();
+                int locationStart = ra.readInt();
+                int locationLength = ra.readInt();
+
+                IndexRecord record = new IndexRecord(locationStart, locationLength);
+                index.put(locationID, record);
             }
-        } catch (InvalidClassException e) {
+        } catch (IOException e) {
             System.out.println(e.getMessage());
         }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
+//        try(ObjectInputStream locFile = new ObjectInputStream(
+//                new BufferedInputStream(new FileInputStream("locations.dat")))) {
+//            boolean eof = false;
+//            while (!eof) {
+//                try {
+//                    Location location = (Location) locFile.readObject();
+//                    System.out.println("Read location " + location.getLocationID() + ": " + location.getDescription());
+//                    System.out.println("Found " + location.getExits().size() + " exits");
+//                    locations.put(location.getLocationID(), location);
+//                } catch (EOFException e) {
+//                    eof = true;
+//                } catch (ClassNotFoundException e) {
+//                    System.out.println("Class Not Found Exception: " + e.getMessage());
+//                }
+//            }
+//        } catch (InvalidClassException e) {
+//            System.out.println(e.getMessage());
+//        }
+//        catch (IOException e) {
+//            e.printStackTrace();
+//        }
 //            while (!eof) {
 //                try {
 //                    Map<String, Integer> exits = new LinkedHashMap<>();
