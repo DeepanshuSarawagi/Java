@@ -181,6 +181,27 @@ public class Locations implements Map<Integer, Location> {
 //        }
     }
 
+    public Location getLocation(int locationID) throws IOException {
+        IndexRecord record = index.get(locationID);
+        ra.seek(record.getStartByte());
+        int ID = ra.readInt();
+        String description = ra.readUTF();
+        String exits = ra.readUTF();
+        String[] exitPart = exits.split(",");
+        Location location = new Location(locationID, description, null);
+
+        if (locationID != 0) {
+            for(int i=0; i<exitPart.length; i++) {
+                System.out.println("ExitPart = " + exitPart[i]);
+                System.out.println("ExitPart[+1] = " + exitPart[i+1]);
+                String direction = exitPart[i];
+                int destination = Integer.parseInt(exitPart[++i]);
+                location.addExit(direction, destination);
+            }
+        }
+        return location;
+    }
+
     @Override
     public int size() {
         return locations.size();
