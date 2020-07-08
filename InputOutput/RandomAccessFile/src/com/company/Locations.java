@@ -25,11 +25,30 @@ public class Locations implements Map<Integer, Location> {
 
 
     public static void main(String[] args) throws IOException{
-        try(ObjectOutputStream locFile =
-                    new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("locations.dat")))) {
-            for (Location location : locations.values()) {
-                locFile.writeObject(location);
-            }
+        try(RandomAccessFile rao = new RandomAccessFile("locations_rand.dat", "rwd")) {
+            rao.writeInt(locations.size());  // "rwd" is the RandomAccessFile mode. It will open file in read, write
+                                            // and will ensure that synchronization is handled by RandomAccessFile class
+                                            // writing will occur synchronously
+
+            // each index records will contain three integers.
+            // 1. Location ID
+            // 2. Offset of the location
+            // 3. The size of the location record.
+            int indexSize = locations.size() * 3 * Integer.BYTES; // Hence, we are multiplying locations size with three
+                                                                  // ints and the BYTES contain in an integer.
+            int locationStart = (int) (indexSize + rao.getFilePointer()
+                + Integer.BYTES);                                 // Here we are casting it to an int since filePointer
+                                                                  // contains the long value
+            rao.writeInt(locationStart);
+            // Next we are going to write the index of each location. First we will be writing all the  locations and
+            // then we will load the index of each location record in the memory.
+            long indexStart = rao.getFilePointer();  // Once we have written all the location we want to jump back to
+                                                     // the the location where the location record starts, hence we are
+                                                     // writing the indexStart position here
+
+
+
+
         }
     }
 
