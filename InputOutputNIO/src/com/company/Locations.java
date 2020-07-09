@@ -12,21 +12,32 @@ public class Locations implements Map<Integer, Location> {
     private static Map<Integer, Location> locations = new LinkedHashMap<>();
 
     public static void main(String[] args) throws IOException{
-        Path locPath = FileSystems.getDefault().getPath("locations_big.txt");
-        Path dirPath = FileSystems.getDefault().getPath("directions_big.txt");
 
-        try (BufferedWriter locFile = Files.newBufferedWriter(locPath);
-             BufferedWriter dirFile = Files.newBufferedWriter(dirPath)){
+        Path locPath = FileSystems.getDefault().getPath("locations.dat");
+        try(ObjectOutputStream locFile = new ObjectOutputStream(
+                new BufferedOutputStream(Files.newOutputStream(locPath)))) {
             for (Location location : locations.values()) {
-                locFile.write(location.getLocationID() + "," + location.getDescription() + "\n");
-                for (String direction : location.getExits().keySet()) {
-                    if (!direction.contains("Q")) {
-                        dirFile.write(location.getLocationID() + "," + direction + "," +
-                                location.getExits().get(direction) + "\n");
-                    }
-                }
+                locFile.writeObject(location);
             }
         }
+
+        // Commenting out below code so that we can see how JAVANIO works for Objects
+
+//        Path locPath = FileSystems.getDefault().getPath("locations_big.txt");
+//        Path dirPath = FileSystems.getDefault().getPath("directions_big.txt");
+//
+//        try (BufferedWriter locFile = Files.newBufferedWriter(locPath);
+//             BufferedWriter dirFile = Files.newBufferedWriter(dirPath)){
+//            for (Location location : locations.values()) {
+//                locFile.write(location.getLocationID() + "," + location.getDescription() + "\n");
+//                for (String direction : location.getExits().keySet()) {
+//                    if (!direction.contains("Q")) {
+//                        dirFile.write(location.getLocationID() + "," + direction + "," +
+//                                location.getExits().get(direction) + "\n");
+//                    }
+//                }
+//            }
+//        }
     }
     // Keeping just one instance of data by initializing it in static block.
 
