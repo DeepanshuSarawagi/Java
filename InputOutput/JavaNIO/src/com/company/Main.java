@@ -30,7 +30,7 @@ public class Main {
              * Second parameter is to specify the data which needs to be written and then convert the data to getBytes
              * since this method writes the data in Bytes. Hence, we are converting the String to Bytes using getBytes
              * method and specify the Charset to UTF-8.
-             * Third paramter is specify the openOption. If we do not specify this then the file will be truncated and
+             * Third parameter is specify the openOption. If we do not specify this then the file will be truncated and
              * will be replaced with new content. Hence we need to specify the StandardOpenOption.APPEND constant to
              * write the data along with the existing data in the file.
              */
