@@ -3,9 +3,11 @@ package com.company;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.channels.FileChannel;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
 import java.util.List;
 
 public class Main {
@@ -21,6 +23,7 @@ public class Main {
 //                                                      // writing
 
             Path dataPath = FileSystems.getDefault().getPath("data.txt");
+            Files.write(dataPath, "\nLine 4".getBytes(StandardCharsets.UTF_8), StandardOpenOption.APPEND);
             List<String> lines = Files.readAllLines(dataPath);
             for (String line : lines) {
                 System.out.println(line);
