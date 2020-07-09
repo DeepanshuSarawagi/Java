@@ -42,36 +42,56 @@ public class Locations implements Map<Integer, Location> {
     // Keeping just one instance of data by initializing it in static block.
 
     static {
-        Path locPath = FileSystems.getDefault().getPath("locations_big.txt");
-        Path dirPath = FileSystems.getDefault().getPath("directions_big.txt");
+        Path locPath = FileSystems.getDefault().getPath("locations.dat");
 
-        try(Scanner scanner = new Scanner(Files.newBufferedReader(locPath))){
-            scanner.useDelimiter(",");
-            while (scanner.hasNextLine()) {
-                int loc = scanner.nextInt();
-                scanner.skip(scanner.delimiter());
-                String description = scanner.nextLine();
-                System.out.println("read location" + ": " + loc + ": " + description);
-                locations.put(loc, new Location(loc, description, null));
+        try(ObjectInputStream locFile = new ObjectInputStream(new BufferedInputStream(Files.newInputStream(locPath)))) {
+            boolean eof = false;
+            while (!eof) {
+                try {
+                    Location location = (Location) locFile.readObject();
+                    locations.put(location.getLocationID(), location);
+                } catch (EOFException e) {
+                    eof = true;
+                    System.out.println("EOFException " + e.getMessage());
+                }
             }
+        } catch (InvalidClassException e) {
+            System.out.println("InvalidClassException " + e.getMessage());
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("IOException " + e.getMessage());
+        } catch (ClassNotFoundException e) {
+            System.out.println("ClassNotFoundException " + e.getMessage());
         }
-
-        try (BufferedReader dirFile = Files.newBufferedReader(dirPath)) {
-            String input;
-            while ((input = dirFile.readLine()) != null) {
-                String[] data = input.split(",");
-                int loc = Integer.parseInt(data[0]);
-                String direction = data[1];
-                int destination = Integer.parseInt(data[2]);
-                System.out.println(loc + ":" + direction + ":" + destination);
-                Location location = locations.get(loc);
-                location.addExit(direction, destination);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        Path locPath = FileSystems.getDefault().getPath("locations_big.txt");
+//        Path dirPath = FileSystems.getDefault().getPath("directions_big.txt");
+//
+//        try(Scanner scanner = new Scanner(Files.newBufferedReader(locPath))){
+//            scanner.useDelimiter(",");
+//            while (scanner.hasNextLine()) {
+//                int loc = scanner.nextInt();
+//                scanner.skip(scanner.delimiter());
+//                String description = scanner.nextLine();
+//                System.out.println("read location" + ": " + loc + ": " + description);
+//                locations.put(loc, new Location(loc, description, null));
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//        try (BufferedReader dirFile = Files.newBufferedReader(dirPath)) {
+//            String input;
+//            while ((input = dirFile.readLine()) != null) {
+//                String[] data = input.split(",");
+//                int loc = Integer.parseInt(data[0]);
+//                String direction = data[1];
+//                int destination = Integer.parseInt(data[2]);
+//                System.out.println(loc + ":" + direction + ":" + destination);
+//                Location location = locations.get(loc);
+//                location.addExit(direction, destination);
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
 
     }
 
