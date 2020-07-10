@@ -14,10 +14,11 @@ public class BinaryFile {
         try {
             FileOutputStream binFile = new FileOutputStream("data.dat");
             FileChannel binChannel = binFile.getChannel();
-            byte[] outputByte = "Hello World".getBytes();   // We are calling this create the byte array and convert the
+            byte[] outputByte = "Hello World!".getBytes();   // We are calling this create the byte array and convert the
                                                             // string to byte using getByte() method.
             ByteBuffer buffer = ByteBuffer.wrap(outputByte);
-            binChannel.write(buffer);
+            int bytes = binChannel.write(buffer);
+            System.out.println("Number of bytes written " + bytes);
 
             // Next we call the static method ByteBuffer.wrap() method to wrap the byte array into Buffer. Modifications
             // to the buffer will change the array and modifications to the array will change the buffer. When we create
