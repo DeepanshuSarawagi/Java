@@ -2,6 +2,7 @@ package com.company;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 
@@ -56,6 +57,13 @@ public class BinaryFile {
             intBuffer.flip();
             bytes = binChannel.write(intBuffer);
             System.out.println("Number of bytes written are " + bytes);
+
+            // Now we are going to read the data from the data.dat file
+
+            RandomAccessFile ra = new RandomAccessFile("data.dat", "rwd");
+            byte[] b = new byte[outputByte.length];
+            ra.read(b);
+            System.out.println(new String(b));
 
         } catch (IOException e) {
             System.out.println("IoException " + e.getMessage());
