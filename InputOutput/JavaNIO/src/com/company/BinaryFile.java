@@ -79,9 +79,14 @@ public class BinaryFile {
             if (buffer.hasArray()) {
                 System.out.println("Byte array = " + new String(buffer.array()));
             }
+            // There are two types of methods to read data from the file using java nio. One is the relative read and
+            // the other is absolute read. If we do not specify the index position in getInt() method and instead call
+            // the flip method, then it is relative read. If we specify the index position of the buffer then it is
+            // absolute read.
 
-            // Now we will read the two integers that we wrote. Remember to reset the buffer position to zero by calling
-            // the  buffer.flip() method to switch b/w from writing to reading from the buffer
+            // Now we will read the two integers that we wrote using relative read. Remember to reset the buffer position
+            // to zero by calling the  buffer.flip() method to switch b/w from writing to reading from the buffer
+
             intBuffer.flip();
             numBytesRead = channel.read(intBuffer);
             intBuffer.flip();   // again do a flip after reading from the buffer to avoid BufferUnderflowException
@@ -90,6 +95,27 @@ public class BinaryFile {
             numBytesRead = channel.read(intBuffer);
             intBuffer.flip();
             System.out.println(intBuffer.getInt());
+
+            System.out.println();
+            // To see the example of Absolute reading, lets write two more integers in the file using intBuffer
+            intBuffer.flip();
+            intBuffer.putInt(200);
+            intBuffer.flip();
+            bytes = binChannel.write(intBuffer);
+            System.out.println("No. of bytes written " + bytes);
+            intBuffer.flip();
+            intBuffer.putInt(450);
+            intBuffer.flip();
+            bytes = binChannel.write(intBuffer);
+            System.out.println("No. of bytes written " + bytes);
+//
+            System.out.println("Reading integers using absolute read");
+            intBuffer.flip();
+            numBytesRead = channel.read(intBuffer);
+            System.out.println(intBuffer.getInt(0));
+            intBuffer.flip();
+            numBytesRead = channel.read(intBuffer);
+            System.out.println(intBuffer.getInt(0));
 
             channel.close();
             rai.close();
@@ -105,8 +131,12 @@ public class BinaryFile {
 
             long int1 = ra.readInt();
             long int2 = ra.readInt();
+            long int3 = ra.readInt();
+            long int4 = ra.readInt();
             System.out.println(int1);
             System.out.println(int2);
+            System.out.println(int3);
+            System.out.println(int4);
 
         } catch (IOException e) {
             System.out.println("IoException " + e.getMessage());
