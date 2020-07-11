@@ -80,6 +80,18 @@ public class BinaryFile {
                 System.out.println("Byte array = " + new String(buffer.array()));
             }
 
+            // Now we will read the two integers that we wrote. Remember to reset the buffer position to zero by calling
+            // the  buffer.flip() method to switch b/w from writing to reading from the buffer
+            intBuffer.flip();
+            numBytesRead = channel.read(intBuffer);
+            intBuffer.flip();   // again do a flip after reading from the buffer to avoid BufferUnderflowException
+            System.out.println(intBuffer.getInt());
+            intBuffer.flip();  // Again do the flip to reset the buffer position to zero to read the new Integer
+            numBytesRead = channel.read(intBuffer);
+            intBuffer.flip();
+            System.out.println(intBuffer.getInt());
+
+
             // Now we are going to read the data from the data.dat file using Java IO
 
 
