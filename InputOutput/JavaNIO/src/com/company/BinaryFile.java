@@ -25,7 +25,10 @@ public class BinaryFile {
             // will be at zero. Also, it sets the buffer capacity based on the byte array length and the buffer mark will
             // be undefined.
 
-            ByteBuffer buffer = ByteBuffer.wrap(outputByte);
+//            ByteBuffer buffer = ByteBuffer.wrap(outputByte);
+            ByteBuffer buffer = ByteBuffer.allocate(outputByte.length);
+            buffer.put(outputByte);
+            buffer.flip();
             int bytes = binChannel.write(buffer);
             System.out.println("Number of bytes written " + bytes);
 
@@ -118,6 +121,9 @@ public class BinaryFile {
             intBuffer.flip();   // For doing both absolute and relative read
             System.out.println(intBuffer.getInt(0));  // doing absolute read
             System.out.println(intBuffer.getInt());   // Doing relative read
+
+            // One important note to take care of is that the absolute read doesn't update the buffer position that's
+            // why we got a successful relative after we flipped the position.
 
             channel.close();
             rai.close();
