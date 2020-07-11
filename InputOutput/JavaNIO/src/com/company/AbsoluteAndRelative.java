@@ -11,14 +11,21 @@ public class AbsoluteAndRelative {
     public static void main(String[] args) {
         try(FileOutputStream binFile = new FileOutputStream("data1.dat");
             FileChannel binChannel = binFile.getChannel()) {
+//            byte[] outputBytes = "Hello World!".getBytes();
+//            ByteBuffer buffer = ByteBuffer.allocate(100);
+//            buffer.put(outputBytes);
+//            buffer.putInt(245);
+//            buffer.putInt(-91465);
+//            byte[] outputBytes2 = "Nice to meet you!".getBytes();
+//            buffer.put(outputBytes2);
+//            buffer.putInt(1000);
+
+            // Demonstration of chained puts in buffer
+
             byte[] outputBytes = "Hello World!".getBytes();
-            ByteBuffer buffer = ByteBuffer.allocate(100);
-            buffer.put(outputBytes);
-            buffer.putInt(245);
-            buffer.putInt(-91465);
             byte[] outputBytes2 = "Nice to meet you!".getBytes();
-            buffer.put(outputBytes2);
-            buffer.putInt(1000);
+            ByteBuffer buffer = ByteBuffer.allocate(100);
+            buffer.put(outputBytes).putInt(245).putInt(-91465).put(outputBytes2).putInt(1000);
 
             // We need to do a flip here since we are switching from writing to a buffer to reading from a buffer
 
