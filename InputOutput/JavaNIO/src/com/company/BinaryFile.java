@@ -65,6 +65,11 @@ public class BinaryFile {
             ra.read(b);
             System.out.println(new String(b));
 
+            long int1 = ra.readInt();
+            long int2 = ra.readInt();
+            System.out.println(int1);
+            System.out.println(int2);
+
         } catch (IOException e) {
             System.out.println("IoException " + e.getMessage());
         }
