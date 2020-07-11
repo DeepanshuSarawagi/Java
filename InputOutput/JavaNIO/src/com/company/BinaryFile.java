@@ -91,6 +91,8 @@ public class BinaryFile {
             intBuffer.flip();
             System.out.println(intBuffer.getInt());
 
+            channel.close();
+            rai.close();
 
             // Now we are going to read the data from the data.dat file using Java IO
 
