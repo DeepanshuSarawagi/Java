@@ -18,6 +18,7 @@ import java.nio.channels.FileChannel;
  * position(long) - sets the channel`s position to the passed value
  * truncate(long) - truncates the size of the datasource based on the passed value
  * size() - returns the size of the attached datasource
+ * FileChannel implements the SeekableByteChannel interface
  */
 
 public class SeekableByteChannel {
@@ -27,10 +28,13 @@ public class SeekableByteChannel {
             ByteBuffer buffer = ByteBuffer.allocate(100);
             byte[] outputByes = "Hello World!".getBytes();
             buffer.put(outputByes);
+            long int1pos = outputByes.length;
             buffer.putInt(245);
+            long int2pos = int1pos + Integer.BYTES;
             buffer.putInt(-91465);
             byte[] outputBytes2 = "Nice to meet you!".getBytes();
             buffer.put(outputBytes2);
+            long int3pos = int2pos + Integer.BYTES + outputBytes2.length;
             buffer.putInt(1000);
 
             buffer.flip();
