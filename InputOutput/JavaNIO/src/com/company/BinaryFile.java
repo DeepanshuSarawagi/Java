@@ -26,9 +26,13 @@ public class BinaryFile {
             // be undefined.
 
 //            ByteBuffer buffer = ByteBuffer.wrap(outputByte);
+            // It is important to understand that when we use the ByteBuffer.wrap() method, the byte array parsed to the
+            // method is the byte array backed in the byte buffer.
+
             ByteBuffer buffer = ByteBuffer.allocate(outputByte.length);
             buffer.put(outputByte);
-            buffer.flip();
+            buffer.flip();        // Remember always to flip the buffer when we put the contents in the buffer instead
+                                  // of parsing the byte array in the wrap method.
             int bytes = binChannel.write(buffer);
             System.out.println("Number of bytes written " + bytes);
 
@@ -80,7 +84,7 @@ public class BinaryFile {
             // to read the byteArray from the buffer`s memory
 
             if (buffer.hasArray()) {
-                System.out.println("Byte array = " + new String(buffer.array()));
+                System.out.println("Byte buffer = " + new String(buffer.array()));
             }
             // There are two types of methods to read data from the file using java nio. One is the relative read and
             // the other is absolute read. If we do not specify the index position in getInt() method and instead call
