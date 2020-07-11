@@ -4,7 +4,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
+import java.nio.channels.Channel;
 import java.nio.channels.FileChannel;
+import java.util.Random;
 
 public class BinaryFile {
     public static void main(String[] args) {
@@ -58,8 +60,30 @@ public class BinaryFile {
             bytes = binChannel.write(intBuffer);
             System.out.println("Number of bytes written are " + bytes);
 
-            // Now we are going to read the data from the data.dat file
+            // Reading data from the file using Java NIO
 
+            RandomAccessFile rai = new RandomAccessFile("data.dat", "rwd");
+            FileChannel channel = rai.getChannel();
+            outputByte[0] = 'a';
+            outputByte[1] = 'b';
+            buffer.flip();
+            long numBytesRead = channel.read(buffer);  // we are going to use the existing buffer to read the data back
+            // into the application
+            // We will also use the existing byteArray to read from the buffer. Since we are not calling the flip method
+            // the in-memory buffer position is at the last position where we left while writing the buffer into the
+            // channel. Hence lets call the flip method before reading from the buffer.
+            System.out.println("Output = " + new String(outputByte));
+            // There is also another way to read the String from the buffer. We can call the ByteBuffer.array() method
+            // to read the byteArray from the buffer`s memory
+
+            if (buffer.hasArray()) {
+                System.out.println("Byte array = " + new String(buffer.array()));
+            }
+
+            // Now we are going to read the data from the data.dat file using Java IO
+
+
+            System.out.println();
             RandomAccessFile ra = new RandomAccessFile("data.dat", "rwd");
             byte[] b = new byte[outputByte.length];
             ra.read(b);
