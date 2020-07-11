@@ -2,6 +2,7 @@ package com.company;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 
@@ -39,6 +40,29 @@ public class SeekableByteChannel {
 
             buffer.flip();
             binChannel.write(buffer);
+
+            // reading data using nio and seekable byte channel
+
+            RandomAccessFile ra = new RandomAccessFile("data2.dat", "rwd");
+            FileChannel channel = ra.getChannel();
+            buffer.flip();
+            channel.position(int3pos);
+            channel.read(buffer);
+            buffer.flip();
+            System.out.println("int3 = " + buffer.getInt());
+
+            buffer.flip();
+            channel.position(int2pos);
+            channel.read(buffer);
+            buffer.flip();
+            System.out.println("int2 = " + buffer.getInt());
+
+            buffer.flip();
+            channel.position(int1pos);
+            channel.read(buffer);
+            buffer.flip();
+            System.out.println("int1 " + buffer.getInt());
+
         } catch (IOException e) {
             System.out.println("IOException " + e.getMessage());
         }
