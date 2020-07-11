@@ -84,8 +84,13 @@ public class BinaryFile {
             // to read the byteArray from the buffer`s memory
 
             if (buffer.hasArray()) {
-                System.out.println("Byte buffer = " + new String(buffer.array()));
+                System.out.println("Byte buffer = " + new String(buffer.array()));  // We use the ByteBuffer.array()
+                // method to get the byte array back in the buffer. But since we don't use the wrap method anymore.
+                System.out.println("Byte buffer =  " + new String(outputByte));  // Since we are not using the wrap()
+                // method anymore, the outputByte array is not backing the buffer hence the first two characters will be
+                // changed.
             }
+
             // There are two types of methods to read data from the file using java nio. One is the relative read and
             // the other is absolute read. If we do not specify the index position in getInt() method and instead call
             // the flip method, then it is relative read. If we specify the index position of the buffer then it is
