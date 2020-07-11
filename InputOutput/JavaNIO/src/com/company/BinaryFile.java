@@ -115,7 +115,9 @@ public class BinaryFile {
             System.out.println(intBuffer.getInt(0));
             intBuffer.flip();
             numBytesRead = channel.read(intBuffer);
-            System.out.println(intBuffer.getInt(0));
+            intBuffer.flip();   // For doing both absolute and relative read
+            System.out.println(intBuffer.getInt(0));  // doing absolute read
+            System.out.println(intBuffer.getInt());   // Doing relative read
 
             channel.close();
             rai.close();
