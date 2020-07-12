@@ -98,6 +98,18 @@ public class SeekableByteChannel {
             binChannel.position(str2Pos);
             binChannel.write(ByteBuffer.wrap(outputString2));
 
+            /*
+            We will now use the fileChannel to copy from one file to another. We will be copying from data2.dat to
+            data2copy.dat using the method called transferFrom. Important point to take away here is that we need a
+            readable byte channel to copy the data from.
+             */
+
+            RandomAccessFile copyFile = new RandomAccessFile("data2copy.dat", "rw");
+            FileChannel copyChannel = copyFile.getChannel();
+            channel.position(0);    // resetting the channel position to zero
+            long numsTransferred = copyChannel.transferFrom(channel, 0, channel.size());
+            System.out.println("Number of bytes transferred is " + numsTransferred);
+
         } catch (IOException e) {
             System.out.println("IOException " + e.getMessage());
         }
