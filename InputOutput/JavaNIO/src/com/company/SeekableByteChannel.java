@@ -102,6 +102,13 @@ public class SeekableByteChannel {
             We will now use the fileChannel to copy from one file to another. We will be copying from data2.dat to
             data2copy.dat using the method called transferFrom. Important point to take away here is that we need a
             readable byte channel to copy the data from.
+
+            transferFrom() accepts three arguments.
+            1. Source channel
+            2. Source Channel Position
+            3. Source Channel Size.
+            Hence, the method with arguments looks like this transferFrom(ReadableByteChannel src, long Position,
+            long ChannelSize)
              */
 
             RandomAccessFile copyFile = new RandomAccessFile("data2copy.dat", "rw");
