@@ -1,6 +1,7 @@
 package com.company;
 
 import java.io.IOException;
+import java.nio.ByteBuffer;
 import java.nio.channels.Pipe;
 
 public class Pipes {
@@ -14,6 +15,34 @@ public class Pipes {
     public static void main(String[] args) {
         try {
             Pipe pipe = Pipe.open();
+            Runnable writer = new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        Pipe.SinkChannel sinkChannel = pipe.sink();  // Using pipe to create a sink channel to write
+                        // the data to the file
+                        ByteBuffer buffer = ByteBuffer.allocate(56);
+
+                        for (int i=0; i<10; i++) {
+                            String currentTime = "The time is " + System.currentTimeMillis();
+                            buffer.put(currentTime.getBytes());   // We are writing 10 Strings of current time in
+                            // milliseconds.
+                            buffer.flip();  // We need to flip the buffer after each write operation on buffer
+
+                            while (buffer.hasRemaining()) {
+                                sinkChannel.write(buffer);   // We are now reading from the buffer to write data in the
+                                // channel.
+                            }
+                            buffer.flip();   // Once the data is written in channel from buffer, we are flipping it
+                            // again.
+
+                            Thread.sleep(100);
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            };
         } catch (IOException e) {
             e.printStackTrace();
         }
