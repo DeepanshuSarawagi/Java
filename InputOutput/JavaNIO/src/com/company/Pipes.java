@@ -65,6 +65,10 @@ public class Pipes {
                     }
                 }
             };
+
+            new Thread(writer).start();
+            new Thread(reader).start();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
