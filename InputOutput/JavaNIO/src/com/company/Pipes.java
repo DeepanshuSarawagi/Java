@@ -34,8 +34,30 @@ public class Pipes {
                                 // channel.
                             }
                             buffer.flip();   // Once the data is written in channel from buffer, we are flipping it
-                            // again.
+                            // again for next iteration of the loop.
 
+                            Thread.sleep(100);
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            };
+
+            Runnable reader = new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        Pipe.SourceChannel sourceChannel = pipe.source();
+                        ByteBuffer buffer = ByteBuffer.allocate(56);
+
+                        for (int i=0; i<10; i++) {
+                            int bytesRead = sourceChannel.read(buffer);
+                            byte[] timeString = new byte[bytesRead];
+                            buffer.flip();
+                            buffer.get(timeString);
+                            System.out.println("Reader thread: " + new String(timeString));
+                            buffer.flip();
                             Thread.sleep(100);
                         }
                     } catch (Exception e) {
