@@ -26,6 +26,10 @@ public class Paths2 {
             Path destination = FileSystems.getDefault().getPath("Examples", "file1copy.txt");
             Files.move(sourceFile, destination, StandardCopyOption.REPLACE_EXISTING);
 
+            sourceFile = FileSystems.getDefault().getPath("Examples", "file1copy.txt");
+            destination = FileSystems.getDefault().getPath("Examples", "Dir1", "file1copy.txt");
+            Files.move(sourceFile, destination, StandardCopyOption.REPLACE_EXISTING);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
