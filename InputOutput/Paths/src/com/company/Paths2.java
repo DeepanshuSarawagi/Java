@@ -61,6 +61,13 @@ class Paths3{
         }
 
         Path dirToCreate = FileSystems.getDefault().getPath("Examples", "Dir4");
-        Files.createDirectory(dirToCreate);
+        if (!Files.exists(dirToCreate)) {
+            Files.createDirectory(dirToCreate);
+        }
+
+        dirToCreate = FileSystems.getDefault().getPath("Examples/Dir2/Dir3/Dir4/Dir5/Dir6");
+        if (!Files.exists(dirToCreate)) {
+            Files.createDirectories(dirToCreate);
+        }
     }
 }
