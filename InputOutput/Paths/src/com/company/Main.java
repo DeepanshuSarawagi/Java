@@ -34,6 +34,18 @@ public class Main {
         System.out.println(path1.normalize().toAbsolutePath());
         PrintFile(path1.normalize());
 
+        /*
+        Use Files.exists(Path path) method to check if the path exists on the filesystem
+         */
+
+        Path path2 = FileSystems.getDefault().getPath(".", "fileDoesNotExist.txt");
+        System.out.println(path2.normalize().toAbsolutePath());
+        System.out.println("Exists? " + Files.exists(path2));
+
+        filePath = FileSystems.getDefault().getPath("files");
+        System.out.println(filePath.normalize().toAbsolutePath());
+        System.out.println("Exists? " + Files.exists(filePath));
+
     }
 
     private static void PrintFile(Path path) {
