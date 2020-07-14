@@ -30,6 +30,17 @@ public class Paths2 {
             destination = FileSystems.getDefault().getPath("Examples", "Dir1", "file1copy.txt");
             Files.move(sourceFile, destination, StandardCopyOption.REPLACE_EXISTING);
 
+            /*
+            Below is the code to delete the file.
+             */
+
+            Path fileToDelete = FileSystems.getDefault().getPath("Examples", "Dir1", "file1copy.txt");
+            if (Files.exists(fileToDelete)) {
+                Files.delete(fileToDelete);
+            } else {
+                System.out.println("File not found");
+            }
+
         } catch (IOException e) {
             e.printStackTrace();
         }
