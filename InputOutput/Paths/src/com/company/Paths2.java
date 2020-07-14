@@ -3,6 +3,7 @@ package com.company;
 import javax.lang.model.element.Name;
 import java.io.IOException;
 import java.nio.file.*;
+import java.nio.file.attribute.BasicFileAttributes;
 import java.nio.file.attribute.FileAttribute;
 
 public class Paths2 {
@@ -69,5 +70,13 @@ class Paths3{
         if (!Files.exists(dirToCreate)) {
             Files.createDirectories(dirToCreate);
         }
+
+        Path filePath = FileSystems.getDefault().getPath("Examples/Dir1", "file1.txt");
+        BasicFileAttributes fileAttributes = Files.readAttributes(filePath, BasicFileAttributes.class, LinkOption.NOFOLLOW_LINKS);
+        System.out.println("Size is " + fileAttributes.size());
+        System.out.println("Last modified date is " + fileAttributes.lastModifiedTime());
+        System.out.println("Creation time " + fileAttributes.creationTime());
+        System.out.println("Is directory? " + fileAttributes.isDirectory());
+        System.out.println("Is a file? " + fileAttributes.isRegularFile());
     }
 }
