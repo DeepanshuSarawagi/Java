@@ -14,10 +14,20 @@ public class Main {
         PrintFile(path);
         System.out.println();
         Path filePath = FileSystems.getDefault().getPath("files", "SubdirectoryFile.txt");
+        /*
+        We need to specify the directory name to get the path of SubdirectoryFile.txt since it is located in
+        project working directory. Alternatively, we can use the Paths instance to get the path of file in project
+        working directory. We need to add one more parameter as period ".".
+         */
+        filePath = Paths.get(".", "files", "SubdirectoryFile.txt");
         PrintFile(filePath);
         System.out.println();
         filePath = Paths.get("/Users/deepanshusarawagi/Desktop/Learning/Java/OutThere.txt");
         PrintFile(filePath);
+
+        filePath = Paths.get(".");
+        System.out.println(filePath.toAbsolutePath());
+
     }
 
     private static void PrintFile(Path path) {
