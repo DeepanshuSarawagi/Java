@@ -18,6 +18,14 @@ public class Paths2 {
 
             Files.copy(sourceFile, copyFile, StandardCopyOption.REPLACE_EXISTING);
 
+            /*
+            Below is the code to move the file from source path to destination.
+             */
+
+            sourceFile = FileSystems.getDefault().getPath("Examples", "filecopy.txt");
+            Path destination = FileSystems.getDefault().getPath("Examples", "file1copy.txt");
+            Files.move(sourceFile, destination, StandardCopyOption.REPLACE_EXISTING);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
