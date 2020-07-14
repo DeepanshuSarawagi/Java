@@ -22,7 +22,8 @@ public class Main {
         filePath = Paths.get(".", "files", "SubdirectoryFile.txt");
         PrintFile(filePath);
         System.out.println();
-        filePath = Paths.get("/Users/deepanshusarawagi/Desktop/Learning/Java/OutThere.txt");
+        String rootDirectory = "/Users/deepanshusarawagi/Desktop/Learning/Java/";
+        filePath = Paths.get(rootDirectory, "OutThere.txt");
         PrintFile(filePath);
 
         filePath = Paths.get(".");
