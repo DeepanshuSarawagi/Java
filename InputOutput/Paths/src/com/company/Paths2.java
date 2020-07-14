@@ -1,7 +1,9 @@
 package com.company;
 
+import javax.lang.model.element.Name;
 import java.io.IOException;
 import java.nio.file.*;
+import java.nio.file.attribute.FileAttribute;
 
 public class Paths2 {
     public static void main(String[] args) {
@@ -44,5 +46,16 @@ public class Paths2 {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+}
+
+class Paths3{
+    public static void main(String[] args) throws IOException {
+        /*
+        Created new class to work more on Paths
+         */
+
+        Path fileToCreate = FileSystems.getDefault().getPath("Examples", "file2.txt");
+        Files.createFile(fileToCreate);
     }
 }
