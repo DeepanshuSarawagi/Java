@@ -29,6 +29,11 @@ public class Main {
         filePath = Paths.get(".");
         System.out.println(filePath.toAbsolutePath());
 
+        System.out.println();
+        Path path1 = FileSystems.getDefault().getPath(".", "files", "..", "files", "SubdirectoryFile.txt");
+        System.out.println(path1.normalize().toAbsolutePath());
+        PrintFile(path1.normalize());
+
     }
 
     private static void PrintFile(Path path) {
