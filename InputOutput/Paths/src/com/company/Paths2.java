@@ -13,6 +13,10 @@ public class Paths2 {
             Use the StandardCopyOption.REPLACE_EXISTING parameter in the Files.copy() method to replace the file if
             already exists.
              */
+            sourceFile = FileSystems.getDefault().getPath("Examples", "Dir1");
+            copyFile = FileSystems.getDefault().getPath("Examples", "Dir4");
+
+            Files.copy(sourceFile, copyFile, StandardCopyOption.REPLACE_EXISTING);
 
         } catch (IOException e) {
             e.printStackTrace();
