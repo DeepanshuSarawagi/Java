@@ -45,5 +45,14 @@ public class Main {
         System.out.println(separator);
         separator = FileSystems.getDefault().getSeparator();
         System.out.println(separator);
+
+        directory = FileSystems.getDefault().getPath("FileTree" + separator + "Dir2");
+        try (DirectoryStream<Path> directoryStream = Files.newDirectoryStream(directory, filter)){
+            for (Path path : directoryStream) {
+                System.out.println(path.getFileName());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
