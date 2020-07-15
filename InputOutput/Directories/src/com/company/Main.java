@@ -1,5 +1,6 @@
 package com.company;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.*;
 
@@ -37,5 +38,12 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        // Get the default filesystem separator of your OS
+
+        String separator = File.separator;
+        System.out.println(separator);
+        separator = FileSystems.getDefault().getSeparator();
+        System.out.println(separator);
     }
 }
