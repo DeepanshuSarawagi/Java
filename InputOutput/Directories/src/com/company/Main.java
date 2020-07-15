@@ -54,5 +54,14 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        // Code to create the temporary file
+
+        try {
+            Path tempFile = Files.createTempFile("myapp", ".appext");
+            System.out.println(tempFile.toAbsolutePath());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
