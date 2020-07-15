@@ -69,5 +69,11 @@ public class Main {
         for (FileStore fileStore : fileStores) {
             System.out.println(fileStore.name());
         }
+
+        System.out.println("******************");
+        Iterable<Path> rootDirectories = FileSystems.getDefault().getRootDirectories();
+        for (Path path : rootDirectories) {
+            System.out.println(path);
+        }
     }
 }
