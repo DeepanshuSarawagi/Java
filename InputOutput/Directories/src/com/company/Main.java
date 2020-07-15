@@ -63,5 +63,11 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        // Code to get the FileStores or volumes
+        Iterable<FileStore> fileStores = FileSystems.getDefault().getFileStores();
+        for (FileStore fileStore : fileStores) {
+            System.out.println(fileStore.name());
+        }
     }
 }
