@@ -75,5 +75,13 @@ public class Main {
         for (Path path : rootDirectories) {
             System.out.println(path);
         }
+
+        System.out.println("Walking tree for dir2");
+        Path dir2 = FileSystems.getDefault().getPath("FileTree" + File.separator + "Dir2");
+        try {
+            Files.walkFileTree(dir2, new PrintNames());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
