@@ -32,6 +32,7 @@ public class CopyFiles extends SimpleFileVisitor<Path> {
             Files.copy(dir, copyDir);
         }catch (IOException e) {
             e.printStackTrace();
+            return FileVisitResult.SKIP_SUBTREE;   // To stop processing further
         }
 
         return FileVisitResult.CONTINUE;
