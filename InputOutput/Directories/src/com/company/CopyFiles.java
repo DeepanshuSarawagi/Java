@@ -2,6 +2,7 @@ package com.company;
 
 import java.io.IOException;
 import java.nio.file.FileVisitResult;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
@@ -23,6 +24,16 @@ public class CopyFiles extends SimpleFileVisitor<Path> {
 
     @Override
     public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) throws IOException {
-        return super.preVisitDirectory(dir, attrs);
+        Path relativizedPath = sourceRoot.relativize(dir);
+        System.out.println("RelativizedPath= " + relativizedPath);
+        Path copyDir = targetRoot.resolve(relativizedPath);
+        System.out.println("Resolved path for copy= " + copyDir);
+        try {
+            Files.copy(dir, copyDir);
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return FileVisitResult.CONTINUE;
     }
 }
