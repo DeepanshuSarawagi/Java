@@ -83,5 +83,14 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        System.out.println("Copy Dir2 to Dir4/Dir2Copy");
+        Path copyDir = FileSystems.getDefault().getPath("FileTree" + File.separator + "Dir4"
+                + File.separator + "Dir2Copy");
+        try {
+            Files.walkFileTree(dir2, new CopyFiles(dir2, copyDir));
+        } catch (IOException e) {
+            e.getMessage();
+        }
     }
 }
