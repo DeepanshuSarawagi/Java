@@ -1,10 +1,7 @@
 package com.company;
 
 import java.io.IOException;
-import java.nio.file.FileVisitResult;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.SimpleFileVisitor;
+import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
 
 public class CopyFiles extends SimpleFileVisitor<Path> {
@@ -29,7 +26,7 @@ public class CopyFiles extends SimpleFileVisitor<Path> {
         Path copyDir = targetRoot.resolve(relativizedPath);
         System.out.println("Resolved path for copy= " + copyDir);
         try {
-            Files.copy(dir, copyDir);
+            Files.copy(dir, copyDir, StandardCopyOption.REPLACE_EXISTING);
         }catch (IOException e) {
             e.printStackTrace();
             return FileVisitResult.SKIP_SUBTREE;   // To stop processing further
@@ -46,7 +43,7 @@ public class CopyFiles extends SimpleFileVisitor<Path> {
         System.out.println("Resolved path for copy = " + copyFile);
 
         try {
-            Files.copy(file, copyFile);
+            Files.copy(file, copyFile, StandardCopyOption.REPLACE_EXISTING);
         } catch (IOException e) {
             e.printStackTrace();
         }
