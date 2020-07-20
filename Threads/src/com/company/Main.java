@@ -1,5 +1,7 @@
 package com.company;
 
+import static com.company.ThreadColor.*;
+
 public class Main {
 
     /**
@@ -13,7 +15,7 @@ public class Main {
      */
 
     public static void main(String[] args) {
-        System.out.println("Hello from the main thread!");
+        System.out.println(ANSI_PURPLE + "Hello from the main thread!");
 
         // Create instance of AnotherThread class and invoke its run method
 
@@ -26,11 +28,11 @@ public class Main {
 
         new Thread() {
             public void  run() {
-                System.out.println("Hello from anonymous class thread");
+                System.out.println(ANSI_GREEN + "Hello from anonymous class thread");
             }
         }.start();
 
-        System.out.println("Hello again from main thread");
+        System.out.println(ANSI_RED + "Hello again from main thread");
 
         /*
         Note that we are not allowed to start the same instance of anotherThread class more than once.
