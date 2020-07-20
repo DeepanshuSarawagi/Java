@@ -47,6 +47,7 @@ public class Main {
             }
         });
         myRunnableThread.start();
+        anotherThread.interrupt();
 
         System.out.println(ANSI_RED + "Hello again from main thread");
 
