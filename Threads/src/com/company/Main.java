@@ -21,7 +21,8 @@ public class Main {
          Create instance of AnotherThread class and invoke its run method.
          Remember that we should not directly invoke the run() method of the thread. Instead, we should call the
          start method of the thread and the jvm will then call the run() method of the thread for us. Calling the run()
-          method directly, will run the thread from the main thread.
+          method directly, will not run the application/code from the new thread instead it will run on the same thread
+          from the same thread where its called.
          */
 
         Thread anotherThread = new AnotherThread();
