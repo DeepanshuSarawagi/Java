@@ -32,7 +32,12 @@ public class Main {
             }
         }.start();
 
-        Thread myRunnableThread = new Thread(new MyRunnable());
+        Thread myRunnableThread = new Thread(new MyRunnable(){
+            @Override
+            public void run() {
+                System.out.println(ANSI_CYAN + "Hello from anonymous class's implementation of run()");
+            }
+        });
         myRunnableThread.start();
 
         System.out.println(ANSI_RED + "Hello again from main thread");
