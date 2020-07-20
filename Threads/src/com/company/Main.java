@@ -44,10 +44,16 @@ public class Main {
             @Override
             public void run() {
                 System.out.println(ANSI_CYAN + "Hello from anonymous class's implementation of run()");
+                try {
+                    anotherThread.join();
+                    System.out.println(ANSI_CYAN + "AnotherThread interrupted, so I'm running again.");
+                } catch (InterruptedException e) {
+                    System.out.println(ANSI_CYAN + "I couldn't wait after all. I was interrupted.");
+                }
             }
         });
         myRunnableThread.start();
-        anotherThread.interrupt();
+//        anotherThread.interrupt();   //  This is done to interrupt a thread
 
         System.out.println(ANSI_RED + "Hello again from main thread");
 
