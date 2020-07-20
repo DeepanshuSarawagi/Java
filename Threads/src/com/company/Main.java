@@ -32,6 +32,9 @@ public class Main {
             }
         }.start();
 
+        Thread myRunnableThread = new Thread(new MyRunnable());
+        myRunnableThread.start();
+
         System.out.println(ANSI_RED + "Hello again from main thread");
 
         /*
