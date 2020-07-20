@@ -19,6 +19,17 @@ public class Main {
 
         Thread anotherThread = new AnotherThread();
         anotherThread.start();  // invoke the run method by calling the start() method of Thread instance
+
+        /*
+        When we use the anonymous class, we need to start the thread immediately. Refer to below code for example.
+         */
+
+        new Thread() {
+            public void  run() {
+                System.out.println("Hello from anonymous class thread");
+            }
+        }.start();
+
         System.out.println("Hello again from main thread");
 
         /*
@@ -28,15 +39,6 @@ public class Main {
 //        anotherThread.start();  // This will throw java.lang.IllegalThreadStateException since we are not allowed to
 //        start the same instance of anotherThread more than once.
 
-        /*
-        When we use the anonymous class, we need to start the thread immediately. Refer to below code for example.
-         */
-
-        new Thread() {
-            public void  run() {
-                System.out.println("Hello from anonymous class");
-            }
-        }.start();
 
     }
 }
