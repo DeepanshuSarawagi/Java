@@ -17,10 +17,17 @@ public class Main {
     public static void main(String[] args) {
         System.out.println(ANSI_PURPLE + "Hello from the main thread!");
 
-        // Create instance of AnotherThread class and invoke its run method
+        /*
+         Create instance of AnotherThread class and invoke its run method.
+         Remember that we should not directly invoke the run() method of the thread. Instead, we should call the
+         start method of the thread and the jvm will then call the run() method of the thread for us. Calling the run()
+          method directly, will run the thread from the main thread.
+         */
 
         Thread anotherThread = new AnotherThread();
+        anotherThread.setName("== Another Thread ==");
         anotherThread.start();  // invoke the run method by calling the start() method of Thread instance
+//        anotherThread.run();  // we should not do this.
 
         /*
         When we use the anonymous class, we need to start the thread immediately. Refer to below code for example.
