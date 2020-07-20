@@ -45,8 +45,8 @@ public class Main {
             public void run() {
                 System.out.println(ANSI_CYAN + "Hello from anonymous class's implementation of run()");
                 try {
-                    anotherThread.join();
-                    System.out.println(ANSI_CYAN + "AnotherThread interrupted, so I'm running again.");
+                    anotherThread.join(2000);
+                    System.out.println(ANSI_CYAN + "AnotherThread interrupted or timed out, so I'm running again.");
                 } catch (InterruptedException e) {
                     System.out.println(ANSI_CYAN + "I couldn't wait after all. I was interrupted.");
                 }
