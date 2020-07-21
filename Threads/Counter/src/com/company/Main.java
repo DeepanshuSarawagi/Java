@@ -35,6 +35,9 @@ class Countdown{
      * Hence, Thread 2 may continue printing the value of i and when Thread 1 resumes it would start at printing the
      * println statement. This behaviour of Threads getting suspended is really unpredictable, hence, you may see
      * varying results each time you run the code.
+     *
+     * When multiple threads are accessing the same resources and they update it then this process is called as Thread
+     * Interference in Java.
      */
     private int i;
     public void doCountdown() {
