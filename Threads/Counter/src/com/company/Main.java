@@ -3,11 +3,12 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-        Countdown countdown = new Countdown();
+        Countdown countdown1 = new Countdown();
+        Countdown countdown2 = new Countdown();
 
-        CountdownThread t1 = new CountdownThread(countdown);
+        CountdownThread t1 = new CountdownThread(countdown1);
         t1.setName("Thread 1");
-        CountdownThread t2 = new CountdownThread(countdown);
+        CountdownThread t2 = new CountdownThread(countdown2);
         t2.setName("Thread 2");
 
         t1.start();
@@ -39,6 +40,14 @@ class Countdown{
      * When multiple threads are accessing the same resources and they update it then this process is called as Thread
      * Interference in Java.
      */
+
+    /**
+     * A simple way to avoid to Thread Interference is to create two different objects of Countdown class and pass it to
+     * the Threads. This way both the Threads has its own copy of the objects in the heap and both the Threads will
+     * access its own copy of variable "i". As learned earlier, Thread 11s stack will not be accessed by Thread 2 and
+     * vice versa.
+     */
+
     private int i;
     public void doCountdown() {
         String color;
