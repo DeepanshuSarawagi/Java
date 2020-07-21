@@ -17,6 +17,25 @@ public class Main {
 }
 
 class Countdown{
+    /**
+     * Here we are going to understand more about multiple threads. As we can see that we have created an instance
+     * variable or field in this class and we are using this field in the for loop. In the Main method of the main class,
+     * we have created two instances of class CountdownThread extending Thread class. These two threads use the same
+     * countdown object.
+     * A thread has its own thread stack which will consist of a copy of its local variables. But multiples threads
+     * share the heap allocated to the java program. All the threads will share the heap allocated to run the code.
+     * Heap memory also consists of all the instance fields/variables. Hence, multiple threads created will share this
+     * variable in the heap rather than having its own copy in the thread stack.
+     * Due to this, when the program is run, we will that both the threads will not print the value of i from 10 to 1.
+     * Instead it will share this instance field "i". So initially both the threads run and have the value of i to be 10.
+     * When they are suspended, the Thread 1 when run again would change the value of i, hence, when thread 2 is run, it
+     * will pick up the value of i last changed by thread 1 and will decrement it.
+     * If you see threads printing the value of i in un-orderly fashion then its because Thread can get suspended at
+     * many exit points. For e.g. Thread 1 may decrement the value of 1 but would get suspended before it prints it.
+     * Hence, Thread 2 may continue printing the value of i and when Thread 1 resumes it would start at printing the
+     * println statement. This behaviour of Threads getting suspended is really unpredictable, hence, you may see
+     * varying results each time you run the code.
+     */
     private int i;
     public void doCountdown() {
         String color;
