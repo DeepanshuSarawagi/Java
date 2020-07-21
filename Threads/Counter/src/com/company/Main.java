@@ -3,12 +3,14 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-        Countdown countdown1 = new Countdown();
-        Countdown countdown2 = new Countdown();
+//        Countdown countdown1 = new Countdown();
+//        Countdown countdown2 = new Countdown();
 
-        CountdownThread t1 = new CountdownThread(countdown1);
+        Countdown countdown = new Countdown();
+
+        CountdownThread t1 = new CountdownThread(countdown);
         t1.setName("Thread 1");
-        CountdownThread t2 = new CountdownThread(countdown2);
+        CountdownThread t2 = new CountdownThread(countdown);
         t2.setName("Thread 2");
 
         t1.start();
@@ -48,8 +50,21 @@ class Countdown{
      * vice versa.
      */
 
+    /**
+     * Thread Synchronization:
+     *      This is a very small application which has just two threads. Now, lets consider a bank application which has
+     *      multiple threads executing a method to update a customer's deposit amount method. Assigning different objects
+     *      for each method would become really tedious and difficult to maintain. To overcome this situation, Java
+     *      has a method called Synchronizing methods. By which it means, if a Thread is running a synchronized methods,
+     *      any other threads will be suspended until the thread running the methods finishes executing it and
+     *      terminates. Then the next thread will execute the synchronized method and so on. The process of controlling
+     *      the execution of methods or synchronized statements is called Method Synchronization. Refer to method
+     *      signature in doCountdown() where we have added the keyword "synchronized".
+     */
+
     private int i;
-    public void doCountdown() {
+
+    public synchronized void doCountdown() {
         String color;
 
         switch (Thread.currentThread().getName()) {
