@@ -21,22 +21,36 @@ class Message{
         methods and only one synchronized method can run at a time. If one thread is looping it is holding the message
         object in its lock and the other thread is waiting for the thread to release the Message object. This scenario
         is called as DeadLocks.
+
+        To overcome this situation, wait(), notify() and notifyall() method comes into play. While a thread calls the
+        wait() method, it suspends all the operation and release all the locks its holding on the thread until a
+        thread notifies that something important is happening.
     */
 
     public synchronized String read() {
         while (empty) {
-
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                e.getMessage();
+            }
         }
         empty = true;
+        notifyAll();
         return message;
     }
 
     public synchronized void write(String message) {
         while (!empty) {
-
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                e.getMessage();
+            }
         }
         empty = false;
         this.message = message;
+        notifyAll();
     }
 }
 
