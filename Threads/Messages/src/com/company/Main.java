@@ -5,13 +5,23 @@ import java.util.Random;
 public class Main {
 
     public static void main(String[] args) {
-
+        Message message = new Message();
+        (new Thread(new Writer(message))).start();
+        (new Thread(new Reader(message))).start();
     }
 }
 
 class Message{
     private String message;
     private boolean empty = true;
+
+    /*
+        When we run the main method in Main class we will see that program runs forever. It is because the thread which
+        runs to read the message is then deadlocked. This is because we have synchronized both read() and write()
+        methods and only one synchronized method can run at a time. If one thread is looping it is holding the message
+        object in its lock and the other thread is waiting for the thread to release the Message object. This scenario
+        is called as DeadLocks.
+    */
 
     public synchronized String read() {
         while (empty) {
@@ -53,5 +63,27 @@ class Writer implements Runnable{
             }
         }
         message.write("Finished");
+    }
+}
+
+class Reader implements Runnable {
+    private Message message;
+
+    public Reader(Message message) {
+        this.message = message;
+    }
+
+    @Override
+    public void run() {
+        Random random = new Random();
+        for (String latestMessage = message.read(); !latestMessage.equals("Finished");
+             latestMessage = message.read()) {
+            System.out.println(latestMessage);
+            try {
+                Thread.sleep(random.nextInt(2000));
+            } catch (InterruptedException e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
 }
