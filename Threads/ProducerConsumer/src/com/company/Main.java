@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -12,9 +13,10 @@ public class Main {
 
     public static void main(String[] args) {
         List<String> buffer = new ArrayList<>();
-        MyProducer producer = new MyProducer(buffer, ThreadColor.ANSI_BLUE);
-        MyConsumer consumer1 = new MyConsumer(buffer, ThreadColor.ANSI_GREEN);
-        MyConsumer consumer2 = new MyConsumer(buffer, ThreadColor.ANSI_CYAN);
+        List<String> synchronizedList = Collections.synchronizedList(buffer);
+        MyProducer producer = new MyProducer(synchronizedList, ThreadColor.ANSI_BLUE);
+        MyConsumer consumer1 = new MyConsumer(synchronizedList, ThreadColor.ANSI_GREEN);
+        MyConsumer consumer2 = new MyConsumer(synchronizedList, ThreadColor.ANSI_CYAN);
 
         new Thread(producer).start();
         new Thread(consumer1).start();
