@@ -24,7 +24,7 @@ public class Main {
     }
 }
 
-class MyProducer implements Runnable{
+class MyProducer implements Runnable {
 
     private List<String> buffer;
     private String color;
@@ -34,12 +34,11 @@ class MyProducer implements Runnable{
         this.color = color;
     }
 
-    @Override
     public void run() {
         Random random = new Random();
         String[] nums = {"1", "2", "3", "4", "5"};
 
-        for (String num:nums) {
+        for (String num : nums) {
             try {
                 System.out.println(color + "Adding.. " + num);
                 buffer.add(num);
@@ -55,7 +54,7 @@ class MyProducer implements Runnable{
     }
 }
 
-class MyConsumer implements Runnable{
+class MyConsumer implements Runnable {
     private List<String> buffer;
     private String color;
 
@@ -64,7 +63,6 @@ class MyConsumer implements Runnable{
         this.color = color;
     }
 
-    @Override
     public void run() {
         while (true) {
             if (buffer.isEmpty()) {
@@ -74,7 +72,7 @@ class MyConsumer implements Runnable{
                 System.out.println(color + "Exiting");
                 break;
             } else {
-                System.out.println(color + "removed " + buffer.get(0));
+                System.out.println(color + "removed " + buffer.remove(0));
             }
         }
     }
