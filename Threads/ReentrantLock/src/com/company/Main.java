@@ -12,7 +12,7 @@ public class Main {
     public static final String EOF = "EOF";
     public static void main(String[] args) {
         List<String> buffer = new ArrayList<>();
-        ReentrantLock bufferLock = new ReentrantLock();
+        ReentrantLock bufferLock = new ReentrantLock(true);
         MyProducer producer = new MyProducer(buffer, ThreadColor.ANSI_CYAN, bufferLock);
         MyConsumer consumer1 = new MyConsumer(buffer, ThreadColor.ANSI_BLUE, bufferLock);
         MyConsumer consumer2 = new MyConsumer(buffer, ThreadColor.ANSI_PURPLE, bufferLock);
