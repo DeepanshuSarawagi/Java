@@ -18,6 +18,13 @@ import static com.company.Main.EOF;
  * As we learned in the lecture, in the Collections framework, ArrayList is not Thread safe or Thread synchronized. And
  * since we are sharing the same ArrayList among three threads, we would run into many problems like this. To avoid this
  * problem, we need to synchronize the methods/statement in both MyProducer and MyConsumer classes.
+ *
+ * The reason we have synchronized all the blocks of code in the run() method of MyConsumer class is because we do not
+ * want other Consumer thread or Producer thread to make any changes to the arrayList when a consumer thread has checked
+ * if the buffer is empty. In other words, if a thread has checked whether the ArrayList is empty, then we want thread
+ * to execute other statements based on the result rather than getting suspended. This way we ensure an action has been
+ * taken when the thread checks of the empty list and the remaining threads cannot modify/change the list.
+ *
  */
 
 public class Main {
