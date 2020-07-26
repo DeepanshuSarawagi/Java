@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.locks.ReentrantLock;
@@ -10,7 +11,15 @@ public class Main {
 
     public static final String EOF = "EOF";
     public static void main(String[] args) {
+        List<String> buffer = new ArrayList<>();
+        ReentrantLock bufferLock = new ReentrantLock();
+        MyProducer producer = new MyProducer(buffer, ThreadColor.ANSI_CYAN, bufferLock);
+        MyConsumer consumer1 = new MyConsumer(buffer, ThreadColor.ANSI_BLUE, bufferLock);
+        MyConsumer consumer2 = new MyConsumer(buffer, ThreadColor.ANSI_PURPLE, bufferLock);
 
+        new Thread(producer).start();
+        new Thread(consumer1).start();
+        new Thread(consumer2).start();
     }
 }
 
@@ -45,7 +54,7 @@ class MyProducer implements Runnable {
             e.printStackTrace();
         }
 
-        System.out.println(color + "Adding EOF and exiting..");
+        System.out.println(color + "Adding EOF");
         bufferLock.lock();
         try {
             buffer.add("EOF");
@@ -72,12 +81,10 @@ class MyConsumer implements Runnable {
             bufferLock.lock();
             try {
                 if (buffer.isEmpty()) {
-                    bufferLock.unlock();
                     continue;
                 }
                 if (buffer.get(0).equals(EOF)) {
                     System.out.println("Reached EOF and exiting");
-                    bufferLock.unlock();
                     break;
                 } else {
                     System.out.println(color + "removing " + buffer.remove(0));
