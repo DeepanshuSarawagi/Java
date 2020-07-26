@@ -24,7 +24,6 @@ import static com.company.Main.EOF;
  * if the buffer is empty. In other words, if a thread has checked whether the ArrayList is empty, then we want thread
  * to execute other statements based on the result rather than getting suspended. This way we ensure an action has been
  * taken when the thread checks of the empty list and the remaining threads cannot modify/change the list.
- *
  */
 
 public class Main {
