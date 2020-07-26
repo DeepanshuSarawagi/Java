@@ -26,6 +26,19 @@ import static com.company.Main.EOF;
  * taken when the thread checks of the empty list and the remaining threads cannot modify/change the list.
  */
 
+/**
+ * Few drawbacks of Synchronizing methods:
+ *          1) Threads that are blocked waiting to execute synchronized code can't be interrupted, once they are blocked
+ *          they are stuck there waiting to get lock of the object the code is synchronizing on.
+ *          2) Synchronizing block must be within the same methods. In other words, we can't start the synchronizing
+ *          block in one method and end in other method.
+ *          3) We can't test the code to see if an object's intrinsic lock is available or find out any other
+ *          information about that lock.
+ *          4) Also, if multiple threads are waiting to get the lock on the object the code is synchronizing on,
+ *          then its on first come first served basis. It is the JVM and the underlying operating system which decides
+ *          which thread should get the lock.
+ */
+
 public class Main {
 
     public static final String EOF = "EOF";
