@@ -3,6 +3,7 @@ package com.company;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.locks.ReentrantLock;
 
 import static com.company.Main.EOF;
 
@@ -14,11 +15,11 @@ import static com.company.Main.EOF;
  * false, following that it removes the element from the list. When consumer1 thread runs again, it resumes to remove
  * the element from the list and the result will be ArrayIndexOutOfBoundsException because the element has already been
  * removed by thread Consumer2.
- *
+ * <p>
  * As we learned in the lecture, in the Collections framework, ArrayList is not Thread safe or Thread synchronized. And
  * since we are sharing the same ArrayList among three threads, we would run into many problems like this. To avoid this
  * problem, we need to synchronize the methods/statement in both MyProducer and MyConsumer classes.
- *
+ * <p>
  * The reason we have synchronized all the blocks of code in the run() method of MyConsumer class is because we do not
  * want other Consumer thread or Producer thread to make any changes to the arrayList when a consumer thread has checked
  * if the buffer is empty. In other words, if a thread has checked whether the ArrayList is empty, then we want thread
@@ -39,6 +40,17 @@ import static com.company.Main.EOF;
  *          which thread should get the lock.
  */
 
+/**
+ * To overcome the drawbacks of Synchronizing code, we will use the ReEntrantLock interface to lock and unlock objects
+ * the code is synchronizing on. It will be our responsibility to lock and unlock the block of code.
+ * When a thread has obtained the lock for the object, it will continue executing. Other threads which are waiting to
+ * get the lock will remain blocked until the thread which obtained the lock finished executing and releases the lock.
+ * If we do not release the lock manually then the threads will remain blocked waiting to get the lock of the Objects
+ * and the thread which has the lock will throw a Runtime Exception as follows, Exception in thread "Thread-1"
+ * java.lang.Error: Maximum lock count exceeded. Hence, it is very important that we manually release the lock of the
+ * object the code is synchronizing on.
+ */
+
 public class Main {
 
     public static final String EOF = "EOF";
@@ -46,9 +58,10 @@ public class Main {
     public static void main(String[] args) {
         List<String> buffer = new ArrayList<>();
 //        List<String> synchronizedList = Collections.synchronizedList(buffer);
-        MyProducer producer = new MyProducer(buffer, ThreadColor.ANSI_BLUE);
-        MyConsumer consumer1 = new MyConsumer(buffer, ThreadColor.ANSI_GREEN);
-        MyConsumer consumer2 = new MyConsumer(buffer, ThreadColor.ANSI_CYAN);
+        ReentrantLock bufferLock = new ReentrantLock();
+        MyProducer producer = new MyProducer(buffer, ThreadColor.ANSI_BLUE, bufferLock);
+        MyConsumer consumer1 = new MyConsumer(buffer, ThreadColor.ANSI_GREEN, bufferLock);
+        MyConsumer consumer2 = new MyConsumer(buffer, ThreadColor.ANSI_CYAN, bufferLock);
 
         new Thread(producer).start();
         new Thread(consumer1).start();
@@ -60,10 +73,12 @@ class MyProducer implements Runnable {
 
     private List<String> buffer;
     private String color;
+    private ReentrantLock bufferLock;
 
-    public MyProducer(List<String> buffer, String color) {
+    public MyProducer(List<String> buffer, String color, ReentrantLock bufferLock) {
         this.buffer = buffer;
         this.color = color;
+        this.bufferLock = bufferLock;
     }
 
     public void run() {
@@ -73,9 +88,9 @@ class MyProducer implements Runnable {
         for (String num : nums) {
             try {
                 System.out.println(color + "Adding.. " + num);
-                synchronized (buffer) {
-                    buffer.add(num);
-                }
+                bufferLock.lock();
+                buffer.add(num);
+                bufferLock.unlock();
 
                 Thread.sleep(random.nextInt(1000));
             } catch (InterruptedException e) {
@@ -84,35 +99,41 @@ class MyProducer implements Runnable {
         }
 
         System.out.println(color + "Adding EOF and exiting...");
-        synchronized (buffer) {
-            buffer.add("EOF");
-        }
+        bufferLock.lock();
+        buffer.add("EOF");
+        bufferLock.unlock();
     }
 }
 
 class MyConsumer implements Runnable {
     private List<String> buffer;
     private String color;
+    private ReentrantLock bufferLock;
 
-    public MyConsumer(List<String> buffer, String color) {
+    public MyConsumer(List<String> buffer, String color, ReentrantLock bufferLock) {
         this.buffer = buffer;
         this.color = color;
+        this.bufferLock = bufferLock;
     }
 
     public void run() {
         while (true) {
-            synchronized (buffer) {
-
-                if (buffer.isEmpty()) {
-                    continue;
-                }
-                if (buffer.get(0).equals(EOF)) {
-                    System.out.println(color + "Exiting");
-                    break;
-                } else {
-                    System.out.println(color + "removed " + buffer.remove(0));
-                }
+            bufferLock.lock();
+            if (buffer.isEmpty()) {
+                bufferLock.unlock();  // If we do not release the lock here, then the object buffer is locked forever
+                // by the consumer thread and the Producer Thread will still frozen since it wont be able to add any
+                // more data to the buffer object.
+                continue;
             }
+            if (buffer.get(0).equals(EOF)) {
+                System.out.println(color + "Exiting");
+                bufferLock.unlock();  // If we have the EOF element in the list, then it is necessary to release the lock
+                // so that buffer object is released and the other consumer thread can obtain lock on it.
+                break;
+            } else {
+                System.out.println(color + "removed " + buffer.remove(0));
+            }
+            bufferLock.unlock();
         }
     }
 }
