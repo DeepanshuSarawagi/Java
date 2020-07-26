@@ -89,8 +89,13 @@ class MyProducer implements Runnable {
             try {
                 System.out.println(color + "Adding.. " + num);
                 bufferLock.lock();
-                buffer.add(num);
-                bufferLock.unlock();
+                try {
+                    buffer.add(num);
+                } finally {
+                    bufferLock.unlock();    // Moving the unlock() code in the finally block so that we ensure that
+                    // lock is getting released which we tend obtain before the try block.
+                }
+//                bufferLock.unlock();
 
                 Thread.sleep(random.nextInt(1000));
             } catch (InterruptedException e) {
@@ -100,8 +105,11 @@ class MyProducer implements Runnable {
 
         System.out.println(color + "Adding EOF and exiting...");
         bufferLock.lock();
-        buffer.add("EOF");
-        bufferLock.unlock();
+        try {
+            buffer.add("EOF");
+        } finally {
+            bufferLock.unlock();
+        }
     }
 }
 
@@ -119,21 +127,24 @@ class MyConsumer implements Runnable {
     public void run() {
         while (true) {
             bufferLock.lock();
-            if (buffer.isEmpty()) {
-                bufferLock.unlock();  // If we do not release the lock here, then the object buffer is locked forever
-                // by the consumer thread and the Producer Thread will still frozen since it wont be able to add any
-                // more data to the buffer object.
-                continue;
+            try {
+                if (buffer.isEmpty()) {
+//                    bufferLock.unlock();  // If we do not release the lock here, then the object buffer is locked forever
+                    // by the consumer thread and the Producer Thread will still frozen since it wont be able to add any
+                    // more data to the buffer object.
+                    continue;
+                }
+                if (buffer.get(0).equals(EOF)) {
+                    System.out.println(color + "Exiting");
+//                    bufferLock.unlock();  // If we have the EOF element in the list, then it is necessary to release the lock
+                    // so that buffer object is released and the other consumer thread can obtain lock on it.
+                    break;
+                } else {
+                    System.out.println(color + "removed " + buffer.remove(0));
+                }
+            } finally {
+                bufferLock.unlock();
             }
-            if (buffer.get(0).equals(EOF)) {
-                System.out.println(color + "Exiting");
-                bufferLock.unlock();  // If we have the EOF element in the list, then it is necessary to release the lock
-                // so that buffer object is released and the other consumer thread can obtain lock on it.
-                break;
-            } else {
-                System.out.println(color + "removed " + buffer.remove(0));
-            }
-            bufferLock.unlock();
         }
     }
 }
