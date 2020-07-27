@@ -3,8 +3,7 @@ package com.company;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 import java.util.concurrent.locks.ReentrantLock;
 
 import static com.company.Main.EOF;
@@ -44,6 +43,25 @@ public class Main {
         executorService.execute(consumer1);
         executorService.execute(consumer2);
 
+        /*
+        If we want to use the value of the thread which runs in the background, then we can use the submit method which
+        accepts the callable object which is similar to runnable object except that it can return a value of object of
+        type future.
+         */
+
+        Future<String> future = executorService.submit(new Callable<String>() {
+            @Override
+            public String call() throws Exception {
+                System.out.println(ThreadColor.ANSI_WHITE + "I'm being printed from the callable class.");
+                return "This is the callable result";
+            }
+        });
+
+        try {
+            System.out.println(future.get());
+        } catch (ExecutionException | InterruptedException e) {
+            e.printStackTrace();
+        }
         executorService.shutdown();
     }
 }
