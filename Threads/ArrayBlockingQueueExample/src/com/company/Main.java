@@ -1,10 +1,7 @@
 package com.company;
 
-import javax.swing.plaf.TableHeaderUI;
 import java.util.Random;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 
 import static com.company.Main.EOF;
 
@@ -34,6 +31,19 @@ public class Main {
         executorService.execute(consumer1);
         executorService.execute(consumer2);
 
+        Future<String> future = executorService.submit(new Callable<String>() {
+            @Override
+            public String call() throws Exception {
+                System.out.println(ThreadColor.ANSI_WHITE + "I'm being printed from the call method");
+                return "This is returned from callable class";
+            }
+        });
+
+        try {
+            System.out.println(future.get());
+        } catch (ExecutionException | InterruptedException e) {
+            e.printStackTrace();
+        }
         executorService.shutdown();
 
     }
@@ -84,18 +94,20 @@ class MyConsumer implements Runnable {
     @Override
     public void run() {
         while (true) {
-            try {
-                if (buffer.isEmpty()) {
-                    continue;
+            synchronized (buffer) {
+                try {
+                    if (buffer.isEmpty()) {
+                        continue;
+                    }
+                    if (buffer.peek().equals(EOF)) {
+                        System.out.println(color + "Reached EOF and exiting");
+                        break;
+                    } else {
+                        System.out.println(color + "Removed " + buffer.take());
+                    }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
-                if (buffer.peek().equals(EOF)) {
-                    System.out.println(color + "Reached EOF and exiting");
-                    break;
-                } else {
-                    System.out.println(color + "Removed " + buffer.take());
-                }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
             }
         }
     }
