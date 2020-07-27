@@ -4,14 +4,18 @@ import java.util.List;
 import java.util.Random;
 import java.util.concurrent.locks.ReentrantLock;
 
+import static com.company.Main.EOF;
+
 public class Main {
+
+    public static final String EOF = "EOF";
 
     public static void main(String[] args) {
 
     }
 }
 
-class MyProducer implements Runnable{
+class MyProducer implements Runnable {
     private String color;
     private List<String> buffer;
     private ReentrantLock bufferLock;
@@ -51,4 +55,34 @@ class MyProducer implements Runnable{
     }
 }
 
+class MyConsumer implements Runnable {
+    private String color;
+    private List<String> buffer;
+    private ReentrantLock bufferLock;
 
+    public MyConsumer(String color, List<String> buffer, ReentrantLock bufferLock) {
+        this.color = color;
+        this.buffer = buffer;
+        this.bufferLock = bufferLock;
+    }
+
+    @Override
+    public void run() {
+        while (true) {
+            bufferLock.lock();
+            try {
+                if (buffer.isEmpty()) {
+                    continue;
+                }
+                if (buffer.get(0).equals(EOF)) {
+                    System.out.println("Reached EOF and exiting");
+                    break;
+                } else {
+                    System.out.println("Removed " + buffer.remove(0));
+                }
+            } finally {
+                bufferLock.unlock();
+            }
+        }
+    }
+}
