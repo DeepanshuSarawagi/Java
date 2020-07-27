@@ -44,6 +44,7 @@ public class Main {
         executorService.execute(consumer1);
         executorService.execute(consumer2);
 
+        executorService.shutdown();
     }
 }
 
