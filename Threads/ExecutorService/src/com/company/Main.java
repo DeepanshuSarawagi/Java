@@ -27,7 +27,7 @@ public class Main {
         List<String> buffer = new ArrayList<>();
         ReentrantLock bufferLock = new ReentrantLock(true);
 
-        ExecutorService executorService = Executors.newFixedThreadPool(3);
+        ExecutorService executorService = Executors.newFixedThreadPool(5);
 
         MyProducer producer = new MyProducer(ThreadColor.ANSI_BLUE, buffer, bufferLock);
         MyConsumer consumer1 = new MyConsumer(ThreadColor.ANSI_CYAN, buffer, bufferLock);
