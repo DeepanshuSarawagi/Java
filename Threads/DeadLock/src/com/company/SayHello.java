@@ -39,7 +39,7 @@ public class SayHello {
             return name;
         }
 
-        public synchronized void SayHello(PolitePerson person) {
+        public void SayHello(PolitePerson person) {
 //            bufferLock.lock();
 //            try {
 //                System.out.format("%s: %s has said Hello to me%n", this.name, person.getName());
@@ -48,13 +48,14 @@ public class SayHello {
 //                bufferLock.unlock();
 //            }
             // Above code will fix DeadLock
-
-            System.out.format("%s: %s has said Hello to me%n", this.name, person.getName());
-            person.SayHelloBack(this);
+            synchronized (this) {
+                System.out.format("%s: %s has said Hello to me%n", this.name, person.getName());
+                person.SayHelloBack(this);
+            }
 
         }
 
-        public synchronized void SayHelloBack(PolitePerson person) {
+        public void SayHelloBack(PolitePerson person) {
 //            bufferLock.lock();
 //            try {
 //                System.out.format("%s: %s has said Hello back to me%n", this.name, person.getName());
@@ -64,8 +65,10 @@ public class SayHello {
 
             // Above code will fix DeadLock
 
-            System.out.format("%s: %s has said Hello back to me%n", this.name, person.getName());
-
+            synchronized(person) {
+                System.out.format("%s: %s has said Hello back to me%n", this.name, person.getName());
+            }
+//            System.out.format("%s: %s has said Hello back to me%n", this.name, person.getName());
         }
     }
 }
