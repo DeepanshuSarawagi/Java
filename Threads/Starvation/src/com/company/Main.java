@@ -20,11 +20,11 @@ public class Main {
         t4.setPriority(4);
         t4.setPriority(2);
 
+        t5.start();
+        t4.start();
         t1.start();
         t2.start();
         t3.start();
-        t4.start();
-        t5.start();
 
     }
 
