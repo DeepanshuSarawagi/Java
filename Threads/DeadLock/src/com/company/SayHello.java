@@ -39,24 +39,32 @@ public class SayHello {
             return name;
         }
 
-        public void SayHello(PolitePerson person) {
-            bufferLock.lock();
-            try {
-                System.out.format("%s: %s has said Hello to me%n", this.name, person.getName());
-                person.SayHelloBack(this);
-            } finally {
-                bufferLock.unlock();
-            }
+        public synchronized void SayHello(PolitePerson person) {
+//            bufferLock.lock();
+//            try {
+//                System.out.format("%s: %s has said Hello to me%n", this.name, person.getName());
+//                person.SayHelloBack(this);
+//            } finally {
+//                bufferLock.unlock();
+//            }
+            // Above code will fix DeadLock
+
+            System.out.format("%s: %s has said Hello to me%n", this.name, person.getName());
+            person.SayHelloBack(this);
 
         }
 
-        public void SayHelloBack(PolitePerson person) {
-            bufferLock.lock();
-            try {
-                System.out.format("%s: %s has said Hello back to me%n", this.name, person.getName());
-            } finally {
-                bufferLock.unlock();
-            }
+        public synchronized void SayHelloBack(PolitePerson person) {
+//            bufferLock.lock();
+//            try {
+//                System.out.format("%s: %s has said Hello back to me%n", this.name, person.getName());
+//            } finally {
+//                bufferLock.unlock();
+//            }
+
+            // Above code will fix DeadLock
+
+            System.out.format("%s: %s has said Hello back to me%n", this.name, person.getName());
 
         }
     }
