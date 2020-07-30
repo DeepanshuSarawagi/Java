@@ -31,7 +31,12 @@ public class Worker {
             if (otherWorker.isActive()) {
                 System.out.println(getName() + " : give the resource to the other worker " + otherWorker.getName());
                 sharedResource.setOwner(otherWorker);
+                continue;
             }
+
+            System.out.println(getName() + ": working on the common resource");
+            active = false;
+            sharedResource.setOwner(otherWorker);
         }
     }
 }
