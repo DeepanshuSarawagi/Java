@@ -28,16 +28,26 @@ public class Controller {
                              "Sangeetha Rani"
                 );
 
-                Platform.runLater(new Runnable() {
-                    @Override
-                    public void run() {
-                        listView.setItems(employees);
-                    }
-                });
+//                Platform.runLater(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        listView.setItems(employees);
+//                    }
+//                });
 
-                return employees;
+                return employees;    // We are returning the list of data from the task since we are updating the
+                // listView from the task, we need not return it from Platform.runLater() in the UI. This is certainly
+                // not the recommended way to tie a task to the UI in this way. If we change the UI, then we will have
+                // to change the task as well. In general, the UI code and the code that processes data should be kept
+                // separate.
+                // Instead of using the above method, we should use the data binding to bind the ItemsProperty of
+                // listView with ValueProperty of task. Whenever there is a change in the values of task, the items of
+                // listView will get updated automatically.
+
             }
         };
+
+        listView.itemsProperty().bind(task.valueProperty());   // This is how data-binding is done.
     }
 
     @FXML
