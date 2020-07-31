@@ -4,6 +4,7 @@ package sample;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
+import javafx.fxml.FXML;
 
 public class Controller {
 
@@ -23,5 +24,10 @@ public class Controller {
                 );
             }
         };
+    }
+
+    @FXML
+    public void ButtonPressed() {
+        new Thread(task).start();
     }
 }
