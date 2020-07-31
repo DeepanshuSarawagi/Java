@@ -6,6 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ProgressBar;
 
@@ -18,6 +19,9 @@ public class Controller {
 
     @FXML
     private ProgressBar progressBar;
+
+    @FXML
+    private Label label;
 
     public void initialize() {
         task = new Task<ObservableList<String>>() {
@@ -33,6 +37,7 @@ public class Controller {
                 for (int i=0; i<names.length; i++) {
                     employees.add(names[i]);
                     updateProgress(i+1, names.length);
+                    updateMessage("Added " + names[i] + " to the list.");
                     Thread.sleep(200);
                 }
 
@@ -57,6 +62,7 @@ public class Controller {
 
         listView.itemsProperty().bind(task.valueProperty());   // This is how data-binding is done.
         progressBar.progressProperty().bind(task.progressProperty());
+        label.textProperty().bind(task.messageProperty());
     }
 
     @FXML
