@@ -2,6 +2,7 @@ package sample;
 
 import javafx.collections.ObservableList;
 import javafx.concurrent.Service;
+import javafx.concurrent.Worker;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.Labeled;
@@ -30,6 +31,11 @@ public class Controller {
 
     @FXML
     public void buttonPressed() {
-        service.start();
+        if (service.getState().equals(Worker.State.SUCCEEDED)) {
+            service.reset();
+            service.start();
+        } else if (service.getState().equals(Worker.State.READY)) {
+            service.start();
+        }
     }
 }
