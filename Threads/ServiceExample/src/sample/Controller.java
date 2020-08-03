@@ -46,6 +46,9 @@ public class Controller {
             }
         });
 
+        progressLabel.setVisible(false);
+        progressBar.setVisible(false);
+
     }
 
     @FXML
