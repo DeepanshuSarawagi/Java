@@ -3,6 +3,8 @@ package sample;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Service;
 import javafx.concurrent.Worker;
+import javafx.concurrent.WorkerStateEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.Labeled;
@@ -27,6 +29,15 @@ public class Controller {
         progressBar.progressProperty().bind(service.progressProperty());
         progressLabel.textProperty().bind(service.messageProperty());
         listView.itemsProperty().bind(service.valueProperty());
+
+        service.setOnRunning(new EventHandler<WorkerStateEvent>() {
+            @Override
+            public void handle(WorkerStateEvent workerStateEvent) {
+                progressBar.setVisible(true);
+                progressLabel.setVisible(true);
+            }
+        });
+
     }
 
     @FXML
