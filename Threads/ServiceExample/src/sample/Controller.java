@@ -45,6 +45,7 @@ public class Controller {
                 progressBar.setVisible(false);
             }
         });
+
     }
 
     @FXML
