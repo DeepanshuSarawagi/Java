@@ -17,10 +17,10 @@ public class ServiceExample extends Service<ObservableList<String>> {
                                   "Divya Sarawagi",
                                   "Rajat Sarawagi"};
                 ObservableList<String> employees = FXCollections.observableArrayList();
-                for (String name : names) {
-                    employees.add(name);
-                    updateMessage("Added " + name + " to the list");
-                    updateProgress(1, names.length);
+                for (int i=0; i<names.length; i++) {
+                    employees.add(names[i]);
+                    updateMessage("Added " + names[i] + " to the list");
+                    updateProgress(i + 1, names.length);
                     Thread.sleep(200);
                 }
                 return employees;
