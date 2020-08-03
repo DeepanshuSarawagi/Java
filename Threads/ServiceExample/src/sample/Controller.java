@@ -38,6 +38,13 @@ public class Controller {
             }
         });
 
+        service.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
+            @Override
+            public void handle(WorkerStateEvent workerStateEvent) {
+                progressLabel.setVisible(false);
+                progressBar.setVisible(false);
+            }
+        });
     }
 
     @FXML
