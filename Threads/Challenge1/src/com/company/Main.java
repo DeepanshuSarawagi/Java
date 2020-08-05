@@ -8,16 +8,20 @@ public class Main {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                bankAccount.deposit(300);
-                bankAccount.withdraw(50);
+                synchronized (bankAccount) {
+                    bankAccount.deposit(300);
+                    bankAccount.withdraw(50);
+                }
             }
         }).start();
 
         new Thread(new Runnable() {
             @Override
             public void run() {
-                bankAccount.deposit(203.75);
-                bankAccount.withdraw(100);
+                synchronized (bankAccount) {
+                    bankAccount.deposit(203.75);
+                    bankAccount.withdraw(100);
+                }
             }
         }).start();
     }
