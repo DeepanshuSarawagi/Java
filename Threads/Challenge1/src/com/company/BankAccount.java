@@ -16,10 +16,12 @@ public class BankAccount{
 
     public void deposit(double amount) {
 //            lock.lock();
+        boolean status = false;
         try {
             if (lock.tryLock(1000, TimeUnit.MILLISECONDS)) {
                 try {
                     this.Balance += amount;
+                    status = true;
                     System.out.println(amount + "deposited. Updated balance in the account " + this.accountNumber +
                             " is " + this.Balance);
                 } finally {
@@ -31,14 +33,17 @@ public class BankAccount{
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        System.out.println("Transaction status is " + status);
     }
 
     public void withdraw(double amount) {
 //            lock.lock();
+        boolean status = false;
         try {
             if (lock.tryLock(1000, TimeUnit.MILLISECONDS)) {
                 try {
                     this.Balance -= amount;
+                    status = true;
                     System.out.println(amount + "withdrawn. Updated balance in the account " + this.accountNumber +
                             " is " + this.Balance);
                 } finally {
@@ -50,6 +55,7 @@ public class BankAccount{
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        System.out.println("Transaction status is " + status);
     }
 
     public String getAccountNumber() {
