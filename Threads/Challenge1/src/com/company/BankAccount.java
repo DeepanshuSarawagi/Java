@@ -18,34 +18,38 @@ public class BankAccount{
 //            lock.lock();
         try {
             if (lock.tryLock(1000, TimeUnit.MILLISECONDS)) {
-                this.Balance -= amount;
-                System.out.println(amount + "deposited. Updated balance in the account " + this.accountNumber +
-                        " is " + this.Balance);
+                try {
+                    this.Balance += amount;
+                    System.out.println(amount + "deposited. Updated balance in the account " + this.accountNumber +
+                            " is " + this.Balance);
+                } finally {
+                    lock.unlock();
+                }
             } else {
-                System.out.println("Couldn't get the lock on the object");
+                System.out.println("Couldn't acquire lock on the object");
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
-        } finally {
-            lock.unlock();
         }
     }
 
     public void withdraw(double amount) {
 //            lock.lock();
-            try {
-                if (lock.tryLock(1000, TimeUnit.MILLISECONDS)) {
+        try {
+            if (lock.tryLock(1000, TimeUnit.MILLISECONDS)) {
+                try {
                     this.Balance -= amount;
                     System.out.println(amount + "withdrawn. Updated balance in the account " + this.accountNumber +
                             " is " + this.Balance);
-                } else {
-                    System.out.println("Couldn't get lock on the object");
+                } finally {
+                    lock.unlock();
                 }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            } finally {
-                lock.unlock();
+            } else {
+                System.out.println("Couldn't get lock on the object");
             }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     public String getAccountNumber() {
