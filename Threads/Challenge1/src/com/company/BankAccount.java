@@ -11,9 +11,13 @@ public class BankAccount {
 
     public void deposit(double amount) {
         this.Balance += amount;
+        System.out.println(amount + "deposited. Updated balance in the account " + this.accountNumber +
+                " is " + this.Balance);
     }
 
     public void withdraw(double amount) {
         this.Balance -= amount;
+        System.out.println(amount + "withdrawn. Updated balance in the account " + this.accountNumber +
+                " is " + this.Balance);
     }
 }
