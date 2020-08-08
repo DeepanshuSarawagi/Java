@@ -19,4 +19,14 @@ public class BankAccount {
         showBalance();
     }
 
+    public void withdraw(double amount) {
+        if (amount < this.Balance) {
+            this.Balance -= amount;
+        } else {
+            System.out.println("Amount cannot be greater than balance");
+        }
+
+        showBalance();
+    }
+
 }
