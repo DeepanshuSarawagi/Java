@@ -29,4 +29,7 @@ public class BankAccount {
         showBalance();
     }
 
+    public void showBalance() {
+        System.out.println("Balance in the account " + this.AccountNumber + " is " + this.Balance);
+    }
 }
