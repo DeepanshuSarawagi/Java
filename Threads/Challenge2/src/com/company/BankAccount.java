@@ -1,6 +1,6 @@
 package com.company;
 
-public class BankAccount {
+public class BankAccount extends Thread{
     private String AccountNumber;
     private double Balance;
 
