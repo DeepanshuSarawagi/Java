@@ -9,7 +9,7 @@ public class BankAccount extends Thread{
         Balance = balance;
     }
 
-    public void deposit(double amount) {
+    public synchronized void deposit(double amount) {
         if (amount > 0) {
             this.Balance += amount;
         } else {
@@ -19,7 +19,7 @@ public class BankAccount extends Thread{
         showBalance();
     }
 
-    public void withdraw(double amount) {
+    public synchronized void withdraw(double amount) {
         if (amount < this.Balance) {
             this.Balance -= amount;
         } else {
