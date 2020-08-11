@@ -30,6 +30,10 @@ public class BankAccount extends Thread{
     }
 
     public void showBalance() {
-        System.out.println("Balance in the account " + this.AccountNumber + " is " + this.Balance);
+        System.out.println("Balance in the account " + getAccountNumber() + " is " + this.Balance);
+    }
+
+    public String getAccountNumber() {
+        return this.AccountNumber;
     }
 }
