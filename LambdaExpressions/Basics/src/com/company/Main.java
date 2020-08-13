@@ -44,3 +44,21 @@ public class Main {
 //        System.out.println("Printing from the runnable");
 //    }
 //}
+
+class Employee {
+    private String Name;
+    private String Age;
+
+    public Employee(String name, String age) {
+        Name = name;
+        Age = age;
+    }
+
+    public String getName() {
+        return Name;
+    }
+
+    public String getAge() {
+        return Age;
+    }
+}
