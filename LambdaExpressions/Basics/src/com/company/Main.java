@@ -27,6 +27,14 @@ public class Main {
         Since the Lambda Expressions looks out for methods, it can only be replaced against the interface with just one
         method, also referred to as Functional Interfaces.
          */
+
+        // Learn how to execute multiple statements in Lambda Expression
+
+        new Thread(()-> {
+            System.out.println("Printing from the Runnable");
+            System.out.println("This is Line2");
+            System.out.println("Printing another line using Lambda Expression");
+        }).start();
     }
 }
 
