@@ -1,5 +1,9 @@
 package com.company;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -42,6 +46,12 @@ public class Main {
         Employee sangeetha = new Employee("Sangeetha Rani", 53);
         Employee pradeep = new Employee("Pradeep Sarawagi", 57);
 
+        List<Employee> employees = new ArrayList<>();
+        employees.add(deep);
+        employees.add(rajat);
+        employees.add(divya);
+        employees.add(sangeetha);
+        employees.add(pradeep);
 
     }
 }
