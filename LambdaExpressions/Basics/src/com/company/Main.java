@@ -35,6 +35,14 @@ public class Main {
             System.out.println("This is Line2");
             System.out.println("Printing another line using Lambda Expression");
         }).start();
+
+        Employee deep = new Employee("Deepanshu Sarawagi", 28);
+        Employee rajat = new Employee("Rajat Sarawagi", 26);
+        Employee divya = new Employee("Divya Sarawagi", 28);
+        Employee sangeetha = new Employee("Sangeetha Rani", 53);
+        Employee pradeep = new Employee("Pradeep Sarawagi", 57);
+
+
     }
 }
 
@@ -47,9 +55,9 @@ public class Main {
 
 class Employee {
     private String Name;
-    private String Age;
+    private int Age;
 
-    public Employee(String name, String age) {
+    public Employee(String name, int age) {
         Name = name;
         Age = age;
     }
@@ -58,7 +66,7 @@ class Employee {
         return Name;
     }
 
-    public String getAge() {
+    public int getAge() {
         return Age;
     }
 }
