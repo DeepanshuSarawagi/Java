@@ -22,7 +22,7 @@ public class Main {
 
         How does the Lambda Expression evaluate the above code? In this case, the Lambda Expressions checks for the
         parameter which is accepted by the Thread class constructor which is the Runnable interface. And this
-        Runnable interface implements just one method which is run() and it has no arguments. Hence, the empty
+        Runnable interface implements just one method which is run() and it has no parameters. Hence, the empty
         Argument List is evaluated against the Runnable Interface.
         Since the Lambda Expressions looks out for methods, it can only be replaced against the interface with just one
         method, also referred to as Functional Interfaces.
@@ -30,9 +30,9 @@ public class Main {
     }
 }
 
-class CodeToRun implements Runnable {
-    @Override
-    public void run() {
-        System.out.println("Printing from the runnable");
-    }
-}
+//class CodeToRun implements Runnable {
+//    @Override
+//    public void run() {
+//        System.out.println("Printing from the runnable");
+//    }
+//}
