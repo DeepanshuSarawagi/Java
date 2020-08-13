@@ -2,6 +2,7 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Main {
@@ -53,6 +54,16 @@ public class Main {
         employees.add(sangeetha);
         employees.add(pradeep);
 
+        Collections.sort(employees, new Comparator<Employee>() {
+            @Override
+            public int compare(Employee o1, Employee o2) {
+                return o1.getName().compareTo(o2.getName());
+            }
+        });
+
+        for (Employee employee: employees) {
+            System.out.println(employee.getName());
+        }
     }
 }
 
