@@ -54,12 +54,17 @@ public class Main {
         employees.add(sangeetha);
         employees.add(pradeep);
 
-        Collections.sort(employees, new Comparator<Employee>() {
-            @Override
-            public int compare(Employee o1, Employee o2) {
-                return o1.getName().compareTo(o2.getName());
-            }
-        });
+//        Collections.sort(employees, new Comparator<Employee>() {
+//            @Override
+//            public int compare(Employee o1, Employee o2) {
+//                return o1.getName().compareTo(o2.getName());
+//            }
+//        });
+
+        // replace the above with Lambda Expression
+
+        Collections.sort(employees, (Employee employee1, Employee employee2) ->
+                    employee1.getName().compareTo(employee2.getName()));
 
         for (Employee employee: employees) {
             System.out.println(employee.getName());
