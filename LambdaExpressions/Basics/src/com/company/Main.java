@@ -63,8 +63,14 @@ public class Main {
 
         // replace the above with Lambda Expression
 
-        Collections.sort(employees, (Employee employee1, Employee employee2) ->
-                    employee1.getName().compareTo(employee2.getName()));
+//        Collections.sort(employees, (Employee employee1, Employee employee2) ->
+//                    employee1.getName().compareTo(employee2.getName()));
+
+        // We can further simplify the Lambda Expression by removing the object types. We are removing the Employee
+        // object word from the Lambda Expression.
+
+        Collections.sort(employees, ( employee1,  employee2) ->
+                employee1.getName().compareTo(employee2.getName()));
 
         for (Employee employee: employees) {
             System.out.println(employee.getName());
