@@ -84,6 +84,10 @@ public class Main {
         }, employees.get(0).getName(), employees.get(1).getName());
 
         System.out.println(sillyString);
+
+        UpperConcat uc = (String s1, String s2) -> s1.toUpperCase() + s2.toUpperCase();
+        String sillyString2 = doStringStuff(uc, employees.get(2).getName(), employees.get(3).getName());
+        System.out.println(sillyString2);
     }
 
     public static String doStringStuff(UpperConcat uc, String s1, String s2) {
