@@ -88,6 +88,12 @@ public class Main {
         UpperConcat uc = (String s1, String s2) -> s1.toUpperCase() + s2.toUpperCase();
         String sillyString2 = doStringStuff(uc, employees.get(2).getName(), employees.get(3).getName());
         System.out.println(sillyString2);
+
+        // We can also directly pass the Lambda Expression as a parameter in the doStringStuff() method rather than
+        // saving the return value to a variable
+        sillyString2 = doStringStuff((s1, s2) -> s1.toUpperCase() + s2.toUpperCase(), employees.get(2).getName(),
+                employees.get(4).getName());
+        System.out.println(sillyString2);
     }
 
     public static String doStringStuff(UpperConcat uc, String s1, String s2) {
