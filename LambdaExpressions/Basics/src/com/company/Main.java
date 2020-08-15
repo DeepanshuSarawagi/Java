@@ -109,6 +109,14 @@ public class Main {
         AnotherClass anotherClass = new AnotherClass();
         String s = anotherClass.doSomething();
         System.out.println(s);
+        System.out.println();
+        s = anotherClass.doAnotherString();
+        System.out.println(s);
+        /*
+        When you run the code, line 114 will print the Class' name of Lambda Expression which shows that it is picking up
+        AnotherClass's class name. It is because Lambda is not treated as another class instead it is yet another nested
+        block of code.
+        */
 
     }
 
@@ -156,5 +164,15 @@ class AnotherClass{
                 return s1.toUpperCase() + s2.toUpperCase();
             }
         }, "String1", "String2");
+    }
+
+    UpperConcat uc = ((s1, s2) -> {
+        System.out.println("Lambda Expression class's name is: " + getClass().getSimpleName());
+        String result = s1.toUpperCase() + s2.toUpperCase();
+        return result;
+    });
+    public String doAnotherString() {
+        System.out.println("AnotherClass class's name is: " + getClass().getSimpleName());
+        return Main.doStringStuff(uc, "String1", "String2");
     }
 }
