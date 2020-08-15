@@ -124,6 +124,8 @@ public class Main {
 
         s = anotherClass.localVariableInLambda();
         System.out.println(s);
+
+        anotherClass.printValue();
     }
 
     public static String doStringStuff(UpperConcat uc, String s1, String s2) {
@@ -203,7 +205,7 @@ class AnotherClass{
 
     public String localVariableInLambda() {
         AtomicInteger i = new AtomicInteger();
-        // We need to use Atomic Integer since we will be changing the value of i within the Lambda Expression
+        // We need to use AtomicInteger since we will be changing the value of i within the Lambda Expression
         UpperConcat uc = ((s1, s2) -> {
             i.getAndIncrement();
             System.out.println("The value of i within Lambda is: " + i);
@@ -211,5 +213,19 @@ class AnotherClass{
             return s1.toUpperCase() + s2.toUpperCase();
         });
         return Main.doStringStuff(uc, "String1", "String2");
+    }
+
+    public void printValue() {
+        int number = 25;
+        Runnable r = () -> {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println("The value of number is " + number);
+        };
+
+        new Thread(r).start();
     }
 }
