@@ -44,13 +44,16 @@ public class Main {
         In this example we can see that Lambda is not evaluated immediately and variable should be effectively final
          */
 
-//        new Thread(() -> {
-//            for (Employee employee : employees) {
-//                System.out.println("Employee name is " + employee.getName());
-//                System.out.println("Employee age is " + employee.getAge());
-//            }
-//        }).start();
-        System.out.println();
+        /*
+        We can also use the Lambda in the forEach() method when iterating over the iterable collections. The forEach()
+        method will accept the lambda and it will evaluate the value of variable against the value in the iterable
+        collection. Refer to below example.
+         */
+        System.out.println("*******************");
+        employees.forEach(employee -> {
+            System.out.println(employee.getName());
+            System.out.println(employee.getAge());
+        });
 
     }
 }
