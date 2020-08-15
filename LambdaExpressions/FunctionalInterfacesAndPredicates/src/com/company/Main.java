@@ -75,9 +75,14 @@ public class Main {
             }
         });
 
-        IntPredicate intPredicate = i -> i > 25;
-        System.out.println(intPredicate.test(15));
-        System.out.println(intPredicate.test(35));
+        IntPredicate greaterThan15 = i -> i > 25;
+        IntPredicate lessThan100 = i -> i < 100;
+
+        System.out.println(greaterThan15.test(15));
+        System.out.println(greaterThan15.test(35));
+
+        // We are going to chain two predicates using the and() method
+        System.out.println(greaterThan15.and(lessThan100).test(59));
     }
 
     /*
