@@ -13,7 +13,11 @@ public class Main {
         Random random = new Random();
         Supplier<Integer> randomSupplier = () -> random.nextInt(100);
         for (int i=0; i<10; i++) {
-            System.out.println(randomSupplier.get());
+            int j = randomSupplier.get();
+            System.out.println(j);
+            if (j % 2 == 0) {
+                System.out.println("We got a random even number");
+            }
         }
     }
 }
