@@ -184,8 +184,8 @@ class AnotherClass{
             UpperConcat uc = new UpperConcat() {
                 @Override
                 public String upperAndConcat(String s1, String s2) {
-                    System.out.println("i = " + i);  // to access the local variable from the inner anonymous class we need to
-                    // make the variable declared as final.
+                    System.out.println("i (within anonymous class) = " + i);  // to access the local variable from the
+                    // inner anonymous class we need to make the variable declared as final.
                     return s1.toUpperCase() + s2.toUpperCase();
                 }
             };
