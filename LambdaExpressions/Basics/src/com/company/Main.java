@@ -179,17 +179,19 @@ class AnotherClass{
     }
 
     public String nestedBlock() {
-        int i=0;
+        final int i=0;
         {
             UpperConcat uc = new UpperConcat() {
                 @Override
                 public String upperAndConcat(String s1, String s2) {
+                    System.out.println("i = " + i);  // to access the local variable from the inner anonymous class we need to
+                    // make the variable declared as final.
                     return s1.toUpperCase() + s2.toUpperCase();
                 }
             };
 
             System.out.println("The AnotherClass class's name is: " + getClass().getSimpleName());
-            i++;
+//            i++;
             System.out.println("i = " + i);  // code within the nested block can use the local variable
             return Main.doStringStuff(uc, "String1", "String2");
         }
