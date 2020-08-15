@@ -2,6 +2,7 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.IntPredicate;
 import java.util.function.Predicate;
 
 public class Main {
@@ -73,6 +74,10 @@ public class Main {
                 return employee.getAge() <= 25;
             }
         });
+
+        IntPredicate intPredicate = i -> i > 25;
+        System.out.println(intPredicate.test(15));
+        System.out.println(intPredicate.test(35));
     }
 
     /*
