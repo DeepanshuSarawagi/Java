@@ -25,6 +25,19 @@ public class Main {
         for (Employee employee : employees) {
             System.out.println(employee.getName());
             new Thread(() -> System.out.println(employee.getAge())).start();
+            /*
+            Now we may be wondering here, since the value of employee is getting changed shouldn't it be final and how is
+            it working inside Lambda. Well, technically, for each iteration of for loop, a new local variable is created
+            and that is effectively final. Hence, this variable is working inside Lambda. We can confirm the same by
+            using the old style for loop below.
+             */
+        }
+
+        System.out.println("********************");
+        for (int i=0; i<employees.size(); i++) {
+            Employee employee = employees.get(i);
+            System.out.println(employee.getName());
+            new Thread(() -> System.out.println(employee.getAge())).start();
         }
 
         /*
