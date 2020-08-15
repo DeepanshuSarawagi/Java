@@ -94,6 +94,17 @@ public class Main {
         sillyString2 = doStringStuff((s1, s2) -> s1.toUpperCase() + s2.toUpperCase(), employees.get(2).getName(),
                 employees.get(4).getName());
         System.out.println(sillyString2);
+
+        // If we use multiple statements in the Lambda expression then we need to return the value. Refer to below
+        // example
+
+        uc = (s1, s2) -> {
+            String result = s1.toUpperCase() + s2.toUpperCase();
+            return result;
+        };
+
+        sillyString2 = doStringStuff(uc, employees.get(2).getName(), employees.get(4).getName());
+        System.out.println(sillyString2);
     }
 
     public static String doStringStuff(UpperConcat uc, String s1, String s2) {
