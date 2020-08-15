@@ -56,5 +56,12 @@ public class Main {
         where we do not want to return anything. And in the above example, it exactly serves our purpose. We are just
         printing out the name and age of Employee objects from the employees list.
          */
+
+        System.out.println("Employees 30 and younger: ");
+        employees.forEach(employee -> {
+            if (employee.getAge() <= 30) {
+                System.out.println(employee.getName());
+            }
+        });
     }
 }
