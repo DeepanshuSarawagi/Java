@@ -231,6 +231,8 @@ class AnotherClass{
             no longer exist. So what will the thread print the value of number variable? Well, the Java Runtime knows
             that the value of number is not changed and it is effectively final, hence the lambda will print the value
             of number to be 25.
+            In this example, we also learn that Lambdas are not immediately executed, hence any variables used within
+            the lambda from outside them should be effectively final.
              */
         };
 
