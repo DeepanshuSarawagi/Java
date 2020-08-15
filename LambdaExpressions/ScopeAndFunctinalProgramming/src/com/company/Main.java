@@ -20,11 +20,25 @@ public class Main {
         employees.add(divya);
         employees.add(rajat);
 
-        Collections.sort(employees, (employee1, employee2) -> employee1.getName().compareTo(employee2.getName()));
+//        Collections.sort(employees, (employee1, employee2) -> employee1.getName().compareTo(employee2.getName()));
 
         for (Employee employee : employees) {
             System.out.println(employee.getName());
+            new Thread(() -> System.out.println(employee.getAge())).start();
         }
+
+        /*
+        In this example we can see that Lambda is not evaluated immediately and variable should be effectively final
+         */
+
+//        new Thread(() -> {
+//            for (Employee employee : employees) {
+//                System.out.println("Employee name is " + employee.getName());
+//                System.out.println("Employee age is " + employee.getAge());
+//            }
+//        }).start();
+        System.out.println();
+
     }
 }
 
