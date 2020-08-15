@@ -148,9 +148,11 @@ interface UpperConcat {
 
 class AnotherClass{
     public String doSomething() {
+        System.out.println("AnotherClass class's name is: " + getClass().getSimpleName());
         return Main.doStringStuff(new UpperConcat() {
             @Override
             public String upperAndConcat(String s1, String s2) {
+                System.out.println("Anonymous class's name is: " + getClass().getSimpleName());
                 return s1.toUpperCase() + s2.toUpperCase();
             }
         }, "String1", "String2");
