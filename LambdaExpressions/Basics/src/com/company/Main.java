@@ -117,7 +117,9 @@ public class Main {
         AnotherClass's class name. It is because Lambda is not treated as another class instead it is yet another nested
         block of code.
         */
-
+        System.out.println();
+        s = anotherClass.nestedBlock();
+        System.out.println(s);
     }
 
     public static String doStringStuff(UpperConcat uc, String s1, String s2) {
@@ -174,5 +176,22 @@ class AnotherClass{
     public String doAnotherString() {
         System.out.println("AnotherClass class's name is: " + getClass().getSimpleName());
         return Main.doStringStuff(uc, "String1", "String2");
+    }
+
+    public String nestedBlock() {
+        int i=0;
+        {
+            UpperConcat uc = new UpperConcat() {
+                @Override
+                public String upperAndConcat(String s1, String s2) {
+                    return s1.toUpperCase() + s2.toUpperCase();
+                }
+            };
+
+            System.out.println("The AnotherClass class's name is: " + getClass().getSimpleName());
+            i++;
+            System.out.println("i = " + i);  // code within the nested block can use the local variable
+            return Main.doStringStuff(uc, "String1", "String2");
+        }
     }
 }
