@@ -106,6 +106,10 @@ public class Main {
         sillyString2 = doStringStuff(uc, employees.get(2).getName(), employees.get(4).getName());
         System.out.println(sillyString2);
 
+        AnotherClass anotherClass = new AnotherClass();
+        String s = anotherClass.doSomething();
+        System.out.println(s);
+
     }
 
     public static String doStringStuff(UpperConcat uc, String s1, String s2) {
