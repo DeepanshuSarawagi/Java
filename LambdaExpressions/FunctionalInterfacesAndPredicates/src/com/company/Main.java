@@ -2,6 +2,7 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class Main {
 
@@ -63,5 +64,32 @@ public class Main {
                 System.out.println(employee.getName());
             }
         });
+
+        printEmployeesByAge(employees, "Employees over 30: ", employee -> employee.getAge() > 30);
+        printEmployeesByAge(employees, "Employees 30 and younger:", employee -> employee.getAge() <= 30);
+    }
+
+    /*
+    instead of hardcoding the employee age, we are going to use the Predicate Functional Interface which has a
+    functional method test() which accepts one argument. The test() method returns true or false based on the condition.
+    This condition will be a Lambda expression which will be passed as a parameter to test the age of the employees.
+     */
+
+    private static void printEmployeesByAge(List<Employee> employees,
+                                            String ageText, Predicate<Employee> ageCondition) {
+        System.out.println(ageText);
+        for (Employee employee : employees) {
+            if (ageCondition.test(employee)) {
+                System.out.println("\t" + employee.getName());
+            }
+        }
+
+//        employees.forEach(employee -> {
+//            if (ageCondition.test(employee)) {
+//                System.out.println("\t" + employee.getName());
+//            }
+//        });
+
+        // We can also use forEach() method instead of enhanced for loop
     }
 }
