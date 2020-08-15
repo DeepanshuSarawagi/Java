@@ -19,5 +19,9 @@ public class Main {
         employees.add(divya);
         employees.add(rajat);
 
+        employees.forEach(employee -> {
+            System.out.println(employee.getName());
+            System.out.println(employee.getAge());
+        });
     }
 }
