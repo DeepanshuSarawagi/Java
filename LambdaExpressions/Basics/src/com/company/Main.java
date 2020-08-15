@@ -2,8 +2,8 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Main {
 
@@ -120,6 +120,10 @@ public class Main {
         System.out.println();
         s = anotherClass.nestedBlock();
         System.out.println(s);
+        System.out.println();
+
+        s = anotherClass.localVariableInLambda();
+        System.out.println(s);
     }
 
     public static String doStringStuff(UpperConcat uc, String s1, String s2) {
@@ -195,5 +199,17 @@ class AnotherClass{
             System.out.println("i = " + i);  // code within the nested block can use the local variable
             return Main.doStringStuff(uc, "String1", "String2");
         }
+    }
+
+    public String localVariableInLambda() {
+        AtomicInteger i = new AtomicInteger();
+        // We need to use Atomic Integer since we will be changing the value of i within the Lambda Expression
+        UpperConcat uc = ((s1, s2) -> {
+            i.getAndIncrement();
+            System.out.println("The value of i within Lambda is: " + i);
+            System.out.println("The Lambda expression class's name is: " + getClass().getSimpleName());
+            return s1.toUpperCase() + s2.toUpperCase();
+        });
+        return Main.doStringStuff(uc, "String1", "String2");
     }
 }
