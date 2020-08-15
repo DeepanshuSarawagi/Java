@@ -219,11 +219,19 @@ class AnotherClass{
         int number = 25;
         Runnable r = () -> {
             try {
-                Thread.sleep(1000);
+                Thread.sleep(5000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             System.out.println("The value of number is " + number);
+            /*
+            In this code we are using the Lambda code for Runnable. When the code runs, the thread will sleep for
+            5 seconds and the print the value of number. When the thread is sleeping, the printValue method will continue
+            to run and exit. By the time, the thread gets around to print the value of number, the local variable will
+            no longer exist. So what will the thread print the value of number variable? Well, the Java Runtime knows
+            that the value of number is not changed and it is effectively final, hence the lambda will print the value
+            of number to be 25.
+             */
         };
 
         new Thread(r).start();
