@@ -20,6 +20,10 @@ public class Main {
         employees.add(divya);
         employees.add(rajat);
 
+        employees.forEach(employee -> {
+            String[] firstLastName = employee.getName().split(" ");
+            System.out.println("First name is " + firstLastName[0] + " Last name is " + firstLastName[1]);
+        });
 
     }
 }
