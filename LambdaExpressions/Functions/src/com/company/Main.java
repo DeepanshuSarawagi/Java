@@ -29,6 +29,12 @@ public class Main {
         });
 
         // Create a function interface to print the last name of the employee
+        /*
+        Function<T, V> accepts two types while creating the interface. First is the argument type on which the Function
+        Interface will be applied and the second is the return type which will return the value.
+        In our case, the argument type will be an object of type Employee and second is String because we will return
+        String (Last Name)
+         */
 
         Function<Employee, String> getLastName = (employee -> {
             return employee.getName().substring(employee.getName().indexOf(" ") + 1);
