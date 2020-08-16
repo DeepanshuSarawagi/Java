@@ -2,6 +2,7 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
 
 public class Main {
 
@@ -21,9 +22,20 @@ public class Main {
         employees.add(rajat);
 
         employees.forEach(employee -> {
-            String[] firstLastName = employee.getName().split(" ");
-            System.out.println("First name is " + firstLastName[0] + " Last name is " + firstLastName[1]);
+//            String[] firstLastName = employee.getName().split(" ");
+//            System.out.println("First name is " + firstLastName[0] + " Last name is " + firstLastName[1]);
+            String lastName = employee.getName().substring(employee.getName().indexOf(" ") + 1);
+            System.out.println("Last name is: " + lastName);
         });
+
+        // Create a function interface to print the last name of the employee
+
+        Function<Employee, String> getLastName = (employee -> {
+            return employee.getName().substring(employee.getName().indexOf(" ") + 1);
+        });
+
+        String lastName = getLastName.apply(employees.get(1));
+        System.out.println(lastName);
 
     }
 }
