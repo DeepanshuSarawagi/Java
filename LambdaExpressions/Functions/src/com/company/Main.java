@@ -2,6 +2,7 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.function.Function;
 
 public class Main {
@@ -52,6 +53,20 @@ public class Main {
         System.out.println(lastName);
         System.out.println(firstName);
 
+        System.out.println("\n");
+        System.out.println("********************");
+        Random random = new Random();
+        for (Employee employee : employees) {
+            if (random.nextBoolean()) {
+                System.out.println(getAName(getFirstName, employee));
+            } else {
+                System.out.println(getAName(getLastName, employee));
+            }
+        }
+    }
+
+    private static String getAName(Function<Employee, String> getName, Employee employee) {
+        return getName.apply(employee);
     }
 }
 
