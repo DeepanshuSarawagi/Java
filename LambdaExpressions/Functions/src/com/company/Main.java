@@ -81,6 +81,10 @@ public class Main {
         Function  chainedFunction = upperCase.andThen(firstNameInUpperCase);
         System.out.println(chainedFunction.apply(employees.get(2)));
 
+        employees.forEach(employee -> {
+            System.out.println(chainedFunction.apply(employee));
+        });
+
     }
 
     private static String getAName(Function<Employee, String> getName, Employee employee) {
