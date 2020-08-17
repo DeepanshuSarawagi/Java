@@ -63,6 +63,24 @@ public class Main {
                 System.out.println(getAName(getLastName, employee));
             }
         }
+
+        /*
+        In the below example, we will see how to chain functions. We will create two functions and then chain them
+        together by calling the andThen() method.
+        In our example, first we created a Function to convert the employee name to Upper Case. Then we created another
+        Function to get the First Name alone in the Upper Case by calling the substring() method.
+        Once we have written the function to retrieve the FirstName in UpperCase we created another Function to chain
+        both the functions. we call the andThen() method on the upperCase Function and the result of that is passed as
+        an argument to the second function.
+         */
+        System.out.println("\n");
+        System.out.println("*********************");
+
+        Function<Employee, String> upperCase = employee -> employee.getName().toUpperCase();
+        Function<String, String> firstNameInUpperCase = name -> name.substring(0, name.indexOf(" "));
+        Function  chainedFunction = upperCase.andThen(firstNameInUpperCase);
+        System.out.println(chainedFunction.apply(employees.get(2)));
+
     }
 
     private static String getAName(Function<Employee, String> getName, Employee employee) {
