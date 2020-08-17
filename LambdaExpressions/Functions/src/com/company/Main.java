@@ -42,8 +42,15 @@ public class Main {
             return employee.getName().substring(employee.getName().indexOf(" ") + 1);
         });
 
+        Function<Employee, String> getFirstName = employee -> {
+            return employee.getName().substring(0, employee.getName().indexOf(" "));
+        };
+
+
         String lastName = getLastName.apply(employees.get(1));
+        String firstName = getFirstName.apply(employees.get(1));
         System.out.println(lastName);
+        System.out.println(firstName);
 
     }
 }
