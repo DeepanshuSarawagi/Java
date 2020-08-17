@@ -34,6 +34,8 @@ public class Main {
         Interface will be applied and the second is the return type which will return the value.
         In our case, the argument type will be an object of type Employee and second is String because we will return
         String (Last Name)
+        After creating the Function Interface, we need to call the apply method which accepts the Employee object to
+        get the last name of the employee.
          */
 
         Function<Employee, String> getLastName = (employee -> {
