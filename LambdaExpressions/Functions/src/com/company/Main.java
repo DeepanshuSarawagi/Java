@@ -108,6 +108,13 @@ public class Main {
 
         IntUnaryOperator incBy5 = i -> i + 5;
         System.out.println(incBy5.applyAsInt(10));
+
+        /*
+        When we want to use the Lambda Expression to test the value and returns if it is true or false, we can use
+        Predicates. And if want to use the Lambda Expressions in place of a method which accepts the arguments and returns
+        the value of type T then  we can use the Function Interface. The interfaces doesnt dictate what the lambda
+        expressions must do.
+         */
     }
 
     private static String getAName(Function<Employee, String> getName, Employee employee) {
