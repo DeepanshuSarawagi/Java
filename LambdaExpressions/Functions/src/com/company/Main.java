@@ -3,6 +3,7 @@ package com.company;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.function.BiFunction;
 import java.util.function.Function;
 
 public class Main {
@@ -81,9 +82,23 @@ public class Main {
         Function  chainedFunction = upperCase.andThen(firstNameInUpperCase);
         System.out.println(chainedFunction.apply(employees.get(2)));
 
+
         employees.forEach(employee -> {
             System.out.println(chainedFunction.apply(employee));
         });
+
+        /*
+        In the below example we will learn about the BiFunction interface which accepts two arguments.
+        Using the BiFunction interface we will print the employee name in upper case as well as concatenate the
+        name with the age.
+        Since BiFunction accepts two parameters, it cannot be changed.
+         */
+        BiFunction<String, Employee, String> concatAge = (name, employee) -> {
+            return name.concat(" " + employee.getAge());
+        };
+
+        String name = upperCase.apply(employees.get(1));
+        System.out.println(concatAge.apply(name, employees.get(1)));
 
     }
 
