@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.function.BiFunction;
 import java.util.function.Function;
+import java.util.function.IntUnaryOperator;
 
 public class Main {
 
@@ -100,6 +101,13 @@ public class Main {
         String name = upperCase.apply(employees.get(1));
         System.out.println(concatAge.apply(name, employees.get(1)));
 
+        /*
+        UnaryOperatorFunction interface accepts one argument and returns the value of same type.
+        For example, we will know about IntUnaryOperator
+         */
+
+        IntUnaryOperator incBy5 = i -> i + 5;
+        System.out.println(incBy5.applyAsInt(10));
     }
 
     private static String getAName(Function<Employee, String> getName, Employee employee) {
