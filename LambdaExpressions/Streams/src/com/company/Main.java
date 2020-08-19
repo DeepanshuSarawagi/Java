@@ -74,6 +74,13 @@ public class Main {
 //        System.out.println("There are " + concatStream.count() + " items in the Stream");
 
         // Print the no. of distinct items in the Stream
-        System.out.println("There are " + concatStream.distinct().count() + " distinct items in the Stream");
+        System.out.println("There are " + concatStream
+                .distinct()
+                .peek(System.out::println)   // We use the peek method of class Stream to print the items in the Stream
+                                             // instead of using forEach() method. forEach() method is the terminal
+                                             // operation and will end the Stream since it returns void, however, peek()
+                                             // is the intermediate operation just like the rest of the methods which
+                                             // which returns the resulting Stream
+                .count() + " distinct items in the Stream");
     }
 }
