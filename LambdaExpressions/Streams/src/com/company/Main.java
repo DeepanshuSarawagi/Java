@@ -71,6 +71,9 @@ public class Main {
 
         // Print the number of items in the Stream
         System.out.println();
-        System.out.println("There are " + concatStream.count() + " items in the Stream");
+//        System.out.println("There are " + concatStream.count() + " items in the Stream");
+
+        // Print the no. of distinct items in the Stream
+        System.out.println("There are " + concatStream.distinct().count() + " distinct items in the Stream");
     }
 }
