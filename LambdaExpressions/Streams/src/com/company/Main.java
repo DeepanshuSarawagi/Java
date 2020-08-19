@@ -6,6 +6,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.stream.Stream;
 
 public class Main {
 
@@ -59,6 +60,14 @@ public class Main {
                 .filter(s -> s.startsWith("G"))
                 .sorted()
                 .forEach(System.out::println);
+
+        // Building stream from the scratch
+
+        Stream<String> ioInputStream = Stream.of("I17", "I29", "I26", "O71");
+        Stream<String> inInputStream = Stream.of("N40", "N56", "I17", "I29", "I26", "O71");
+
+        // We will concat two Streams together
+        Stream<String> concatStream = Stream.concat(ioInputStream, inInputStream);
 
     }
 }
