@@ -69,5 +69,8 @@ public class Main {
         // We will concat two Streams together
         Stream<String> concatStream = Stream.concat(ioInputStream, inInputStream);
 
+        // Print the number of items in the Stream
+        System.out.println();
+        System.out.println("There are " + concatStream.count() + " items in the Stream");
     }
 }
