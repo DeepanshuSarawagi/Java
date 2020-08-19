@@ -82,5 +82,29 @@ public class Main {
                                              // is the intermediate operation just like the rest of the methods which
                                              // which returns the resulting Stream
                 .count() + " distinct items in the Stream");
+
+        System.out.println("-----------------------------");
+
+        Employee deep = new Employee("Deepanshu Sarawagi", 28);
+        Employee divya = new Employee("Divya Sarawagi", 28);
+        Employee rajat = new Employee("Rajat Sarawagi", 25);
+        Employee deepak = new Employee("Deepak Jain", 28);
+
+        Department hr = new Department("Human Resources");
+        hr.addEmployees(deep);
+        hr.addEmployees(divya);
+        hr.addEmployees(rajat);
+
+        Department accounting = new Department("Accounting");
+        accounting.addEmployees(deepak);
+
+        List<Department> departments = new ArrayList<>();
+        departments.add(hr);
+        departments.add(accounting);
+
+        departments.stream()
+                .flatMap(department -> department.getEmployees().stream())
+                .forEach(System.out::println);
+
     }
 }

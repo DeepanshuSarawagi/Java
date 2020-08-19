@@ -2,9 +2,9 @@ package com.company;
 
 public class Employee {
     private String name;
-    private String age;
+    private int age;
 
-    public Employee(String name, String age) {
+    public Employee(String name, int age) {
         this.name = name;
         this.age = age;
     }
@@ -13,7 +13,7 @@ public class Employee {
         return name;
     }
 
-    public String getAge() {
+    public int getAge() {
         return age;
     }
 
