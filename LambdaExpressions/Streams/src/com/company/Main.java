@@ -58,8 +58,8 @@ public class Main {
         someBingoNumbers.stream()
                 .map(String::toUpperCase)
                 .filter(s -> s.startsWith("G"))
-                .sorted()
-                .forEach(System.out::println);
+                .sorted()  // intermediate operation
+                .forEach(System.out::println);  // terminal sequence
 
         // Building stream from the scratch
 
