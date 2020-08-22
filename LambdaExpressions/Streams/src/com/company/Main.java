@@ -106,5 +106,8 @@ public class Main {
                 .flatMap(department -> department.getEmployees().stream())
                 .forEach(System.out::println);
 
+        for (Department department : departments) {
+            System.out.println(department.getEmployees());
+        }
     }
 }
