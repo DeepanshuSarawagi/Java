@@ -109,5 +109,9 @@ public class Main {
         for (Department department : departments) {
             System.out.println(department.getEmployees());
         }
+
+        departments.stream()
+                .flatMap(department -> department.getEmployees().stream())
+                .sorted().peek(System.out::println);
     }
 }
