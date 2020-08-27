@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.Arrays;
+import java.util.Scanner;
 import java.util.function.Function;
 
 public class Main {
@@ -26,5 +27,16 @@ public class Main {
         };
 
         System.out.println(lambdaString.apply("1234567890"));
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please enter a string of your choice: ");
+        String string = scanner.nextLine();
+
+        everySecondCharacter(lambdaString, string);
+
+    }
+
+    public static void everySecondCharacter(Function<String, String> function, String str) {
+        System.out.println(function.apply(str));
     }
 }
