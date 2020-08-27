@@ -3,6 +3,7 @@ package com.company;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.function.Function;
+import java.util.function.Supplier;
 
 public class Main {
 
@@ -33,6 +34,9 @@ public class Main {
         String string = scanner.nextLine();
 
         everySecondCharacter(lambdaString, string);
+
+        Supplier<String> stringSupplier = () -> "I Love Java";
+        System.out.println(stringSupplier.get());
 
     }
 
