@@ -6,6 +6,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Main {
@@ -113,5 +114,18 @@ public class Main {
         departments.stream()
                 .flatMap(department -> department.getEmployees().stream())
                 .sorted().peek(System.out::println);
+
+        // We will be using the collect() method in the Stream to store the stream of objects in a list
+
+        List<String> sortedGNumbers = someBingoNumbers
+                .stream()
+                .map(String::toUpperCase)
+                .filter(s -> s.startsWith("G"))
+                .sorted()
+                .collect(Collectors.toList());
+
+        for (String s : sortedGNumbers) {
+            System.out.println(s);
+        }
     }
 }
