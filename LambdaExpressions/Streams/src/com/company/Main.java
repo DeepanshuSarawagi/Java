@@ -1,12 +1,7 @@
 package com.company;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import java.util.function.Function;
-import java.util.function.Predicate;
-import java.util.function.Supplier;
+import java.util.*;
+import java.util.function.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -142,5 +137,28 @@ public class Main {
         // all the elements together which acts as Combiner
 
         sortedGNumbers1.forEach(System.out::println);
+
+        // We will use the groupingBy() method to group the employees by age
+
+        Map<Integer, List<Employee>> groupedByAge = departments
+                .stream()
+                .flatMap(department -> department.getEmployees().stream())
+                .collect(Collectors.groupingBy(Employee::getAge));  //groupingByAge
+
+        for (int i : groupedByAge.keySet()) {
+            System.out.println(i);
+        }
+
+        for (List<Employee> employees : groupedByAge.values()) {
+            employees.forEach(System.out::println);
+        }
+
+        // We will use the reduce() method which accepts BiFunction as parameter to get the youngest employee
+        // in the company
+        System.out.println();
+        departments.stream()
+                .flatMap(department -> department.getEmployees().stream())
+                .reduce((employee, employee2) -> employee.getAge() < employee2.getAge() ? employee : employee2)
+                .ifPresent(System.out::println);
     }
 }
