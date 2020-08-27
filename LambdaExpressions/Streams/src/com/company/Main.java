@@ -6,6 +6,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -122,10 +123,24 @@ public class Main {
                 .map(String::toUpperCase)
                 .filter(s -> s.startsWith("G"))
                 .sorted()
-                .collect(Collectors.toList());
+                .collect(Collectors.toList());  // This is a terminal operation
 
         for (String s : sortedGNumbers) {
             System.out.println(s);
         }
+
+        // instead of using the Collectors.toList() as argument in the .collect() method, we can also specify the
+        // list to be an ArrayList
+        System.out.println("**************************");
+        List<String> sortedGNumbers1 = someBingoNumbers
+                .stream()
+                .map(String::toUpperCase)
+                .filter(s -> s.startsWith("G"))
+                .sorted()
+                .collect(ArrayList::new, ArrayList::add, ArrayList::addAll);  // Here, we are creating a new ArrayList
+        // which is a Supplier, then adding each element to the ArrayList which acts as accumulator and then combining
+        // all the elements together which acts as Combiner
+
+        sortedGNumbers1.forEach(System.out::println);
     }
 }
