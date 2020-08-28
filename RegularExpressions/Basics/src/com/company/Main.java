@@ -25,5 +25,9 @@ public class Main {
         System.out.println(secondString.replaceAll("^abcDeee", "YYY"));  // note that this replace
         // the matched RegEx only in the beginning of the string and not the second occurrence
 
+        // Use the String.matches() method to check if the RegEx passed as an argument in the method matches the
+        // beginning of the string
+
+        System.out.println(alphaNumeric.matches("^hello"));  // This is will return false
     }
 }
