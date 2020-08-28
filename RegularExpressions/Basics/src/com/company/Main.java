@@ -40,5 +40,10 @@ public class Main {
         System.out.println(alphaNumeric.replaceAll("90xyZ$", "TheEnd"));  // notice the Dollar at the
         // end of the RegEx
 
+        // To replace the specific set of characters in the String, we need to pass the RegEx in square brackets and it
+        // will replace all the occurrences of characters passed as RegEx in the String.
+        // In the below example, we will replacing all the occurrences of "abi" in the alphaNumeric String
+
+        System.out.println(alphaNumeric.replaceAll("[abi]", "X"));
     }
 }
