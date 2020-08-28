@@ -8,7 +8,7 @@ public class Main {
 
         // Convert all the occurrences of "I" with "You"
 
-        String youString = string.replace("I", "You");
+        String youString = string.replaceAll("I", "You");
         System.out.println(youString);
 
         // We are going to Character Class to replace the entire string with "Y"
@@ -21,5 +21,9 @@ public class Main {
         // beginning of the string on which this operation is being performed
 
         System.out.println(alphaNumeric.replaceAll("^abcDeee", "YYY"));
+        String secondString = "abcDeeeFG20FghiiiiabcDeeeJKL90xyZ";
+        System.out.println(secondString.replaceAll("^abcDeee", "YYY"));  // note that this replace
+        // the matched RegEx only in the beginning of the string and not the second occurrence
+
     }
 }
