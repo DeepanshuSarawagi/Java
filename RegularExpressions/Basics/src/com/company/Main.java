@@ -29,5 +29,8 @@ public class Main {
         // beginning of the string
 
         System.out.println(alphaNumeric.matches("^hello"));  // This is will return false
+        System.out.println(alphaNumeric.matches("^abcDeee"));  // This is will return false since we need to pass
+        // the entire string as RegEx
+        System.out.println(alphaNumeric.matches("^abcDeeeFG20FghiiiiJKL90xyZ"));  // This will return true
     }
 }
