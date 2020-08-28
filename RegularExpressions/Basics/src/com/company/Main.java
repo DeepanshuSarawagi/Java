@@ -32,5 +32,13 @@ public class Main {
         System.out.println(alphaNumeric.matches("^abcDeee"));  // This is will return false since we need to pass
         // the entire string as RegEx
         System.out.println(alphaNumeric.matches("^abcDeeeFG20FghiiiiJKL90xyZ"));  // This will return true
+
+        // We use the Dollar Boundary Matcher to replace the specific number of characters towards the end of the
+        // String. The end of the String must match exactly the RegEx will be passed as parameter in the
+        // String.replaceAll() method
+
+        System.out.println(alphaNumeric.replaceAll("90xyZ$", "TheEnd"));  // notice the Dollar at the
+        // end of the RegEx
+
     }
 }
