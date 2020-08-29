@@ -17,5 +17,8 @@ public class Main {
         // the square brackets, it will negate the matching. As in, it will not match the characters e, R or J in the
         // string and replace everything else with the Replacement
 
+        // Below is the example if we want to replace the characters "a,b,c,d,e,f" and numerics "6,7,8,9,0" inclusive
+
+        System.out.println(alphaNumeric.replaceAll("[abcdef67890]", "X"));
     }
 }
