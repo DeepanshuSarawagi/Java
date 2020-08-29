@@ -44,6 +44,11 @@ public class Main {
         // will replace all the occurrences of characters passed as RegEx in the String.
         // In the below example, we will replacing all the occurrences of "abi" in the alphaNumeric String
 
-        System.out.println(alphaNumeric.replaceAll("[abi]", "X"));
+        System.out.println(alphaNumeric.replaceAll("[abi]", "X"));  // This doesnt look for a patter
+        // "abi", instead it looks for any character which matches a/b/i
+
+        System.out.println(alphaNumeric.replaceAll("[aei][FJ]", "X"));  // This is going to replace
+        // any letter a, e or i which is followed by F or J with X
+
     }
 }
