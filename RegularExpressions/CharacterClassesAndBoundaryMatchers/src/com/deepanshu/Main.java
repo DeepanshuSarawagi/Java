@@ -13,5 +13,9 @@ public class Main {
 
         System.out.println(alphaNumeric.replaceAll("[^eEJ]", "X"));  // This will replace all the
         // characters in the String except e, E, J
+        // The above RegEx [^eEJ] is not the boundary matcher. Instead since we are using the caret boundary matcher in
+        // the square brackets, it will negate the matching. As in, it will not match the characters e, R or J in the
+        // string and replace everything else with the Replacement
+
     }
 }
