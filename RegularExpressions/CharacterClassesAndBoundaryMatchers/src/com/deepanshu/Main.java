@@ -30,5 +30,10 @@ public class Main {
         // sensitivity
 
         System.out.println(alphaNumeric.replaceAll("(?i)[a-f06-9]", "X"));
+
+        // Below is the example how to replace all the numeric characters in the String
+        System.out.println(alphaNumeric.replaceAll("[0-9]", "X"));
+        System.out.println(alphaNumeric.replaceAll("\\d", "X"));  // shorthand way to replace all the
+        // numeric characters in the string using character class
     }
 }
