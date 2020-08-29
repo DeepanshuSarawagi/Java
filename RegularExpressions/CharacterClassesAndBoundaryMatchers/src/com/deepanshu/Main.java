@@ -20,5 +20,6 @@ public class Main {
         // Below is the example if we want to replace the characters "a,b,c,d,e,f" and numerics "6,7,8,9,0" inclusive
 
         System.out.println(alphaNumeric.replaceAll("[abcdef67890]", "X"));
+        System.out.println(alphaNumeric.replaceAll("[a-f6-90]", "X"));
     }
 }
