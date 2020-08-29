@@ -25,5 +25,10 @@ public class Main {
 
         System.out.println(alphaNumeric.replaceAll("[a-fA-F06-9]", "X"));  // Will replace any
         // characters between a through f and 6 through 9 and 0 irrespective of case sensitive
+
+        // Use the special construct to turn off case sensitivity. We use the ?i in parenthesis to turn off the case
+        // sensitivity
+
+        System.out.println(alphaNumeric.replaceAll("(?i)[a-f06-9]", "X"));
     }
 }
