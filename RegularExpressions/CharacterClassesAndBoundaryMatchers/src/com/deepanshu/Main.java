@@ -44,6 +44,7 @@ public class Main {
         // blank space from the string
         System.out.println(alphaNumeric.replaceAll("\\w", "X"));  // This will replace all the
         // alphanumeric characters from the String
-
+        System.out.println(hasWhiteSpace.replaceAll("\\b", "X"));  // Surrounds every word with the
+        // replacement string. This will be helpful when you want to create a HTML doc
     }
 }
