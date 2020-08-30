@@ -39,5 +39,9 @@ public class Main {
         System.out.println(alphaNumeric.replaceAll("\\D", "X"));  // This replaces all the
         // non-numeric from the String
 
+        String hasWhiteSpace = "I have whiteSpaces and a \t tab, also a newline \n";
+        System.out.println(hasWhiteSpace.replaceAll("\\s", ""));  // Character class to remove all the
+        // blank space from the string
+
     }
 }
