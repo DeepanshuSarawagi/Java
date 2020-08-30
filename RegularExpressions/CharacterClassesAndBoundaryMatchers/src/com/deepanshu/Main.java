@@ -35,5 +35,9 @@ public class Main {
         System.out.println(alphaNumeric.replaceAll("[0-9]", "X"));
         System.out.println(alphaNumeric.replaceAll("\\d", "X"));  // shorthand way to replace all the
         // numeric characters in the string using character class
+
+        System.out.println(alphaNumeric.replaceAll("\\D", "X"));  // This replaces all the
+        // non-numeric from the String
+
     }
 }
