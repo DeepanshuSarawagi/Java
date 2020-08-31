@@ -15,7 +15,9 @@ public class Patterns {
 
         System.out.println(htmlText);
 
-        String h2Pattern = "<h2>";   //
+        String h2Pattern = ".*<h2>.*";   // the dot character class will match every character and * quantifier will
+        // look for the number of <h2> occurrences in the String
+
         Pattern pattern = Pattern.compile(h2Pattern);
         Matcher matcher = pattern.matcher(htmlText);
         System.out.println(matcher.matches());
