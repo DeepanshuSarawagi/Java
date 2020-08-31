@@ -18,5 +18,9 @@ public class Main {
         // followed by 0 or more e's then we need to use the asterisk quantifier
 
         System.out.println(alphaNumeric.replaceAll("abcDe*", "X"));
+
+        // We can also the use the RegEx to validate if the String should have specific number of elements in the String
+
+        System.out.println(alphaNumeric.replaceAll("^abcDe{2,5}", "X"));
     }
 }
