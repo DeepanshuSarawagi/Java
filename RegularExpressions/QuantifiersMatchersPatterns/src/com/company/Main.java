@@ -13,5 +13,10 @@ public class Main {
         // occurrences of an element in the regular expression
 
         System.out.println(alphaNumeric.replaceAll("^abcDe+", "X"));
+
+        // Supposedly if we dont want to specify the number of e's however, we want to ensure that it should be
+        // followed by 1 or more e's then we need to use the asterisk quantifier
+
+        System.out.println(alphaNumeric.replaceAll("abcDe*", "X"));
     }
 }
