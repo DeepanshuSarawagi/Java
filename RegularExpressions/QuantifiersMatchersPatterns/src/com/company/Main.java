@@ -3,7 +3,7 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-        String alphaNumeric = "abcDeeeeFg111hiiiiiJk910Xy";
+        String alphaNumeric = "abcDeeeeFg111hhiiiiiJk910Xy";
         System.out.println(alphaNumeric.replaceAll("^abcDe{4}", "X"));
         // We use the quantifiers in the regEx. It is helpful to specify the exact count of preceding character which
         // match in the String.
@@ -22,5 +22,7 @@ public class Main {
         // We can also the use the RegEx to validate if the String should have specific number of elements in the String
 
         System.out.println(alphaNumeric.replaceAll("^abcDe{2,5}", "X"));
+
+        System.out.println(alphaNumeric.replaceAll("h+i*J", "Y"));
     }
 }
