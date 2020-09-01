@@ -77,5 +77,15 @@ public class Patterns {
         // will grabbing the characters from the text. We can convert a greedy quantifier to a lazy quantifier by adding
         // a ? mark after the * asterisk
 
+        System.out.println();
+        groupH2Pattern = "(<h2>.*?</h2>)";   // This will convert the greedy quantifier to lazy/reluctant quantifier
+        groupPattern = Pattern.compile(groupH2Pattern);
+        groupMatcher = groupPattern.matcher(htmlText);
+        System.out.println(groupMatcher.matches());
+        groupMatcher.reset();
+
+        while (groupMatcher.find()) {
+            System.out.println("Occurrence: " + groupMatcher.group(1));
+        }
     }
 }
