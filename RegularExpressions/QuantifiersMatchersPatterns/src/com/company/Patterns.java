@@ -52,8 +52,30 @@ public class Patterns {
 
         while (groupMatcher.find()) {
             System.out.println("Occurrence: " + groupMatcher.group(1));  // We need start counting the groups from
-            // number 1 when we want to access them. Hence, we have passed the parameter 1 in the .group() method.
+            // number 1 when we want to access them. Group 0 is the entire character sequence.
+            // Hence, we have passed the parameter 1 in the .group() method.
 
         }
+        System.out.println();
+
+        // In the below example, we are learning the difference between greedy quantifier and lazy/reluctant quantifier
+
+        groupH2Pattern = "(<h2>.*</h2>)";  // This will grab everything from opening tag of <h2> and closing tag of
+        // </h2>. The * or asterisk quantifier acts as a greedy quantifier and it grabs every characters required for a
+        // match
+
+        groupPattern = Pattern.compile(groupH2Pattern);
+        groupMatcher = groupPattern.matcher(htmlText);
+        System.out.println(groupMatcher.matches());
+        groupMatcher.reset();
+
+        while (groupMatcher.find()) {
+            System.out.println("Occurrence: " + groupMatcher.group(1));
+        }
+
+        // We will now turn a greedy quantifier to a lazy quantifier. The moment it matches the pattern in the text, it
+        // will grabbing the characters from the text. We can convert a greedy quantifier to a lazy quantifier by adding
+        // a ? mark after the * asterisk
+
     }
 }
