@@ -32,6 +32,7 @@ public class Patterns {
         System.out.println(matcher1.matches());
         matcher1.reset();  // Since the Matcher.matches() method, updates the internal state of the matcher, we need to
         // reset its state by calling the Matcher.reset() method.
+        // Remember that matcher.end() returns the character of first index position after the match is complete.
 
         int count =0;
         while (matcher1.find()) {
