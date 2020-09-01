@@ -18,7 +18,7 @@ public class Patterns {
         String h2Pattern = ".*<h2>.*";   // the dot character class will match every character and * quantifier will
         // look for the number of <h2> occurrences in the String
 
-        Pattern pattern = Pattern.compile(h2Pattern);
+        Pattern pattern = Pattern.compile(h2Pattern, Pattern.CASE_INSENSITIVE);  // Make the pattern case insensitive
         Matcher matcher = pattern.matcher(htmlText);
         System.out.println(matcher.matches());
     }
