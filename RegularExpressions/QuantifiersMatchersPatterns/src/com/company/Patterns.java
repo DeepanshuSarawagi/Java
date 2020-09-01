@@ -40,6 +40,20 @@ public class Patterns {
             System.out.println("Occurrence " + count + ": " + matcher1.start() + " to " + matcher1.end());
         }
 
+        // We will now be learning about matcher.group() method which will help us to find the pattern in the String
+        // or any given text.
 
+        String groupH2Pattern = "(<h2>)";   // to use a group in the RegEx we use the parenthesis. Hence, we surrounded
+        // the regEx with parenthesis.
+        Pattern groupPattern = Pattern.compile(groupH2Pattern);
+        Matcher groupMatcher = groupPattern.matcher(htmlText);
+        System.out.println(groupMatcher.matches());
+        groupMatcher.reset();
+
+        while (groupMatcher.find()) {
+            System.out.println("Occurrence: " + groupMatcher.group(1));  // We need start counting the groups from
+            // number 1 when we want to access them. Hence, we have passed the parameter 1 in the .group() method.
+
+        }
     }
 }
