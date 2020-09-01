@@ -87,5 +87,21 @@ public class Patterns {
         while (groupMatcher.find()) {
             System.out.println("Occurrence: " + groupMatcher.group(1));
         }
+
+        System.out.println();
+
+        // If we want to grab the text between the HTML tags, then we can use the multiple groups in the Pattern
+
+        String H2TextGroups = "(<h2>)(.+?)(</h2>)";  // Here we are using three groups. The dot character class accounts
+        // for all the characters in the string/text. The + quantifier looks for at least 1 or more characters after the
+        // <h2> tag and before </h2> tag. The ? quantifier is the reluctant quantifier
+
+        Pattern H2TextPattern = Pattern.compile(H2TextGroups);
+        Matcher H2TextMatcher = H2TextPattern.matcher(htmlText);
+
+        while (H2TextMatcher.find()) {
+            System.out.println("Occurrence: " + H2TextMatcher.group(2));  // This time we are using the second group
+            // since we want to just grab the text between the <h2> HTML tags
+        }
     }
 }
