@@ -103,5 +103,16 @@ public class Patterns {
             System.out.println("Occurrence: " + H2TextMatcher.group(2));  // This time we are using the second group
             // since we want to just grab the text between the <h2> HTML tags
         }
+
+        System.out.println();
+
+        String PTextString = "(<p>)(.+?)(</p>)";
+        Pattern PTextPattern = Pattern.compile(PTextString);
+        Matcher PTextMatcher = PTextPattern.matcher(htmlText);
+        System.out.println(PTextMatcher.matches());
+
+        while (PTextMatcher.find()) {
+            System.out.println("Occurrence: " + PTextMatcher.group(2));
+        }
     }
 }
