@@ -7,7 +7,7 @@ public class Patterns {
     public static void main(String[] args) {
         StringBuilder htmlText = new StringBuilder("<h1>My heading</h1>");
         htmlText.append("<h2>Sub-Heading</h2>");
-        htmlText.append("<p>This is a paragraph about something!");
+        htmlText.append("<p>This is a paragraph about something!</p>");
         htmlText.append("<h2>Another Sub-Heading</h2>");
         htmlText.append("<p>This is another paragraph about something else</p>");
         htmlText.append("<h2>Summary</h2>");
