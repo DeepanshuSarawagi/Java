@@ -10,7 +10,7 @@ public class Main {
         System.out.println("harry".replaceAll("[H|h]arry", "Larry"));
         String string = "IHaveAaaString";
         System.out.println(string.replaceAll("[A|a]", "Y"));
-        Pattern pattern = Pattern.compile(".*A.*", Pattern.CASE_INSENSITIVE);
+        Pattern pattern = Pattern.compile("a", Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(string);
         matcher.reset();
 
@@ -20,7 +20,9 @@ public class Main {
         }
 
         String tvTest = "tstvtkt";
-        String tNotVRegExp = "t[^v]";
+//        String tNotVRegExp = "t[^v]";
+        String tNotVRegExp = "t(?!v)";  // Here we are using the Negative look ahead expression which says that the
+        // character need not necessarily consume characters
         Pattern tNotVPattern = Pattern.compile(tNotVRegExp);
         Matcher tNotVMatcher = tNotVPattern.matcher(tvTest);
         int count = 0;
