@@ -18,5 +18,15 @@ public class Main {
             System.out.println(string.replaceAll(pattern.toString(), "YY"));
 //            System.out.println(matcher.replaceAll("YY"));
         }
+
+        String tvTest = "tstvtkt";
+        String tNotVRegExp = "t[^v]";
+        Pattern tNotVPattern = Pattern.compile(tNotVRegExp);
+        Matcher tNotVMatcher = tNotVPattern.matcher(tvTest);
+        int count = 0;
+        while (tNotVMatcher.find()) {
+            count++;
+            System.out.println("Occurrence: " + count + " " + tNotVMatcher.start() + " to " + tNotVMatcher.end());
+        }
     }
 }
