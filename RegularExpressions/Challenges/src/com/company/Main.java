@@ -1,5 +1,8 @@
 package com.company;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -11,5 +14,12 @@ public class Main {
         String challenge2 = "I want a ball.";
         System.out.println(challenge2.matches(regEx));
         System.out.println(string1.replaceAll("bike.$", "ball."));
+
+        // Challenge3
+        Pattern pattern = Pattern.compile(regEx);
+        Matcher matcher = pattern.matcher(string1);
+        System.out.println(matcher.matches());
+        matcher = pattern.matcher(challenge2);
+        System.out.println(matcher.matches());
     }
 }
