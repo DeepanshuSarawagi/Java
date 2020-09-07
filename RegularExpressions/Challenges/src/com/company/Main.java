@@ -35,7 +35,7 @@ public class Main {
         System.out.println(challenge5.replaceAll("^a{3}bc{8}d{3}ef{3}g$", "REPLACED"));
 
         // Challenge7 - Test the below Alphanumeric string
-        String challenge7 = "abcd.135";
-        System.out.println(challenge7.matches("^\\D+[.]\\d+"));
+        String challenge7 = "aAbcd.135";
+        System.out.println(challenge7.matches("^(?i)[a-z]+[.]\\d+$"));
     }
 }
