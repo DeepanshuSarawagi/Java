@@ -6,5 +6,7 @@ public class Main {
 	    String string1 = "I want a bike.";
 
         System.out.println(string1.matches("I want a bike."));
+
+        System.out.println(string1.replaceAll("bike.$", "ball."));
     }
 }
