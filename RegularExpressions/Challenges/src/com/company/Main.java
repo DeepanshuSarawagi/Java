@@ -79,5 +79,10 @@ public class Main {
         // Challenge 12 - Write a RegEx which will match the 5 digit US Zip code
 
         System.out.println("11111".matches("^\\d{5}$"));
+
+        // Challenge 13 - Write the RegEx to match the US Zip code which has following format "11111-1111"
+
+        String challenge13 = "11111-1111";
+        System.out.println(challenge13.matches("^([\\d]{5}[\\-][\\d]{4})$"));
     }
 }
