@@ -37,5 +37,18 @@ public class Main {
         // Challenge7 - Test the below Alphanumeric string
         String challenge7 = "aAbcd.135";
         System.out.println(challenge7.matches("^(?i)[a-z]+[.]\\d+$"));
+
+        // Challenge8 - Print all the occurrences of Numeric characters in the below String
+
+        String challenge8 = "abcd.135uvqz.7tzik.999";
+        String challenge8RegEx = "(\\d+)";
+        Pattern pattern1 = Pattern.compile(challenge8RegEx);
+        Matcher matcher1 = pattern1.matcher(challenge8);
+
+        int count = 0;
+        while (matcher1.find()) {
+            count++;
+            System.out.println("Occurrence " + count + ": " + matcher1.group(1));
+        }
     }
 }
