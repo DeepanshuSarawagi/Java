@@ -28,7 +28,8 @@ public class Main {
 
         //Challenge5 Match the below String in entirety
         String challenge5 = "aaabccccccccdddefffg";
-        System.out.println(challenge5.matches("[a]{3}[b][c]{8}[d]{3}[e][f]{3}[g]$"));
+        System.out.println(challenge5.matches("^[a]{3}[b][c]{8}[d]{3}[e][f]{3}[g]$"));  // This is solution to
+        // challenge6
 
         System.out.println(challenge5.matches("[a-g]+"));  // Concise way of solving the challenge 5
 
