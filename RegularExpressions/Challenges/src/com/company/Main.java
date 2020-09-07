@@ -23,7 +23,12 @@ public class Main {
         System.out.println(matcher.matches());
 
         //Challenge4 replace all the blanks with underscores
-        String Challenge4 = "Replace all the blanks with underscores";
-        System.out.println(Challenge4.replaceAll("\\s", "_"));
+        String challenge4 = "Replace all the blanks with underscores";
+        System.out.println(challenge4.replaceAll("\\s", "_"));
+
+        //Challenge5 Match the below String in entirety
+        String challenge5 = "aaabccccccccdddefffg";
+        System.out.println(challenge5.matches("[a]{3}[b][c]{8}[d]{3}[e][f]{3}[g]$"));
+
     }
 }
