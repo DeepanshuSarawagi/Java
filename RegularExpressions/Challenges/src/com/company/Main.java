@@ -69,7 +69,7 @@ public class Main {
         // Challenge 11 - Extract what's in the curly braces
 
         String challenge11 = "{0, 2}, {0, 5}, {1, 3}, {2, 4}";
-        Pattern pattern11 = Pattern.compile("(\\{)(.+?)(\\})");
+        Pattern pattern11 = Pattern.compile("(\\{)(.+?)(})");
         Matcher matcher11 = pattern11.matcher(challenge11);
 
         while (matcher11.find()) {
