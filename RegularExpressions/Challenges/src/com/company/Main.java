@@ -21,5 +21,9 @@ public class Main {
         System.out.println(matcher.matches());
         matcher = pattern.matcher(challenge2);
         System.out.println(matcher.matches());
+
+        //Challenge4 replace all the blanks with underscores
+        String Challenge4 = "Replace all the blanks with underscores";
+        System.out.println(Challenge4.replaceAll("\\s", "_"));
     }
 }
