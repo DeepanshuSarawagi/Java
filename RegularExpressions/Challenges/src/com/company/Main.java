@@ -65,5 +65,15 @@ public class Main {
         while (matcher9.find()) {
             System.out.println("Occurrence " + matcher9.start(1) + " end: " + (matcher9.end(1) -1));
         }
+
+        // Challenge 11 - Extract what's in the curly braces
+
+        String challenge11 = "{0, 2}, {0, 5}, {1, 3}, {2, 4}";
+        Pattern pattern11 = Pattern.compile("(\\{)(.+?)(\\})");
+        Matcher matcher11 = pattern11.matcher(challenge11);
+
+        while (matcher11.find()) {
+            System.out.println("Occurrence: " + matcher11.group(2));
+        }
     }
 }
