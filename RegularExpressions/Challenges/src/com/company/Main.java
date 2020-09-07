@@ -75,5 +75,9 @@ public class Main {
         while (matcher11.find()) {
             System.out.println("Occurrence: " + matcher11.group(2));
         }
+
+        // Challenge 12 - Write a RegEx which will match the 5 digit US Zip code
+
+        System.out.println("11111".matches("^\\d{5}$"));
     }
 }
