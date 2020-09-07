@@ -50,5 +50,13 @@ public class Main {
             count++;
             System.out.println("Occurrence " + count + ": " + matcher1.group(1));
         }
+
+        String challenge9 = "abcd.135\tuvqz.7\ttzik.999\n";
+        Pattern pattern9 = Pattern.compile("(\\d+)\\s");
+        Matcher matcher9 = pattern9.matcher(challenge9);
+
+        while (matcher9.find()) {
+            System.out.println("Occurrence: " + matcher9.group(1));
+        }
     }
 }
