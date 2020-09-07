@@ -83,6 +83,13 @@ public class Main {
         // Challenge 13 - Write the RegEx to match the US Zip code which has following format "11111-1111"
 
         String challenge13 = "11111-1111";
-        System.out.println(challenge13.matches("^([\\d]{5}[\\-][\\d]{4})$"));
+        System.out.println(challenge13.matches("^([\\d]{5}[\\-][\\d]{4}?)$"));
+
+        // Challenge 14 - Write the RegEx that will match the US zip code with optional four digits after dash
+
+        String challenge14RegEx = "^\\d{5}(-\\d+)?$";
+        System.out.println(challenge13.matches(challenge14RegEx));
+        System.out.println("11111".matches(challenge14RegEx));
+        System.out.println("testing: " + "34561-4980".matches("^\\d{5}(-\\d+)?$"));
     }
 }
