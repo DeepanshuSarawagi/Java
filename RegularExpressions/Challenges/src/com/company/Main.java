@@ -58,5 +58,12 @@ public class Main {
         while (matcher9.find()) {
             System.out.println("Occurrence: " + matcher9.group(1));
         }
+
+        //challenge 10 - print the indices
+        matcher9.reset();
+
+        while (matcher9.find()) {
+            System.out.println("Occurrence " + matcher9.start(1) + " end: " + (matcher9.end(1) -1));
+        }
     }
 }
