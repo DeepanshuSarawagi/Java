@@ -25,10 +25,17 @@ class BankAccountTest {
     }
 
     @org.junit.jupiter.api.Test
-    void getBalance() {
-        BankAccount account = new BankAccount("Deepanshu", "Sarawagi", 1000);
-        account.deposit(200, true);
-        assertEquals(1200, account.getBalance(), 0);
+    void getBalance_deposit() {
+        BankAccount account = new BankAccount("Deepanshu", "Sarawagi", 1000.00);
+        account.deposit(200.00, true);
+        assertEquals(1200.00, account.getBalance(), 0);
+    }
+
+    @org.junit.jupiter.api.Test
+    void getBalance_withdraw() {
+        BankAccount account = new BankAccount("Deepanshu", "Sarawagi", 1000.00);
+        account.withdraw(200.00, true);
+        assertEquals(800.00, account.getBalance(), 0);
     }
 
 }
