@@ -7,5 +7,8 @@ public class StringUtilities {
         sBuilder.append(c);
         charsAdded++;   // When we run the debugger we will see that this variable is a watch point which helps us to
         // test the code
+
+        // When we run the debugger, we can expand the variable and add it to watch points to watch the change in
+        // values when we perform a stepover in the debugger.
     }
 }
