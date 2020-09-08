@@ -9,5 +9,9 @@ public class Main {
 	        utils.addChar(sb, 'a');
         }
         System.out.println(sb);
+
+	    String str = "I'm a String";
+	    String result = utils.PrefixAndUpper(utils.SuffixAndLower(str));
+        System.out.println(result);
     }
 }
