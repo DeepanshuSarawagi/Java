@@ -18,4 +18,9 @@ class BankAccountTest {
     void getBalance() {
         fail("This test is yet to be implemented");
     }
+
+    @org.junit.jupiter.api.Test
+    void dummyTest() {
+        assertEquals(20, 21);
+    }
 }
