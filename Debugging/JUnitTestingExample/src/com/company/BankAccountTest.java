@@ -6,7 +6,12 @@ class BankAccountTest {
 
     @org.junit.jupiter.api.Test
     void deposit() {
-        fail("This test is yet to be implemented");
+        BankAccount account = new BankAccount("Deepanshu", "Sarawagi", 1000.00);
+        double balance = account.deposit(200.00, true);
+        assertEquals(1200.00, balance, 0);  // The third parameter in the assertEquals() method is the
+        // delta value. This means that it allows some leeway in the comparison. So as long as the difference between
+        // the actual and expected value is within the delta value range, the test assertion result will pass. In our
+        // case we expect the value to be 1200.00 hence we have specified the delta to be 0
     }
 
     @org.junit.jupiter.api.Test
@@ -19,8 +24,4 @@ class BankAccountTest {
         fail("This test is yet to be implemented");
     }
 
-    @org.junit.jupiter.api.Test
-    void dummyTest() {
-        assertEquals(20, 21);
-    }
 }
