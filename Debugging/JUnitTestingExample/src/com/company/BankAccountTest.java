@@ -40,9 +40,9 @@ class BankAccountTest {
 
     @org.junit.jupiter.api.Test
     void isCurrent_true() {
-        BankAccount account = new BankAccount("Deepanshu", "Sarawagi", 1000.00, BankAccount.CURRENT);
+        BankAccount account = new BankAccount("Deepanshu", "Sarawagi", 1000.00, BankAccount.SAVINGS);
 //        assertEquals(true, account.isCurrent());
-        assertTrue(account.isCurrent());   // Simplify the assertion
+        assertTrue(account.isCurrent(), "The account is NOT a CURRENT account");   // Simplify the assertion
     }
 
 }
