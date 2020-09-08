@@ -20,4 +20,12 @@ public class BankAccount {
         return balance;
     }
 
+    public double withdraw(double amount, boolean branch) {
+        balance -= amount;
+        return balance;
+    }
+
+    private double getBalance() {
+        return this.balance;
+    }
 }
