@@ -6,7 +6,7 @@ class BankAccountTest {
 
     @org.junit.jupiter.api.Test
     void deposit() {
-        BankAccount account = new BankAccount("Deepanshu", "Sarawagi", 1000.00);
+        BankAccount account = new BankAccount("Deepanshu", "Sarawagi", 1000.00, BankAccount.CURRENT);
         double balance = account.deposit(200.00, true);
         assertEquals(1200.00, balance, 0);  // The third parameter in the assertEquals() method is the
         // delta value. This means that it allows some leeway in the comparison. So as long as the difference between
@@ -26,16 +26,22 @@ class BankAccountTest {
 
     @org.junit.jupiter.api.Test
     void getBalance_deposit() {
-        BankAccount account = new BankAccount("Deepanshu", "Sarawagi", 1000.00);
+        BankAccount account = new BankAccount("Deepanshu", "Sarawagi", 1000.00, BankAccount.CURRENT);
         account.deposit(200.00, true);
         assertEquals(1200.00, account.getBalance(), 0);
     }
 
     @org.junit.jupiter.api.Test
     void getBalance_withdraw() {
-        BankAccount account = new BankAccount("Deepanshu", "Sarawagi", 1000.00);
+        BankAccount account = new BankAccount("Deepanshu", "Sarawagi", 1000.00, BankAccount.CURRENT);
         account.withdraw(200.00, true);
         assertEquals(800.00, account.getBalance(), 0);
+    }
+
+    @org.junit.jupiter.api.Test
+    void isCurrent_true() {
+        BankAccount account = new BankAccount("Deepanshu", "Sarawagi", 1000.00, BankAccount.CURRENT);
+        assertEquals(true, account.isCurrent());
     }
 
 }
