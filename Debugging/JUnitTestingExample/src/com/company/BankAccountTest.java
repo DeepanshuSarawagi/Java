@@ -2,6 +2,20 @@ package com.company;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * assertNotEquals() - We can use this method when we dont want the actual value to be equal to the specific value.
+ * assertArrayEquals() - When we want to verify the value of an array, we have to use the assertArrayEquals() method.
+ *                      The assertEquals() method wont work since it will only check if two arrays are equal which is by
+ *                      checking if they are the same instance of array. The assertArrayEquals() method consider two
+ *                      arrays to be equal when their lengths are same and the values are same and in same order.
+ * assertNull() and assertNotNull() - We can use this assert to check for the null and non-null values.
+ * assertSame() -   We can use this to check if two instances are exact same instances. Remember that the assertEquals()
+ *                  method use the equals() method to check for the equality, however, the assertSame() method uses the
+ *                  method which compares the object references.
+ * assertNotSame() - This is same as assertSame() method. Except that it checks if two instances are not exact same
+ *                   object references.
+ */
+
 class BankAccountTest {
 
     @org.junit.jupiter.api.Test
