@@ -14,13 +14,22 @@ import static org.junit.jupiter.api.Assertions.*;
  *                  method which compares the object references.
  * assertNotSame() - This is same as assertSame() method. Except that it checks if two instances are not exact same
  *                   object references.
+ * A method with @Before annotation runs before every test.
  */
 
 class BankAccountTest {
 
+    private BankAccount account;
+
+    @org.junit.jupiter.api.BeforeEach
+    void setup() {
+        account = new BankAccount("Deepanshu", "Sarawagi", 1000.00, BankAccount.CURRENT);
+        System.out.println("Running a test..");
+    }
+
     @org.junit.jupiter.api.Test
     void deposit() {
-        BankAccount account = new BankAccount("Deepanshu", "Sarawagi", 1000.00, BankAccount.CURRENT);
+
         double balance = account.deposit(200.00, true);
         assertEquals(1200.00, balance, 0);  // The third parameter in the assertEquals() method is the
         // delta value. This means that it allows some leeway in the comparison. So as long as the difference between
@@ -40,21 +49,18 @@ class BankAccountTest {
 
     @org.junit.jupiter.api.Test
     void getBalance_deposit() {
-        BankAccount account = new BankAccount("Deepanshu", "Sarawagi", 1000.00, BankAccount.CURRENT);
         account.deposit(200.00, true);
         assertEquals(1200.00, account.getBalance(), 0);
     }
 
     @org.junit.jupiter.api.Test
     void getBalance_withdraw() {
-        BankAccount account = new BankAccount("Deepanshu", "Sarawagi", 1000.00, BankAccount.CURRENT);
         account.withdraw(200.00, true);
         assertEquals(800.00, account.getBalance(), 0);
     }
 
     @org.junit.jupiter.api.Test
     void isCurrent_true() {
-        BankAccount account = new BankAccount("Deepanshu", "Sarawagi", 1000.00, BankAccount.CURRENT);
 //        assertEquals(true, account.isCurrent());
         assertTrue(account.isCurrent(), "The account is NOT a CURRENT account");   // Simplify the assertion
     }
