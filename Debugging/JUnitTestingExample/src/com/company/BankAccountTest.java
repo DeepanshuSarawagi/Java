@@ -65,6 +65,13 @@ class BankAccountTest {
     @org.junit.jupiter.api.Test
     void withdraw_notBranch(){
         assertThrows(IllegalArgumentException.class, () -> account.withdraw(600.00, false));
+        /*
+        The above method assertThrows() expects two parameters.
+        1) The expectedType of an Exception
+        2) The executable code
+        If the executable code doesn't throw an exception or if the thrown exception doesn't match the expected type
+        then the assertThrows() assertion will fail.
+         */
     }
 
     @org.junit.jupiter.api.Test
