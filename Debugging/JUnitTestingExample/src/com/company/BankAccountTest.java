@@ -1,5 +1,8 @@
 package com.company;
 
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -54,9 +57,14 @@ class BankAccountTest {
     }
 
     @org.junit.jupiter.api.Test
-    void withdraw() {
+    void withdraw_branch() {
         double balance = account.withdraw(600.00, true);
         assertEquals(400.00, balance, 0);
+    }
+
+    @org.junit.jupiter.api.Test
+    void withdraw_notBranch(){
+        assertThrows(IllegalArgumentException.class, () -> account.withdraw(600.00, false));
     }
 
     @org.junit.jupiter.api.Test
