@@ -14,12 +14,22 @@ import static org.junit.jupiter.api.Assertions.*;
  *                  method which compares the object references.
  * assertNotSame() - This is same as assertSame() method. Except that it checks if two instances are not exact same
  *                   object references.
- * A method with @Before annotation runs before every test.
+ * A method with @BeforeEach annotation runs before every test.
+ *
+ * A method with @BeforeAll annotation runs the method before all the Test methods just once. Unlike BeforeEach this
+ * wont get execute before each instance of Test methods
+ *
+ * Similarly, A method with @AfterAll annotation will run once after all the Test method cases are executed
  */
 
 class BankAccountTest {
 
     private BankAccount account;
+
+    @org.junit.jupiter.api.BeforeAll
+    static void beforeClass() {
+        System.out.println("This executes before any test cases");
+    }
 
     @org.junit.jupiter.api.BeforeEach
     void setup() {
@@ -63,6 +73,11 @@ class BankAccountTest {
     void isCurrent_true() {
 //        assertEquals(true, account.isCurrent());
         assertTrue(account.isCurrent(), "The account is NOT a CURRENT account");   // Simplify the assertion
+    }
+
+    @org.junit.jupiter.api.AfterAll
+    static void afterClass() {
+        System.out.println("This method runs after any test cases");
     }
 
 }
