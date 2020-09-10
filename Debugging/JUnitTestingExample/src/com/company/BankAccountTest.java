@@ -25,10 +25,11 @@ import static org.junit.jupiter.api.Assertions.*;
 class BankAccountTest {
 
     private BankAccount account;
+    private static int count;
 
     @org.junit.jupiter.api.BeforeAll
     static void beforeClass() {
-        System.out.println("This executes before any test cases");
+        System.out.println("This executes before any test cases. Count = " + count++);
     }
 
     @org.junit.jupiter.api.BeforeEach
@@ -77,7 +78,11 @@ class BankAccountTest {
 
     @org.junit.jupiter.api.AfterAll
     static void afterClass() {
-        System.out.println("This method runs after any test cases");
+        System.out.println("This method runs after any test cases. Count = " + count++);
     }
 
+    @org.junit.jupiter.api.AfterEach
+    void teardown() {
+        System.out.println("Count = " + count++);
+    }
 }
