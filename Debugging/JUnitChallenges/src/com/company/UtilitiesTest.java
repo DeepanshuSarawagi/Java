@@ -18,6 +18,7 @@ class UtilitiesTest {
         result = utilities.removePairs("ABCCDBEEF");
         System.out.println(result);
         assertEquals("ABCDBEF", result);
+        assertNull(null, utilities.removePairs(null));
     }
 
     @org.junit.jupiter.api.Test
