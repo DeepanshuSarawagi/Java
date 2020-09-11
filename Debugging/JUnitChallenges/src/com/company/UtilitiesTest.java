@@ -6,7 +6,11 @@ class UtilitiesTest {
 
     @org.junit.jupiter.api.Test
     void everyNthChar() {
-        fail("This test has not been implemented");
+        Utilities utilities = new Utilities();
+        char[] sourceArray = "hello world".toCharArray();
+        char[] output = utilities.everyNthChar(sourceArray, 2);
+        assertArrayEquals(new char[] {'e', 'l', ' ', 'o', 'l'}, output);
+
     }
 
     @org.junit.jupiter.api.Test

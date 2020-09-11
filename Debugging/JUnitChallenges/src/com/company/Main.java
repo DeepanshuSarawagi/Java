@@ -6,5 +6,10 @@ public class Main {
         Utilities utilities = new Utilities();
         String result = utilities.removePairs("AABCDDEFF");
         System.out.println(result);
+
+        System.out.println();
+        char[] sourceArray = "hello world".toCharArray();
+        char[] resultArray = utilities.everyNthChar(sourceArray, 2);
+        System.out.println(resultArray);
     }
 }
