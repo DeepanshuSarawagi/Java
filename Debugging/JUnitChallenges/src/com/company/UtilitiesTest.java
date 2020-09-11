@@ -11,7 +11,13 @@ class UtilitiesTest {
 
     @org.junit.jupiter.api.Test
     void removePairs() {
-        fail("This test has not been implemented");
+        Utilities utilities = new Utilities();
+        String result = utilities.removePairs("AABCDDEFF");
+        System.out.println(result);
+        assertEquals("ABCDEF", result);
+        result = utilities.removePairs("ABCCDBEEF");
+        System.out.println(result);
+        assertEquals("ABCDBEF", result);
     }
 
     @org.junit.jupiter.api.Test
