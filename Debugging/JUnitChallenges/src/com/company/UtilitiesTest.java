@@ -35,6 +35,8 @@ class UtilitiesTest {
 
     @org.junit.jupiter.api.Test
     void nullIfOddLength() {
-        fail("This test has not been implemented");
+        Utilities utilities = new Utilities();
+
+        assertEquals(null, utilities.nullIfOddLength("hello"));
     }
 }
