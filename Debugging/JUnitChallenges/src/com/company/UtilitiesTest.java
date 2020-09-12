@@ -30,7 +30,8 @@ class UtilitiesTest {
 
     @org.junit.jupiter.api.Test
     void converter() {
-        fail("This test has not been implemented");
+        Utilities utilities = new Utilities();
+        assertEquals(300, utilities.converter(10, 5));
     }
 
     @org.junit.jupiter.api.Test
