@@ -10,6 +10,9 @@ class UtilitiesTest {
         char[] sourceArray = "hello world".toCharArray();
         char[] output = utilities.everyNthChar(sourceArray, 2);
         assertArrayEquals(new char[] {'e', 'l', ' ', 'o', 'l'}, output);
+        sourceArray = "hello".toCharArray();
+        output = utilities.everyNthChar(sourceArray, 6);
+        assertArrayEquals(new char[] {'h', 'e', 'l', 'l', 'o'}, output);
 
     }
 
