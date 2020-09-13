@@ -20,3 +20,6 @@ INSERT INTO contacts (name, phone) VALUES("deepanshu", 807986);
 
 // To restore the data from the backup db
 .restore testBackup.db
+
+// To update the fields of a specific record.
+UPDATE contacts SET email="steve@email.com" WHERE name="Steve";
