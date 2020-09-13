@@ -1,0 +1,13 @@
+// To create a database using SQLITE3
+sqlite3 <dbname>;
+
+// To create a table with three fields
+CREATE TABLE contacts (name text, phone integer, email text);
+
+// To insert records into table
+INSERT INTO contacts (name, phone, email) VALUES("Deepanshu", 807986, "deepanshu@email.com");
+INSERT INTO contacts VALUES("Deepanshu", 807986, "deepanshu@email.com");
+
+// To query all records from table
+SELECT * FROM contacts;
+
