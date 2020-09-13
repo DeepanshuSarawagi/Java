@@ -18,4 +18,5 @@ INSERT INTO contacts (name, phone) VALUES("deepanshu", 807986);
 .backup <backup file name>
 .backup testBackup.db
 
-
+// To restore the data from the backup db
+.restore testBackup.db
