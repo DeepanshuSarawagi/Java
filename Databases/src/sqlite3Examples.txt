@@ -13,3 +13,9 @@ SELECT * FROM contacts;
 
 // To insert data in just specific fields
 INSERT INTO contacts (name, phone) VALUES("deepanshu", 807986);
+
+// To backup a database
+.backup <backup file name>
+.backup testBackup.db
+
+
