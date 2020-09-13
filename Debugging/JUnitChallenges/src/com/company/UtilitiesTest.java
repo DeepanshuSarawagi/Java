@@ -1,14 +1,18 @@
 package com.company;
 
-import org.junit.jupiter.api.function.Executable;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class UtilitiesTest {
 
+    private Utilities utilities;
+    @org.junit.jupiter.api.BeforeEach
+    void setup() {
+        utilities = new Utilities();
+    }
+
     @org.junit.jupiter.api.Test
     void everyNthChar() {
-        Utilities utilities = new Utilities();
+//        Utilities utilities = new Utilities();
         char[] sourceArray = "hello world".toCharArray();
         char[] output = utilities.everyNthChar(sourceArray, 2);
         assertArrayEquals(new char[] {'e', 'l', ' ', 'o', 'l'}, output);
@@ -20,7 +24,7 @@ class UtilitiesTest {
 
     @org.junit.jupiter.api.Test
     void removePairs() {
-        Utilities utilities = new Utilities();
+//        Utilities utilities = new Utilities();
         String result = utilities.removePairs("AABCDDEFF");
         System.out.println(result);
         assertEquals("ABCDEF", result);
@@ -32,19 +36,19 @@ class UtilitiesTest {
 
     @org.junit.jupiter.api.Test
     void converter() {
-        Utilities utilities = new Utilities();
+//        Utilities utilities = new Utilities();
         assertEquals(300, utilities.converter(10, 5));
     }
 
     @org.junit.jupiter.api.Test
     void converter_artihmeticException() {
-        Utilities utilities = new Utilities();
+//        Utilities utilities = new Utilities();
         assertThrows(ArithmeticException.class, () -> utilities.converter(10, 0));
     }
 
     @org.junit.jupiter.api.Test
     void nullIfOddLength() {
-        Utilities utilities = new Utilities();
+//        Utilities utilities = new Utilities();
 
         assertEquals(null, utilities.nullIfOddLength("hello"));
     }
