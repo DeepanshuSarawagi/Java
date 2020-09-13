@@ -1,5 +1,7 @@
 package com.company;
 
+import org.junit.jupiter.api.function.Executable;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class UtilitiesTest {
@@ -32,6 +34,12 @@ class UtilitiesTest {
     void converter() {
         Utilities utilities = new Utilities();
         assertEquals(300, utilities.converter(10, 5));
+    }
+
+    @org.junit.jupiter.api.Test
+    void converter_artihmeticException() {
+        Utilities utilities = new Utilities();
+        assertThrows(ArithmeticException.class, () -> utilities.converter(10, 0));
     }
 
     @org.junit.jupiter.api.Test
