@@ -26,3 +26,19 @@ UPDATE contacts SET email="steve@email.com" WHERE name="Steve";
 
 // To delete a specific from the table
 DELETE FROM contacts WHERE name="Avril";
+
+// Basic SQL commands
+sqlite> .tables
+contacts
+sqlite> .schema
+CREATE TABLE contacts (name text, phone integer, email text);
+sqlite> .dump
+PRAGMA foreign_keys=OFF;
+BEGIN TRANSACTION;
+CREATE TABLE contacts (name text, phone integer, email text);
+INSERT INTO contacts VALUES('Deepanshu',654780,'deepanshu@email.com');
+INSERT INTO contacts VALUES('Divya',890145,'divya2email.com');
+INSERT INTO contacts VALUES('Steve',672194,'steve@email.com');
+COMMIT;
+sqlite>
+
