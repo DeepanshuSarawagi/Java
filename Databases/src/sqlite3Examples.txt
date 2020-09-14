@@ -57,3 +57,15 @@ SELECT songs.track, songs.title, albums.name FROM songs JOIN albums on songs.alb
 // To join two tables and use ORDER BY clause
 SELECT songs.track, songs.title, albums.name FROM songs INNER JOIN albums on songs.album = albums._id ORDER By
 albums.name, songs.track COLLATE NOCASE;
+
+// More complex Joins
+SELECT albums.name, songs.track, songs.title FROM songs INNER JOIN albums on songs.album = albums._id
+ORDER BY albums.name, songs.track COLLATE NOCASE;
+
+SELECT artists.name, albums.name FROM albums INNER JOIN artists on albums.artist = artists._id
+ORDER BY artists.name, albums.name;
+
+sqlite> SELECT artists.name, albums.name, songs.track, songs.title FROM songs
+   ...> INNER JOIN albums on songs.album = albums._id
+   ...> INNER JOIN artists on albums.artist = artists._id
+   ...> ORDER BY artists.name, albums.name, songs.track;
