@@ -44,3 +44,4 @@ sqlite>
 
 // To display the records in a specific order
 SELECT * FROM artists ORDER BY name;
+SELECT * FROM albums ORDER BY name COLLATE NOCASE;
