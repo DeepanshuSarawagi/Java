@@ -42,3 +42,5 @@ INSERT INTO contacts VALUES('Steve',672194,'steve@email.com');
 COMMIT;
 sqlite>
 
+// To display the records in a specific order
+SELECT * FROM artists ORDER BY name;
