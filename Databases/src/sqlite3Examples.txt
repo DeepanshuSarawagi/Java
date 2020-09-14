@@ -49,3 +49,7 @@ SELECT * FROM albums ORDER BY name COLLATE NOCASE DESC;
 
 // To display the records ORDER BY multiple columns
 SELECT * FROM albums ORDER BY artist, name COLLATE NOCASE;
+SELECT * FROM songs ORDER BY album, track COLLATE NOCASE;
+
+// To join two tables
+SELECT songs.track, songs.title, albums.name FROM songs JOIN albums on songs.album = albums._id COLLATE NOCASE;
