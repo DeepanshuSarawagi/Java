@@ -11,7 +11,7 @@ public class Main {
 	    try{
             Connection conn = DriverManager.getConnection("jdbc:sqlite:/Users/deepanshusarawagi/Desktop/Learning/Java/Databases/src/testJava.db");
             Statement statement = conn.createStatement();
-            statement.execute("CREATE TABLE contacts (name TEXT, phone INTEGER, email TEXT)");
+            statement.execute("CREATE TABLE IF NOT EXISTS contacts (name TEXT, phone INTEGER, email TEXT)");
 
             statement.close();
             conn.close();
