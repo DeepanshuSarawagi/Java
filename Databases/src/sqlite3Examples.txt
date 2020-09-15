@@ -91,3 +91,6 @@ ORDER BY artists.name, albums.name, songs.track
 
 // How to use VIEW to query data
 SELECT * FROM artist_list;
+
+// Learn how to drop a VIEW
+DROP VIEW album_list;
