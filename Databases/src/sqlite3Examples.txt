@@ -101,3 +101,7 @@ CREATE VIEW artist_list AS
    ...> INNER JOIN albums ON songs.album = albums._id
    ...> INNER JOIn artists ON albums.artist = artists._id
    ...> ORDER BY artists.name, albums.name, songs.track COLLATE NOCASE;
+
+// Learn how to delete records using conditional operator
+DELETE FROM songs where track < 50;
+SELECT * FROM songs WHERE track <> 71;
