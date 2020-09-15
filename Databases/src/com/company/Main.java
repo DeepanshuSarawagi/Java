@@ -15,6 +15,10 @@ public class Main {
 
             statement.close();
             conn.close();
+
+            // Order of closing the Statement objects is important. It is important that first we close the Statement
+            // Followed by Connection objects else we will get the SQLException: DB not found.
+
         } catch (SQLException e) {
             System.out.println("Something went wrong! " + e.getMessage());
         }
