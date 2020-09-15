@@ -10,10 +10,14 @@ public class Main {
     public static void main(String[] args) {
 	    try{
             Connection conn = DriverManager.getConnection("jdbc:sqlite:/Users/deepanshusarawagi/Desktop/Learning/Java/Databases/src/testJava.db");
+//            conn.setAutoCommit(false);  // By default the JDBC connection will commit all the changes we make to the DB
+//            // using the SQL statement. If we have this setting set to false, any changes made to DB will be Rolled Back
+//            // and we need to manually commit the changes to DB.
+
             Statement statement = conn.createStatement();
             statement.execute("CREATE TABLE IF NOT EXISTS contacts (name TEXT, phone INTEGER, email TEXT)");
             statement.execute("INSERT INTO contacts (name, phone, email) " +
-                    "VALUES ('Deepanshu', 654890, 'deepanshu@email.com')");
+                    "VALUES ('Sarawagi', 654890, 'deepanshu@email.com')");
 
             statement.close();
             conn.close();
