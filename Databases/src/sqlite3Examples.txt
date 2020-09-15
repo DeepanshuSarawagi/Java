@@ -94,3 +94,10 @@ SELECT * FROM artist_list;
 
 // Learn how to drop a VIEW
 DROP VIEW album_list;
+
+// Create VIEW with unique column names
+CREATE VIEW artist_list AS
+   ...> SELECT artists.name AS artist, albums.name AS album, songs.track, songs.title FROM songs
+   ...> INNER JOIN albums ON songs.album = albums._id
+   ...> INNER JOIn artists ON albums.artist = artists._id
+   ...> ORDER BY artists.name, albums.name, songs.track COLLATE NOCASE;
