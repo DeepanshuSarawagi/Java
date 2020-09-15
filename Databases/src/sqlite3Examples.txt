@@ -148,3 +148,4 @@ SELECT count(*) FROM songs
 
 // Learn how to filter duplicate records in SQL statement
 SELECT DISTINCT title from artist_list WHERE artist = "Aerosmith";
+SELECT count(DISTINCT title) FROM artist_list WHERE artist = "Aerosmith";
