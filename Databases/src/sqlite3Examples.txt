@@ -146,3 +146,5 @@ SELECT count(*) FROM songs
    WHERE artists.name LIKE "%Aerosmith%"
    ORDER BY albums.name, songs.track, songs.title COLLATE NOCASE;
 
+// Learn how to filter duplicate records in SQL statement
+SELECT DISTINCT title from artist_list WHERE artist = "Aerosmith";
