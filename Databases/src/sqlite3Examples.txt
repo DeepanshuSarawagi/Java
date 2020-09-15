@@ -88,3 +88,6 @@ SELECT artists.name, albums.name, songs.track, songs.title FROM songs
 INNER JOIN albums ON songs.album = albums._id
 INNER JOIN artists on albums.artist = artists._id
 ORDER BY artists.name, albums.name, songs.track
+
+// How to use VIEW to query data
+SELECT * FROM artist_list;
