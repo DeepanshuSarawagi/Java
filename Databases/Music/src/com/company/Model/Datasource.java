@@ -49,7 +49,7 @@ public class Datasource {
     public List<Artist> queryArtist() {
 
         try(Statement statement = conn.createStatement();
-            ResultSet results = statement.executeQuery("SELECT * FROM" + TABLE_ARTISTS)) {
+            ResultSet results = statement.executeQuery("SELECT * FROM " + TABLE_ARTISTS)) {
             List<Artist> artists = new ArrayList<>();
             while (results.next()) {
                 Artist artist = new Artist();
