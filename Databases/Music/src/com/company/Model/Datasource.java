@@ -68,6 +68,14 @@ public class Datasource {
             return null;
         } finally {
             try {
+                if (results != null) {
+                    results.close();
+                }
+            } catch (SQLException e) {
+                System.out.println("Couldn't close the ResultSet: " + e.getMessage());
+                e.printStackTrace();
+            }
+            try {
                 if (statement != null) {
                     statement.close();
                 }
