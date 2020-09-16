@@ -1,9 +1,6 @@
 package com.company;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class DBExample {
     public static final String DB_NAME = "testJava.db";
@@ -44,7 +41,12 @@ public class DBExample {
                     + COLUMN_EMAIL + " )" +
                     " VALUES ('Rajat', 703156, 'rajat@email.com')");
 
-
+            ResultSet results = statement.executeQuery("SELECT * FROM " + TABLE_CONTACTS);
+            while (results.next()) {
+                System.out.println(results.getString(COLUMN_NAME) + " "
+                                    + results.getString(COLUMN_PHONE) + " "
+                                    + results.getString(COLUMN_EMAIL));
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();
