@@ -41,6 +41,12 @@ public class DBExample {
                     + COLUMN_EMAIL + " )" +
                     " VALUES ('Rajat', 703156, 'rajat@email.com')");
 
+            statement.execute("INSERT INTO " + TABLE_CONTACTS +
+                    "( " + COLUMN_NAME + ", "
+                    + COLUMN_PHONE + ", "
+                    + COLUMN_EMAIL + " )" +
+                    " VALUES ('Deepak', 621048, 'deepak@email.com')");
+
             ResultSet results = statement.executeQuery("SELECT * FROM " + TABLE_CONTACTS);
             while (results.next()) {
                 System.out.println(results.getString(COLUMN_NAME) + " "
