@@ -47,12 +47,9 @@ public class Datasource {
     }
 
     public List<Artist> queryArtist() {
-        Statement statement = null;
-        ResultSet results = null;
 
-        try {
-            statement = conn.createStatement();
-            results = statement.executeQuery("SELECT * FROM " + TABLE_ARTISTS);
+        try(Statement statement = conn.createStatement();
+            ResultSet results = statement.executeQuery("SELECT * FROM" + TABLE_ARTISTS)) {
             List<Artist> artists = new ArrayList<>();
             while (results.next()) {
                 Artist artist = new Artist();
@@ -66,24 +63,6 @@ public class Datasource {
             System.out.println("Query failed: " + e.getMessage());
             e.printStackTrace();
             return null;
-        } finally {
-            try {
-                if (results != null) {
-                    results.close();
-                }
-            } catch (SQLException e) {
-                System.out.println("Couldn't close the ResultSet: " + e.getMessage());
-                e.printStackTrace();
-            }
-            try {
-                if (statement != null) {
-                    statement.close();
-                }
-            } catch (SQLException e) {
-                System.out.println("Couldnt close the statement: " + e.getMessage());
-                e.printStackTrace();
-            }
         }
     }
-
 }
