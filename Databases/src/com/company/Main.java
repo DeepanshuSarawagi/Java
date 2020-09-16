@@ -29,6 +29,7 @@ public class Main {
                         " " + results.getString("email"));
             }
 
+            results.close();  // Close the results since it is associated with Statement object
             statement.close();
             conn.close();
 
