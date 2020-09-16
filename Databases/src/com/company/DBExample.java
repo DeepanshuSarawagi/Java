@@ -47,7 +47,7 @@ public class DBExample {
                     + COLUMN_EMAIL + " )" +
                     " VALUES ('Deepak', 621048, 'deepak@email.com')");
 
-            statement.execute("UPDATE " + TABLE_CONTACTS + " SET phone=998147 WHERE " + COLUMN_NAME + "= 'Deepak'");
+            statement.execute("UPDATE " + TABLE_CONTACTS + " SET " + COLUMN_PHONE + "=998147 WHERE " + COLUMN_NAME + "= 'Deepak'");
 
             ResultSet results = statement.executeQuery("SELECT * FROM " + TABLE_CONTACTS);
             while (results.next()) {
