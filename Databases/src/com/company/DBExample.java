@@ -23,29 +23,10 @@ public class DBExample {
                                 "( " + COLUMN_NAME + " text, " +
                                 COLUMN_PHONE + " integer, " +
                                 COLUMN_EMAIL + " text" + ")");
-            statement.execute("INSERT INTO " + TABLE_CONTACTS +
-                            "( " + COLUMN_NAME + ", "
-                            + COLUMN_PHONE + ", "
-                            + COLUMN_EMAIL + " )" +
-                            " VALUES ('Deepanshu', 894162, 'deepanshu@email.com')");
-
-            statement.execute("INSERT INTO " + TABLE_CONTACTS +
-                    "( " + COLUMN_NAME + ", "
-                    + COLUMN_PHONE + ", "
-                    + COLUMN_EMAIL + " )" +
-                    " VALUES ('Divya', 984730, 'divya@email.com')");
-
-            statement.execute("INSERT INTO " + TABLE_CONTACTS +
-                    "( " + COLUMN_NAME + ", "
-                    + COLUMN_PHONE + ", "
-                    + COLUMN_EMAIL + " )" +
-                    " VALUES ('Rajat', 703156, 'rajat@email.com')");
-
-            statement.execute("INSERT INTO " + TABLE_CONTACTS +
-                    "( " + COLUMN_NAME + ", "
-                    + COLUMN_PHONE + ", "
-                    + COLUMN_EMAIL + " )" +
-                    " VALUES ('Deepak', 621048, 'deepak@email.com')");
+            insert_contacts(statement, "Deepanshu", 809756, "deepanshu@email.com");
+            insert_contacts(statement, "Divya", 790413, "divya@email.com");
+            insert_contacts(statement, "Rajat", 7688901, "rajat@email.com");
+            insert_contacts(statement, "Deepak", 901752, "deepak@email.com");
 
             statement.execute("UPDATE " + TABLE_CONTACTS + " SET " + COLUMN_PHONE + "=998147 WHERE "
                     + COLUMN_NAME + "= 'Deepak'");
@@ -65,5 +46,13 @@ public class DBExample {
         }
 
 
+    }
+
+    private static void insert_contacts(Statement statement, String name, int phone, String email) throws SQLException{
+        statement.execute("INSERT INTO " + TABLE_CONTACTS +
+                "( " + COLUMN_NAME + ", "
+                + COLUMN_PHONE + ", "
+                + COLUMN_EMAIL + " )" +
+                " VALUES ('" + name + "', " + phone + ", '" + email + "')");
     }
 }
