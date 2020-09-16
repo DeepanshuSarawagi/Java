@@ -22,8 +22,12 @@ public class Main {
 //            statement.execute("UPDATE contacts SET phone=5560981 WHERE name='Deepanshu'");
 //            statement.execute("DELETE FROM contacts WHERE name='Divya'");
 
-            statement.execute("SELECT * FROM contacts");
-            ResultSet results = statement.getResultSet();
+//            statement.execute("SELECT * FROM contacts");
+//            ResultSet results = statement.getResultSet();
+
+            // We will use the executeQuery() method to execute the SQL queries and it returns the ResultSet
+
+            ResultSet results = statement.executeQuery("SELECT * FROM contacts ORDER BY name COLLATE NOCASE");
             while (results.next()) {
                 System.out.println(results.getString("name") + " " + results.getInt("phone") +
                         " " + results.getString("email"));
