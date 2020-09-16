@@ -18,12 +18,12 @@ public class Main {
             statement.execute("CREATE TABLE IF NOT EXISTS contacts (name TEXT, phone INTEGER, email TEXT)");
 //            statement.execute("INSERT INTO contacts (name, phone, email) " +
 //                    "VALUES ('Deepanshu', 654890, 'deepanshu@email.com')");
-//            statement.execute("INSERT INTO contacts (name, phone, email) " +
-//                    "VALUES ('Divya', 865132, 'divya@email.com')");
+            statement.execute("INSERT INTO contacts (name, phone, email) " +
+                    "VALUES ('Divya', 865132, 'divya@email.com')");
 //            statement.execute("INSERT INTO contacts (name, phone, email) " +
 //                    "VALUES ('Rajat', 798041, 'rajat@email.com')");
-            statement.execute("UPDATE contacts SET phone=5560981 WHERE name='Deepanshu'");
-            statement.execute("DELETE FROM contacts WHERE name='Divya'");
+//            statement.execute("UPDATE contacts SET phone=5560981 WHERE name='Deepanshu'");
+//            statement.execute("DELETE FROM contacts WHERE name='Divya'");
 
             statement.close();
             conn.close();
