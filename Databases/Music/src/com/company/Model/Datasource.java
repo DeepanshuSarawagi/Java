@@ -120,7 +120,7 @@ public class Datasource {
         sb.append("\"");
 
         if (sortOrder != ORDER_BY_NONE) {
-            sb.append(" ORDER BY");
+            sb.append(" ORDER BY ");
             sb.append(TABLE_ALBUMS);
             sb.append('.');
             sb.append(COLUMN_ALBUM_NAME);
