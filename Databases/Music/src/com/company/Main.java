@@ -13,9 +13,9 @@ public class Main {
             return;
         }
 
-        List<Artist> artists = datasource.queryArtist();
+        List<Artist> artists = datasource.queryArtist(Datasource.ORDER_BY_ASC);
         for (Artist artist : artists) {
-            System.out.println("Id= " + artist.getId() + " " + "Name= " + artist.getName());
+            System.out.println("ID= " + artist.getId() + ", " + "Name= " + artist.getName());
         }
         datasource.close();
     }
