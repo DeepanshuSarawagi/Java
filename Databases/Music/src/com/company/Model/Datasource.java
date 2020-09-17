@@ -63,8 +63,8 @@ public class Datasource {
             List<Artist> artists = new ArrayList<>();
             while (results.next()) {
                 Artist artist = new Artist();
-                artist.setId(results.getInt(COLUMN_ARTISTS_ID));
-                artist.setName(results.getString(COLUMN_ARTISTS_NAME));
+                artist.setId(results.getInt(INDEX_ARTISTS_ID));
+                artist.setName(results.getString(INDEX_ARTISTS_NAME));
                 artists.add(artist);
             }
             return artists;
