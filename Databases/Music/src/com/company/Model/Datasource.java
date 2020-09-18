@@ -49,6 +49,10 @@ public class Datasource {
             + TABLE_ARTISTS + " ON " + TABLE_ALBUMS + "." + COLUMN_ALBUM_ARTIST + " = " + TABLE_ARTISTS + "." + COLUMN_ARTISTS_ID
             + " WHERE " + TABLE_SONGS + "." + COLUMN_SONG_TITLE + " = \"";
 
+    public static final String QUERY_ARTIST_FOR_SONG_SORT =
+            " ORDER BY " + TABLE_ARTISTS + "." + COLUMN_ARTISTS_NAME + ", " + TABLE_ALBUMS + "." + COLUMN_ALBUM_NAME +
+            ", " + TABLE_SONGS + "." + COLUMN_SONG_TRACK + " COLLATE NOCASE ";
+
     private Connection conn;
 
     public boolean open() {
