@@ -2,6 +2,9 @@ package com.company;
 
 import com.company.Model.Artist;
 import com.company.Model.Datasource;
+import com.company.Model.Song;
+import com.company.Model.SongArtist;
+
 import java.util.List;
 
 public class Main {
@@ -20,6 +23,19 @@ public class Main {
         List<String> albumsForArtist = datasource.queryAlbumsForArtists("Carole King", Datasource.ORDER_BY_ASC);
         for (String album : albumsForArtist) {
             System.out.println(album);
+        }
+
+        List<SongArtist> songArtists = datasource.queryArtistsForSong("Heartless", Datasource.ORDER_BY_ASC);
+        if (songArtists == null) {
+            System.out.println("Couldn't find artist for the song");
+            return;
+        }
+
+        System.out.println();
+
+        for (SongArtist artist: songArtists) {
+            System.out.println("Artist Name = " + artist.getArtistName() + ", Album name = " + artist.getAlbumName()
+            + ", Song track = " + artist.getTrack());
         }
 
         datasource.close();
