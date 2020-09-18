@@ -25,7 +25,7 @@ public class Main {
             System.out.println(album);
         }
 
-        List<SongArtist> songArtists = datasource.queryArtistsForSong("Heartless", Datasource.ORDER_BY_ASC);
+        List<SongArtist> songArtists = datasource.queryArtistsForSong("Go Your Own Way", Datasource.ORDER_BY_ASC);
         if (songArtists == null) {
             System.out.println("Couldn't find artist for the song");
             return;
@@ -37,6 +37,8 @@ public class Main {
             System.out.println("Artist Name = " + artist.getArtistName() + ", Album name = " + artist.getAlbumName()
             + ", Song track = " + artist.getTrack());
         }
+
+        datasource.querySongMetadata();
 
         datasource.close();
     }

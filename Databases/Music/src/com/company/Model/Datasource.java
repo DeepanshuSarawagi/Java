@@ -177,4 +177,25 @@ public class Datasource {
         }
     }
 
+    // Below is the procedure to get the Metadata for the particular table. Since there is no JDBC API for query schema
+    // for SQLITE databases, we use the ResultSetMetadata instance to get the metadata about the tables in a DB.
+
+    public void querySongMetadata() {
+
+        try(Statement statement = conn.createStatement();
+            ResultSet results = statement.executeQuery("SELECT * FROM songs")) {
+
+            ResultSetMetaData resultsMetaData = results.getMetaData();
+            int metadataColumns = resultsMetaData.getColumnCount();
+
+            for (int i=1; i<=metadataColumns; i++) {
+                System.out.printf("Column %d in the songs table is named as %s\n", i, resultsMetaData.getColumnName(i));
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Error getting MEtadata: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
 }
