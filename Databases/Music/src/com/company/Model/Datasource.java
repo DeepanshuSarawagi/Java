@@ -1,5 +1,6 @@
 package com.company.Model;
 
+import javax.swing.plaf.nimbus.State;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -198,4 +199,18 @@ public class Datasource {
         }
     }
 
+    public void queryAlbumMetadata() {
+        try (Statement statement = conn.createStatement();
+            ResultSet results = statement.executeQuery("SELECT * FROM albums")){
+
+            ResultSetMetaData meta = results.getMetaData();
+            int metadataColumns = meta.getColumnCount();
+            for (int i=1; i<=metadataColumns; i++) {
+                System.out.printf("Column %d in table albums is named as %s\n", i, meta.getColumnName(i) );
+            }
+        } catch (SQLException e) {
+            System.out.println("Error getting Metadata for table albums: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
 }

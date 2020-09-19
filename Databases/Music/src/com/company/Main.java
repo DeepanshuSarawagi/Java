@@ -40,6 +40,8 @@ public class Main {
 
         datasource.querySongMetadata();
 
+        datasource.queryAlbumMetadata();
+
         datasource.close();
     }
 }
