@@ -42,6 +42,8 @@ public class Main {
 
         datasource.queryAlbumMetadata();
 
+        datasource.queryArtistMetadata();
+
         datasource.close();
     }
 }
