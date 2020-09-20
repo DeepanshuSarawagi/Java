@@ -213,4 +213,20 @@ public class Datasource {
             e.printStackTrace();
         }
     }
+
+    public void queryArtistMetadata() {
+        try(Statement statement = conn.createStatement();
+            ResultSet results = statement.executeQuery("SELECT * FROM artists")) {
+
+            ResultSetMetaData meta = results.getMetaData();
+            int metadataColumns = meta.getColumnCount();
+
+            for (int i=1; i<=metadataColumns; i++) {
+                System.out.printf("Column %d in table artists is named as %s", i, meta.getColumnName(i));
+            }
+        } catch (SQLException e) {
+            System.out.println("Error getting metadata for table artists: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
 }
