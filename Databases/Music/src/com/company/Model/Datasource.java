@@ -56,12 +56,16 @@ public class Datasource {
 
     public static final String TABLE_ARTIST_SONG_VIEW = "artist_list";
     public static final String CREATE_ARTIST_SONG_VIEW = "CREATE VIEW IF NOT EXISTS " + TABLE_ARTIST_SONG_VIEW +
-            " AS SELECT " + TABLE_ARTISTS + "." + COLUMN_ARTISTS_NAME + ", " + TABLE_ALBUMS + "." + COLUMN_ALBUM_NAME + ", "
-            + TABLE_SONGS + "." + COLUMN_SONG_TRACK + ", " + TABLE_SONGS + "." + COLUMN_SONG_TITLE + " FROM " + TABLE_SONGS
+            " AS SELECT " + TABLE_ARTISTS + "." + COLUMN_ARTISTS_NAME + " AS artist_name"  + ", " + TABLE_ALBUMS + "." + COLUMN_ALBUM_NAME + " AS album_name" + ", "
+            + TABLE_SONGS + "." + COLUMN_SONG_TRACK + " AS songs_track" + ", " + TABLE_SONGS + "." + COLUMN_SONG_TITLE + " AS songs_title " + " FROM " + TABLE_SONGS
             + " INNER JOIN " + TABLE_ALBUMS + " ON " + TABLE_SONGS + "." + COLUMN_SONG_ALBUM + " = "  + TABLE_ALBUMS + "."
             + COLUMN_ALBUM_ID + " INNER JOIN " + TABLE_ARTISTS + " ON " + TABLE_ALBUMS + "." + COLUMN_ALBUM_ARTIST + " = "
             + TABLE_ARTISTS + "." + COLUMN_ARTISTS_ID + " ORDER BY " + TABLE_ARTISTS + "." + COLUMN_ARTISTS_NAME + ", " +
             TABLE_ALBUMS + "." + COLUMN_ALBUM_NAME + ", " + TABLE_SONGS + "." + COLUMN_SONG_TRACK + " COLLATE NOCASE ASC";
+
+    public static final String QUERY_VIEW_SONG_INFO = "SELECT artist_name, album_name, songs_track" + " FROM " +
+            TABLE_ARTIST_SONG_VIEW + " WHERE songs_title"  + " = \"";
+
 
     private Connection conn;
 
@@ -263,6 +267,32 @@ public class Datasource {
             System.out.println("Executing query for creating VIEW failed: " + e.getMessage());
             e.printStackTrace();
             return false;
+        }
+    }
+
+    public List<SongArtist> querySongInfoView(String title) {
+        StringBuilder sb = new StringBuilder(QUERY_VIEW_SONG_INFO);
+        sb.append(title);
+        sb.append("\"");
+
+        System.out.println(sb.toString());
+
+        try(Statement statement = conn.createStatement();
+            ResultSet results = statement.executeQuery(sb.toString())) {
+
+            List<SongArtist> songArtists = new ArrayList<>();
+            while (results.next()) {
+                SongArtist artist = new SongArtist();
+                artist.setArtistName(results.getString(1));
+                artist.setAlbumName(results.getString(2));
+                artist.setTrack(results.getInt(3));
+                songArtists.add(artist);
+            }
+            return songArtists;
+        } catch (SQLException e) {
+            System.out.println("Query execution for VIEW artist_list failed: " + e.getMessage());
+            e.printStackTrace();
+            return null;
         }
     }
 }
