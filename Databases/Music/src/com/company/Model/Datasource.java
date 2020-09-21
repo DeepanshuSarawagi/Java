@@ -234,9 +234,11 @@ public class Datasource {
 
     public int getCount(String table) {
         try(Statement statement = conn.createStatement();
-            ResultSet results = statement.executeQuery("SELECT COUNT(*) FROM " + table)) {
+            ResultSet results = statement.executeQuery("SELECT COUNT(*), MIN(_id) FROM " + table)) {
             int count = results.getInt(1);
-            return count;
+            int min = results.getInt(2);
+            System.out.printf("No. of records in " + table + " is %d, and minimum _id value is %d\n", count, min);
+            return results.getInt(1);
         } catch (SQLException e) {
             System.out.println("Query execution failed: " + e.getMessage());
             e.printStackTrace();
