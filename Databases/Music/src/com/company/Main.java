@@ -47,6 +47,12 @@ public class Main {
         int count = datasource.getCount("songs");
         System.out.println("No. of records in songs table is " + count);
 
+        if (datasource.createViewForArtists()) {
+            System.out.println("VIEW successfully created.");
+        } else {
+            System.out.println("Creating VIEW failed. Check the error stack trace");
+        }
+
         datasource.close();
     }
 }

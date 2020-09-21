@@ -254,4 +254,15 @@ public class Datasource {
             return -1;
         }
     }
+
+    public boolean createViewForArtists() {
+        try(Statement statement = conn.createStatement()) {
+            statement.execute(CREATE_ARTIST_SONG_VIEW);
+            return true;
+        } catch (SQLException e) {
+            System.out.println("Executing query for creating VIEW failed: " + e.getMessage());
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
