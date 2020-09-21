@@ -229,4 +229,18 @@ public class Datasource {
             e.printStackTrace();
         }
     }
+
+    // We can also query function() in SQL query
+
+    public int getCount(String table) {
+        try(Statement statement = conn.createStatement();
+            ResultSet results = statement.executeQuery("SELECT COUNT(*) FROM " + table)) {
+            int count = results.getInt(1);
+            return count;
+        } catch (SQLException e) {
+            System.out.println("Query execution failed: " + e.getMessage());
+            e.printStackTrace();
+            return -1;
+        }
+    }
 }
