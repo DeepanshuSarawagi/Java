@@ -44,6 +44,9 @@ public class Main {
 
         datasource.queryArtistMetadata();
 
+        int count = datasource.getCount("songs");
+        System.out.println("No. of records in songs table is " + count);
+
         datasource.close();
     }
 }
