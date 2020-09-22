@@ -53,7 +53,7 @@ public class Main {
             System.out.println("Creating VIEW failed. Check the error stack trace");
         }
 
-        songArtists = datasource.querySongInfoView("Go Your Own Way");
+        songArtists = datasource.querySongInfoView("Heartless");
         for (SongArtist artist : songArtists) {
             System.out.println("FROM VIEW - " + " Artist Name = " + artist.getArtistName() +
                     " Album Name " + artist.getAlbumName() + " Song Track = " + artist.getTrack());
