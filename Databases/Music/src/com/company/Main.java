@@ -54,6 +54,11 @@ public class Main {
         }
 
         songArtists = datasource.querySongInfoView("She's On Fire");
+
+        if(songArtists.isEmpty()) {
+            System.out.println("Couldn't find the song");
+        }
+
         for (SongArtist artist : songArtists) {
             System.out.println("FROM VIEW - " + " Artist Name = " + artist.getArtistName() +
                     " Album Name " + artist.getAlbumName() + " Song Track = " + artist.getTrack());
