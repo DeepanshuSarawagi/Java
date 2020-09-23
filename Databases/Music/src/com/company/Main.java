@@ -6,6 +6,7 @@ import com.company.Model.Song;
 import com.company.Model.SongArtist;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -53,10 +54,15 @@ public class Main {
             System.out.println("Creating VIEW failed. Check the error stack trace");
         }
 
-        songArtists = datasource.querySongInfoView("She's On Fire");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter a song name: ");
+        String title = scanner.nextLine();
+
+        songArtists = datasource.querySongInfoView(title);
 
         if(songArtists.isEmpty()) {
             System.out.println("Couldn't find the song");
+            return;
         }
 
         for (SongArtist artist : songArtists) {
