@@ -314,7 +314,8 @@ public class Datasource {
 
         try {
             querySongInfoView.setString(1, title);
-            ResultSet results = querySongInfoView.executeQuery(title);
+            ResultSet results = querySongInfoView.executeQuery();  // Since we have already Prepared a statement using
+            // the prepared statement class, we just need to call the executeQuery() method without passing any parameters
 
             List<SongArtist> songArtists = new ArrayList<>();
             while (results.next()) {
@@ -332,6 +333,8 @@ public class Datasource {
         }
 
         // There can be only one active ResultSet associated with the Statement
+        // Order of closing the JDBC resources is very important. We cant close a connection first since we would need
+        // an open connection to close the statements. Basically we close the resources in reverse order its created
 
     }
 }
