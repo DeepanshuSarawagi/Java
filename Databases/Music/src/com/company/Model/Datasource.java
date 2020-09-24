@@ -82,6 +82,7 @@ public class Datasource {
     public boolean open() {
         try {
             conn = DriverManager.getConnection(CONNECTION_STRING);
+            querySongInfoView = conn.prepareStatement(QUERY_VIEW_SONG_INFO_PREP);
             return true;
         } catch (SQLException e) {
             System.out.println("Couldn't get connection to DB: " + e.getMessage());
@@ -281,26 +282,47 @@ public class Datasource {
     }
 
     public List<SongArtist> querySongInfoView(String title) {
-        StringBuilder sb = new StringBuilder(QUERY_VIEW_SONG_INFO);
+        StringBuilder sb = new StringBuilder(QUERY_VIEW_SONG_INFO_PREP);
         sb.append(title);
         sb.append("\"");
 
         System.out.println(sb.toString());
 
-        try(Statement statement = conn.createStatement();
-            ResultSet results = statement.executeQuery(sb.toString())) {
+//        try(Statement statement = conn.createStatement();
+//            ResultSet results = statement.executeQuery(sb.toString())) {
+//
+//            List<SongArtist> songArtists = new ArrayList<>();
+//            while (results.next()) {
+//                SongArtist artist = new SongArtist();
+//                artist.setArtistName(results.getString(1));
+//                artist.setAlbumName(results.getString(2));
+//                artist.setTrack(results.getInt(3));
+//                songArtists.add(artist);
+//            }
+//            return songArtists;
+//        } catch (SQLException e) {
+//            System.out.println("Query execution for VIEW artist_list failed: " + e.getMessage());
+//            e.printStackTrace();
+//            return null;
+//        }
+
+        // Commented out above code to use PreparedStatement
+
+        try {
+            querySongInfoView.setString(1, title);
+            ResultSet results = querySongInfoView.executeQuery(sb.toString());
 
             List<SongArtist> songArtists = new ArrayList<>();
             while (results.next()) {
-                SongArtist artist = new SongArtist();
-                artist.setArtistName(results.getString(1));
-                artist.setAlbumName(results.getString(2));
-                artist.setTrack(results.getInt(3));
-                songArtists.add(artist);
+                SongArtist songArtist = new SongArtist();
+                songArtist.setArtistName(results.getString(1));
+                songArtist.setAlbumName(results.getString(2));
+                songArtist.setTrack(results.getInt(3));
+                songArtists.add(songArtist);
             }
             return songArtists;
         } catch (SQLException e) {
-            System.out.println("Query execution for VIEW artist_list failed: " + e.getMessage());
+            System.out.println("Couldn't execute query: " + e.getMessage());
             e.printStackTrace();
             return null;
         }
