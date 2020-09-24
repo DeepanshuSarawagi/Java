@@ -66,6 +66,9 @@ public class Datasource {
     public static final String QUERY_VIEW_SONG_INFO = "SELECT artist_name, album_name, songs_track" + " FROM " +
             TABLE_ARTIST_SONG_VIEW + " WHERE songs_title"  + " = \"";
 
+    public static final String QUERY_VIEW_SONG_INFO_PREP = "SELECT artist_name, album_name, songs_track" + " FROM " + TABLE_ARTIST_SONG_VIEW
+            + " WHERE songs_title " + " = ?";
+
 
     private Connection conn;
 
