@@ -282,11 +282,11 @@ public class Datasource {
     }
 
     public List<SongArtist> querySongInfoView(String title) {
-        StringBuilder sb = new StringBuilder(QUERY_VIEW_SONG_INFO_PREP);
-        sb.append(title);
-        sb.append("\"");
-
-        System.out.println(sb.toString());
+//        StringBuilder sb = new StringBuilder(QUERY_VIEW_SONG_INFO_PREP);
+//        sb.append(title);
+//        sb.append("\"");
+//
+//        System.out.println(sb.toString());
 
 //        try(Statement statement = conn.createStatement();
 //            ResultSet results = statement.executeQuery(sb.toString())) {
@@ -310,7 +310,7 @@ public class Datasource {
 
         try {
             querySongInfoView.setString(1, title);
-            ResultSet results = querySongInfoView.executeQuery(sb.toString());
+            ResultSet results = querySongInfoView.executeQuery(title);
 
             List<SongArtist> songArtists = new ArrayList<>();
             while (results.next()) {
