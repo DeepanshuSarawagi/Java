@@ -69,8 +69,15 @@ public class Datasource {
     public static final String QUERY_VIEW_SONG_INFO_PREP = "SELECT artist_name, album_name, songs_track" + " FROM " + TABLE_ARTIST_SONG_VIEW
             + " WHERE songs_title " + " = ?";
 
+    // When using PreparedStatement we can use Place Holders in place of getting user input which will accept just one
+    // value. Doing this will avoid SQL Injection attacks since user/hacker will not be able to concatenate strings
+    // when prompted.
+    // Also for better performance benefits, we just create one single instance of PreparedStatement class
+
 
     private Connection conn;
+
+    private PreparedStatement querySongInfoView;
 
     public boolean open() {
         try {
