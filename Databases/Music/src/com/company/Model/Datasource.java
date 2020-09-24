@@ -93,6 +93,10 @@ public class Datasource {
 
     public void close() {
         try {
+
+            if (querySongInfoView != null) {
+                querySongInfoView.close();
+            }
             if (conn != null) {
                 conn.close();
             }
@@ -326,5 +330,8 @@ public class Datasource {
             e.printStackTrace();
             return null;
         }
+
+        // There can be only one active ResultSet associated with the Statement
+
     }
 }
