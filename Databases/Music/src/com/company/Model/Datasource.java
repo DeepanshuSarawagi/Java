@@ -110,10 +110,17 @@ public class Datasource {
 
             if (querySongInfoView != null) {
                 querySongInfoView.close();
+            }
+            if (insertIntoArtists != null) {
                 insertIntoArtists.close();
+            }
+            if (insertIntoAlbums != null) {
                 insertIntoAlbums.close();
+            }
+            if (insertIntoSongs != null) {
                 insertIntoSongs.close();
             }
+
             if (conn != null) {
                 conn.close();
             }
