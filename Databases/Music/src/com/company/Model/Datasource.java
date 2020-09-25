@@ -74,6 +74,11 @@ public class Datasource {
     // when prompted.
     // Also for better performance benefits, we just create one single instance of PreparedStatement class
 
+    public static final String INSERT_ARTIST = "INSERT INTO " + TABLE_ARTISTS + '(' + COLUMN_ARTISTS_NAME + ") VALUES(?)";
+    public static final String INSERT_ALBUMS = "INSERT INTO " + TABLE_ALBUMS + '(' + COLUMN_ALBUM_NAME + ", " + COLUMN_ALBUM_ARTIST + ") VALUES(?, ?)";
+    public static final String INSERT_SONG = "INSERT INTO " + TABLE_SONGS + '(' + COLUMN_SONG_TRACK + ", " + COLUMN_SONG_TITLE
+            + ", " + COLUMN_SONG_ALBUM + ") VALUES(?, ?, ?)";
+
 
     private Connection conn;
 
