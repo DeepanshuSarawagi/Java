@@ -84,10 +84,19 @@ public class Datasource {
 
     private PreparedStatement querySongInfoView;
 
+    private PreparedStatement insertIntoArtists;
+    private PreparedStatement insertIntoAlbums;
+    private PreparedStatement insertIntoSongs;
+
+
     public boolean open() {
         try {
             conn = DriverManager.getConnection(CONNECTION_STRING);
             querySongInfoView = conn.prepareStatement(QUERY_VIEW_SONG_INFO_PREP);
+            insertIntoArtists = conn.prepareStatement(INSERT_ARTIST, Statement.RETURN_GENERATED_KEYS);
+            insertIntoAlbums = conn.prepareStatement(INSERT_ALBUMS, Statement.RETURN_GENERATED_KEYS);  // We will use the retrieved IDs in the next INSERT statement
+            insertIntoSongs = conn.prepareStatement(INSERT_SONG);
+
             return true;
         } catch (SQLException e) {
             System.out.println("Couldn't get connection to DB: " + e.getMessage());
