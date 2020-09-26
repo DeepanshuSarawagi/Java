@@ -79,6 +79,10 @@ public class Datasource {
     public static final String INSERT_SONG = "INSERT INTO " + TABLE_SONGS + '(' + COLUMN_SONG_TRACK + ", " + COLUMN_SONG_TITLE
             + ", " + COLUMN_SONG_ALBUM + ") VALUES(?, ?, ?)";
 
+    public static final String QUERY_ARTIST = "SELECT " + COLUMN_ARTISTS_ID + " FROM " + TABLE_ARTISTS + " WHERE " +
+            COLUMN_ARTISTS_NAME + " = ?";
+    public static final String QUERY_ALBUM = "SELECT " + COLUMN_ALBUM_ID + " FROM " + TABLE_ALBUMS + " WHERRE " +
+            COLUMN_ALBUM_NAME + " = ?";
 
     private Connection conn;
 
@@ -88,6 +92,10 @@ public class Datasource {
     private PreparedStatement insertIntoAlbums;
     private PreparedStatement insertIntoSongs;
 
+    private PreparedStatement queryArtist;
+    private PreparedStatement queryAlbum;
+
+
 
     public boolean open() {
         try {
@@ -96,6 +104,8 @@ public class Datasource {
             insertIntoArtists = conn.prepareStatement(INSERT_ARTIST, Statement.RETURN_GENERATED_KEYS);
             insertIntoAlbums = conn.prepareStatement(INSERT_ALBUMS, Statement.RETURN_GENERATED_KEYS);  // We will use the retrieved IDs in the next INSERT statement
             insertIntoSongs = conn.prepareStatement(INSERT_SONG);
+            queryArtist = conn.prepareStatement(QUERY_ARTIST);
+            queryAlbum = conn.prepareStatement(QUERY_ALBUM);
 
             return true;
         } catch (SQLException e) {
