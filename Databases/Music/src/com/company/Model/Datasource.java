@@ -130,7 +130,12 @@ public class Datasource {
             if (insertIntoSongs != null) {
                 insertIntoSongs.close();
             }
-
+            if (queryArtist != null) {
+                queryArtist.close();
+            }
+            if (queryAlbum != null) {
+                queryAlbum.close();
+            }
             if (conn != null) {
                 conn.close();
             }
