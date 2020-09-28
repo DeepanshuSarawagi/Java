@@ -390,7 +390,7 @@ public class Datasource {
                 throw new SQLException("Couldn't insert artists");
             }
 
-            ResultSet generatedKeys = insertIntoArtists.getGeneratedKeys();
+            ResultSet generatedKeys = insertIntoArtists.getGeneratedKeys();  // This returns the generated keys
             if (generatedKeys.next()) {
                 return generatedKeys.getInt(1);
             } else {
