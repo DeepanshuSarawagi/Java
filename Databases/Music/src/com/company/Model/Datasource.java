@@ -387,7 +387,7 @@ public class Datasource {
             int affectedRows = insertIntoArtists.executeUpdate();
 
             if (affectedRows != 1) {
-                throw new SQLException("Couldn't insert artists");
+                throw new SQLException("Couldn't insert artist!");
             }
 
             ResultSet generatedKeys = insertIntoArtists.getGeneratedKeys();  // This returns the generated keys
@@ -412,7 +412,7 @@ public class Datasource {
                 throw new SQLException("Couldn't insert album: " + name);
             }
 
-            ResultSet generatedKeys = insertIntoAlbums.getGeneratedKeys();
+            ResultSet generatedKeys = insertIntoAlbums.getGeneratedKeys();  // This returns the generated keys
             if (generatedKeys.next()) {
                 return generatedKeys.getInt(1);
             } else {
