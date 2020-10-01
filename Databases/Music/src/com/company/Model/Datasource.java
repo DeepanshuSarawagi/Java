@@ -437,7 +437,7 @@ public class Datasource {
             } else {
                 throw new SQLException("Song insert failed");
             }
-        } catch (SQLException e) {
+        } catch (Exception e) {
             System.out.println("Insert song exception: " + e.getMessage());
             e.printStackTrace();
             try {
