@@ -81,7 +81,7 @@ public class Datasource {
 
     public static final String QUERY_ARTIST = "SELECT " + COLUMN_ARTISTS_ID + " FROM " + TABLE_ARTISTS + " WHERE " +
             COLUMN_ARTISTS_NAME + " = ?";
-    public static final String QUERY_ALBUM = "SELECT " + COLUMN_ALBUM_ID + " FROM " + TABLE_ALBUMS + " WHERRE " +
+    public static final String QUERY_ALBUM = "SELECT " + COLUMN_ALBUM_ID + " FROM " + TABLE_ALBUMS + " WHERE " +
             COLUMN_ALBUM_NAME + " = ?";
 
     private Connection conn;
