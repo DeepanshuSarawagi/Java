@@ -421,7 +421,7 @@ public class Datasource {
         }
     }
 
-    private int insertSong(String title, String artist, String album, int track) {
+    private void insertSong(String title, String artist, String album, int track) {
         try {
             conn.setAutoCommit(false);
 
