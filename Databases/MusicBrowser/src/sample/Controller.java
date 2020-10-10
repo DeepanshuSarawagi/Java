@@ -9,6 +9,7 @@ public class Controller {
     @FXML
     private GridPane gridPane;
 
+    @FXML
     private Button button;
 
 }
