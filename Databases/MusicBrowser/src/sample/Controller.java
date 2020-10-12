@@ -12,4 +12,6 @@ public class Controller {
     @FXML
     private Button button;
 
+    private Button button2;
+
 }
