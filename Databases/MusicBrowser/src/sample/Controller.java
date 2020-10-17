@@ -20,4 +20,6 @@ public class Controller {
 
     private Label label;
 
+    private Label label1;
+
 }
