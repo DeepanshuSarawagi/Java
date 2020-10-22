@@ -212,7 +212,7 @@ public class Datasource {
         }
     }
 
-    public List<com.company.Model.SongArtist> queryArtistsForSong(String songName, int sortOrder) {
+    public List<sample.Model.SongArtist> queryArtistsForSong(String songName, int sortOrder) {
         StringBuilder sb = new StringBuilder(QUERY_ARTIST_FOR_SONG_START);
         sb.append(songName);
         sb.append("\"");
@@ -229,9 +229,9 @@ public class Datasource {
 
         try (Statement statement = conn.createStatement();
              ResultSet results = statement.executeQuery(sb.toString())) {
-            List<com.company.Model.SongArtist> songArtists = new ArrayList<>();
+            List<sample.Model.SongArtist> songArtists = new ArrayList<>();
             while (results.next()) {
-                com.company.Model.SongArtist songArtist = new com.company.Model.SongArtist();
+                sample.Model.SongArtist songArtist = new sample.Model.SongArtist();
                 songArtist.setArtistName(results.getString(1));
                 songArtist.setAlbumName(results.getString(2));
                 songArtist.setTrack(results.getInt(3));
@@ -325,7 +325,7 @@ public class Datasource {
         }
     }
 
-    public List<com.company.Model.SongArtist> querySongInfoView(String title) {
+    public List<SongArtist> querySongInfoView(String title) {
 //        StringBuilder sb = new StringBuilder(QUERY_VIEW_SONG_INFO_PREP);
 //        sb.append(title);
 //        sb.append("\"");
@@ -357,9 +357,9 @@ public class Datasource {
             ResultSet results = querySongInfoView.executeQuery();  // Since we have already Prepared a statement using
             // the prepared statement class, we just need to call the executeQuery() method without passing any parameters
 
-            List<com.company.Model.SongArtist> songArtists = new ArrayList<>();
+            List<sample.Model.SongArtist> songArtists = new ArrayList<>();
             while (results.next()) {
-                com.company.Model.SongArtist songArtist = new com.company.Model.SongArtist();
+                sample.Model.SongArtist songArtist = new sample.Model.SongArtist();
                 songArtist.setArtistName(results.getString(1));
                 songArtist.setAlbumName(results.getString(2));
                 songArtist.setTrack(results.getInt(3));

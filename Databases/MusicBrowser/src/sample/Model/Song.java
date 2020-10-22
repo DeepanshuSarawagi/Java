@@ -1,4 +1,4 @@
-package com.company.Model;
+package sample.Model;
 
 public class Song {
     private int id;

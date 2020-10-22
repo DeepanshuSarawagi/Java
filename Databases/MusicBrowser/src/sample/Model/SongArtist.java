@@ -1,4 +1,4 @@
-package com.company.Model;
+package sample.Model;
 
 public class SongArtist {
     private String artistName;
