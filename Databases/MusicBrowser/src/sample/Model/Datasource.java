@@ -97,6 +97,17 @@ public class Datasource {
     private PreparedStatement queryArtist;
     private PreparedStatement queryAlbum;
 
+    private static Datasource instance = new Datasource();  // We are making the instance of the Datasource class to be thread safe
+    // Hence we have created an instance and assigned it to the variable. And then when getInstance() method is called,
+    // we return the instance as a Singleton.
+
+    private Datasource(){
+
+    }
+
+    public static Datasource getInstance() {
+        return instance;
+    }
 
     public boolean open() {
         try {
