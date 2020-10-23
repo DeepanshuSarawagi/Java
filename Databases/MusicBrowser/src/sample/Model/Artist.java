@@ -12,15 +12,15 @@ public class Artist {
         return id.get();
     }
 
-    public void setId(SimpleIntegerProperty id) {
-        this.id = id;
+    public void setId(int id) {
+        this.id.set(id);
     }
 
     public String getName() {
         return name.get();
     }
 
-    public void setName(SimpleStringProperty name) {
-        this.name = name;
+    public void setName(String name) {
+        this.name.set(name);
     }
 }
