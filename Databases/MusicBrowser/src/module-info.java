@@ -5,4 +5,5 @@ module MusicBrowser {
     requires java.sql;
 
     opens sample;
+    opens sample.Model;  // Fix the IllegalAccessIssue
 }

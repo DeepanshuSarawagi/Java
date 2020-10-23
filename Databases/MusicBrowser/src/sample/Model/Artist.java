@@ -8,6 +8,11 @@ public class Artist {
     private SimpleIntegerProperty id;  // Change the field type from int to SimpleIntegerProperty for data binding in future
     private SimpleStringProperty name;  // Change the field type from int to SimpleStringProperty for data binding in future
 
+    public Artist() {
+        this.id = new SimpleIntegerProperty();
+        this.name = new SimpleStringProperty();
+    }
+
     public int getId() {
         return id.get();
     }
