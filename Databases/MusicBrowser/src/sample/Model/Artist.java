@@ -1,22 +1,25 @@
 package sample.Model;
 
-public class Artist {
-    private int id;
-    private String name;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 
-    public int getId() {
+public class Artist {
+    private SimpleIntegerProperty id;  // Change the field type from int to SimpleIntegerProperty for data binding in future
+    private SimpleStringProperty name;  // Change the field type from int to SimpleStringProperty for data binding in future
+
+    public SimpleIntegerProperty getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(SimpleIntegerProperty id) {
         this.id = id;
     }
 
-    public String getName() {
+    public SimpleStringProperty getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(SimpleStringProperty name) {
         this.name = name;
     }
 }
