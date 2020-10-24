@@ -13,7 +13,7 @@ import sample.Model.Datasource;
 public class Controller {
 
     @FXML
-    private TableView<Artist> artistTable;
+    private TableView artistTable;
 
     public void listArtists() {
         Task<ObservableList<Artist>> task = new GetAllArtistsTask();
@@ -30,7 +30,7 @@ public class Controller {
             return;
         }
 
-        Task<ObservableList<Album>> task = new Task<ObservableList<Album>>() {
+        Task<ObservableList<Album>> task = new Task<>() {
             @Override
             protected ObservableList<Album> call() throws Exception {
                 return FXCollections.observableArrayList(Datasource.getInstance().queryAlbumForArtistId(artist.getId()));
@@ -39,7 +39,6 @@ public class Controller {
         artistTable.itemsProperty().bind(task.valueProperty());
         new Thread(task).start();
     }
-
 }
 
 class GetAllArtistsTask extends Task {
