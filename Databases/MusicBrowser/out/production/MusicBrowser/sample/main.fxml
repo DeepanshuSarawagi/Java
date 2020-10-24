@@ -30,7 +30,7 @@
         <VBox alignment="CENTER" prefWidth="170.0" prefHeight="200.0" spacing="20.0" BorderPane.alignment="CENTER">
             <children>
                 <Button mnemonicParsing="false" maxWidth="Infinity" text="List Artists"/>
-                <Button maxWidth="Infinity" mnemonicParsing="false" text="Show Albums (Artist)"/>
+                <Button onAction="#ListAlbumsForArtist" maxWidth="Infinity" mnemonicParsing="false" text="Show Albums (Artist)"/>
                 <Button maxWidth="Infinity" mnemonicParsing="false" text="Update Artist"/>
             </children>
             <BorderPane.margin>
