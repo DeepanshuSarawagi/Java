@@ -185,6 +185,12 @@ public class Datasource {
              ResultSet results = statement.executeQuery(sb.toString())) {
             List<Artist> artists = new ArrayList<>();
             while (results.next()) {
+                try {
+                    Thread.sleep(30);
+                } catch (InterruptedException e) {
+                    System.out.println("Interrupted Exception: " + e.getMessage());
+                }
+
                 Artist artist = new Artist();
                 artist.setId(results.getInt(INDEX_ARTISTS_ID));
                 artist.setName(results.getString(INDEX_ARTISTS_NAME));
