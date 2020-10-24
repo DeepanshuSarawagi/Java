@@ -199,6 +199,26 @@ public class Datasource {
         }
     }
 
+    public List<Album> queryAlbumForArtistId(int id) {
+        try {
+            queryAlbumsByArtistID.setInt(1, id);
+            ResultSet results = queryAlbumsByArtistID.executeQuery();
+            List<Album> albums = new ArrayList<>();
+            while (results.next()) {
+                Album album = new Album();
+                album.setId(results.getInt(1));
+                album.setName(results.getString(2));
+                album.setArtistID(results.getInt(id));
+                albums.add(album);
+            }
+            return albums;
+        } catch (SQLException e) {
+            System.out.println("Query failed: " + e.getMessage());
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     public List<String> queryAlbumsForArtists(String artistName, int sortOrder) {
         // SELECT albums.name FROM albums INNER JOIN artists ON albums.artist = artists._id WHERE
         // artists.name = "Pink Floyd" ORDER BY albums.name COLLATE NOCASE ASC;
