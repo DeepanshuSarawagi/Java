@@ -15,6 +15,7 @@ public class Controller {
     @FXML
     private TableView artistTable;
 
+    @FXML
     public void listArtists() {
         Task<ObservableList<Artist>> task = new GetAllArtistsTask();
         artistTable.itemsProperty().bind(task.valueProperty());
