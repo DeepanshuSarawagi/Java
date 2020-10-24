@@ -86,6 +86,9 @@ public class Datasource {
     public static final String QUERY_ALBUM = "SELECT " + COLUMN_ALBUM_ID + " FROM " + TABLE_ALBUMS + " WHERE " +
             COLUMN_ALBUM_NAME + " = ?";
 
+    public static final String QUERY_ALBUM_BY_ARTISTID = "SELECT * FROM " + TABLE_ALBUMS + " WHERE " + COLUMN_ALBUM_ARTIST
+            + " = ?  ORDER BY " + COLUMN_ALBUM_NAME + " COLLATE NOCASE ";
+
     private Connection conn;
 
     private PreparedStatement querySongInfoView;
@@ -96,6 +99,8 @@ public class Datasource {
 
     private PreparedStatement queryArtist;
     private PreparedStatement queryAlbum;
+
+    private PreparedStatement queryAlbumsByArtistID;
 
     private static Datasource instance = new Datasource();  // We are making the instance of the Datasource class to be thread safe
     // Hence we have created an instance and assigned it to the variable. And then when getInstance() method is called,
@@ -118,6 +123,7 @@ public class Datasource {
             insertIntoSongs = conn.prepareStatement(INSERT_SONG);
             queryArtist = conn.prepareStatement(QUERY_ARTIST);
             queryAlbum = conn.prepareStatement(QUERY_ALBUM);
+            queryAlbumsByArtistID = conn.prepareStatement(QUERY_ALBUM_BY_ARTISTID);
 
             return true;
         } catch (SQLException e) {
@@ -147,6 +153,9 @@ public class Datasource {
             }
             if (queryAlbum != null) {
                 queryAlbum.close();
+            }
+            if (queryAlbumsByArtistID != null) {
+                queryAlbumsByArtistID.close();
             }
             if (conn != null) {
                 conn.close();
