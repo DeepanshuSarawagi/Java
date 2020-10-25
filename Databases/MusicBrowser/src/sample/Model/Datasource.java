@@ -104,6 +104,7 @@ public class Datasource {
     private PreparedStatement queryAlbum;
 
     private PreparedStatement queryAlbumsByArtistID;
+    private PreparedStatement updateArtistName;
 
     private static Datasource instance = new Datasource();  // We are making the instance of the Datasource class to be thread safe
     // Hence we have created an instance and assigned it to the variable. And then when getInstance() method is called,
@@ -127,6 +128,7 @@ public class Datasource {
             queryArtist = conn.prepareStatement(QUERY_ARTIST);
             queryAlbum = conn.prepareStatement(QUERY_ALBUM);
             queryAlbumsByArtistID = conn.prepareStatement(QUERY_ALBUM_BY_ARTISTID);
+            updateArtistName = conn.prepareStatement(UPDATE_ARTIST_NAME);
 
             return true;
         } catch (SQLException e) {
