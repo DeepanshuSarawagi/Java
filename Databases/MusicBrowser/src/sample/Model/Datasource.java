@@ -162,6 +162,9 @@ public class Datasource {
             if (queryAlbumsByArtistID != null) {
                 queryAlbumsByArtistID.close();
             }
+            if (updateArtistName != null) {
+                updateArtistName.close();
+            }
             if (conn != null) {
                 conn.close();
             }
