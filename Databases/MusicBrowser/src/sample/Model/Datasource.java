@@ -89,6 +89,9 @@ public class Datasource {
     public static final String QUERY_ALBUM_BY_ARTISTID = "SELECT * FROM " + TABLE_ALBUMS + " WHERE " + COLUMN_ALBUM_ARTIST
             + " = ?  ORDER BY " + COLUMN_ALBUM_NAME + " COLLATE NOCASE ";
 
+    public static final String UPDATE_ARTIST_NAME = "UPDATE " + TABLE_ARTISTS + " SET " + COLUMN_ARTISTS_NAME +
+            " = ? " + " WHERE " + COLUMN_ARTISTS_ID + " = ? ";
+
     private Connection conn;
 
     private PreparedStatement querySongInfoView;
