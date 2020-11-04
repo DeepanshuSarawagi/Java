@@ -18,7 +18,7 @@ public class Main extends Application {
         Controller controller = loader.getController();
         controller.listArtists();
 
-        primaryStage.setTitle("Music Database Browser");
+        primaryStage.setTitle("Music DB Browser");
         primaryStage.setScene(new Scene(root, 800, 600));
         primaryStage.show();
     }
