@@ -21,8 +21,18 @@ public class Main {
             // common practice to wrap the input stream inside BufferedInputReader and output stream in PrintWriter.
 
             BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            PrintWriter output = new PrintWriter(socket.getOutputStream(), true); // the second argument "true"
-            // is used to specify if we want to autoFlush the stream
+            PrintWriter output = new PrintWriter(socket.getOutputStream(), true); // the second parameter "true"
+            // is used to specify if we want to autoFlush the output stream
+
+            // Now we are going to read the input using InputStream and write the output using OutputStream
+
+            while (true) {
+                String echoString = input.readLine();
+                if (echoString.equals("exit")) {
+                    break;
+                }
+                output.println("Echo from the server: " + echoString);
+            }
         } catch (IOException e) {
             System.out.println(e.getMessage());
             e.printStackTrace();
