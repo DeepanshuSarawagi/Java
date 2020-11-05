@@ -3,6 +3,8 @@ package sample;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
+import javafx.concurrent.WorkerStateEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TableView;
@@ -47,6 +49,27 @@ public class Controller {
             }
         };
         artistTable.itemsProperty().bind(task.valueProperty());
+        new Thread(task).start();
+    }
+
+    @FXML
+    public void updateArtist() {
+        final Artist artist = (Artist) artistTable.getItems().get(2);
+        Task<Boolean> task = new Task<>() {
+            @Override
+            protected Boolean call() throws Exception {
+                return Datasource.getInstance().updateArtistName(artist.getId(), "AC/DC");
+            }
+        };
+        task.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
+            @Override
+            public void handle(WorkerStateEvent workerStateEvent) {
+                if (task.valueProperty().get()) {
+                    artist.setName("AC/DC");
+                    artistTable.refresh();
+                }
+            }
+        });
         new Thread(task).start();
     }
 }
