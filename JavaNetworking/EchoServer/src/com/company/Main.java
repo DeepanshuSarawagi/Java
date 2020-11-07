@@ -28,6 +28,11 @@ public class Main {
 
                 // Now we are going to read the input using InputStream and write the output using OutputStream
                 String echoString = input.readLine();
+                try{
+                    Thread.sleep(15000);
+                } catch (InterruptedException e) {
+                    System.out.println("Interrupted Exception: " + e.getMessage());
+                }
                 if (echoString.equals("exit")) {
                     break;
                 }
