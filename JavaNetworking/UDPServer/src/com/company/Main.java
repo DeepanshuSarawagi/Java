@@ -23,7 +23,6 @@ public class Main {
                 DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
                 socket.receive(packet);  // It is important to note that DatagramSocket.receive() method doesn't create
                 // end-to-end communication between server and client.
-
                 System.out.println("Text received is: " + new String(buffer));
             }
 
