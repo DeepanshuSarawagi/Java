@@ -14,6 +14,11 @@ public class Main {
         message is delivered. Hence, there is no two way communication guarantee. Common applications which uses the UDP
         us VoIP, Skype, Video Streaming platforms since it keep delivering the data in form of packets to ensure speed
         is maintained
+        We require 4 parameters to construct a Packet.
+        1. Byte Array
+        2. Byte Array length
+        3. Host address
+        4. Port
          */
         try {
             DatagramSocket socket = new DatagramSocket(5000);
@@ -24,6 +29,8 @@ public class Main {
                 socket.receive(packet);  // It is important to note that DatagramSocket.receive() method doesn't create
                 // end-to-end communication between server and client.
                 System.out.println("Text received is: " + new String(buffer, 0, packet.getLength()));
+
+
             }
 
         } catch (SocketException e) {
