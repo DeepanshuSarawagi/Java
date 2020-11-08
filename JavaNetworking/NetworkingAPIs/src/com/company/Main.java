@@ -1,7 +1,9 @@
 package com.company;
 
+import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URL;
 
 public class Main {
 
@@ -31,8 +33,14 @@ public class Main {
             System.out.println("Path = " + uri.getPath());
             System.out.println("Query = " + uri.getQuery());
             System.out.println("Fragment = " + uri.getFragment());
+
+            URL url = uri.toURL();
+            System.out.println("URL = " + url);
+
         } catch (URISyntaxException e) {
             System.out.println("Bad URI syntax: " + e.getMessage());
+        } catch (MalformedURLException e) {
+            System.out.println("URL Malformed: " + e.getMessage());
         }
     }
 }
