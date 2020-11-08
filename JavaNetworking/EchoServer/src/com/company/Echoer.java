@@ -25,8 +25,13 @@ public class Echoer extends Thread{
                if (echoString.equals("exit")) {
                    break;
                }
-
-               output.println(echoString);
+               System.out.println("Received response from client: " + echoString);
+                try {
+                    Thread.sleep(15000);
+                } catch (InterruptedException e) {
+                    System.out.println("Thread interrupted: " + e.getMessage());
+                }
+               output.println("Response from server: " + echoString);
            }
 
         } catch (IOException e) {
