@@ -34,7 +34,10 @@ public class Main {
             System.out.println("Query = " + uri.getQuery());
             System.out.println("Fragment = " + uri.getFragment());
 
-            URL url = uri.toURL();
+            URI baseURI = new URI("http://username:password@myserver.com:5000");
+            uri = new URI("/catalogue/phones?os=android#samsung");
+            URI resolvedURI = baseURI.resolve(uri);
+            URL url = resolvedURI.toURL();
             System.out.println("URL = " + url);
 
         } catch (URISyntaxException e) {
