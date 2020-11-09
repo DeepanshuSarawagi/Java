@@ -34,7 +34,7 @@ public class Main {
             System.out.println("Query = " + uri.getQuery());
             System.out.println("Fragment = " + uri.getFragment());
 
-            URI baseURI = new URI("http://username:password@myserver.com:5000");
+            URI baseURI = new URI("http://username:password@mynewserver.com:5000");
             URI uri1 = new URI("/catalogue/phones?os=android#samsung");
             URI uri2 = new URI("/catalogue/tvs?manufacturer=samsung");
             URI uri3 = new URI("/stores/locations?zip=12345");
