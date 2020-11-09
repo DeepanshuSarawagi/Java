@@ -51,6 +51,11 @@ public class Main {
             URL url3 = resolvedURI3.toURL();
             System.out.println("URL = " + url3);
 
+            // Learn how to relativize URI
+
+            URI relativezedURI = baseURI.relativize(resolvedURI2);
+            System.out.println("Relativized URI = " + relativezedURI);
+
         } catch (URISyntaxException e) {
             System.out.println("Bad URI syntax: " + e.getMessage());
         } catch (MalformedURLException e) {
