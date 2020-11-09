@@ -35,10 +35,21 @@ public class Main {
             System.out.println("Fragment = " + uri.getFragment());
 
             URI baseURI = new URI("http://username:password@myserver.com:5000");
-            uri = new URI("/catalogue/phones?os=android#samsung");
-            URI resolvedURI = baseURI.resolve(uri);
-            URL url = resolvedURI.toURL();
-            System.out.println("URL = " + url);
+            URI uri1 = new URI("/catalogue/phones?os=android#samsung");
+            URI uri2 = new URI("/catalogue/tvs?manufacturer=samsung");
+            URI uri3 = new URI("/stores/locations?zip=12345");
+
+            URI resolvedURI1 = baseURI.resolve(uri1);
+            URL url1 = resolvedURI1.toURL();
+            System.out.println("URL = " + url1);
+
+            URI resolvedURI2 = baseURI.resolve(uri2);
+            URL url2 = resolvedURI2.toURL();
+            System.out.println("URL = " + url2);
+
+            URI resolvedURI3 = baseURI.resolve(uri3);
+            URL url3 = resolvedURI3.toURL();
+            System.out.println("URL = " + url3);
 
         } catch (URISyntaxException e) {
             System.out.println("Bad URI syntax: " + e.getMessage());
