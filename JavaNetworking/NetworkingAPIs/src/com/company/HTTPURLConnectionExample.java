@@ -11,6 +11,9 @@ public class HTTPURLConnectionExample {
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setRequestMethod("GET");  // Setting the RequestMethod to GET method
 
+            // Setting one of the HTTP Header Fields
+            urlConnection.setRequestProperty("User-Agent", "Chrome");
+
         } catch (IOException e) {
             System.out.println("IOException: " + e.getMessage());
         }
