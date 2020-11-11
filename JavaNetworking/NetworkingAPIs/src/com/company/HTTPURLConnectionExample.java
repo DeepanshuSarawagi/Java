@@ -26,6 +26,7 @@ public class HTTPURLConnectionExample {
 
             if (responseCode != 200) {
                 System.out.println("Error reading web page");
+                System.out.println(urlConnection.getResponseMessage());
                 return;
             }
 
