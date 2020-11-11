@@ -18,7 +18,10 @@ public class HTTPURLConnectionExample {
             urlConnection.setReadTimeout(15000);
 
             // Getting the response code from the HttpURLConnection
-            int responseCode = urlConnection.getResponseCode();
+            int responseCode = urlConnection.getResponseCode();  // We need not explicitly call the
+            // HttpURLConnection.connect() method since getResponseCode() calls the URL.connect() method. Even the
+            // HttpURLConnection.getInputStream() implicitly calls the connect method
+
             System.out.println("Response code: " + responseCode);
 
             if (responseCode != 200) {
