@@ -14,6 +14,11 @@ public class HTTPURLConnectionExample {
             // Setting one of the HTTP Header Fields
             urlConnection.setRequestProperty("User-Agent", "Chrome");
 
+            // Getting the response code from the HttpURLConnection
+            int responseCode = urlConnection.getResponseCode();
+            System.out.println("Response code: " + responseCode);
+            urlConnection.setReadTimeout(15000);
+
         } catch (IOException e) {
             System.out.println("IOException: " + e.getMessage());
         }
