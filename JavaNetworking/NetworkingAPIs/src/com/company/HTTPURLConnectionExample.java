@@ -9,7 +9,7 @@ import java.net.URL;
 public class HTTPURLConnectionExample {
     public static void main(String[] args) {
         try{
-            URL url = new URL("http://example.org");
+            URL url = new URL("http://example.org/somepage.html");
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setRequestMethod("GET");  // Setting the RequestMethod to GET method
 
