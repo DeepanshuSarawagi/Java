@@ -2,6 +2,7 @@ package com.company;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -24,6 +25,16 @@ public class HTTPURLConnectionExample {
                 System.out.println("Error reading web page");
                 return;
             }
+
+            BufferedReader inputReader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
+
+            String line;
+
+            while ((line = inputReader.readLine()) != null) {
+                System.out.println(line);
+            }
+
+            inputReader.close();
 
         } catch (IOException e) {
             System.out.println("IOException: " + e.getMessage());
