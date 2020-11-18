@@ -7,5 +7,8 @@ public class StatementsExample {
         finalScore++; // This is an expression statement
         System.out.println(finalScore);
 
+        // Assignment expression
+        finalScore = 60;
+        System.out.println(finalScore);
     }
 }
