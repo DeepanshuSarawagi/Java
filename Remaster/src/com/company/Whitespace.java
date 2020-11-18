@@ -5,5 +5,10 @@ public class Whitespace {
 
         System.out.println("This is a nice chunk " +
                 "of text!");
+        int
+                alienCount
+                = 3
+                ;
+        System.out.println("Boring.... Let's see the alient count. Oh!! It is " + alienCount + " at the moment.");
     }
 }
