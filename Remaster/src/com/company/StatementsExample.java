@@ -15,5 +15,9 @@ public class StatementsExample {
 //        playerLives--;
         System.out.println("Player Lives = " + playerLives--);  // In this case, the playerLives value in the output
         // would be 3 because decrement is postfix and output statement was executed first
+        System.out.println("Updated player lives = " + playerLives);
+
+        // prefix increment or decrement
+        System.out.println("Player lives after prefix decrement is = " + --playerLives);
     }
 }
