@@ -21,5 +21,9 @@ public class StatementsExample {
         System.out.println("Player lives after prefix decrement is = " + --playerLives);
         ++playerLives;
         System.out.println("Player lives after prefix increment is = " + playerLives);
+
+        if (finalScore > 59) {
+            System.out.println("The final score is more than 59!");
+        }
     }
 }
