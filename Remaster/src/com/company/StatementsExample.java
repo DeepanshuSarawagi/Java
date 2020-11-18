@@ -10,5 +10,10 @@ public class StatementsExample {
         // Assignment expression
         finalScore = 60;
         System.out.println(finalScore);
+
+        int playerLives = 3;
+//        playerLives--;
+        System.out.println("Player Lives = " + playerLives--);  // In this case, the playerLives value in the output
+        // would be 3 because decrement is postfix and output statement was executed first
     }
 }
