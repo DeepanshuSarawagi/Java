@@ -19,5 +19,7 @@ public class StatementsExample {
 
         // prefix increment or decrement
         System.out.println("Player lives after prefix decrement is = " + --playerLives);
+        ++playerLives;
+        System.out.println("Player lives after prefix increment is = " + playerLives);
     }
 }
