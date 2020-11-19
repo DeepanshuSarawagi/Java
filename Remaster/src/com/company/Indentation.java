@@ -7,10 +7,12 @@ public class Indentation {
             System.out.println("You are rich!");
         }
 
-        int score = 5000;
-        if (score < 5000) {
-            System.out.println("Your score is less than 5000");
-            System.out.println("This was executed");
+        int score = 5500;
+
+        if ((score <= 5000) && (score > 1000)) {
+            System.out.println("Your score is less than 5000 but greater than 1000");
+        } else if (score <= 1000){
+            System.out.println("You have got score less than or equal to 1000");
         } else {
             System.out.println("You have got high score!");
         }
