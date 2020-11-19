@@ -8,9 +8,11 @@ public class Indentation {
         }
 
         int score = 5000;
-        if (score == 5000) {
-            System.out.println("You have got the high score");
+        if (score < 5000) {
+            System.out.println("Your score is less than 5000");
             System.out.println("This was executed");
+        } else {
+            System.out.println("You have got high score!");
         }
     }
 }
