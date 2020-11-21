@@ -2,15 +2,18 @@ package com.company;
 
 public class MethodsExample {
     public static void main(String[] args) {
-        calculateScore(1000, true, 5, 200);
-        calculateScore(1000, false, 5, 200);
+        int score = calculateScore(1000, true, 5, 200);
+        System.out.println("Your final score is: " + score);
+        score = calculateScore(1000, false, 5, 200);
+        System.out.println("Your final score is: " + score);
     }
-    public static void calculateScore(int score, boolean isAlive, int levelCompleted, int bonus) {
+    public static int calculateScore(int score, boolean isAlive, int levelCompleted, int bonus) {
+        int finalScore;
         if (isAlive) {
-            int finalScore = score + (levelCompleted * bonus);
-            System.out.println("Your final score is: " + finalScore);
+            finalScore = score + (levelCompleted * bonus);
         } else {
-            System.out.println("Your final score is: " + score);
+            finalScore = score;
         }
+        return finalScore;
     }
 }
