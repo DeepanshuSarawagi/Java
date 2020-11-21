@@ -3,6 +3,7 @@ package com.company;
 public class MethodsExample {
     public static void main(String[] args) {
         calculateScore(1000, true, 5, 200);
+        calculateScore(1000, false, 5, 200);
     }
     public static void calculateScore(int score, boolean isAlive, int levelCompleted, int bonus) {
         if (isAlive) {
