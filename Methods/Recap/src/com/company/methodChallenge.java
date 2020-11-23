@@ -2,14 +2,17 @@ package com.company;
 
 public class methodChallenge {
     public static void main(String[] args) {
-//        int playerScore = calculateHighScorePosition(1500);
-//        displayHighScorePosition("Deepanshu", playerScore);
-//        playerScore = calculateHighScorePosition()
+        int playerScore = calculateHighScorePosition(1500);
+        displayHighScorePosition("Deepanshu", playerScore);
+
+        displayHighScorePosition("Deepanshu", calculateHighScorePosition(900));
+        displayHighScorePosition("Deepanshu", calculateHighScorePosition(400));
+        displayHighScorePosition("Deepanshu", calculateHighScorePosition(50));
 
     }
 
     public static void displayHighScorePosition(String playerName, int position) {
-        System.out.println(playerName + "managed to get position " + position + " in the hugh score table");
+        System.out.println(playerName + " managed to get position " + position + " in the high score table");
     }
 
     public static int calculateHighScorePosition(int score) {
