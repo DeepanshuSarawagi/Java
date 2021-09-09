@@ -8,3 +8,20 @@ public class PrefixPostOperators {
 
     }
 }
+class CompoundOperators{
+
+    public static void main(String[] args) {
+        compOperators();
+    }
+
+    private static void compOperators() {
+        int a = 5;
+        int b = 10;
+        int c = 100;
+        int result = 10;
+        result += a + 5;
+        System.out.println("Result is now: " + result);
+        result += c / a + b;
+        System.out.println("Result is now: " + result);
+    }
+}
