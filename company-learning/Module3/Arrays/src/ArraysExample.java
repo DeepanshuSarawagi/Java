@@ -10,5 +10,13 @@ public class ArraysExample {
             sum += theVals[i];
         }
         System.out.println(sum);
+        /*
+        Above for loop can be simplified to the enhanced for loop
+         */
+        float sum2 = 0f;
+        for (float currentVal:theVals) {
+            sum2 += currentVal;
+        }
+        System.out.println(sum);
     }
 }
