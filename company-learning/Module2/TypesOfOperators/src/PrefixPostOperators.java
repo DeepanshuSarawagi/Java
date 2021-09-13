@@ -42,5 +42,11 @@ class OperatorPrecedence{
 
         System.out.println("Result1 is " + result);
         System.out.println("Result2 is " + result2);
+
+        int result3 = valA / valC * valD + valB;
+        int result4 = valA / (valC * (valD + valB));
+
+        System.out.println("Result3 is " + result3);
+        System.out.println("Result4 is " + result4);
     }
 }
