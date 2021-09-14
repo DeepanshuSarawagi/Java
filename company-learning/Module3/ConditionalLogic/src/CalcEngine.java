@@ -18,19 +18,23 @@ public class CalcEngine {
     }
 }
 
-class Calculator{
+class Calculator {
     public Calculator() {
 
     }
+
     protected void addition(int v1, int v2) {
         System.out.println("Addition: " + (v1 + v2));
     }
+
     protected void subtraction(int v1, int v2) {
         System.out.println("Subtraction: " + (v1 - v2));
     }
+
     protected void multiplication(int v1, int v2) {
         System.out.println("Multiplication " + (v1 * v2));
     }
+
     protected void division(int v1, int v2) {
         System.out.println("Division: " + (v1 / v2));
     }
