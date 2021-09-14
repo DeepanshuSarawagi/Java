@@ -10,6 +10,18 @@ public class MathEquations {
         this.opCode = opCode;
     }
 
+    public double getLeftVal() {
+        return this.leftVal;
+    }
+
+    public double getRightVal() {
+        return this.rightVal;
+    }
+
+    public double getResult() {
+        return this.result;
+    }
+
     public void execute() {
         switch (this.opCode) {
             case 'a' -> {
