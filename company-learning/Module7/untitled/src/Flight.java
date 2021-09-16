@@ -8,7 +8,11 @@ public class Flight {
 
     @Override
     public boolean equals(Object obj) {
-        Flight other = (Flight) obj;
-        return ((this.FlightNumber == other.FlightNumber) && (this.FlightClass == other.FlightClass));
+        if (!(obj instanceof Flight)) {
+            return false;
+        } else {
+            Flight other = (Flight) obj;
+            return ((this.FlightNumber == other.FlightNumber) && (this.FlightClass == other.FlightClass));
+        }
     }
 }
