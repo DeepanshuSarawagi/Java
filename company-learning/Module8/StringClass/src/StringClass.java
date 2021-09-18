@@ -11,6 +11,12 @@ public class StringClass {
         int iVal = 100;
         String sVal = String.valueOf(iVal);
         System.out.println(sVal);
+
+        StringBuilder sb = new StringBuilder(50);
+        sb.append("Hello! I`m learning Java for the 10000th time now.");
+        sb.append(" I hope to get somewhere with this learning!");
+        System.out.println(sb);
+
     }
 
 }
